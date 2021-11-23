@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use App\Models\Article;
+use Illuminate\Support\Facades\DB;
+use \Illuminate\Http\Response;
 
 class ArticleController extends Controller
 {
@@ -15,7 +17,12 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $articles = DB::table('articles')
+                    ->orderBy('id')
+                    ->where('draft', '==', false)
+                    ->cursorPaginate(3);
+
+        return new Response(view('articles.index', ['articles' => $articles]));
     }
 
     /**
