@@ -14,7 +14,10 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->sentence(),
+            'body' => $this->faker->paragraphs(6, true),
+            'user_id' => \App\Models\User::pluck('id')->random(),
+            'draft' => $this->faker->boolean(33)
         ];
     }
 }

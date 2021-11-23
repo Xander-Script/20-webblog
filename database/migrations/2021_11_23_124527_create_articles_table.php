@@ -15,6 +15,10 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('body');
+            $table->foreignId('user_id');
+            $table->boolean('draft')->default(true); // a.k.a published
             $table->timestamps();
         });
     }
