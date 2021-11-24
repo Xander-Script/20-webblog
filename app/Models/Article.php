@@ -15,4 +15,10 @@ class Article extends Model
             $user->name = 'Guest Author';
         });
     }
+
+    public function category() {
+        return $this->belongsTo(Category::class)->withDefault(function ($category, $post) {
+            $category->name = 'Uncategorized';
+        });
+    }
 }

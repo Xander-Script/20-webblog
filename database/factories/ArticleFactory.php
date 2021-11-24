@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ArticleFactory extends Factory
@@ -18,6 +19,7 @@ class ArticleFactory extends Factory
             'body' => $this->faker->paragraphs(6, true),
             'user_id' => $this->faker->boolean(50) ? \App\Models\User::pluck('id')->random() : null,
             'draft' => $this->faker->boolean(33),
+            'category_id' => $this->faker->boolean(90) ? Category::pluck('id')->random() : null,
         ];
     }
 }
