@@ -19,7 +19,8 @@
                             {{ $article->title }}
                         </h1>
                         <h2 class="lead text-gray-600">
-                            Written by {{ $article->user->name }}.
+                            {{-- TODO link to category. --}}
+                            Filed under {{ $article->category->name }}, written by {{ $article->user->name }}.
                         </h2>
                     </header>
 
