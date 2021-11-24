@@ -17,7 +17,7 @@ class CreateArticlesTable extends Migration
             $table->id();
             $table->string('title')->unique();
             $table->text('body')->unique();
-            $table->foreignId('user_id')->nullable();
+            $table->foreignId('user_id')->default(1);
             $table->boolean('draft')->default(true); // a.k.a published
             $table->timestamps();
         });
