@@ -9,10 +9,14 @@ class Article extends Model
 {
     use HasFactory;
 
+    protected $attributes = [
+        'user_id' => 1
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class)->withDefault(function ($user, $post) {
-            $user->name = 'Guest Author';
+            return User::find(1); // Guest User.
         });
     }
 
