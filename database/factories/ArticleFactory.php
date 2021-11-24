@@ -17,9 +17,9 @@ class ArticleFactory extends Factory
         return [
             'title' => $this->faker->sentence(),
             'body' => $this->faker->paragraphs(6, true),
-            'user_id' => $this->faker->boolean(50) ? \App\Models\User::pluck('id')->random() : null,
+            'user_id' => $this->faker->boolean(50) ? \App\Models\User::pluck('id')->random() : 1,
             'draft' => $this->faker->boolean(33),
-            'category_id' => $this->faker->boolean(90) ? Category::pluck('id')->random() : null,
+            'category_id' => $this->faker->boolean(90) ? Category::pluck('id')->random() : 1,
         ];
     }
 }
