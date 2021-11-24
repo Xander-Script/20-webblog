@@ -15,7 +15,7 @@ class CategoryController extends Controller
     public function index()
     {
         return view('category.index', [
-            'categories' => Category::select('id', 'name', 'description')->orderBy('name')->cursorPaginate(25)
+            'categories' => Category::orderBy('name')->cursorPaginate(25)
         ]);
         //
         // return new Response(view(""));
