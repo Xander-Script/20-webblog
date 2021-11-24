@@ -32,7 +32,7 @@
 
                     <footer class="mt-6">
                         <p class="text-gray-400">
-                            There are X articles posted in this category, written by X different authors over a timespan of X years.
+                            There are {{ $category->article_count }} articles posted in this category, written by {{ $category->author_count }} different authors over a timespan of X years.
                             {{-- Created {{ $article->created_at->isoFormat('LL'); }} --}}
                             {{-- @if ($article->created_at != $article->updated_at) --}}
                             {{-- and last modified {{ $article->updated_at->isoFormat('LL') }} --}}
