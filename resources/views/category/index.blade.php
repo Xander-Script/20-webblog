@@ -18,10 +18,6 @@
                         <h1 class="font-semibold text-2xl text-gray-800 leading-tight border-b-2 border-gray-200">
                             {{ $category->name }}
                         </h1>
-                        <h2 class="lead text-gray-600">
-                            {{-- TODO link to category. --}}
-                            {{-- Filed under {{ $article->category->name }}, written by {{ $article->user->name }}. --}}
-                        </h2>
                     </header>
 
                     @if (empty($category->description))
@@ -33,10 +29,6 @@
                     <footer class="mt-6">
                         <p class="text-gray-400">
                             There are {{ $category->article_count }} articles posted in this category, written by {{ $category->author_count }} different authors over a timespan of X years.
-                            {{-- Created {{ $article->created_at->isoFormat('LL'); }} --}}
-                            {{-- @if ($article->created_at != $article->updated_at) --}}
-                            {{-- and last modified {{ $article->updated_at->isoFormat('LL') }} --}}
-                            {{-- @endif --}}
                         </p>
                     </footer>
                 </div>
