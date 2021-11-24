@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use HasFactory;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class)->withDefault(function ($user, $post) {
+            $user->name = 'Guest Author';
+        });
+    }
 }
