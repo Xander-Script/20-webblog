@@ -17,6 +17,7 @@ class CategoryFactory extends Factory
     {
         return [
             'name' => $this->faker->company(),
+            'description' => ($this->faker->boolean(75) ? $this->faker->paragraphs(rand(0, 2), true) : null)
         ];
     }
 

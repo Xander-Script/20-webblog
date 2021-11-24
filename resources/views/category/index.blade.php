@@ -24,8 +24,11 @@
                         </h2>
                     </header>
 
-                    {{-- <p>{{ $category->description }}</p> --}}
-                    {{-- {!! nl2br(e($article->body)) !!} --}}
+                    @if (empty($category->description))
+                        Intentionally left blank
+                    @else
+                        {!! nl2br(e($category->description)) !!}
+                    @endif
 
                     <footer class="mt-6">
                         <p class="text-gray-400">
