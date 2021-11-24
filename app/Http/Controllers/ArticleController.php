@@ -17,9 +17,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = DB::table('articles')
+        $articles = Article::where('draft', '==', false)
                     ->orderBy('id')
-                    ->where('draft', '==', false)
                     ->cursorPaginate(3);
 
         return new Response(view('articles.index', ['articles' => $articles]));
