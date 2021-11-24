@@ -3,8 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Category;
-use InvalidArgumentException;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use InvalidArgumentException;
 
 class CategoryFactory extends Factory
 {
@@ -20,16 +20,18 @@ class CategoryFactory extends Factory
         ];
     }
 
-    public function withParentCategory() {
-        return $this->state(function(array $attributes) {
+    public function withParentCategory()
+    {
+        return $this->state(function (array $attributes) {
             if ($this->faker->boolean()) {
                 try {
                     $result = Category::pluck('id')->random();
-                } catch (InvalidArgumentException $e) {}
+                } catch (InvalidArgumentException $e) {
+                }
             }
 
             return [
-                'categories_id' => (isset($result) ? $result : null)
+                'categories_id' => (isset($result) ? $result : null),
             ];
         });
     }

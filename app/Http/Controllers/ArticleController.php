@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use App\Models\Article;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
-use \Illuminate\Http\Response;
 
 class ArticleController extends Controller
 {
