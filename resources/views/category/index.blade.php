@@ -21,14 +21,14 @@
                     </header>
 
                     @if (empty($category->description))
-                        Intentionally left blank
+                        {{ __("Intentionally left blank") }}
                     @else
                         {!! nl2br(e($category->description)) !!}
                     @endif
 
-                    <footer class="mt-6">
-                        <p class="text-gray-400">
-                            There are {{ $category->article_count }} articles posted in this category, written by {{ $category->author_count }} different authors over a timespan of X years.
+                    <footer class="mt-6 bg-gray-200 p-2 rounded">
+                        <p class="lead">
+                            {!! trans_choice('category.information_line', $category->article_count, ['articles' => $category->article_count, 'authors' => $category->author_count]) !!}
                         </p>
                     </footer>
                 </div>
