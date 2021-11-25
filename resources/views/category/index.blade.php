@@ -14,7 +14,7 @@
             @foreach ($categories as $category)
             <div class="mb-4 bg-white overflow-hidden shadow-lg sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <header class="mb-6">
+                    <header class="mb-2">
                         <h1 class="font-semibold text-2xl text-gray-800 leading-tight border-b-2 border-gray-200">
                             {{ $category->name }}
                         </h1>
@@ -28,7 +28,13 @@
 
                     <footer class="mt-6 bg-gray-200 p-2 rounded">
                         <p class="lead">
-                            {!! trans_choice('category.information_line', $category->article_count, ['articles' => $category->article_count, 'authors' => $category->author_count]) !!}
+                            @if ($category->article_count == 0)
+                                {{ __("category.no_articles") }}
+                            @elseif ($category->article_count == 1)
+                                {{ trans_choice("category.single_article", $category->author_count, ['authors' => $category->authorCount()]) }}
+                            @else 
+                                {{ trans_choice("category.multiple_articles", $category->author_count, ['articles' => $category->articleCount(), 'authors' => $category->authorCount()]) }}
+                            @endif
                         </p>
                     </footer>
                 </div>
