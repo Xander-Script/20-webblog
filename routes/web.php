@@ -19,13 +19,13 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-
-// \!/ note /article gets redirect to /articles \!/
-Route::get('/articles', [ArticleController::class, 'index'])->name('article.index');
-Route::resource('article', ArticleController::class);
-Route::get('/article', function () {
-    return Redirect::to('/articles', 308);
+/*** Articles ***/
+Route::redirect('/article', '/articles', 308);
+Route::name('article.')->group(function () {
+    Route::get('/articles', [ArticleController::class, 'index'])->name('index');
+    Route::get('/article/{article:slug}', [ArticleController::class, 'show'])->name('show');
 });
+
 
 Route::resource('category', CategoryController::class);
 
