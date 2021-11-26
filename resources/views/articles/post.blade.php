@@ -11,9 +11,7 @@
                 Filed under
                 <a href="{{ route('category.show', $article->category->slug) }}"
                    class="hover:text-black hover:font-bold">
-                    {{ $article->category->name }}
-                </a>
-                , written by {{ $article->user->name }}.
+                    {{ $article->category->name }}</a>, written by {{ $article->user->name }}.
             </h2>
         </header>
 
