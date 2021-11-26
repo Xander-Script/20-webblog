@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 /**
  * App\Models\Article
@@ -39,7 +41,7 @@ use Illuminate\Support\Carbon;
  */
 class Article extends Model
 {
-    use HasFactory;
+    use HasFactory, HasSlug;
 
     protected $attributes = [
         'user_id' => 1,
@@ -57,5 +59,19 @@ class Article extends Model
         return $this->belongsTo(Category::class)->withDefault(function ($category, $post) {
             $category = Category::find(1);
         });
+    }
+
+    public function getSlugOptions(): SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('title')
+            ->saveSlugsTo('slug')
+            ->doNotGenerateSlugsOnUpdate()
+            ->preventOverwrite();
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
     }
 }
