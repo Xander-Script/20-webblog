@@ -37,6 +37,7 @@ use Spatie\Sluggable\SlugOptions;
  * @method static Builder|Article whereTitle($value)
  * @method static Builder|Article whereUpdatedAt($value)
  * @method static Builder|Article whereUserId($value)
+ * @method static Builder|Article published()
  * @mixin Eloquent
  */
 class Article extends Model
@@ -57,6 +58,17 @@ class Article extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    /**
+     * Scope a query to only include published posts
+     *
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopePublished(Builder $query): Builder
+    {
+        return $query->where('draft', '=', false);
     }
 
     public function getSlugOptions(): SlugOptions
