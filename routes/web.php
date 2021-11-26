@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 
 // \!/ note /article gets redirect to /articles \!/
-Route::get('/articles', [ArticleController::class, 'index']);
+Route::get('/articles', [ArticleController::class, 'index'])->name('article.index');
 Route::resource('article', ArticleController::class);
 Route::get('/article', function () {
     return Redirect::to('/articles', 308);
