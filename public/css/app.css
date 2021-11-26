@@ -32137,6 +32137,20 @@ select {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* https://github.com/tailwindlabs/tailwindcss/issues/1041#issuecomment-513760267 */
+
+.stretched-link::after {
+  content: "";
+  pointer-events: auto;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 10;
+  background-color: transparent;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -188576,4 +188590,3 @@ select {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
-
