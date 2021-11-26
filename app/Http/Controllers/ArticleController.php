@@ -14,9 +14,9 @@ class ArticleController extends Controller
      */
     public function index(): Response
     {
-        $articles = Article::published()->latest()->cursorPaginate(3);
-
-        return new Response(view('articles.index', ['articles' => $articles]));
+        return new Response(view('articles.index', [
+            'articles' => Article::published()->latest()->cursorPaginate(3),
+        ]));
     }
 
     /**
@@ -27,6 +27,8 @@ class ArticleController extends Controller
      */
     public function show(Article $article): Response
     {
-        return new Response(view('articles.show', ['article' => $article]));
+        return new Response(view('articles.show', [
+            'article' => $article,
+        ]));
     }
 }
