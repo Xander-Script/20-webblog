@@ -22,4 +22,17 @@ class ArticleFactory extends Factory
             'category_id' => $this->faker->boolean(90) ? Category::pluck('id')->random() : 1,
         ];
     }
+
+    public function category(int $id = 1) {
+        return $this->state(function (array $attributes) use ($id) {
+            return ['category_id' => $id];
+        });
+    }
+
+    public function user_id(int $id = 1)
+    {
+        return $this->state(function (array $attributes) use ($id) { 
+            return ['user_id' => $id]; 
+        });
+    }
 }
