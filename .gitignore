@@ -15,3 +15,4 @@ yarn-error.log
 /.vscode
 todo.org
 /.php-cs-fixer.cache
+/_ide_helper_*
