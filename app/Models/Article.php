@@ -51,16 +51,12 @@ class Article extends Model
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class)->withDefault(function ($user, $post) {
-            return User::find(1); // Guest User.
-        });
+        return $this->belongsTo(User::class);
     }
 
     public function category(): BelongsTo
     {
-        return $this->belongsTo(Category::class)->withDefault(function ($category, $post) {
-            $category = Category::find(1);
-        });
+        return $this->belongsTo(Category::class);
     }
 
     public function getSlugOptions(): SlugOptions
