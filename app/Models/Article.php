@@ -23,6 +23,7 @@ use Spatie\Sluggable\SlugOptions;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property int|null $category_id
+ * @property string $slug
  * @property-read Category|null $category
  * @property-read User $user
  * @method static ArticleFactory factory(...$parameters)
@@ -38,23 +39,39 @@ use Spatie\Sluggable\SlugOptions;
  * @method static Builder|Article whereUpdatedAt($value)
  * @method static Builder|Article whereUserId($value)
  * @method static Builder|Article published()
+ * @method static Builder|Article whereSlug($value)
  * @mixin Eloquent
  */
 class Article extends Model
 {
     use HasFactory, HasSlug;
 
-    protected $with = ['category', 'user'];
+    /**
+     * @var string[]
+     */
+    protected $with = [
+        'category',
+        'user',
+    ];
 
+    /**
+     * @var int[]
+     */
     protected $attributes = [
         'user_id' => 1,
     ];
 
+    /**
+     * @return BelongsTo
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
@@ -71,6 +88,9 @@ class Article extends Model
         return $query->where('draft', '=', false);
     }
 
+    /**
+     * @return SlugOptions
+     */
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
@@ -80,6 +100,9 @@ class Article extends Model
             ->preventOverwrite();
     }
 
+    /**
+     * @return string
+     */
     public function getRouteKeyName(): string
     {
         return 'slug';
