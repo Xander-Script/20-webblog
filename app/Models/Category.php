@@ -27,6 +27,7 @@ use Spatie\Sluggable\SlugOptions;
  * @property int|null $author_count
  * @property-read Collection|Article[] $articles
  * @property-read int|null $articles_count
+ * @property string $slug
  * @method static CategoryFactory factory(...$parameters)
  * @method static Builder|Category newModelQuery()
  * @method static Builder|Category newQuery()
@@ -39,27 +40,40 @@ use Spatie\Sluggable\SlugOptions;
  * @method static Builder|Category whereId($value)
  * @method static Builder|Category whereName($value)
  * @method static Builder|Category whereUpdatedAt($value)
+ * @method static Builder|Category whereSlug($value)
  * @mixin Eloquent
  */
 class Category extends Model
 {
     use HasFactory, HasSlug;
 
+    /**
+     * @return string
+     */
     public function convertArticleCountToWords(): string
     {
         return NumConvert::word($this->article_count);
     }
 
+    /**
+     * @return string
+     */
     public function convertAuthorCountToWords(): string
     {
         return NumConvert::word($this->author_count);
     }
 
+    /**
+     * @return HasMany
+     */
     public function articles(): HasMany
     {
         return $this->hasMany(Article::class);
     }
 
+    /**
+     * @return SlugOptions
+     */
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
@@ -69,6 +83,9 @@ class Category extends Model
             ->preventOverwrite();
     }
 
+    /**
+     * @return string
+     */
     public function getRouteKeyName(): string
     {
         return 'slug';
