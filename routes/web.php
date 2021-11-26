@@ -19,7 +19,14 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+
+// \!/ note /article gets redirect to /articles \!/
+Route::get('/articles', [ArticleController::class, 'index']);
 Route::resource('article', ArticleController::class);
+Route::get('/article', function () {
+    return Redirect::to('/articles', 308);
+});
+
 Route::resource('category', CategoryController::class);
 
 Route::get('/dashboard', function () {
