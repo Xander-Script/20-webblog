@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 /**
  * App\Models\Category
@@ -41,7 +43,7 @@ use Illuminate\Support\Carbon;
  */
 class Category extends Model
 {
-    use HasFactory;
+    use HasFactory, HasSlug;
 
     public function convertArticleCountToWords(): string
     {
@@ -56,5 +58,19 @@ class Category extends Model
     public function articles(): HasMany
     {
         return $this->hasMany(Article::class);
+    }
+
+    public function getSlugOptions(): SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug')
+            ->doNotGenerateSlugsOnUpdate()
+            ->preventOverwrite();
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
     }
 }
