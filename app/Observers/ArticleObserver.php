@@ -8,13 +8,11 @@ use App\Models\Category;
 class ArticleObserver
 {
     private function getCategory(Article $article) {
-        // if (!isset($article->category) || is_null($article->category->id)) {
-            // $article->category_id = 1; // Uncategorized
-            // $article->saveQuietly(); // save without executing `created()`
-        // }
-
+        // Ensure a category is set.
         if (!isset($article->category_id) || is_null($article->category_id)) {
             $article->category_id = 1;
+
+            // Ensure we don't trigger this observer
             $article->saveQuietly();
         }
 
@@ -32,7 +30,7 @@ class ArticleObserver
         $category = $this->getCategory($article);
         $category->article_count += 1;
 
-
+        // If we've just created a post, there will at least be one result.
         if ($category->articles->where('user_id', '=', $article->user_id)->count() < 2) {
             $category->author_count += 1;
         }
@@ -61,6 +59,13 @@ class ArticleObserver
     {
         $category = $this->getCategory($article);
         $category->article_count -= 1;
+
+        // Check if the article author has authored other articles in this category.
+        if ($category->articles->where('user_id', '=', $article->user_id)->count() == 0) {
+            // This user has created no other articles in this category, so update our author count.
+            $category->author_count -= 1;
+        }
+
         $category->save();
     }
 
