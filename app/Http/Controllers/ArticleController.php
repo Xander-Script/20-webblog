@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use App\Models\Article;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 
@@ -17,9 +18,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::where('draft', '==', false)
-                    ->orderBy('id')
-                    ->cursorPaginate(3);
+        $articles = Article::published()->latest()->cursorPaginate(3);
 
         return new Response(view('articles.index', ['articles' => $articles]));
     }
