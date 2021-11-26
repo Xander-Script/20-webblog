@@ -43,6 +43,8 @@ class Article extends Model
 {
     use HasFactory, HasSlug;
 
+    protected $with = ['category', 'user'];
+
     protected $attributes = [
         'user_id' => 1,
     ];
