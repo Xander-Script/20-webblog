@@ -2,23 +2,26 @@
 
 namespace App\Models;
 
+use HnhDigital\LaravelNumberConverter\Facade as NumConvert;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use HnhDigital\LaravelNumberConverter\Facade as NumConvert;
 
 class Category extends Model
 {
     use HasFactory;
 
-    public function articleCount() {
+    public function convertArticleCountToWords()
+    {
         return NumConvert::word($this->article_count);
     }
 
-    public function authorCount() {
+    public function convertAuthorCountToWords()
+    {
         return NumConvert::word($this->author_count);
     }
 
-    public function articles() {
+    public function articles()
+    {
         return $this->hasMany(Article::class);
     }
 }

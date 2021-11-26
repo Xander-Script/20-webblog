@@ -10,7 +10,7 @@ class Article extends Model
     use HasFactory;
 
     protected $attributes = [
-        'user_id' => 1
+        'user_id' => 1,
     ];
 
     public function user()
@@ -20,7 +20,8 @@ class Article extends Model
         });
     }
 
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo(Category::class)->withDefault(function ($category, $post) {
             $category->name = 'Uncategorized';
         });

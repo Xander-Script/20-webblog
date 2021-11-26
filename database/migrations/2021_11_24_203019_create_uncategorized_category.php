@@ -22,7 +22,7 @@ class CreateUncategorizedCategory extends Migration
             'name' => 'Uncategorized',
             'description' => "All the randomness in the world can't compete with me.",
             'author_count' => 0,
-            'article_count' => 0
+            'article_count' => 0,
         ]);
     }
 

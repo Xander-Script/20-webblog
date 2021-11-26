@@ -7,9 +7,10 @@ use App\Models\Category;
 
 class ArticleObserver
 {
-    private function getCategory(Article $article) {
+    private function getCategory(Article $article)
+    {
         // Ensure a category is set.
-        if (!isset($article->category_id) || is_null($article->category_id)) {
+        if (! isset($article->category_id) || is_null($article->category_id)) {
             $article->category_id = 1;
 
             // Ensure we don't trigger this observer

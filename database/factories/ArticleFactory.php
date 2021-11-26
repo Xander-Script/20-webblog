@@ -23,7 +23,8 @@ class ArticleFactory extends Factory
         ];
     }
 
-    public function category(int $id = 1) {
+    public function category(int $id = 1)
+    {
         return $this->state(function (array $attributes) use ($id) {
             return ['category_id' => $id];
         });
@@ -31,8 +32,8 @@ class ArticleFactory extends Factory
 
     public function user_id(int $id = 1)
     {
-        return $this->state(function (array $attributes) use ($id) { 
-            return ['user_id' => $id]; 
+        return $this->state(function (array $attributes) use ($id) {
+            return ['user_id' => $id];
         });
     }
 }

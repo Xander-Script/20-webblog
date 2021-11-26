@@ -233,7 +233,6 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
         'NumConvert' => 'HnhDigital\LaravelNumberConverter\Facade',
 
-
     ],
 
 ];

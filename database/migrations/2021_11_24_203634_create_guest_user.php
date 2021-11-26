@@ -28,7 +28,7 @@ class CreateGuestUser extends Migration
             'email_verified_at' => $now,
             'remember_token' => '!',
             'created_at' => $now,
-            'updated_at' => $now 
+            'updated_at' => $now,
         ]);
     }
 
