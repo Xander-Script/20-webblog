@@ -35,4 +35,12 @@ class HTTPArticleResource extends TestCase
         $response = $this->get('/article/this-slug-should-not-be-found');
         $response->assertStatus(404);
     }
+
+    public function testPremiumArticleReturnsPaymentRequiredStatusCode()
+    {
+        $article = Article::factory(1)->premium()->create()->first();
+
+        $response = $this->get('/article/'.$article->slug);
+        $response->assertStatus(402);
+    }
 }
