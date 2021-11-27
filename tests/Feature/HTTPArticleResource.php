@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Article;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -42,5 +43,20 @@ class HTTPArticleResource extends TestCase
 
         $response = $this->get('/article/'.$article->slug);
         $response->assertStatus(402);
+    }
+
+    public function testPremiumUserCanAccessPremiumAndStandardArticles()
+    {
+        $user = User::factory(1)->premium()->create()->first();
+        $art = Article::factory(1);
+
+        $responses = [
+            200 => $art,            // standard
+            402 => $art->premium(), // premium
+        ];
+
+        foreach ($responses as $response => $article) {
+            $this->actingAs($user)->get('/article/'.$article->create()->first()->slug)->assertStatus($response);
+        }
     }
 }
