@@ -23,6 +23,7 @@ use Spatie\Sluggable\SlugOptions;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property int|null $category_id
+ * @property int $premium
  * @property string $slug
  * @property-read Category|null $category
  * @property-read User $user
@@ -40,6 +41,7 @@ use Spatie\Sluggable\SlugOptions;
  * @method static Builder|Article whereUserId($value)
  * @method static Builder|Article published()
  * @method static Builder|Article whereSlug($value)
+ * @method static Builder|Article wherePremium($value)
  * @mixin Eloquent
  */
 class Article extends Model
