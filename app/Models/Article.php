@@ -6,6 +6,7 @@ use App\Extensions\Auth;
 use Database\Factories\ArticleFactory;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -24,11 +25,12 @@ use Spatie\Sluggable\SlugOptions;
  * @property int $draft
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property int|null $category_id
  * @property int $premium
  * @property string $slug
  * @property-read Category|null $category
  * @property-read User $user
+ * @property-read Collection|Category[] $categories
+ * @property-read int|null $categories_count
  * @method static ArticleFactory factory(...$parameters)
  * @method static Builder|Article newModelQuery()
  * @method static Builder|Article newQuery()
