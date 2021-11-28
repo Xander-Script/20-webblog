@@ -16,7 +16,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
-<body class="font-sans antialiased {{ Auth::userIsPremium() ? 'premium' : '' }}">
+<body class="font-sans antialiased {{ Auth::userIsPremium() ? 'premium' : 'standard' }}">
     <div class="min-h-screen bg-gray-100">
         @include('layouts.navigation')
 
