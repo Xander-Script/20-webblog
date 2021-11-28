@@ -83,6 +83,7 @@ class Article extends Model
                 $builder->where('premium', '!=', true);
             }
         });
+
         static::addGlobalScope('published', function (Builder $builder) {
             $builder->where('draft', '!=', true);
         });
@@ -92,10 +93,12 @@ class Article extends Model
     {
         $query->where('premium', '=', true);
     }
+
     public function scopeBetween(Builder $query, array $values): void
     {
         $query->whereBetween('created_at', $values);
     }
+
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
