@@ -19,6 +19,7 @@
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
+<body class="font-sans antialiased {{ Auth::userIsPremium() ? 'premium' : '' }}">
 
             <!-- Page Heading -->
             <header class="bg-white shadow">
