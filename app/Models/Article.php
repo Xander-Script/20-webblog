@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Extensions\Auth;
 use Database\Factories\ArticleFactory;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
@@ -73,7 +74,13 @@ class Article extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public static function booted()
     {
+        static::addGlobalScope('guest', function (Builder $builder) {
+            if (! Auth::userIsPremium()) {
+                $builder->where('premium', '!=', true);
+            }
+        });
     }
 
     public function getSlugOptions(): SlugOptions
