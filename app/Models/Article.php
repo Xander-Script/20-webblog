@@ -81,6 +81,9 @@ class Article extends Model
                 $builder->where('premium', '!=', true);
             }
         });
+        static::addGlobalScope('published', function (Builder $builder) {
+            $builder->where('draft', '!=', true);
+        });
     }
 
     public function getSlugOptions(): SlugOptions
