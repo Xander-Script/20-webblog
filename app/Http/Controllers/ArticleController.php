@@ -21,7 +21,7 @@ class ArticleController extends Controller
             $date = $articles->pluck('created_at');
 
             $hidden_articles = Article::withoutGlobalScope('guest')
-                ->without(['user', 'category'])
+                ->without(['user', 'categories'])
                 ->select(['title', 'created_at', 'premium'])
                 ->between([$date->last(), $date->first()])
                 ->premium()
