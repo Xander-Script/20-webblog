@@ -16,3 +16,5 @@ yarn-error.log
 todo.org
 /.php-cs-fixer.cache
 /_ide_helper_*
+_ide_helper.php
+.phpstorm.meta.php
