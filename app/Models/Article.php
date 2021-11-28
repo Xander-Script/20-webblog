@@ -63,36 +63,19 @@ class Article extends Model
         'user_id' => 1,
     ];
 
-    /**
-     * @return BelongsTo
-     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    /**
-     * @return BelongsTo
-     */
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
 
-    /**
-     * Scope a query to only include published posts
-     *
-     * @param Builder $query
-     * @return Builder
-     */
-    public function scopePublished(Builder $query): Builder
     {
-        return $query->where('draft', '=', false);
     }
 
-    /**
-     * @return SlugOptions
-     */
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
@@ -102,9 +85,6 @@ class Article extends Model
             ->preventOverwrite();
     }
 
-    /**
-     * @return string
-     */
     public function getRouteKeyName(): string
     {
         return 'slug';
