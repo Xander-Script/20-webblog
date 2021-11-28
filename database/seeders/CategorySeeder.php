@@ -15,7 +15,7 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::factory()->count(1)->fill(['name' => 'Uncategorized', 'id' => 1])->create();
+//        Category::factory()->count(1)->fill(['name' => 'Uncategorized', 'id' => 1])->create();
         Category::factory(20)->create();
     }
 }
