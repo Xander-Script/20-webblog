@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -14,8 +15,7 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        // We need some categories before we can use the `withParentCategory` state.
-        Category::factory(5)->create();
-        Category::factory(25)->withParentCategory()->create();
+        Category::factory()->count(1)->fill(['name' => 'Uncategorized', 'id' => 1])->create();
+        Category::factory(20)->create();
     }
 }
