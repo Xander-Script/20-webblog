@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Carbon;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
@@ -55,7 +56,7 @@ class Article extends Model
      * @var string[]
      */
     protected $with = [
-        'category',
+        'categories',
         'user',
     ];
 
@@ -71,9 +72,9 @@ class Article extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function category(): BelongsTo
+    public function categories(): belongsToMany
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsToMany(Category::class);
     }
 
     public static function booted()
