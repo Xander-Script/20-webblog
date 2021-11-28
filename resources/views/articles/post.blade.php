@@ -11,6 +11,13 @@
                     {{ $article->title }}
                 </a>
             </h1>
+            <div class="mt-4 categories">
+                @foreach($article->categories as $category)
+                    <a href="{{ route('category.show', $category->slug) }}">
+                        {{ $category->name }}
+                    </a>
+                @endforeach
+            </div>
         </header>
 @if ($article->premium && ! Auth::userIsPremium())
             <h2 class="text-2xl">This article is for paid subscribers only. <a href="#" class="font-semibold">Start your free trial now &raquo;</a></h2>
