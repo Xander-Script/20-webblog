@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class ArticleController extends Controller
 {
@@ -19,16 +20,10 @@ class ArticleController extends Controller
         ]));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param Article $article
-     * @return Response
-     */
-    public function show(Article $article): Response
+    public function show(Article $article): View
     {
-        return new Response(view('articles.show', [
+        return view('articles.show', [
             'article' => $article,
-        ]));
+        ]);
     }
 }
