@@ -44,6 +44,7 @@ use Spatie\Sluggable\SlugOptions;
  * @method static Builder|Article whereSlug($value)
  * @method static Builder|Article wherePremium($value)
  * @method static Builder|Article premium()
+ * @method static Builder|Article between(array $values)
  * @mixin Eloquent
  */
 class Article extends Model
@@ -90,6 +91,10 @@ class Article extends Model
     public function scopePremium(Builder $query): void
     {
         $query->where('premium', '=', true);
+    }
+    public function scopeBetween(Builder $query, array $values): void
+    {
+        $query->whereBetween('created_at', $values);
     }
     public function getSlugOptions(): SlugOptions
     {
