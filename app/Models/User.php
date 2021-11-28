@@ -13,6 +13,7 @@ use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Sanctum\PersonalAccessToken;
 
@@ -52,6 +53,15 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
+     * Default values.
+     *
+     * @var
+     */
+    protected $attributes = [
+        'premium' => false,
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var string[]
@@ -60,6 +70,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'premium',
     ];
 
     /**
