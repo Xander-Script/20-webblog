@@ -795,14 +795,14 @@ select {
 .mb-6 {
 	margin-bottom: 1.5rem;
 }
+.mt-4 {
+	margin-top: 1rem;
+}
 .mt-6 {
 	margin-top: 1.5rem;
 }
 .mt-1 {
 	margin-top: 0.25rem;
-}
-.mt-4 {
-	margin-top: 1rem;
 }
 .mt-3 {
 	margin-top: 0.75rem;
@@ -1333,6 +1333,24 @@ select {
 	line-height: 1.25;
 	--tw-text-opacity: 1;
 	color: rgba(0, 0, 0, var(--tw-text-opacity));
+}
+.article .categories a {
+	margin-right: 0.25rem;
+	border-radius: 0.25rem;
+	border-width: 1px;
+	--tw-border-opacity: 1;
+	border-color: rgba(0, 0, 0, var(--tw-border-opacity));
+	padding: 0.5rem;
+}
+.article .categories a:hover {
+	margin-right: 0.25rem;
+	border-radius: 0.25rem;
+	border-width: 1px;
+	--tw-bg-opacity: 1;
+	background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
+	padding: 0.5rem;
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 .standard .premium-article {
 	--tw-bg-opacity: 1;

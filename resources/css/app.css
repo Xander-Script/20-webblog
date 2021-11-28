@@ -17,6 +17,14 @@
     @apply font-semibold text-2xl text-black leading-tight border-b-2 border-gray-200;
 }
 
+.article .categories a {
+    @apply border border-black p-2 mr-1 rounded;
+}
+
+.article .categories a:hover {
+    @apply border bg-black text-white p-2 mr-1 rounded;
+}
+
 .standard .premium-article {
     @apply bg-yellow-300;
 }
