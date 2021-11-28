@@ -2,33 +2,47 @@
 
 namespace App\Http\Controllers;
 
+use App\Extensions\Auth;
 use App\Models\Article;
-use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class ArticleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index(): Response
+    public int $itemsPerPage = 3;
+
+    public function index(): View
     {
-        return new Response(view('articles.index', [
-            'articles' => Article::published()->latest()->cursorPaginate(3),
-        ]));
+        $articles = Article::latest()->cursorPaginate($this->itemsPerPage);
+        $links = $articles->links();
+        $articles = $articles->getCollection();
+
+        // Count the number of premium articles the visitor isn't able to see.
+        if (! Auth::userIsPremium()) {
+            $date = $articles->pluck('created_at');
+
+            $hidden_articles = Article::withoutGlobalScope('guest')
+                ->without(['user', 'category'])
+                ->select(['title', 'created_at', 'premium'])
+                ->between([$date->last(), $date->first()])
+                ->premium()
+                ->get();
+
+            // Merge hidden & public articles and re-sort them.
+            $articles = $articles
+                ->concat($hidden_articles)
+                ->sortBy('created_at');
+        }
+
+        return view('articles.index', [
+            'links' => $links,
+            'articles' => $articles,
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param Article $article
-     * @return Response
-     */
-    public function show(Article $article): Response
+    public function show(Article $article): View
     {
-        return new Response(view('articles.show', [
+        return view('articles.show', [
             'article' => $article,
-        ]));
+        ]);
     }
 }
