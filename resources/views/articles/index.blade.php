@@ -8,7 +8,7 @@
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="mb-4 mt-0 text-black">
-                {{ $articles->links() }}
+                {!! $links !!}
             </div>
 
             @foreach ($articles as $article)
@@ -16,7 +16,7 @@
             @endforeach
 
             <div class="mt-4 text-black">
-                {{ $articles->links() }}
+                {!! $links !!}
             </div>
         </div>
     </div>

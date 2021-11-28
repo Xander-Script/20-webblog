@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Extensions\Auth;
 use Database\Factories\ArticleFactory;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
@@ -23,6 +24,7 @@ use Spatie\Sluggable\SlugOptions;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property int|null $category_id
+ * @property int $premium
  * @property string $slug
  * @property-read Category|null $category
  * @property-read User $user
@@ -40,6 +42,9 @@ use Spatie\Sluggable\SlugOptions;
  * @method static Builder|Article whereUserId($value)
  * @method static Builder|Article published()
  * @method static Builder|Article whereSlug($value)
+ * @method static Builder|Article wherePremium($value)
+ * @method static Builder|Article premium()
+ * @method static Builder|Article between(array $values)
  * @mixin Eloquent
  */
 class Article extends Model
@@ -61,36 +66,39 @@ class Article extends Model
         'user_id' => 1,
     ];
 
-    /**
-     * @return BelongsTo
-     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    /**
-     * @return BelongsTo
-     */
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
 
-    /**
-     * Scope a query to only include published posts
-     *
-     * @param Builder $query
-     * @return Builder
-     */
-    public function scopePublished(Builder $query): Builder
+    public static function booted()
     {
-        return $query->where('draft', '=', false);
+        static::addGlobalScope('guest', function (Builder $builder) {
+            if (! Auth::userIsPremium()) {
+                $builder->where('premium', '!=', true);
+            }
+        });
+
+        static::addGlobalScope('published', function (Builder $builder) {
+            $builder->where('draft', '!=', true);
+        });
     }
 
-    /**
-     * @return SlugOptions
-     */
+    public function scopePremium(Builder $query): void
+    {
+        $query->where('premium', '=', true);
+    }
+
+    public function scopeBetween(Builder $query, array $values): void
+    {
+        $query->whereBetween('created_at', $values);
+    }
+
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
@@ -100,9 +108,6 @@ class Article extends Model
             ->preventOverwrite();
     }
 
-    /**
-     * @return string
-     */
     public function getRouteKeyName(): string
     {
         return 'slug';

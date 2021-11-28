@@ -22,6 +22,7 @@ class ArticleFactory extends Factory
             'draft' => $this->faker->boolean(33),
             'category_id' => $this->faker->boolean(90) ? Category::pluck('id')->random() : 1,
             'created_at' => $this->faker->dateTime(),
+            'premium' => $this->faker->boolean(),
         ];
     }
 
@@ -36,6 +37,13 @@ class ArticleFactory extends Factory
     {
         return $this->state(function (array $attributes) use ($id) {
             return ['user_id' => $id];
+        });
+    }
+
+    public function premium(bool $premium = true)
+    {
+        return $this->state(function (array $attributes) use ($premium) {
+            return ['premium' => $premium];
         });
     }
 }
