@@ -29,6 +29,8 @@ foreach (['article', 'category'] as $name) {
     Route::get("/$name/{".$name.':slug}', [$controller, 'show'])->name("$name.show");
 }
 
+Route::get('/subscribe', fn () => 'TODO')->name('subscribe'); //todo
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
