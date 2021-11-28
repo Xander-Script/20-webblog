@@ -43,6 +43,7 @@ use Spatie\Sluggable\SlugOptions;
  * @method static Builder|Article published()
  * @method static Builder|Article whereSlug($value)
  * @method static Builder|Article wherePremium($value)
+ * @method static Builder|Article premium()
  * @mixin Eloquent
  */
 class Article extends Model
@@ -86,6 +87,10 @@ class Article extends Model
         });
     }
 
+    public function scopePremium(Builder $query): void
+    {
+        $query->where('premium', '=', true);
+    }
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
