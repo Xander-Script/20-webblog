@@ -24,7 +24,7 @@ foreach (['article', 'category'] as $name) {
     $plural = Str::plural($name);
     $controller = '\App\Http\Controllers\\'.ucfirst($name).'Controller';
 
-    Route::redirect("/$name", $plural, Response::HTTP_PERMANENTLY_REDIRECT);
+    Route::redirect("/$name", "/$plural", Response::HTTP_PERMANENTLY_REDIRECT);
     Route::get("/$plural", [$controller, 'index'])->name("$name.index");
     Route::get("/$name/{".$name.':slug}', [$controller, 'show'])->name("$name.show");
 }
