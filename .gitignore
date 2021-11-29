@@ -18,3 +18,4 @@ todo.org
 /_ide_helper_*
 _ide_helper.php
 .phpstorm.meta.php
+composer.phar
