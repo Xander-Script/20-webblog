@@ -27,7 +27,7 @@ class ArticleController extends Controller
 
             $hidden_articles = Article::withoutGlobalScope('guest')
                 ->without(['user', 'categories'])
-                ->select(['title', 'created_at', 'premium'])
+                ->select(['title', 'created_at', 'premium', 'slug'])
                 ->between([$date->last(), $date->first()])
                 ->premium()
                 ->get();
