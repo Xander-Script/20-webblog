@@ -12,7 +12,7 @@
             </div>
 
             @foreach ($categories as $category)
-                <a href="{{ route('category.show', ['category' => $category->id]) }}">
+                <a href="{{ route('category.show', ['category' => $category->slug]) }}">
                     <div class="mb-4 bg-white overflow-hidden shadow-lg sm:rounded-lg">
                         <div class="p-6 bg-white border-b border-gray-200">
                             <header class="mb-2">
