@@ -8,12 +8,8 @@ use Illuminate\View\View;
 
 class ArticleController extends Controller
 {
+    public string $model = 'article';
     public int $itemsPerPage = 3;
-
-    public function __construct()
-    {
-        $this->authorizeResource(Article::class, 'article');
-    }
 
     public function index(): View
     {
