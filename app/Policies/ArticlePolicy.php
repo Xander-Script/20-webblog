@@ -8,10 +8,8 @@ use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Database\Eloquent\Builder;
 use Symfony\Component\HttpFoundation\Response;
 
-class ArticlePolicy
+class ArticlePolicy extends Policy
 {
-    use HandlesAuthorization;
-
     public function __construct()
     {
         $user = request()->user() ?? new User;
@@ -29,12 +27,6 @@ class ArticlePolicy
         }
     }
 
-    // ArticleController::index
-    public function viewAny(?User $user): bool
-    {
-        return true;
-    }
-
     public function view(?User $user, Article $article): bool
     {
         if ($article->premium) {
@@ -49,63 +41,4 @@ class ArticlePolicy
 
         return true;
     }
-//
-//    /**
-//     * Determine whether the user can create models.
-//     *
-//     * @param User $user
-//     * @return Response|bool
-//     */
-//    public function create(User $user)
-//    {
-//        //
-//    }
-//
-//    /**
-//     * Determine whether the user can update the model.
-//     *
-//     * @param User $user
-//     * @param Article $article
-//     * @return Response|bool
-//     */
-//    public function update(User $user, Article $article)
-//    {
-//        //
-//    }
-//
-//    /**
-//     * Determine whether the user can delete the model.
-//     *
-//     * @param User $user
-//     * @param Article $article
-//     * @return Response|bool
-//     */
-//    public function delete(User $user, Article $article)
-//    {
-//        //
-//    }
-//
-//    /**
-//     * Determine whether the user can restore the model.
-//     *
-//     * @param User $user
-//     * @param Article $article
-//     * @return Response|bool
-//     */
-//    public function restore(User $user, Article $article)
-//    {
-//        //
-//    }
-//
-//    /**
-//     * Determine whether the user can permanently delete the model.
-//     *
-//     * @param User $user
-//     * @param Article $article
-//     * @return Response|bool
-//     */
-//    public function forceDelete(User $user, Article $article)
-//    {
-//        //
-//    }
 }
