@@ -16,6 +16,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Sanctum\PersonalAccessToken;
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * App\Models\User
@@ -47,10 +48,16 @@ use Laravel\Sanctum\PersonalAccessToken;
  * @method static Builder|User whereUpdatedAt($value)
  * @method static Builder|User wherePremium($value)
  * @mixin Eloquent
+ * @property-read Collection|\Spatie\Permission\Models\Permission[] $permissions
+ * @property-read int|null $permissions_count
+ * @property-read Collection|\Spatie\Permission\Models\Role[] $roles
+ * @property-read int|null $roles_count
+ * @method static Builder|User permission($permissions)
+ * @method static Builder|User role($roles, $guard = null)
  */
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**
      * Default values.

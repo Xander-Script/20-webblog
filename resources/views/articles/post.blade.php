@@ -2,9 +2,6 @@
     <div class="p-6 border-b border-gray-200">
         <header class="mb-6">
             <h1 class="title">
-                @php
-                $article->slug = $article->slug ? route('article.show', $article->slug) : route('subscribe');
-                @endphp
                 <a href="{{ $article->slug }}"
                    class="hover:text-gray-600 hover:font-bold">
                     {{ $article->title }}

@@ -10,6 +10,11 @@ class ArticleController extends Controller
 {
     public int $itemsPerPage = 3;
 
+    public function __construct()
+    {
+        $this->authorizeResource(Article::class, 'article');
+    }
+
     public function index(): View
     {
         $articles = Article::latest()->cursorPaginate($this->itemsPerPage);
@@ -22,7 +27,7 @@ class ArticleController extends Controller
 
             $hidden_articles = Article::withoutGlobalScope('guest')
                 ->without(['user', 'categories'])
-                ->select(['title', 'created_at', 'premium'])
+                ->select(['title', 'created_at', 'premium', 'slug'])
                 ->between([$date->last(), $date->first()])
                 ->premium()
                 ->get();

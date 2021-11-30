@@ -80,19 +80,6 @@ class Article extends Model
         return $this->belongsToMany(Category::class);
     }
 
-    public static function booted()
-    {
-        static::addGlobalScope('guest', function (Builder $builder) {
-            if (! Auth::userIsPremium()) {
-                $builder->where('premium', '!=', true);
-            }
-        });
-
-        static::addGlobalScope('published', function (Builder $builder) {
-            $builder->where('draft', '!=', true);
-        });
-    }
-
     public function scopePremium(Builder $query): void
     {
         $query->where('premium', '=', true);
