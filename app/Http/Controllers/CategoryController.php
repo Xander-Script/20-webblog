@@ -11,9 +11,16 @@ class CategoryController extends Controller
 {
     public function index(): View
     {
-        return view('category.index', [
-            'categories' => Category::orderBy('name')->cursorPaginate(25),
-        ]);
+        $categories = Category::withCount([
+            'articles as free_article_count' => function (Builder $query) {
+                $query->withoutGlobalScope('guest')->where('premium', 0);
+            },
+            'articles as premium_article_count' => function (Builder $query) {
+                $query->withoutGlobalScope('guest')->where('premium', 1);
+            },
+        ])->orderBy('name')->cursorPaginate();
+
+        return view('category.index', ['categories' => $categories]);
     }
 
     /**

@@ -36,22 +36,15 @@ use Spatie\Sluggable\SlugOptions;
  * @method static Builder|Category whereUpdatedAt($value)
  * @method static Builder|Category whereSlug($value)
  * @mixin Eloquent
+ * @property-read int|null $articles_count
  */
 class Category extends Model
 {
     use HasFactory, HasSlug;
 
-    public static function booted()
+    public function scopeFree(Builder $query): void
     {
-        // This tiny piece of madness will result in `free_articles_count` and `premium_articles_count`
-        foreach ([0 => 'free', 1 => 'premium'] as $premium => $type) {
-            static::addGlobalScope($type.'_articles_count', function (Builder $query) use ($premium, $type) {
-                $query->withCount(['articles as '.$type.'_article_count' => function (Builder $q) use ($premium) {
-                    $q->withoutGlobalScope('guest');
-                    $q->where('premium', '=', $premium);
-                }]);
-            });
-        }
+        $query->where('premium', '=', false);
     }
 
     public function articles(): belongsToMany
