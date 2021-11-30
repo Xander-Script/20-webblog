@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Database\Factories\CategoryFactory;
 use Eloquent;
-use HnhDigital\LaravelNumberConverter\Facade as NumConvert;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -23,17 +22,12 @@ use Spatie\Sluggable\SlugOptions;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $description
- * @property int|null $article_count
- * @property int|null $author_count
  * @property-read Collection|Article[] $articles
- * @property-read int|null $articles_count
  * @property string $slug
  * @method static CategoryFactory factory(...$parameters)
  * @method static Builder|Category newModelQuery()
  * @method static Builder|Category newQuery()
  * @method static Builder|Category query()
- * @method static Builder|Category whereArticleCount($value)
- * @method static Builder|Category whereAuthorCount($value)
  * @method static Builder|Category whereCategoriesId($value)
  * @method static Builder|Category whereCreatedAt($value)
  * @method static Builder|Category whereDescription($value)
@@ -47,20 +41,17 @@ class Category extends Model
 {
     use HasFactory, HasSlug;
 
-    /**
-     * @return string
-     */
-    public function convertArticleCountToWords(): string
+    public static function booted()
     {
-        return NumConvert::word($this->article_count);
-    }
-
-    /**
-     * @return string
-     */
-    public function convertAuthorCountToWords(): string
-    {
-        return NumConvert::word($this->author_count);
+        // This tiny piece of madness will result in `free_articles_count` and `premium_articles_count`
+        foreach ([0 => 'free', 1 => 'premium'] as $premium => $type) {
+            static::addGlobalScope($type.'_articles_count', function (Builder $query) use ($premium, $type) {
+                $query->withCount(['articles as '.$type.'_article_count' => function (Builder $q) use ($premium) {
+                    $q->withoutGlobalScope('guest');
+                    $q->where('premium', '=', $premium);
+                }]);
+            });
+        }
     }
 
     public function articles(): belongsToMany
