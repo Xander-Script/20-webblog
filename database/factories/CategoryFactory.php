@@ -3,8 +3,10 @@
 namespace Database\Factories;
 
 use App\Models\Category;
-use Illuminate\Database\Eloquent\Factories\Factory;
+//use Illuminate\Database\Eloquent\Factories\Factory;
 use InvalidArgumentException;
+use Makeable\LaravelFactory\Factory;
+
 
 class CategoryFactory extends Factory
 {
@@ -19,21 +21,5 @@ class CategoryFactory extends Factory
             'name' => $this->faker->company(),
             'description' => ($this->faker->boolean(75) ? $this->faker->paragraphs(rand(0, 2), true) : null),
         ];
-    }
-
-    public function withParentCategory()
-    {
-        return $this->state(function (array $attributes) {
-            if ($this->faker->boolean()) {
-                try {
-                    $result = Category::pluck('id')->random();
-                } catch (InvalidArgumentException $e) {
-                }
-            }
-
-            return [
-                'categories_id' => (isset($result) ? $result : null),
-            ];
-        });
     }
 }

@@ -6,9 +6,11 @@ use App\Extensions\Auth;
 use Database\Factories\ArticleFactory;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Carbon;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
@@ -23,11 +25,12 @@ use Spatie\Sluggable\SlugOptions;
  * @property int $draft
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property int|null $category_id
  * @property int $premium
  * @property string $slug
  * @property-read Category|null $category
  * @property-read User $user
+ * @property-read Collection|Category[] $categories
+ * @property-read int|null $categories_count
  * @method static ArticleFactory factory(...$parameters)
  * @method static Builder|Article newModelQuery()
  * @method static Builder|Article newQuery()
@@ -46,6 +49,7 @@ use Spatie\Sluggable\SlugOptions;
  * @method static Builder|Article premium()
  * @method static Builder|Article between(array $values)
  * @mixin Eloquent
+ * @method static Builder|Article free()
  */
 class Article extends Model
 {
@@ -55,7 +59,7 @@ class Article extends Model
      * @var string[]
      */
     protected $with = [
-        'category',
+        'categories',
         'user',
     ];
 
@@ -71,9 +75,9 @@ class Article extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function category(): BelongsTo
+    public function categories(): belongsToMany
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsToMany(Category::class);
     }
 
     public static function booted()
@@ -92,6 +96,11 @@ class Article extends Model
     public function scopePremium(Builder $query): void
     {
         $query->where('premium', '=', true);
+    }
+
+    public function scopeFree(Builder $query): void
+    {
+        $query->where('premium', '=', false);
     }
 
     public function scopeBetween(Builder $query, array $values): void

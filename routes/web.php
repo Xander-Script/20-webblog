@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,15 +20,16 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-/*** Articles ***/
-Route::redirect('/article', '/articles', 308);
-Route::name('article.')->group(function () {
-    Route::get('/articles', [ArticleController::class, 'index'])->name('index');
-    Route::get('/article/{article:slug}', [ArticleController::class, 'show'])->name('show');
-});
+foreach (['article', 'category'] as $name) {
+    $plural = Str::plural($name);
+    $controller = '\App\Http\Controllers\\'.ucfirst($name).'Controller';
 
+    Route::redirect("/$name", "/$plural", Response::HTTP_PERMANENTLY_REDIRECT);
+    Route::get("/$plural", [$controller, 'index'])->name("$name.index");
+    Route::get("/$name/{".$name.':slug}', [$controller, 'show'])->name("$name.show");
+}
 
-Route::resource('category', CategoryController::class);
+Route::get('/subscribe', fn () => 'TODO')->name('subscribe'); //todo
 
 Route::get('/dashboard', function () {
     return view('dashboard');

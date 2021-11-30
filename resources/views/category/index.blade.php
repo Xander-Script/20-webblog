@@ -12,7 +12,7 @@
             </div>
 
             @foreach ($categories as $category)
-                <a href="{{ route('category.show', ['category' => $category->id]) }}" class="stretched-link">
+                <a href="{{ route('category.show', ['category' => $category->id]) }}">
                     <div class="mb-4 bg-white overflow-hidden shadow-lg sm:rounded-lg">
                         <div class="p-6 bg-white border-b border-gray-200">
                             <header class="mb-2">
@@ -30,13 +30,10 @@
 
                             <footer class="mt-6 bg-gray-200 p-2 rounded">
                                 <p class="lead">
-                                    @if ($category->article_count == 0)
-                                        {{ __('category.no_articles') }}
-                                    @elseif ($category->article_count == 1)
-                                        {{ trans_choice('category.single_article', $category->author_count, ['authors' => $category->convertAuthorCountToWords()]) }}
-                                    @else
-                                        {{ trans_choice('category.multiple_articles', $category->author_count, ['articles' => $category->convertArticleCountToWords(), 'authors' => $category->convertAuthorCountToWords()]) }}
-                                    @endif
+                                    {!! __("In this category are :free free and <span class=\"premium-count font-semibold\">:premium premium articles</span>.", [
+                                            'premium' => NumConvert::word($category->premium_article_count),
+                                            'free' => NumConvert::word($category->free_article_count)
+                                    ]) !!}
                                 </p>
                             </footer>
                         </div>

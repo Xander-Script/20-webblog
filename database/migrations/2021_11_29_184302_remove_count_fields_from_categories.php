@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddIndexOnDraftColumn extends Migration
+class RemoveCountFieldsFromCategories extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddIndexOnDraftColumn extends Migration
      */
     public function up()
     {
-        Schema::table('articles', function (Blueprint $table) {
-            $table->index('draft');
+        Schema::table('categories', function (Blueprint $table) {
+            $table->dropColumn('author_count');
+            $table->dropColumn('article_count');
         });
     }
 
@@ -25,8 +26,9 @@ class AddIndexOnDraftColumn extends Migration
      */
     public function down()
     {
-        Schema::table('articles', function (Blueprint $table) {
-//            $table->dropIndex('draft');
+        Schema::table('categories', function (Blueprint $table) {
+            $table->integer('author_count');
+            $table->integer('article_count');
         });
     }
 }
