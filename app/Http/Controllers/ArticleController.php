@@ -10,6 +10,11 @@ class ArticleController extends Controller
 {
     public int $itemsPerPage = 3;
 
+    public function __construct()
+    {
+        $this->authorizeResource(Article::class, 'article');
+    }
+
     public function index(): View
     {
         $articles = Article::latest()->cursorPaginate($this->itemsPerPage);
