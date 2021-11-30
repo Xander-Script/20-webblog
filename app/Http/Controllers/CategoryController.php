@@ -3,22 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index(): View
     {
         return view('category.index', [
             'categories' => Category::orderBy('name')->cursorPaginate(25),
         ]);
-        //
-        // return new Response(view(""));
     }
 
     /**
