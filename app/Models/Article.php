@@ -49,6 +49,7 @@ use Spatie\Sluggable\SlugOptions;
  * @method static Builder|Article premium()
  * @method static Builder|Article between(array $values)
  * @mixin Eloquent
+ * @method static Builder|Article free()
  */
 class Article extends Model
 {
@@ -95,6 +96,11 @@ class Article extends Model
     public function scopePremium(Builder $query): void
     {
         $query->where('premium', '=', true);
+    }
+
+    public function scopeFree(Builder $query): void
+    {
+        $query->where('premium', '=', false);
     }
 
     public function scopeBetween(Builder $query, array $values): void
