@@ -2,7 +2,7 @@
     <div class="p-6 border-b border-gray-200">
         <header class="mb-6">
             <h1 class="title">
-                <a href="{{ $article->slug }}"
+                <a href="{{ route('article.show', $article->slug) }}"
                    class="hover:text-gray-600 hover:font-bold">
                     {{ $article->title }}
                 </a>
