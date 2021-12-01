@@ -11,10 +11,14 @@
 
 .article {
     @apply bg-white;
+
+    .title {
+        @apply font-semibold text-2xl text-black leading-tight border-b-2 border-gray-200;
+    }
 }
 
 .article .title {
-    @apply font-semibold text-2xl text-black leading-tight border-b-2 border-gray-200;
+    //@apply font-semibold text-2xl text-black leading-tight border-b-2 border-gray-200;
 }
 
 .article .categories a {
