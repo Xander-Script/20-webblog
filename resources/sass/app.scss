@@ -15,28 +15,30 @@
     .title {
         @apply font-semibold text-2xl text-black leading-tight border-b-2 border-gray-200;
     }
+
+    .categories {
+        a {
+            @apply border border-black p-2 mr-1 rounded;
+
+            &:hover {
+                @apply border bg-black text-white;
+            }
+        }
+    }
 }
 
-.article .title {
-    //@apply font-semibold text-2xl text-black leading-tight border-b-2 border-gray-200;
+.standard {
+    .premium-article {
+        @apply bg-yellow-300;
+
+        .title {
+            @apply border-black border-b border-dotted;
+        }
+    }
 }
 
-.article .categories a {
-    @apply border border-black p-2 mr-1 rounded;
-}
+.premium {
+    .premium-article {
 
-.article .categories a:hover {
-    @apply border bg-black text-white p-2 mr-1 rounded;
-}
-
-.standard .premium-article {
-    @apply bg-yellow-300;
-}
-
-.standard .premium-article .title {
-    @apply border-black border-b border-dotted;
-}
-
-.premium .premium-article {
-    /*@apply bg-blue-100;*/
+    }
 }
