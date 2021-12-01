@@ -18,7 +18,3 @@ mix.js('resources/js/app.js', 'public/js')
         postCss: [ tailwindcss('./tailwind.config.js') ]
     });
     // .version();
-    // .postCss('resources/css/app.css', 'public/css', [
-    // require('postcss-import'),
-    // require('tailwindcss'),
-    // require('autoprefixer'),
