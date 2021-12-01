@@ -37,6 +37,7 @@ use Spatie\Sluggable\SlugOptions;
  * @method static Builder|Category whereSlug($value)
  * @mixin Eloquent
  * @property-read int|null $articles_count
+ * @method static Builder|Category free()
  */
 class Category extends Model
 {
@@ -49,7 +50,8 @@ class Category extends Model
 
     public function articles(): belongsToMany
     {
-        return $this->belongsToMany(Article::class);
+        // Avoid recursion
+        return $this->belongsToMany(Article::class)->without(['categories']);
     }
 
     /**
