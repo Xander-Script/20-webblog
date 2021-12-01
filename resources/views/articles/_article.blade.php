@@ -7,11 +7,13 @@
                 </a>
             </h1>
             <div class="mt-4 categories">
-                @foreach($article->categories as $category)
-                    <a href="{{ route('category.show', $category->slug) }}">
-                        {{ $category->name }}
-                    </a>
-                @endforeach
+                @unless (isset($category))
+                    @foreach($article->categories as $category)
+                        <a href="{{ route('category.show', $category->slug) }}">
+                            {{ $category->name }}
+                        </a>
+                    @endforeach
+                @endunless
             </div>
         </header>
 @if ($article->premium && ! Auth::userIsPremium())
