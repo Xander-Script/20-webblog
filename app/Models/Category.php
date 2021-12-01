@@ -51,7 +51,9 @@ class Category extends Model
     public function articles(): belongsToMany
     {
         // Avoid recursion
-        return $this->belongsToMany(Article::class)->without(['categories']);
+        return $this->belongsToMany(Article::class)
+//            ->select('id', 'slug')
+            ->without(['categories']);
     }
 
     /**

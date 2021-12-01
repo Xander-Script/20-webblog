@@ -22,7 +22,8 @@
                         'free' => NumConvert::word($category->free_article_count)
 ]) !!}
                 @elseif (isset($articles))
-                    {{ __(":Count articles in this category", ['count' => NumConvert::word($articles->count()) ]) }}
+                    TODO {{-- TODO --}}
+{{--                    {{ __(":Count articles in this category", ['count' => NumConvert::word($articles->count()) ]) }}--}}
                 @else
                     {{ __("No articles in this category") }}
                 @endif

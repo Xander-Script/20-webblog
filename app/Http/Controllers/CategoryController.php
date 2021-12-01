@@ -16,6 +16,19 @@ class CategoryController extends Controller
     {
         $categories = Category::orderBy('name')->cursorPaginate();
 
-        return view('category.index', ['categories' => $categories]);
+        return view('categories.index', ['categories' => $categories]);
+    }
+
+    public function show(Category $category): View
+    {
+        $articles = $category
+            ->articles()
+            ->select(['articles.id', 'articles.slug', 'articles.title'])
+            ->cursorPaginate(3);
+
+        return view('categories.show', [
+            'articles' => $articles,
+            'category' => $category,
+        ]);
     }
 }
