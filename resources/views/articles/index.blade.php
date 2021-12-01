@@ -12,7 +12,7 @@
             </div>
 
             @foreach ($articles as $article)
-                @include('articles.post')
+                @include('articles._article')
             @endforeach
 
             <div class="mt-4 text-black">
