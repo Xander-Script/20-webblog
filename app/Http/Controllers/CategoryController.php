@@ -24,7 +24,7 @@ class CategoryController extends Controller
         $articles = $category
             ->articles()
             ->select(['articles.id', 'articles.slug', 'articles.title'])
-            ->cursorPaginate(3);
+            ->cursorPaginate(3, []);
 
         return view('categories.show', [
             'articles' => $articles,
