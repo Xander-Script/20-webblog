@@ -7,13 +7,17 @@
                 </a>
             </h1>
             <div class="mt-4 categories">
-                @unless (isset($category))
-                    @foreach($article->categories as $category)
-                        <a href="{{ route('category.show', $category->slug) }}">
-                            {{ $category->name }}
+                @if (isset($category) && $article->categories->count() > 1)
+                    <p class="lead">{{ __("Also filed under") }}</p>
+                @endif
+
+                @foreach($article->categories as $article_category)
+                    @if (!isset($category) || $category->id !== $article_category->id)
+                        <a href="{{ route('category.show', $article_category->slug) }}">
+                            {{ $article_category->name }}
                         </a>
-                    @endforeach
-                @endunless
+                    @endif
+                @endforeach
             </div>
         </header>
 @if ($article->premium && ! Auth::userIsPremium())
@@ -21,14 +25,16 @@
 @else
             {!! nl2br(e($article->body)) !!}
 
+            @if (isset($article->created_at))
             <footer class="mt-6">
                 <p class="text-gray-400">
                     Published {{ $article->created_at->isoFormat('LL') }}
-                    @if ($article->created_at != $article->updated_at)
+                    @if ($article->created_at !== $article->updated_at)
                         and last modified {{ $article->updated_at->isoFormat('LL') }}
                     @endif
                 </p>
             </footer>
+            @endif
 @endif
     </div>
 </div>

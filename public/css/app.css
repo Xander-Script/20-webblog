@@ -1392,6 +1392,11 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(0, 0, 0, var(--tw-text-opacity));
 }
+.article .categories .lead {
+	margin-bottom: 1rem;
+	display: inline-block;
+	padding: 0.5rem;
+}
 .article .categories a {
 	margin-right: 0.25rem;
 	border-radius: 0.25rem;

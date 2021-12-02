@@ -17,6 +17,10 @@
     }
 
     .categories {
+        .lead {
+            @apply mb-4 p-2 inline-block;
+        }
+
         a {
             @apply border border-black p-2 mr-1 rounded;
 
