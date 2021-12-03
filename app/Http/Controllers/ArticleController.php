@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Extensions\Auth;
 use App\Models\Article;
+use Auth;
 use Illuminate\View\View;
 
 class ArticleController extends Controller
 {
     public string $model = 'article';
+
     public int $itemsPerPage = 3;
 
     public function index(): View
