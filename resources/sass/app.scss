@@ -9,40 +9,66 @@
     @apply z-10 absolute inset-0 bg-transparent pointer-events-auto;
 }
 
-.article {
-    @apply bg-white;
+article {
+    @apply my-4 p-4 overflow-hidden shadow-lg sm:rounded-lg bg-white;
 
-    .title {
-        @apply font-semibold text-2xl text-black leading-tight border-b-2 border-gray-200;
-    }
-
-    .categories {
-        .lead {
-            @apply mb-4 p-2 inline-block;
+    header {
+        a {
+            h1 {
+                @apply font-semibold text-4xl;
+            }
         }
 
-        a {
-            @apply border border-black p-2 mr-1 rounded;
+        p {
+            //@apply text-xl;
+        }
 
-            &:hover {
-                @apply border bg-black text-white;
+        @apply mb-4;
+    }
+
+    p {
+        @apply text-base text-justify;
+    }
+
+    footer {
+        &.read-more {
+            @apply mt-4 text-xl;
+
+            a {
+                @apply text-blue-700;
             }
         }
     }
 }
 
-.standard {
-    .premium-article {
+.standard article {
+    &.premium {
         @apply bg-yellow-300;
 
-        .title {
-            @apply border-black border-b border-dotted;
+        h1 {
+            @apply font-bold text-4xl;
+        }
+
+        a {
+            h2 {
+                @apply font-semibold text-2xl;
+            }
+        }
+
+        footer {
+            &.read-more {
+                a {
+                    @apply text-black;
+                }
+
+                p {
+                    @apply text-black block my-2 text-xl;
+                }
+            }
         }
     }
 }
 
-.premium {
-    .premium-article {
+.premium article {
 
-    }
 }
