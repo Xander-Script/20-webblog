@@ -1,6 +1,7 @@
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
 
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -17,4 +18,17 @@ mix.js('resources/js/app.js', 'public/js')
     .options({
         postCss: [ tailwindcss('./tailwind.config.js') ]
     });
-    // .version();
+
+if (mix.inProduction()) {
+    mix.version();
+}
+
+mix.browserSync({
+    proxy: process.env.MIX_BROWSERSYNC_PROXY,
+    open: false,
+    socket: {
+        domain: 'laravel.localhost'
+    }
+});
+
+mix.disableNotifications();
