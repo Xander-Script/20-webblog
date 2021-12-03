@@ -22,7 +22,7 @@ class ArticlePolicy extends Policy
 
         if (! $user->hasRole(['root', 'editor', 'author'])) {
             Article::addGlobalScope('published', function (Builder $builder) {
-                $builder->where('draft', 0);
+                $builder->where('published_at', '!=', 0);
             });
         }
     }

@@ -58,6 +58,13 @@ class Article extends Model
     /**
      * @var string[]
      */
+    protected $casts = [
+        'published_at' => 'datetime'
+    ];
+
+    /**
+     * @var string[]
+     */
     protected $with = [
         'categories',
         'user',
