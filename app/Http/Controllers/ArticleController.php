@@ -31,13 +31,12 @@ class ArticleController extends Controller
 
             // Merge hidden & public articles and re-sort them.
             $articles = $articles
-                ->concat($hidden_articles)
-                ->sortBy('created_at');
+                ->concat($hidden_articles);
         }
 
         return view('articles.index', [
             'links' => $links,
-            'articles' => $articles,
+            'articles' => $articles->sortByDesc('published_at'),
         ]);
     }
 
