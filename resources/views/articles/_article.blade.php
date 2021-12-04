@@ -27,5 +27,14 @@
             and
             <time itemprop="dateModified" datetime="{{ $article->updated_at->toIso8601String() }}">last modified {{ $article->updated_at->diffForHumans() }}</time>
         </div>
+        <div class="categories">
+            @forelse ($article->categories as $category)
+                <a href="{{ route('category.show', $category->slug) }}">
+                    {{$category->name}}
+                </a>
+            @empty
+{{--                TODO--}}
+            @endforelse
+        </div>
     </footer>
 </article>

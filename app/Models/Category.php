@@ -23,7 +23,7 @@ class Category extends Model
 
     public function articles(): belongsToMany
     {
-        return $this->belongsToMany(Article::class)->orderByDesc('published_at');
+        return $this->belongsToMany(Article::class);
     }
 
     /**

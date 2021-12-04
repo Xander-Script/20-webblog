@@ -14,7 +14,7 @@
             </div>
 
             @foreach($articles as $article)
-                @include('articles._article')
+                @include('articles._article', ['type' => 'description'])
             @endforeach
 
             <div class="mt-4 text-black">

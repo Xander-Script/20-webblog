@@ -21,10 +21,10 @@ class CategoryController extends Controller
 
     public function show(Category $category): View
     {
-        $articles = $category
-            ->articles()
-            ->select(['articles.id', 'articles.slug', 'articles.title'])
-            ->cursorPaginate(3, []);
+        $articles = $category->articles()
+            ->whereNotNull('published_at')
+            ->latest('published_at')
+            ->paginate(5);
 
         return view('categories.show', [
             'articles' => $articles,
