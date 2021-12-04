@@ -11,9 +11,13 @@
                 {!! $articles->links() !!}
             </div>
 
-            @foreach ($articles as $article)
+            @forelse ($articles as $article)
                 @include('articles._article', ['type' => 'description'])
-            @endforeach
+            @empty
+                <div class="alert alert-info">
+                    There are no articles matching your query.
+                </div>
+            @endforelse
 
             <div class="mt-4 text-black">
                 {!! $articles->links() !!}

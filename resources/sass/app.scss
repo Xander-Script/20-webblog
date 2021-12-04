@@ -9,6 +9,21 @@
     @apply z-10 absolute inset-0 bg-transparent pointer-events-auto;
 }
 
+.alert {
+    @apply p-4 rounded border shadow-inner;
+
+    &.alert-danger {
+        @apply bg-red-50;
+    }
+
+    &.alert-warning {
+        @apply bg-yellow-50;
+    }
+
+    &.alert-info {
+        @apply bg-blue-50;
+    }
+}
 article {
     @apply my-4 p-4 overflow-hidden shadow-lg sm:rounded-lg bg-white;
 
