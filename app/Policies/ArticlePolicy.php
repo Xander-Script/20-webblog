@@ -14,15 +14,9 @@ class ArticlePolicy extends Policy
     {
         $user = request()->user() ?? new User;
 
-        if (! $user->hasRole(['root', 'editor', 'author', 'premium user'])) {
-            Article::addGlobalScope('guest', function (Builder $builder) {
-                $builder->where('premium', 0);
-            });
-        }
-
         if (! $user->hasRole(['root', 'editor', 'author'])) {
             Article::addGlobalScope('published', function (Builder $builder) {
-                $builder->where('published_at', '!=', 0);
+                $builder->whereNotNull('published_at');
             });
         }
     }

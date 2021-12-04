@@ -4,39 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Auth;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Pagination\Cursor;
 use Illuminate\View\View;
 
 class ArticleController extends Controller
 {
     public string $model = 'article';
 
-    public int $itemsPerPage = 3;
+    public int $itemsPerPage = 5;
 
     public function index(): View
     {
-        $articles = Article::latest()->cursorPaginate($this->itemsPerPage);
-        $links = $articles->links();
-        $articles = $articles->getCollection();
-
-        // Count the number of premium articles the visitor isn't able to see.
-        if (! Auth::userIsPremium()) {
-            $date = $articles->pluck('created_at');
-
-            $hidden_articles = Article::withoutGlobalScope('guest')
-                ->without(['user', 'categories'])
-                ->select(['title', 'created_at', 'premium', 'slug', 'published_at', 'description'])
-                ->between([$date->last(), $date->first()])
-                ->premium()
-                ->get();
-
-            // Merge hidden & public articles and re-sort them.
-            $articles = $articles
-                ->concat($hidden_articles);
-        }
-
         return view('articles.index', [
-            'links' => $links,
-            'articles' => $articles->sortByDesc('published_at'),
+            'articles' => Article::latest('published_at')->paginate($this->itemsPerPage),
         ]);
     }
 

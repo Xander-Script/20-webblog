@@ -8,15 +8,15 @@
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="mb-4 mt-0 text-black">
-                {!! $links !!}
+                {!! $articles->links() !!}
             </div>
 
             @foreach ($articles as $article)
-                @include('articles._article')
+                @include('articles._article', ['type' => 'description'])
             @endforeach
 
             <div class="mt-4 text-black">
-                {!! $links !!}
+                {!! $articles->links() !!}
             </div>
         </div>
     </div>
