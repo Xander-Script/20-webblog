@@ -19,7 +19,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body class="font-sans antialiased {{ Auth::userIsPremium() ? 'premium' : 'standard' }}">
-    <div class="min-h-screen bg-gray-100">
+    <div class="min-h-screen bg-gray-50">
         @include('layouts.navigation')
 
         <!-- Page Heading -->
@@ -32,7 +32,7 @@
         @endif
 
         <!-- Page Content -->
-        <main>
+        <main class="bg-gray-50 shadow-inner">
             {{ $slot }}
         </main>
     </div>

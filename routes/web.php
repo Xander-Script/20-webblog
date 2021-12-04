@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('home');
+})->name('home.index');
 
 foreach (['article', 'category'] as $name) {
     $plural = Str::plural($name);
