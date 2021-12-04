@@ -755,9 +755,6 @@ select {
 [type='file']:focus {
 	outline: 1px auto -webkit-focus-ring-color;
 }
-.visible {
-	visibility: visible;
-}
 .fixed {
 	position: fixed;
 }
@@ -1367,19 +1364,6 @@ select {
 .ease-in {
 	transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
-/* https://github.com/tailwindlabs/tailwindcss/issues/1041#issuecomment-513760267 */
-.stretched-link::after {
-  content: "";
-  pointer-events: auto;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  z-index: 10;
-  background-color: transparent;
-}
-
 .alert {
 	border-radius: 0.25rem;
 	border-width: 1px;
@@ -1399,6 +1383,7 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(239, 246, 255, var(--tw-bg-opacity));
 }
+
 article {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
@@ -1424,10 +1409,19 @@ article header a h1 {
 	line-height: 2.5rem;
 	font-weight: 600;
 }
+article header .meta * {
+	display: inline-block;
+}
+article header .meta address {
+	font-weight: 600;
+}
+article header .meta address a {
+	font-style: normal;
+}
 article p {
-	text-align: justify;
-	font-size: 1rem;
-	line-height: 1.5rem;
+	margin-top: 1rem;
+	font-size: 1.25rem;
+	line-height: 1.75rem;
 }
 article footer.read-more {
 	margin-top: 1rem;
