@@ -32,13 +32,6 @@ class Article extends Model
         'user',
     ];
 
-    /**
-     * @var int[]
-     */
-    protected $attributes = [
-        'user_id' => 1,
-    ];
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
