@@ -37,7 +37,7 @@ class Article extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function categories(): belongsToMany
+    public function categories(): BelongsToMany
     {
         return $this->belongsToMany(Category::class);
     }
