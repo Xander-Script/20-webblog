@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-gray-600 text-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-gray-600 text-white">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -12,7 +12,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    @foreach(['home' => 'home', 'article' => 'articles', 'category' => 'categories'] as $item => $name)
+                    @foreach(['home' => 'home', 'article' => 'articles'] as $item => $name)
                     <x-nav-link :href="route($item.'.index')" :active="request()->routeIs($item.'.index')">
                         {{ __(ucfirst($name)) }}
                     </x-nav-link>
@@ -67,7 +67,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            @foreach(['home' => 'home', 'article' => 'articles', 'category' => 'categories'] as $item => $name)
+            @foreach(['home' => 'home', 'article' => 'articles'] as $item => $name)
                 <x-responsive-nav-link :href="route($item.'.index')" :active="request()->routeIs($item.'.index')">
                     {{ __(ucfirst($name)) }}
                 </x-responsive-nav-link>
