@@ -1,27 +1,25 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Articles') }}
-        </h2>
+    <x-slot name="sidebar">
+        <h1>{{ __("Filters") }}</h1>
+
+        <form action="#" id="filters" aria-label="{{ __("Filter articles") }}">
+            <fieldset>
+                <legend>{{ __("Authors") }}</legend>
+            </fieldset>
+
+            <fieldset>
+                <legend>{{ __("Categories") }}</legend>
+            </fieldset>
+        </form>
     </x-slot>
 
-    <div class="py-6">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="mb-4 mt-0 text-black">
-                {!! $articles->links() !!}
-            </div>
-
-            @forelse ($articles as $article)
-                @include('articles._article', ['type' => 'description'])
-            @empty
-                <div class="alert alert-info">
-                    There are no articles matching your query.
-                </div>
-            @endforelse
-
-            <div class="mt-4 text-black">
-                {!! $articles->links() !!}
-            </div>
+    @if (!$articles->count())
+        <div role="alert" class="info">
+            There are no articles or your query yielded no result.
         </div>
-    </div>
+    @endif
+
+    @foreach ($articles as $article)
+        @include('articles._article')
+    @endforeach
 </x-app-layout>

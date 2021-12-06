@@ -2,92 +2,523 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-.alert {
-    @apply p-4 rounded border shadow-inner;
+/* Font size and line height
 
-    &.alert-danger {
-        @apply bg-red-50;
+There is no specific requirement from the WCAG with respect to minimum font size or line
+height, however there is a general consensus that a base font size of 16px or higher will
+help everyone with readability, especially those who have low vision. There is, however,
+a requirement that text can be zoomed in and resized up to 200%. Users can also set their
+own minimum font size at the browser level and these customized settings need to be supported.
+
+When fonts are declared in px units, they are static sizes. The best way to ensure that
+fonts scale appropriately when the browser is zoomed is to use relative units such as em
+and rem.
+
+Sources:
+    - https://almanac.httparchive.org/en/2021/accessibility#font-size-and-line-height
+    - https://accessibility.digital.gov/visual-design/typography/
+    - https://almanac.httparchive.org/en/2021/accessibility#zooming-and-scaling
+    - https://www.24a11y.com/2019/pixels-vs-relative-units-in-css-why-its-still-a-big-deal/
+ */
+
+/* Focus Styles
+
+Visible focus styles are helpful for everyone but are necessary for sighted keyboard users
+who rely on their presence to navigate. The WCAG requires a visible focus indicator for all
+interactive content.
+
+Sources:
+    - https://almanac.httparchive.org/en/2021/accessibility#focus-styles
+    - https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-focus-visible.html
+    - https://www.sarasoueidan.com/blog/focus-indicators/
+ */
+
+/* User preference media queries and high contrast support
+
+- prefers-reduced-motion
+- prefers-reduced-transparency
+- prefers-contrast (high or low)
+- prefers-color-scheme (light or dark
+
+Sources:
+    - https://almanac.httparchive.org/en/2021/accessibility#focus-styles
+    - https://www.w3.org/TR/mediaqueries-5
+    - https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+    - https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast
+    - https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
+
+ */
+
+:root {
+    --hgroup-color: theme('colors.coolGray.600');
+}
+
+@layer base {
+    .base-container {
+        @apply container w-full lg:w-2/3 mx-auto;
     }
 
-    &.alert-warning {
-        @apply bg-yellow-50;
+    .base-padding {
+        @apply p-2 sm:p-6;
     }
 
-    &.alert-info {
-        @apply bg-blue-50;
+    .base-style {
+        @apply base-padding;
+        @apply bg-white;
+        @apply drop-shadow-xl;
+    }
+
+    .base-link {
+        /**/
+    }
+
+    .base-divider {
+        @apply border-coolGray-600 border-dashed;
+    }
+
+    .base-rounded-top {
+        @apply md:rounded-t-md;
+
+        // Overlap the navigation slightly to remove ugly rounded corners
+        // when the first or last navigation item is active or being hovered.
+        @apply -mt-2;
+    }
+
+    .base-rounded-bottom {
+        @apply md:rounded-b-md;
+        @apply md:mb-8;
     }
 }
 
-article {
-    @apply my-4 p-4 overflow-hidden shadow-lg sm:rounded-lg bg-white;
+body {
+    @apply bg-coolGray-100;
+    @apply font-sans antialiased;
+    @apply flex flex-col;
 
-    header {
-        a {
-            h1 {
-                @apply font-semibold text-4xl;
+    > header,
+    > nav,
+    > #content,
+    > footer {
+        @apply flex flex-col sm:flex-row;
+         //@apply items-center content-center justify-center;
+    }
+
+    #top {
+        @apply bg-blueGray-700;
+        @apply drop-shadow-xl shadow-inner;
+
+        nav {
+            @apply base-container;
+            @apply bg-transparent;
+
+            ul {
+                @apply flex flex-col lg:flex-row;
             }
-        }
 
-        .meta {
-            * {
-                @apply inline-block;
-            }
+            li {
+                @apply md:w-full text-center;
+                @apply mb-2 sm:mb-0;
 
-            address {
-                @apply font-semibold;
+
+
+                // Maybe someday... https://caniuse.com/css-has
+                &:hover, &.active:hover {
+                    @apply bg-blueGray-500 shadow-inner;
+                    @apply text-white;
+                }
+
+                &.active {
+                    @apply bg-blueGray-600;
+                }
 
                 a {
-                    @apply not-italic;
+                    @apply base-padding;
+                    @apply lg:prose inline-block w-full w-full;
+                    @apply base-link;
+                    @apply text-coolGray-300;
+
+                    @apply outline-none focus:bg-blueGray-500 focus:shadow-inner focus:ring;
                 }
             }
         }
 
-        @apply mb-4;
-    }
 
-    p {
-        @apply text-xl mt-4;
-    }
+        header {
+            @apply base-style;
+            @apply base-container;
+            @apply base-rounded-top;
+            @apply flex flex-row flex-wrap;
+            @apply bg-coolGray-300;
+            @apply items-center;
 
-    footer {
-        &.read-more {
-            @apply mt-4 text-xl;
+            hgroup {
+                @apply mr-6 flex-grow pb-4 xl:pb-0;
 
-            a {
-                @apply text-blue-700;
+                color: var(--hgroup-color);
+
+                h1 {
+                    @apply font-bold prose-2xl;
+                }
+            }
+
+            form[role="search"] {
+                @apply w-64;
+
+                legend {
+                    @apply hidden;
+                }
+
+                input {
+                    @apply rounded-lg;
+                    @apply transition duration-200 ease-in-out opacity-75 hover:opacity-100 focus:opacity-100 transform;
+                    @apply h-10 w-full;
+                }
             }
         }
     }
-}
 
-.standard article {
-    &.premium {
-        @apply bg-yellow-300;
-
+    > #content,
+    > aside {
         h1 {
-            @apply font-bold text-4xl;
+            @apply prose-2xl;
         }
 
-        a {
-            h2 {
-                @apply font-semibold text-2xl;
+        h2 {
+            @apply prose-xl;
+        }
+    }
+
+    > #content {
+        @apply base-container base-style flex-col xl:flex-row gap-4 flex-wrap;
+        @apply pt-2;
+
+        #skip-to-sidebar {
+            @apply min-w-full flex-1;
+            //@apply -my-4 pb-0 bg-green-50;
+        }
+
+        > main {
+            @apply flex-1;
+            //@apply bg-yellow-50;
+
+            article {
+                //@apply w-full;
+                @apply -m-3 p-3 sm:-m-6 sm:p-6;
+
+                header {
+                    h1, h2 {
+                        //@apply leading-9;
+                    }
+
+                    h1 {
+                        @apply prose-xl;
+                    }
+
+                    h2 {
+                        @apply mb-2 -mt-2;
+                        @apply prose-2xl;
+                    }
+
+                    h1 {
+                        address {
+                            @apply inline-block not-italic;
+                        }
+
+                        a, address {
+                            @apply underline not-italic;
+                            text-decoration-thickness: 0.5px;
+                        }
+
+
+                    }
+                }
+
+                &.premium {
+                    @apply bg-yellow-50;
+                }
+
+                div {
+                    @apply text-blueGray-900 pr-6 my-2;
+
+                    time {
+                        @apply font-semibold;
+                    }
+
+                    //@apply p-4;
+                }
             }
         }
 
-        footer {
-            &.read-more {
-                a {
-                    @apply text-black;
-                }
+        > aside {
+            @apply lg:w-64 xl:flex-shrink-0;
+        }
+    }
 
-                p {
-                    @apply text-black block my-2 text-xl;
-                }
-            }
+    > footer {
+        @apply base-style base-container base-rounded-bottom;
+        @apply border-t-8 border-dashed border-white; //white; //gray-300;
+        @apply bg-gray-100;
+        @apply py-4;
+    }
+
+    [role="alert"] {
+        @apply shadow-inner rounded-md p-4;
+
+        &.info {
+            @apply bg-blue-50;
         }
     }
 }
 
-.premium article {
+//    .alert {
+//        @apply p-4 rounded shadow-inner mb-6;
+//
+//        &.alert-danger {
+//            @apply bg-red-50;
+//        }
+//
+//        &.alert-warning {
+//            @apply bg-yellow-50;
+//        }
+//
+//        &.alert-info {
+//            @apply bg-blue-50;
+//        }
+//    }
 
-}
+//
+//body {
+//    @apply min-h-screen bg-coolGray-100 font-sans antialiased pb-12;
+//
+//    .row, main {
+//        @apply bg-white container mx-auto max-w-6xl p-6 shadow-2xl;
+//    }
+//
+//    .row {
+//        @apply grid grid-cols-1 lg:grid-cols-12 lg:gap-4;
+//
+//        > :first-child {
+//            @apply lg:col-span-9;
+//        }
+//        > :last-child {
+//            @apply lg:col-span-3;
+//        }
+//    }
+//
+//    .simple-row {
+//        @apply mx-auto w-96 h-auto bg-coolGray-100 p-6 rounded-lg drop-shadow-lg;
+//    }
+//
+//
+//
+//    header#top {
+//        @apply bg-coolGray-700 text-coolGray-700 lg:pt-6;
+//
+//        .row {
+//            @apply lg:rounded-t-xl items-center bg-coolGray-50;// border-b-2 border-coolGray-600 border-dashed;
+//
+//            hgroup {
+//
+//                * {
+//                    @apply prose md:prose-xl lg:prose-2xl;// lg:text-2xl;
+//                }
+//
+//                h1 {
+//                    @apply font-bold;
+//                }
+//
+//                h2 {
+//                    @apply font-semibold;
+//                }
+//            }
+//
+//            label {
+//                input {
+//                    @apply rounded;
+//                    @apply prose-lg;
+//                    @apply placeholder-coolGray-700;
+//                    @apply bg-white;
+//                }
+//            }
+//
+//        }
+//    }
+//
+//    nav {
+//        @apply lg:drop-shadow-2xl bg-coolGray-200;
+//    }
+//
+//    main {
+//        @apply lg:rounded-b-xl shadow;
+//
+//        aside {
+//            // todo make responsive
+//            @apply hidden md:block bg-white mb-4 px-4 py-2 rounded-lg shadow-inner;
+//
+//            fieldset {
+//                legend {
+//                    @apply prose-lg text-coolGray-900;
+//                }
+//
+//                div {
+//                    @apply grid grid-cols-12 items-center py-2;
+//
+//                    input[type=checkbox] {
+//                        @apply col-span-1 h-full w-full h-4 w-4 rounded-full;
+//                    }
+//
+//                    label {
+//                        @apply col-span-11 prose pl-2;
+//                    }
+//                }
+//            }
+//        }
+//
+//        h1 {
+//            @apply prose-lg md:prose-xl lg:prose-2xl;
+//        }
+//
+//        h2 {
+//            @apply prose md:prose-lg lg:prose-xl;
+//        }
+//
+//        h3, p, address, time {
+//            @apply prose-sm md:prose;
+//        }
+//
+//        #login {
+//            @apply prose;
+//
+//            div {
+//                //@apply grid grid-cols-12 gap-4 items-center py-4;
+//
+//                &:not(.remember_me) {
+//                    label {
+//                        @apply block py-1;
+//                        //@apply col-start-5 col-span-1 text-right prose-lg  border-b border-coolGray-300;
+//                    }
+//
+//                    input {
+//                        //@apply col-span-3 prose-sm h-8 rounded;
+//                        @apply mb-4 prose rounded-lg w-full;
+//                    }
+//                }
+//
+//                &.remember_me {
+//                    //@apply bg-coolGray-900;
+//                    @apply block mb-4;
+//                    label, input {
+//                        @apply inline-block;
+//                    }
+//
+//                    label {
+//                        @apply prose align-middle;
+//                    }
+//
+//                    input[type=checkbox] {
+//                        @apply rounded-full h-6 w-6;
+//                    }
+//                }
+//
+//                button[type=submit] {
+//                    @apply p-3 prose rounded-lg bg-coolGray-600 shadow-inner drop-shadow-md text-white font-semibold border-coolGray-300 border;
+//                }
+//            }
+//        }
+//    }
+//
+
+//}
+//
+////
+////hr {
+////    // https://kovart.github.io/dashed-border-generator/ <3
+////    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23000000FF' stroke-width='4' stroke-dasharray='5%2c30' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+////}
+////
+////.article-grid {
+////    @apply grid grid-cols-12 gap-4 justify-items-stretch pb-2;
+////
+////    > :first-child {
+////        @apply col-span-9;
+////    }
+////
+////    > :last-child {
+////        @apply col-span-3;
+////
+////        > div {
+////            @apply border-l-4 border-solid border-coolGray-50 pl-4;
+////        }
+////    }
+////}
+////
+//article {
+//    @apply mb-4 px-4 py-2 overflow-hidden sm:rounded-lg bg-coolGray-50;;
+//
+//    header {
+//        //a {
+//        //}
+//
+//        .meta {
+//            * {
+//                @apply inline-block;
+//            }
+//
+//            address {
+//                @apply font-semibold;
+//
+//                a {
+//                    @apply not-italic;
+//                }
+//            }
+//        }
+//
+//        @apply mb-4;
+//    }
+//
+//    p {
+//        @apply text-xl mt-4;
+//    }
+//
+//    footer {
+//        &.read-more {
+//            //@apply mt-4 text-xl;
+//
+//            a {
+//                @apply text-blue-700;
+//            }
+//        }
+//    }
+//}
+//
+//.standard article {
+//    &.premium {
+//        @apply bg-yellow-100;
+//
+//        h1 {
+//            //@apply text-4xl;
+//        }
+//
+//        //a {
+//        //    h2 {
+//        //        @apply font-semibold text-2xl;
+//        //    }
+//        //}
+//
+//        footer {
+//            &.read-more {
+//                a {
+//                    @apply text-black;
+//                }
+//
+//                p {
+//                    @apply text-black block my-2 text-xl;
+//                }
+//            }
+//        }
+//    }
+//}
+//
+//.premium article {
+//
+//}

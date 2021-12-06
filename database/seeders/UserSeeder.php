@@ -24,6 +24,7 @@ class UserSeeder extends Seeder
             ]);
 
             $user->assignRole($role);
+            $user->save();
         }
         \App\Models\User::factory(10)->create();
     }

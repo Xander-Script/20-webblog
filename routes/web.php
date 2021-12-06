@@ -16,18 +16,22 @@ use Symfony\Component\HttpFoundation\Response;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home.index');
+//Route::get('/', function () {
+//    return view('welcome');
+//})->name('home.index');
 
-foreach (['article', 'category'] as $name) {
-    $plural = Str::plural($name);
-    $controller = '\App\Http\Controllers\\'.ucfirst($name).'Controller';
+Route::permanentRedirect('/', '/articles');
 
-    Route::redirect("/$name", "/$plural", Response::HTTP_PERMANENTLY_REDIRECT);
-    Route::get("/$plural", [$controller, 'index'])->name("$name.index");
-    Route::get("/$name/{".$name.':slug}', [$controller, 'show'])->name("$name.show");
-}
+Route::resource('articles', '\App\Http\Controllers\ArticleController');
+
+//foreach (['article', 'category'] as $name) {
+//    $plural = Str::plural($name);
+//    $controller = '\App\Http\Controllers\\'.ucfirst($name).'Controller';
+//
+//    Route::redirect("/$name", "/$plural", Response::HTTP_PERMANENTLY_REDIRECT);
+//    Route::get("/$plural", [$controller, 'index'])->name("$name.index");
+//    Route::get("/$name/{".$name.':slug}', [$controller, 'show'])->name("$name.show");
+//}
 
 Route::get('/subscribe', fn () => 'TODO')->name('subscribe'); //todo
 
