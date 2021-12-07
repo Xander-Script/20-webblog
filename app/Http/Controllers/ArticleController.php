@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
-use Auth;
-use Illuminate\Database\Query\Builder;
-use Illuminate\Pagination\Cursor;
 use Illuminate\View\View;
 use Spatie\Permission\Models\Role;
 
@@ -15,7 +12,9 @@ class ArticleController extends Controller
     public function index(): view
     {
         return $this->view([
-            'articles' => Article::latest('published_at')->paginate(5),
+            'authors' => Role::where('name', 'author')->first()->users()->get(),
+            'categories' => Category::all(),
+            'articles' => Article::latest('published_at')->without(['user', 'categories'])->paginate(5),
         ]);
     }
 
