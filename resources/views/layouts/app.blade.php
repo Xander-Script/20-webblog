@@ -63,7 +63,7 @@
         </main>
 
         @if (isset($sidebar))
-        <aside id="sidebar">
+        <aside id="sidebar" aria-labelledby="sidebar-title">
             {{ $sidebar }}
         </aside>
         @endif

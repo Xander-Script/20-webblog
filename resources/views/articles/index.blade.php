@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="sidebar">
-        <h1>{{ __("Filters") }}</h1>
+        <h1 id="sidebar-title">{{ __("Filters") }}</h1>
 
         <form action="#" id="filters" aria-label="{{ __("Filter articles") }}">
             @foreach(["categories" => $categories, "authors" => $authors] as $name => $items)
