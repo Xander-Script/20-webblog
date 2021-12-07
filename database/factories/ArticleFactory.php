@@ -6,6 +6,7 @@ use App\Models\Article;
 use App\Models\Category;
 use Carbon\Carbon;
 use Makeable\LaravelFactory\Factory;
+use Spatie\Permission\Models\Role;
 
 class ArticleFactory extends Factory
 {
@@ -22,7 +23,7 @@ class ArticleFactory extends Factory
             'title' => $this->faker->sentence(),
             'body' => $this->faker->paragraphs(6, true),
             'description' => $this->faker->paragraph(6, true),
-            'user_id' => $this->faker->boolean(50) ? \App\Models\User::pluck('id')->random() : 1,
+            'user_id' => Role::where('name', 'author')->first()->users()->get()->pluck('id')->random(),
             'created_at' => $this->faker->dateTime(),
             'premium' => $this->faker->boolean(),
             'published_at' => $this->faker->boolean(75) ? $this->faker->dateTime() : null,
