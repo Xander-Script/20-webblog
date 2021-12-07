@@ -36,7 +36,7 @@ Route::resource('articles', '\App\Http\Controllers\ArticleController');
 Route::get('/subscribe', fn () => 'TODO')->name('subscribe'); //todo
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard.index');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
