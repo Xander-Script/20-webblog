@@ -3,13 +3,22 @@
         <h1>{{ __("Filters") }}</h1>
 
         <form action="#" id="filters" aria-label="{{ __("Filter articles") }}">
+            @foreach(["categories" => $categories, "authors" => $authors] as $name => $items)
             <fieldset>
-                <legend>{{ __("Authors") }}</legend>
-            </fieldset>
+                <legend>{{ __(ucfirst($name)) }} ({{ $items->count() }})</legend>
 
-            <fieldset>
-                <legend>{{ __("Categories") }}</legend>
+                @forelse ($items as $item)
+                    <label class="block">
+                        <input type="checkbox" data-item="{{ $item }}" data-id="{{ $item->id }}"> {{ $item->name }}
+                    </label>
+                @empty
+                    <div role="alert" class="info">
+                        {{ __("No :0", [__($name)]) }}
+                    </div>
+                @endforelse
+
             </fieldset>
+            @endforeach
         </form>
     </x-slot>
 
