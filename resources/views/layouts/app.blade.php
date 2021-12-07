@@ -28,10 +28,12 @@
     <div id="top">
         <nav aria-label="{{ __("Main") }}">
             <ul>
+                {{-- todo: set active state when page is actually active --}}
                 <li><a tabindex="1" href="#content">{{ __("Skip to content") }}</a></li>
                 <li class="active"><a tabindex="1" href="#" aria-current="page">Home</a></li>
                 <li><a tabindex="1" href="#">About me</a></li>
                 <li><a tabindex="1" href="#">Archives</a></li>
+                {{-- todo: add login/logout actions --}}
             </ul>
         </nav>
         <header>
