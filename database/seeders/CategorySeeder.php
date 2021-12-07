@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\QueryException;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -15,7 +16,10 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-//        Category::factory()->count(1)->fill(['name' => 'Uncategorized', 'id' => 1])->create();
-        Category::factory(20)->create();
+        try {
+            Category::factory(20)->create();
+        } catch (QueryException $e) {
+            // pass.
+        }
     }
 }
