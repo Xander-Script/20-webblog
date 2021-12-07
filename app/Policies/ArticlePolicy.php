@@ -23,15 +23,16 @@ class ArticlePolicy extends Policy
 
     public function view(?User $user, Article $article): bool
     {
-        if ($article->premium) {
-            if ($user === null) {
-                abort(Response::HTTP_UNAUTHORIZED, 'Please sign in');
-            }
-
-            if (! $user->hasRole('premium user')) {
-                abort(Response::HTTP_PAYMENT_REQUIRED, 'Subscribe to view this article');
-            }
-        }
+        // TODO: fix this, aborting is apparently a bad idea.
+//        if ($article->premium) {
+//            if ($user === null) {
+//                abort(Response::HTTP_UNAUTHORIZED, 'Please sign in');
+//            }
+//
+//            if (! $user->hasRole('premium user')) {
+//                abort(Response::HTTP_PAYMENT_REQUIRED, 'Subscribe to view this article');
+//            }
+//        }
 
         return true;
     }
