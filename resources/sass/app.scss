@@ -137,8 +137,19 @@ body {
             @apply prose-2xl;
         }
 
-        h2 {
-            @apply prose-xl;
+        fieldset {
+            @apply pb-2;
+
+            legend {
+                @apply prose-xl;
+                @apply border-t border-dashed border-gray-300;
+                @apply w-full;
+                @apply pt-2;
+            }
+
+            label {
+                @apply prose;
+            }
         }
     }
 
