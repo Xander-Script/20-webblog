@@ -1424,50 +1424,6 @@ select {
 .ease-in {
 	transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
-/* Font size and line height
-
-There is no specific requirement from the WCAG with respect to minimum font size or line
-height, however there is a general consensus that a base font size of 16px or higher will
-help everyone with readability, especially those who have low vision. There is, however,
-a requirement that text can be zoomed in and resized up to 200%. Users can also set their
-own minimum font size at the browser level and these customized settings need to be supported.
-
-When fonts are declared in px units, they are static sizes. The best way to ensure that
-fonts scale appropriately when the browser is zoomed is to use relative units such as em
-and rem.
-
-Sources:
-    - https://almanac.httparchive.org/en/2021/accessibility#font-size-and-line-height
-    - https://accessibility.digital.gov/visual-design/typography/
-    - https://almanac.httparchive.org/en/2021/accessibility#zooming-and-scaling
-    - https://www.24a11y.com/2019/pixels-vs-relative-units-in-css-why-its-still-a-big-deal/
- */
-/* Focus Styles
-
-Visible focus styles are helpful for everyone but are necessary for sighted keyboard users
-who rely on their presence to navigate. The WCAG requires a visible focus indicator for all
-interactive content.
-
-Sources:
-    - https://almanac.httparchive.org/en/2021/accessibility#focus-styles
-    - https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-focus-visible.html
-    - https://www.sarasoueidan.com/blog/focus-indicators/
- */
-/* User preference media queries and high contrast support
-
-- prefers-reduced-motion
-- prefers-reduced-transparency
-- prefers-contrast (high or low)
-- prefers-color-scheme (light or dark
-
-Sources:
-    - https://almanac.httparchive.org/en/2021/accessibility#focus-styles
-    - https://www.w3.org/TR/mediaqueries-5
-    - https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
-    - https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast
-    - https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
-
- */
 :root {
   --hgroup-color: #4b5563;
 }
