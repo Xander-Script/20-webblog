@@ -15,6 +15,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public string $routeName = '';
+
     public string $modelName = '';
 
     public function __construct()
@@ -28,14 +29,18 @@ class Controller extends BaseController
 
         $routeName = $route->getName();
         $modelName = $this->modelName;
+        $routeModelName = strstr($routeName, '.', true);
 
-        if (strlen($modelName) == 0) {
-            $modelName = strstr($routeName, '.', true);
-            $modelName = Pluralizer::singular($modelName);
+        if (strlen($modelName) == 0 && $routeModelName) {
+            $modelName = Pluralizer::singular($routeModelName);
         }
 
-        $this->authorizeResource("\App\Models\\".ucfirst($modelName), $modelName);
-        $this->routeName = $routeName;
+        // Routes such as `login` should not be restricted.
+        if ($routeModelName) {
+            $this->authorizeResource("\App\Models\\".ucfirst($modelName), $modelName);
+            $this->routeName = $routeName;
+        }
+
         $this->modelName = $modelName;
     }
 
