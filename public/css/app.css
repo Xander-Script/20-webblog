@@ -809,14 +809,14 @@ select {
 .relative {
 	position: relative;
 }
-.left-0 {
-	left: 0px;
+.top-0 {
+	top: 0px;
 }
 .right-0 {
 	right: 0px;
 }
-.top-0 {
-	top: 0px;
+.left-0 {
+	left: 0px;
 }
 .z-0 {
 	z-index: 0;
@@ -831,10 +831,6 @@ select {
 	margin-left: auto;
 	margin-right: auto;
 }
-.my-4 {
-	margin-top: 1rem;
-	margin-bottom: 1rem;
-}
 .my-3 {
 	margin-top: 0.75rem;
 	margin-bottom: 0.75rem;
@@ -844,9 +840,6 @@ select {
 }
 .-ml-px {
 	margin-left: -1px;
-}
-.mt-2 {
-	margin-top: 0.5rem;
 }
 .mb-4 {
 	margin-bottom: 1rem;
@@ -862,9 +855,6 @@ select {
 }
 .mt-0 {
 	margin-top: 0px;
-}
-.mt-1 {
-	margin-top: 0.25rem;
 }
 .mb-5 {
 	margin-bottom: 1.25rem;
@@ -887,6 +877,9 @@ select {
 .ml-1 {
 	margin-left: 0.25rem;
 }
+.mt-2 {
+	margin-top: 0.5rem;
+}
 .mr-2 {
 	margin-right: 0.5rem;
 }
@@ -907,6 +900,9 @@ select {
 }
 .mb-8 {
 	margin-bottom: 2rem;
+}
+.mt-1 {
+	margin-top: 0.25rem;
 }
 .-mr-2 {
 	margin-right: -0.5rem;
@@ -929,9 +925,6 @@ select {
 .h-5 {
 	height: 1.25rem;
 }
-.h-20 {
-	height: 5rem;
-}
 .h-8 {
 	height: 2rem;
 }
@@ -940,6 +933,9 @@ select {
 }
 .h-1 {
 	height: 0.25rem;
+}
+.h-20 {
+	height: 5rem;
 }
 .h-10 {
 	height: 2.5rem;
@@ -956,15 +952,6 @@ select {
 .w-5 {
 	width: 1.25rem;
 }
-.w-48 {
-	width: 12rem;
-}
-.w-20 {
-	width: 5rem;
-}
-.w-full {
-	width: 100%;
-}
 .w-8 {
 	width: 2rem;
 }
@@ -973,6 +960,15 @@ select {
 }
 .w-16 {
 	width: 4rem;
+}
+.w-full {
+	width: 100%;
+}
+.w-48 {
+	width: 12rem;
+}
+.w-20 {
+	width: 5rem;
 }
 .w-4 {
 	width: 1rem;
@@ -1022,9 +1018,6 @@ select {
 }
 .cursor-default {
 	cursor: default;
-}
-.cursor-pointer {
-	cursor: pointer;
 }
 .list-inside {
 	list-style-position: inside;
@@ -1109,12 +1102,12 @@ select {
 	--tw-border-opacity: 1;
 	border-color: rgba(228, 228, 231, var(--tw-border-opacity));
 }
+.border-transparent {
+	border-color: transparent;
+}
 .border-indigo-400 {
 	--tw-border-opacity: 1;
 	border-color: rgba(129, 140, 248, var(--tw-border-opacity));
-}
-.border-transparent {
-	border-color: transparent;
 }
 .border-gray-400 {
 	--tw-border-opacity: 1;
@@ -1128,10 +1121,6 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 }
-.bg-red-50 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(254, 242, 242, var(--tw-bg-opacity));
-}
 .bg-gray-200 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(228, 228, 231, var(--tw-bg-opacity));
@@ -1143,17 +1132,13 @@ select {
 .bg-transparent {
 	background-color: transparent;
 }
-.bg-indigo-50 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(238, 242, 255, var(--tw-bg-opacity));
-}
 .bg-gray-800 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(39, 39, 42, var(--tw-bg-opacity));
 }
-.bg-gray-700 {
+.bg-indigo-50 {
 	--tw-bg-opacity: 1;
-	background-color: rgba(63, 63, 70, var(--tw-bg-opacity));
+	background-color: rgba(238, 242, 255, var(--tw-bg-opacity));
 }
 .bg-cover {
 	background-size: cover;
@@ -1182,10 +1167,6 @@ select {
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
 }
-.py-1 {
-	padding-top: 0.25rem;
-	padding-bottom: 0.25rem;
-}
 .py-6 {
 	padding-top: 1.5rem;
 	padding-bottom: 1.5rem;
@@ -1205,6 +1186,10 @@ select {
 .py-3 {
 	padding-top: 0.75rem;
 	padding-bottom: 0.75rem;
+}
+.py-1 {
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
 }
 .px-1 {
 	padding-left: 0.25rem;
@@ -1243,9 +1228,6 @@ select {
 .text-center {
 	text-align: center;
 }
-.text-right {
-	text-align: right;
-}
 .font-sans {
 	font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
@@ -1269,13 +1251,13 @@ select {
 	font-size: 3rem;
 	line-height: 1;
 }
-.text-base {
-	font-size: 1rem;
-	line-height: 1.5rem;
-}
 .text-xs {
 	font-size: 0.75rem;
 	line-height: 1rem;
+}
+.text-base {
+	font-size: 1rem;
+	line-height: 1.5rem;
 }
 .font-medium {
 	font-weight: 500;
@@ -1283,11 +1265,11 @@ select {
 .font-semibold {
 	font-weight: 600;
 }
-.font-bold {
-	font-weight: 700;
-}
 .font-light {
 	font-weight: 300;
+}
+.font-bold {
+	font-weight: 700;
 }
 .font-black {
 	font-weight: 900;
@@ -1336,10 +1318,6 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(0, 0, 0, var(--tw-text-opacity));
 }
-.text-gray-600 {
-	--tw-text-opacity: 1;
-	color: rgba(82, 82, 91, var(--tw-text-opacity));
-}
 .text-red-600 {
 	--tw-text-opacity: 1;
 	color: rgba(220, 38, 38, var(--tw-text-opacity));
@@ -1355,6 +1333,10 @@ select {
 .text-gray-300 {
 	--tw-text-opacity: 1;
 	color: rgba(212, 212, 216, var(--tw-text-opacity));
+}
+.text-gray-600 {
+	--tw-text-opacity: 1;
+	color: rgba(82, 82, 91, var(--tw-text-opacity));
 }
 .text-gray-900 {
 	--tw-text-opacity: 1;
@@ -2007,13 +1989,17 @@ body #top nav li a {
 		margin-bottom: 0;
 	}
 }
+body #top nav li a a {
+	font-weight: 600;
+	--tw-text-opacity: 1;
+	color: rgba(31, 41, 55, var(--tw-text-opacity));
+}
 body #top nav li a {
-    /**/
-    --tw-text-opacity: 1;
-    color: rgba(209, 213, 219, var(--tw-text-opacity));
-    outline: 2px solid transparent;
-    outline-offset: 2px
-  }
+	--tw-text-opacity: 1;
+	color: rgba(209, 213, 219, var(--tw-text-opacity));
+	outline: 2px solid transparent;
+	outline-offset: 2px;
+}
 body #top nav li a:focus {
 	--tw-bg-opacity: 1;
 	background-color: rgba(100, 116, 139, var(--tw-bg-opacity));
@@ -2701,8 +2687,6 @@ body > #content h2 > :last-child, body > aside h2 > :last-child {
 	margin-bottom: 0;
 }
 body > #content {
-	flex-direction: column;
-	flex-wrap: wrap;
 	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
@@ -2762,6 +2746,15 @@ body > #content {
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 	--tw-drop-shadow: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
 	filter: var(--tw-filter);
+}
+body > #content a {
+	font-weight: 600;
+	--tw-text-opacity: 1;
+	color: rgba(31, 41, 55, var(--tw-text-opacity));
+}
+body > #content {
+	flex-direction: column;
+	flex-wrap: wrap;
 	gap: 1rem;
 }
 @media (min-width: 1280px) {
@@ -2777,407 +2770,417 @@ body > #content #skip-to-sidebar {
 	min-width: 100%;
 	flex: 1 1 0%;
 }
+body > #content #skip-to-sidebar a {
+	font-weight: 400;
+	--tw-text-opacity: 1;
+	color: rgba(0, 0, 0, var(--tw-text-opacity));
+}
 body > #content > main {
 	flex: 1 1 0%;
 }
 body > #content > main article {
-	margin: -0.75rem;
-	padding: 0.75rem;
+	margin-left: -0.75rem;
+	margin-right: -0.75rem;
+	margin-bottom: 1.5rem;
+	padding-left: 0.75rem;
+	padding-right: 0.75rem;
 }
 @media (min-width: 640px) {
 
 	body > #content > main article {
-		margin: -1.5rem;
+		margin-left: -1.5rem;
+		margin-right: -1.5rem;
 	}
 
 	body > #content > main article {
-		padding: 1.5rem;
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
 	}
 }
-body > #content > main article header h1 {
-	font-size: 1.25rem;
-	line-height: 1.8;
+body > #content > main article {
+	width: 100%;
 }
-body > #content > main article header h1 p {
-	margin-top: 1.2em;
-	margin-bottom: 1.2em;
+@media (min-width: 640px) {
+
+	body > #content > main article {
+		border-top-right-radius: 0.5rem;
+		border-bottom-right-radius: 0.5rem;
+	}
 }
-body > #content > main article header h1 [class~="lead"] {
-	font-size: 1.2em;
-	line-height: 1.5;
-	margin-top: 1em;
-	margin-bottom: 1em;
+body > #content > main article {
+	--tw-bg-opacity: 1;
+	background-color: rgba(248, 250, 252, var(--tw-bg-opacity));
+	border-bottom-width: 1px;
+	border-style: dashed;
+	--tw-border-opacity: 1;
+	border-color: rgba(161, 161, 170, var(--tw-border-opacity));
 }
-body > #content > main article header h1 blockquote {
-	margin-top: 1.6em;
-	margin-bottom: 1.6em;
-	padding-left: 1.0666667em;
+body > #content > main article * {
+	line-height: 2;
 }
-body > #content > main article header h1 h1 {
-	font-size: 2.8em;
-	margin-top: 0;
-	margin-bottom: 0.8571429em;
-	line-height: 1;
+body > #content > main article header time {
+	--tw-bg-opacity: 1;
+	background-color: rgba(226, 232, 240, var(--tw-bg-opacity));
+	--tw-bg-opacity: 0.75;
+	margin-left: -0.5rem;
+	padding: 0.75rem;
+	padding-bottom: 0.5rem;
 }
-body > #content > main article header h1 h2 {
-	font-size: 1.8em;
-	margin-top: 1.5555556em;
-	margin-bottom: 0.8888889em;
-	line-height: 1.1111111;
+@media (min-width: 640px) {
+
+	body > #content > main article header time {
+		margin-left: -1.5rem;
+	}
 }
-body > #content > main article header h1 h3 {
-	font-size: 1.5em;
-	margin-top: 1.6em;
-	margin-bottom: 0.6666667em;
-	line-height: 1.3333333;
+body > #content > main article header time {
+	border-top-right-radius: 9999px;
+	border-bottom-right-radius: 9999px;
+	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+	--tw-text-opacity: 1;
+	color: rgba(15, 23, 42, var(--tw-text-opacity));
 }
-body > #content > main article header h1 h4 {
-	margin-top: 1.8em;
-	margin-bottom: 0.6em;
-	line-height: 1.6;
+body > #content > main article header div {
+	color: #3f3f46;
+	max-width: 65ch;
 }
-body > #content > main article header h1 img {
-	margin-top: 2em;
-	margin-bottom: 2em;
-}
-body > #content > main article header h1 video {
-	margin-top: 2em;
-	margin-bottom: 2em;
-}
-body > #content > main article header h1 figure {
-	margin-top: 2em;
-	margin-bottom: 2em;
-}
-body > #content > main article header h1 figure > * {
-	margin-top: 0;
-	margin-bottom: 0;
-}
-body > #content > main article header h1 figure figcaption {
-	font-size: 0.9em;
-	line-height: 1.5555556;
-	margin-top: 1em;
-}
-body > #content > main article header h1 code {
-	font-size: 0.9em;
-}
-body > #content > main article header h1 h2 code {
-	font-size: 0.8611111em;
-}
-body > #content > main article header h1 h3 code {
-	font-size: 0.9em;
-}
-body > #content > main article header h1 pre {
-	font-size: 0.9em;
-	line-height: 1.7777778;
-	margin-top: 2em;
-	margin-bottom: 2em;
-	border-radius: 0.5rem;
-	padding-top: 1.1111111em;
-	padding-right: 1.3333333em;
-	padding-bottom: 1.1111111em;
-	padding-left: 1.3333333em;
-}
-body > #content > main article header h1 ol {
-	margin-top: 1.2em;
-	margin-bottom: 1.2em;
-}
-body > #content > main article header h1 ul {
-	margin-top: 1.2em;
-	margin-bottom: 1.2em;
-}
-body > #content > main article header h1 li {
-	margin-top: 0.6em;
-	margin-bottom: 0.6em;
-}
-body > #content > main article header h1 ol > li {
-	padding-left: 1.8em;
-}
-body > #content > main article header h1 ol > li::before {
-	left: 0;
-}
-body > #content > main article header h1 ul > li {
-	padding-left: 1.8em;
-}
-body > #content > main article header h1 ul > li::before {
-	width: 0.35em;
-	height: 0.35em;
-	top: calc(0.9em - 0.175em);
-	left: 0.25em;
-}
-body > #content > main article header h1 > ul > li p {
-	margin-top: 0.8em;
-	margin-bottom: 0.8em;
-}
-body > #content > main article header h1 > ul > li > *:first-child {
-	margin-top: 1.2em;
-}
-body > #content > main article header h1 > ul > li > *:last-child {
-	margin-bottom: 1.2em;
-}
-body > #content > main article header h1 > ol > li > *:first-child {
-	margin-top: 1.2em;
-}
-body > #content > main article header h1 > ol > li > *:last-child {
-	margin-bottom: 1.2em;
-}
-body > #content > main article header h1 ul ul, body > #content > main article header h1 ul ol, body > #content > main article header h1 ol ul, body > #content > main article header h1 ol ol {
-	margin-top: 0.8em;
-	margin-bottom: 0.8em;
-	margin-top: 0.8em;
-	margin-bottom: 0.8em;
-	margin-top: 0.8em;
-	margin-bottom: 0.8em;
-	margin-top: 0.8em;
-	margin-bottom: 0.8em;
-}
-body > #content > main article header h1 hr {
-	margin-top: 2.8em;
-	margin-bottom: 2.8em;
-}
-body > #content > main article header h1 hr + * {
-	margin-top: 0;
-}
-body > #content > main article header h1 h2 + * {
-	margin-top: 0;
-}
-body > #content > main article header h1 h3 + * {
-	margin-top: 0;
-}
-body > #content > main article header h1 h4 + * {
-	margin-top: 0;
-}
-body > #content > main article header h1 table {
-	font-size: 0.9em;
-	line-height: 1.5555556;
-}
-body > #content > main article header h1 thead th {
-	padding-right: 0.6666667em;
-	padding-bottom: 0.8888889em;
-	padding-left: 0.6666667em;
-}
-body > #content > main article header h1 thead th:first-child {
-	padding-left: 0;
-}
-body > #content > main article header h1 thead th:last-child {
-	padding-right: 0;
-}
-body > #content > main article header h1 tbody td {
-	padding-top: 0.8888889em;
-	padding-right: 0.6666667em;
-	padding-bottom: 0.8888889em;
-	padding-left: 0.6666667em;
-}
-body > #content > main article header h1 tbody td:first-child {
-	padding-left: 0;
-}
-body > #content > main article header h1 tbody td:last-child {
-	padding-right: 0;
-}
-body > #content > main article header h1 > :first-child {
-	margin-top: 0;
-}
-body > #content > main article header h1 > :last-child {
-	margin-bottom: 0;
-}
-body > #content > main article header h2 {
-	margin-bottom: 0.5rem;
-	margin-top: -0.5rem;
-	font-size: 1.5rem;
-	line-height: 1.6666667;
-}
-body > #content > main article header h2 p {
-	margin-top: 1.3333333em;
-	margin-bottom: 1.3333333em;
-}
-body > #content > main article header h2 [class~="lead"] {
+body > #content > main article header div [class~="lead"] {
+	color: #52525b;
 	font-size: 1.25em;
-	line-height: 1.4666667;
-	margin-top: 1.0666667em;
-	margin-bottom: 1.0666667em;
-}
-body > #content > main article header h2 blockquote {
-	margin-top: 1.7777778em;
-	margin-bottom: 1.7777778em;
-	padding-left: 1.1111111em;
-}
-body > #content > main article header h2 h1 {
-	font-size: 2.6666667em;
-	margin-top: 0;
-	margin-bottom: 0.875em;
-	line-height: 1;
-}
-body > #content > main article header h2 h2 {
-	font-size: 2em;
-	margin-top: 1.5em;
-	margin-bottom: 0.8333333em;
-	line-height: 1.0833333;
-}
-body > #content > main article header h2 h3 {
-	font-size: 1.5em;
-	margin-top: 1.5555556em;
-	margin-bottom: 0.6666667em;
-	line-height: 1.2222222;
-}
-body > #content > main article header h2 h4 {
-	margin-top: 1.6666667em;
-	margin-bottom: 0.6666667em;
-	line-height: 1.5;
-}
-body > #content > main article header h2 img {
-	margin-top: 2em;
-	margin-bottom: 2em;
-}
-body > #content > main article header h2 video {
-	margin-top: 2em;
-	margin-bottom: 2em;
-}
-body > #content > main article header h2 figure {
-	margin-top: 2em;
-	margin-bottom: 2em;
-}
-body > #content > main article header h2 figure > * {
-	margin-top: 0;
-	margin-bottom: 0;
-}
-body > #content > main article header h2 figure figcaption {
-	font-size: 0.8333333em;
 	line-height: 1.6;
-	margin-top: 1em;
+	margin-top: 1.2em;
+	margin-bottom: 1.2em;
 }
-body > #content > main article header h2 code {
-	font-size: 0.8333333em;
+body > #content > main article header div a {
+	color: #18181b;
+	text-decoration: underline;
+	font-weight: 500;
 }
-body > #content > main article header h2 h2 code {
-	font-size: 0.875em;
+body > #content > main article header div strong {
+	color: #18181b;
+	font-weight: 600;
 }
-body > #content > main article header h2 h3 code {
-	font-size: 0.8888889em;
+body > #content > main article header div ol[type="A"] {
+	--list-counter-style: upper-alpha;
 }
-body > #content > main article header h2 pre {
-	font-size: 0.8333333em;
-	line-height: 1.8;
-	margin-top: 2em;
-	margin-bottom: 2em;
-	border-radius: 0.5rem;
-	padding-top: 1.2em;
-	padding-right: 1.6em;
-	padding-bottom: 1.2em;
-	padding-left: 1.6em;
+body > #content > main article header div ol[type="a"] {
+	--list-counter-style: lower-alpha;
 }
-body > #content > main article header h2 ol {
-	margin-top: 1.3333333em;
-	margin-bottom: 1.3333333em;
+body > #content > main article header div ol[type="A" s] {
+	--list-counter-style: upper-alpha;
 }
-body > #content > main article header h2 ul {
-	margin-top: 1.3333333em;
-	margin-bottom: 1.3333333em;
+body > #content > main article header div ol[type="a" s] {
+	--list-counter-style: lower-alpha;
 }
-body > #content > main article header h2 li {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
+body > #content > main article header div ol[type="I"] {
+	--list-counter-style: upper-roman;
 }
-body > #content > main article header h2 ol > li {
-	padding-left: 1.6666667em;
+body > #content > main article header div ol[type="i"] {
+	--list-counter-style: lower-roman;
 }
-body > #content > main article header h2 ol > li::before {
+body > #content > main article header div ol[type="I" s] {
+	--list-counter-style: upper-roman;
+}
+body > #content > main article header div ol[type="i" s] {
+	--list-counter-style: lower-roman;
+}
+body > #content > main article header div ol[type="1"] {
+	--list-counter-style: decimal;
+}
+body > #content > main article header div ol > li {
+	position: relative;
+	padding-left: 1.75em;
+}
+body > #content > main article header div ol > li::before {
+	content: counter(list-item, var(--list-counter-style, decimal)) ".";
+	position: absolute;
+	font-weight: 400;
+	color: #71717a;
 	left: 0;
 }
-body > #content > main article header h2 ul > li {
-	padding-left: 1.6666667em;
+body > #content > main article header div ul > li {
+	position: relative;
+	padding-left: 1.75em;
 }
-body > #content > main article header h2 ul > li::before {
-	width: 0.3333333em;
-	height: 0.3333333em;
-	top: calc(0.8333333em - 0.1666667em);
+body > #content > main article header div ul > li::before {
+	content: "";
+	position: absolute;
+	background-color: #d4d4d8;
+	border-radius: 50%;
+	width: 0.375em;
+	height: 0.375em;
+	top: calc(0.875em - 0.1875em);
 	left: 0.25em;
 }
-body > #content > main article header h2 > ul > li p {
-	margin-top: 0.8333333em;
-	margin-bottom: 0.8333333em;
-}
-body > #content > main article header h2 > ul > li > *:first-child {
-	margin-top: 1.3333333em;
-}
-body > #content > main article header h2 > ul > li > *:last-child {
-	margin-bottom: 1.3333333em;
-}
-body > #content > main article header h2 > ol > li > *:first-child {
-	margin-top: 1.3333333em;
-}
-body > #content > main article header h2 > ol > li > *:last-child {
-	margin-bottom: 1.3333333em;
-}
-body > #content > main article header h2 ul ul, body > #content > main article header h2 ul ol, body > #content > main article header h2 ol ul, body > #content > main article header h2 ol ol {
-	margin-top: 0.6666667em;
-	margin-bottom: 0.6666667em;
-	margin-top: 0.6666667em;
-	margin-bottom: 0.6666667em;
-	margin-top: 0.6666667em;
-	margin-bottom: 0.6666667em;
-	margin-top: 0.6666667em;
-	margin-bottom: 0.6666667em;
-}
-body > #content > main article header h2 hr {
+body > #content > main article header div hr {
+	border-color: #e4e4e7;
+	border-top-width: 1px;
 	margin-top: 3em;
 	margin-bottom: 3em;
 }
-body > #content > main article header h2 hr + * {
+body > #content > main article header div blockquote {
+	font-weight: 500;
+	font-style: italic;
+	color: #18181b;
+	border-left-width: 0.25rem;
+	border-left-color: #e4e4e7;
+	quotes: "\201C""\201D""\2018""\2019";
+	margin-top: 1.6em;
+	margin-bottom: 1.6em;
+	padding-left: 1em;
+}
+body > #content > main article header div blockquote p:first-of-type::before {
+	content: open-quote;
+}
+body > #content > main article header div blockquote p:last-of-type::after {
+	content: close-quote;
+}
+body > #content > main article header div h1 {
+	color: #18181b;
+	font-weight: 800;
+	font-size: 2.25em;
 	margin-top: 0;
+	margin-bottom: 0.8888889em;
+	line-height: 1.1111111;
 }
-body > #content > main article header h2 h2 + * {
+body > #content > main article header div h2 {
+	color: #18181b;
+	font-weight: 700;
+	font-size: 1.5em;
+	margin-top: 2em;
+	margin-bottom: 1em;
+	line-height: 1.3333333;
+}
+body > #content > main article header div h3 {
+	color: #18181b;
+	font-weight: 600;
+	font-size: 1.25em;
+	margin-top: 1.6em;
+	margin-bottom: 0.6em;
+	line-height: 1.6;
+}
+body > #content > main article header div h4 {
+	color: #18181b;
+	font-weight: 600;
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+	line-height: 1.5;
+}
+body > #content > main article header div figure figcaption {
+	color: #71717a;
+	font-size: 0.875em;
+	line-height: 1.4285714;
+	margin-top: 0.8571429em;
+}
+body > #content > main article header div code {
+	color: #18181b;
+	font-weight: 600;
+	font-size: 0.875em;
+}
+body > #content > main article header div code::before {
+	content: "`";
+}
+body > #content > main article header div code::after {
+	content: "`";
+}
+body > #content > main article header div a code {
+	color: #18181b;
+}
+body > #content > main article header div pre {
+	color: #e4e4e7;
+	background-color: #27272a;
+	overflow-x: auto;
+	font-size: 0.875em;
+	line-height: 1.7142857;
+	margin-top: 1.7142857em;
+	margin-bottom: 1.7142857em;
+	border-radius: 0.375rem;
+	padding-top: 0.8571429em;
+	padding-right: 1.1428571em;
+	padding-bottom: 0.8571429em;
+	padding-left: 1.1428571em;
+}
+body > #content > main article header div pre code {
+	background-color: transparent;
+	border-width: 0;
+	border-radius: 0;
+	padding: 0;
+	font-weight: 400;
+	color: inherit;
+	font-size: inherit;
+	font-family: inherit;
+	line-height: inherit;
+}
+body > #content > main article header div pre code::before {
+	content: none;
+}
+body > #content > main article header div pre code::after {
+	content: none;
+}
+body > #content > main article header div table {
+	width: 100%;
+	table-layout: auto;
+	text-align: left;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	font-size: 0.875em;
+	line-height: 1.7142857;
+}
+body > #content > main article header div thead {
+	color: #18181b;
+	font-weight: 600;
+	border-bottom-width: 1px;
+	border-bottom-color: #d4d4d8;
+}
+body > #content > main article header div thead th {
+	vertical-align: bottom;
+	padding-right: 0.5714286em;
+	padding-bottom: 0.5714286em;
+	padding-left: 0.5714286em;
+}
+body > #content > main article header div tbody tr {
+	border-bottom-width: 1px;
+	border-bottom-color: #e4e4e7;
+}
+body > #content > main article header div tbody tr:last-child {
+	border-bottom-width: 0;
+}
+body > #content > main article header div tbody td {
+	vertical-align: top;
+	padding-top: 0.5714286em;
+	padding-right: 0.5714286em;
+	padding-bottom: 0.5714286em;
+	padding-left: 0.5714286em;
+}
+body > #content > main article header div {
+	font-size: 1rem;
+	line-height: 1.75;
+}
+body > #content > main article header div p {
+	margin-top: 1.25em;
+	margin-bottom: 1.25em;
+}
+body > #content > main article header div img {
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+body > #content > main article header div video {
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+body > #content > main article header div figure {
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+body > #content > main article header div figure > * {
 	margin-top: 0;
-}
-body > #content > main article header h2 h3 + * {
-	margin-top: 0;
-}
-body > #content > main article header h2 h4 + * {
-	margin-top: 0;
-}
-body > #content > main article header h2 table {
-	font-size: 0.8333333em;
-	line-height: 1.4;
-}
-body > #content > main article header h2 thead th {
-	padding-right: 0.6em;
-	padding-bottom: 0.8em;
-	padding-left: 0.6em;
-}
-body > #content > main article header h2 thead th:first-child {
-	padding-left: 0;
-}
-body > #content > main article header h2 thead th:last-child {
-	padding-right: 0;
-}
-body > #content > main article header h2 tbody td {
-	padding-top: 0.8em;
-	padding-right: 0.6em;
-	padding-bottom: 0.8em;
-	padding-left: 0.6em;
-}
-body > #content > main article header h2 tbody td:first-child {
-	padding-left: 0;
-}
-body > #content > main article header h2 tbody td:last-child {
-	padding-right: 0;
-}
-body > #content > main article header h2 > :first-child {
-	margin-top: 0;
-}
-body > #content > main article header h2 > :last-child {
 	margin-bottom: 0;
 }
-body > #content > main article header h1 address {
+body > #content > main article header div h2 code {
+	font-size: 0.875em;
+}
+body > #content > main article header div h3 code {
+	font-size: 0.9em;
+}
+body > #content > main article header div ol {
+	margin-top: 1.25em;
+	margin-bottom: 1.25em;
+}
+body > #content > main article header div ul {
+	margin-top: 1.25em;
+	margin-bottom: 1.25em;
+}
+body > #content > main article header div li {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+body > #content > main article header div > ul > li p {
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+}
+body > #content > main article header div > ul > li > *:first-child {
+	margin-top: 1.25em;
+}
+body > #content > main article header div > ul > li > *:last-child {
+	margin-bottom: 1.25em;
+}
+body > #content > main article header div > ol > li > *:first-child {
+	margin-top: 1.25em;
+}
+body > #content > main article header div > ol > li > *:last-child {
+	margin-bottom: 1.25em;
+}
+body > #content > main article header div ul ul, body > #content > main article header div ul ol, body > #content > main article header div ol ul, body > #content > main article header div ol ol {
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+}
+body > #content > main article header div hr + * {
+	margin-top: 0;
+}
+body > #content > main article header div h2 + * {
+	margin-top: 0;
+}
+body > #content > main article header div h3 + * {
+	margin-top: 0;
+}
+body > #content > main article header div h4 + * {
+	margin-top: 0;
+}
+body > #content > main article header div thead th:first-child {
+	padding-left: 0;
+}
+body > #content > main article header div thead th:last-child {
+	padding-right: 0;
+}
+body > #content > main article header div tbody td:first-child {
+	padding-left: 0;
+}
+body > #content > main article header div tbody td:last-child {
+	padding-right: 0;
+}
+body > #content > main article header div > :first-child {
+	margin-top: 0;
+}
+body > #content > main article header div > :last-child {
+	margin-bottom: 0;
+}
+body > #content > main article header div {
+	margin-top: -1rem;
+	font-weight: 600;
+	--tw-text-opacity: 1;
+	color: rgba(82, 82, 91, var(--tw-text-opacity));
+}
+body > #content > main article header div * {
 	display: inline-block;
+}
+body > #content > main article header div a, body > #content > main article header div address {
 	font-style: normal;
 }
-body > #content > main article header h1 a, body > #content > main article header h1 address {
-	font-style: normal;
+body > #content > main article header h1 {
 	text-decoration: underline;
-  text-decoration-thickness: 0.5px;
+}
+body > #content > main article header h2 {
+	display: none;
+}
+body > #content > main article header .premium-lead a {
+	text-decoration: underline;
+}
+body > #content > main article footer {
+	--tw-text-opacity: 1;
+	color: rgba(82, 82, 91, var(--tw-text-opacity));
+}
+body > #content > main article footer a {
+	display: block;
 }
 body > #content > main article.premium {
 	--tw-bg-opacity: 1;
-	background-color: rgba(254, 252, 232, var(--tw-bg-opacity));
+	background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
 }
 body > #content > main article div {
 	margin-top: 0.5rem;
@@ -3186,8 +3189,22 @@ body > #content > main article div {
 	--tw-text-opacity: 1;
 	color: rgba(15, 23, 42, var(--tw-text-opacity));
 }
-body > #content > main article div time {
-	font-weight: 600;
+@media (min-width: 640px) {
+
+	body > #content > main .pagination {
+		margin-left: -1.5rem;
+		margin-right: -1.5rem;
+	}
+
+	body > #content > main .pagination {
+		padding-left: 1.5rem;
+	}
+}
+body > #content > main .pagination {
+	max-width: 100%;
+}
+body > #content > main .pagination a {
+	font-weight: 400;
 }
 @media (min-width: 1024px) {
 
@@ -3297,20 +3314,17 @@ body [role=alert].info {
 	--tw-border-opacity: 1;
 	border-color: rgba(212, 212, 216, var(--tw-border-opacity));
 }
-.hover\:bg-gray-100:hover {
+.hover\:bg-gray-700:hover {
 	--tw-bg-opacity: 1;
-	background-color: rgba(244, 244, 245, var(--tw-bg-opacity));
+	background-color: rgba(63, 63, 70, var(--tw-bg-opacity));
 }
 .hover\:bg-gray-50:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(250, 250, 250, var(--tw-bg-opacity));
 }
-.hover\:bg-gray-700:hover {
+.hover\:bg-gray-100:hover {
 	--tw-bg-opacity: 1;
-	background-color: rgba(63, 63, 70, var(--tw-bg-opacity));
-}
-.hover\:font-bold:hover {
-	font-weight: 700;
+	background-color: rgba(244, 244, 245, var(--tw-bg-opacity));
 }
 .hover\:text-gray-500:hover {
 	--tw-text-opacity: 1;
@@ -3320,25 +3334,17 @@ body [role=alert].info {
 	--tw-text-opacity: 1;
 	color: rgba(161, 161, 170, var(--tw-text-opacity));
 }
-.hover\:text-gray-600:hover {
-	--tw-text-opacity: 1;
-	color: rgba(82, 82, 91, var(--tw-text-opacity));
-}
-.hover\:text-gray-900:hover {
-	--tw-text-opacity: 1;
-	color: rgba(24, 24, 27, var(--tw-text-opacity));
-}
 .hover\:text-gray-800:hover {
 	--tw-text-opacity: 1;
 	color: rgba(39, 39, 42, var(--tw-text-opacity));
 }
-.hover\:text-white:hover {
-	--tw-text-opacity: 1;
-	color: rgba(255, 255, 255, var(--tw-text-opacity));
-}
 .hover\:text-gray-700:hover {
 	--tw-text-opacity: 1;
 	color: rgba(63, 63, 70, var(--tw-text-opacity));
+}
+.hover\:text-gray-900:hover {
+	--tw-text-opacity: 1;
+	color: rgba(24, 24, 27, var(--tw-text-opacity));
 }
 .focus\:z-10:focus {
 	z-index: 10;
@@ -3347,9 +3353,9 @@ body [role=alert].info {
 	--tw-border-opacity: 1;
 	border-color: rgba(147, 197, 253, var(--tw-border-opacity));
 }
-.focus\:border-indigo-300:focus {
+.focus\:border-gray-900:focus {
 	--tw-border-opacity: 1;
-	border-color: rgba(165, 180, 252, var(--tw-border-opacity));
+	border-color: rgba(24, 24, 27, var(--tw-border-opacity));
 }
 .focus\:border-indigo-700:focus {
 	--tw-border-opacity: 1;
@@ -3359,13 +3365,9 @@ body [role=alert].info {
 	--tw-border-opacity: 1;
 	border-color: rgba(212, 212, 216, var(--tw-border-opacity));
 }
-.focus\:border-gray-900:focus {
+.focus\:border-indigo-300:focus {
 	--tw-border-opacity: 1;
-	border-color: rgba(24, 24, 27, var(--tw-border-opacity));
-}
-.focus\:bg-gray-100:focus {
-	--tw-bg-opacity: 1;
-	background-color: rgba(244, 244, 245, var(--tw-bg-opacity));
+	border-color: rgba(165, 180, 252, var(--tw-border-opacity));
 }
 .focus\:bg-indigo-100:focus {
 	--tw-bg-opacity: 1;
@@ -3375,6 +3377,10 @@ body [role=alert].info {
 	--tw-bg-opacity: 1;
 	background-color: rgba(250, 250, 250, var(--tw-bg-opacity));
 }
+.focus\:bg-gray-100:focus {
+	--tw-bg-opacity: 1;
+	background-color: rgba(244, 244, 245, var(--tw-bg-opacity));
+}
 .focus\:text-indigo-800:focus {
 	--tw-text-opacity: 1;
 	color: rgba(55, 48, 163, var(--tw-text-opacity));
@@ -3382,10 +3388,6 @@ body [role=alert].info {
 .focus\:text-gray-800:focus {
 	--tw-text-opacity: 1;
 	color: rgba(39, 39, 42, var(--tw-text-opacity));
-}
-.focus\:text-white:focus {
-	--tw-text-opacity: 1;
-	color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 .focus\:text-gray-700:focus {
 	--tw-text-opacity: 1;
