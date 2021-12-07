@@ -22,4 +22,8 @@
     @foreach ($articles as $article)
         @include('articles._article')
     @endforeach
+
+    <div class="pagination">
+        {{ $articles->links() }}
+    </div>
 </x-app-layout>
