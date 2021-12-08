@@ -6,12 +6,6 @@
         <h1>
                 <a href="{{ $article->link() }}" tabindex="1">{{ $article->title }}</a>
         </h1>
-        @if($article->premium && (!Auth::user() || Auth::user()->can('view', $article)))
-        <p class="premium-lead">
-            This is a premium article. In order to read more than just the summary, you'll need to <a
-                href="{{ route('login') }} ">sign in</a> or <a href="{{ route('subscribe') }}">subscribe</a>.
-        </p>
-        @endif
         <div>
             <address>
                 @if($authors)
@@ -28,7 +22,14 @@
         {{ $article->description }} [...]
     </div>
     <footer>
+        @if($article->premium && (!Auth::user() || Auth::user()->can('view', $article)))
+            <p class="premium-lead">
+                This is a premium article. In order to read more than just the summary, you'll need to <a
+                    href="{{ route('login') }} ">sign in</a> or <a href="{{ route('subscribe') }}">subscribe</a>.
+            </p>
+        @else
         <a href="{{ $article->link() }}">Continue to article &raquo;</a>
+        @endif
         {{ __("This article was last updated on :0", [$article->updated_at->diffForHumans()]) }}
     </footer>
 </article>

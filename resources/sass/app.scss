@@ -210,15 +210,22 @@ body {
                         @apply hidden;
                     }
 
-                    .premium-lead {
-                        a {
-                            @apply underline;
-                        }
-                    }
                 }
 
                 footer {
                     @apply text-gray-600;
+
+                    .premium-lead {
+                        @apply block text-indigo-900;
+
+                        a {
+                            @apply underline inline-block text-indigo-900;
+                        }
+                    }
+
+                    p, a{
+
+                    }
                 }
 
                 footer {
