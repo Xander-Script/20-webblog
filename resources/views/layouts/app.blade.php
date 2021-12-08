@@ -21,7 +21,7 @@
 
 {{--    <script src="{{ asset('js/manifest.js') }}" defer></script>--}}
 {{--    <script src="{{ asset('js/vendor.js') }}" defer></script>--}}
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://cdn.quilljs.com/1.3.6/quill.js" defer></script>
 {{--    <script src="{{ asset('js/quall/quall.min.js') }}"></script>--}}
 
