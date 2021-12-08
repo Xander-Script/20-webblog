@@ -1,6 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import '~quill/dist/quill.snow.css';
 
 :root {
     --hgroup-color: theme('colors.coolGray.600');

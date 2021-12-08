@@ -1,57 +1,993 @@
-/*! tailwindcss v2.2.19 | MIT License | https://tailwindcss.com *//*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+/*!
+ * Quill Editor v1.3.7
+ * https://quilljs.com/
+ * Copyright (c) 2014, Jason Chen
+ * Copyright (c) 2013, salesforce.com
+ */
+.ql-container {
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  height: 100%;
+  margin: 0px;
+  position: relative;
+}
+.ql-container.ql-disabled .ql-tooltip {
+  visibility: hidden;
+}
+.ql-container.ql-disabled .ql-editor ul[data-checked] > li::before {
+  pointer-events: none;
+}
+.ql-clipboard {
+  left: -100000px;
+  height: 1px;
+  overflow-y: hidden;
+  position: absolute;
+  top: 50%;
+}
+.ql-clipboard p {
+  margin: 0;
+  padding: 0;
+}
+.ql-editor {
+  box-sizing: border-box;
+  line-height: 1.42;
+  height: 100%;
+  outline: none;
+  overflow-y: auto;
+  padding: 12px 15px;
+  -o-tab-size: 4;
+     tab-size: 4;
+  -moz-tab-size: 4;
+  text-align: left;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.ql-editor > * {
+  cursor: text;
+}
+.ql-editor p,
+.ql-editor ol,
+.ql-editor ul,
+.ql-editor pre,
+.ql-editor blockquote,
+.ql-editor h1,
+.ql-editor h2,
+.ql-editor h3,
+.ql-editor h4,
+.ql-editor h5,
+.ql-editor h6 {
+  margin: 0;
+  padding: 0;
+  counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.ql-editor ol,
+.ql-editor ul {
+  padding-left: 1.5em;
+}
+.ql-editor ol > li,
+.ql-editor ul > li {
+  list-style-type: none;
+}
+.ql-editor ul > li::before {
+  content: '\2022';
+}
+.ql-editor ul[data-checked=true],
+.ql-editor ul[data-checked=false] {
+  pointer-events: none;
+}
+.ql-editor ul[data-checked=true] > li *,
+.ql-editor ul[data-checked=false] > li * {
+  pointer-events: all;
+}
+.ql-editor ul[data-checked=true] > li::before,
+.ql-editor ul[data-checked=false] > li::before {
+  color: #777;
+  cursor: pointer;
+  pointer-events: all;
+}
+.ql-editor ul[data-checked=true] > li::before {
+  content: '\2611';
+}
+.ql-editor ul[data-checked=false] > li::before {
+  content: '\2610';
+}
+.ql-editor li::before {
+  display: inline-block;
+  white-space: nowrap;
+  width: 1.2em;
+}
+.ql-editor li:not(.ql-direction-rtl)::before {
+  margin-left: -1.5em;
+  margin-right: 0.3em;
+  text-align: right;
+}
+.ql-editor li.ql-direction-rtl::before {
+  margin-left: 0.3em;
+  margin-right: -1.5em;
+}
+.ql-editor ol li:not(.ql-direction-rtl),
+.ql-editor ul li:not(.ql-direction-rtl) {
+  padding-left: 1.5em;
+}
+.ql-editor ol li.ql-direction-rtl,
+.ql-editor ul li.ql-direction-rtl {
+  padding-right: 1.5em;
+}
+.ql-editor ol li {
+  counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+  counter-increment: list-0;
+}
+.ql-editor ol li:before {
+  content: counter(list-0, decimal) '. ';
+}
+.ql-editor ol li.ql-indent-1 {
+  counter-increment: list-1;
+}
+.ql-editor ol li.ql-indent-1:before {
+  content: counter(list-1, lower-alpha) '. ';
+}
+.ql-editor ol li.ql-indent-1 {
+  counter-reset: list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.ql-editor ol li.ql-indent-2 {
+  counter-increment: list-2;
+}
+.ql-editor ol li.ql-indent-2:before {
+  content: counter(list-2, lower-roman) '. ';
+}
+.ql-editor ol li.ql-indent-2 {
+  counter-reset: list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.ql-editor ol li.ql-indent-3 {
+  counter-increment: list-3;
+}
+.ql-editor ol li.ql-indent-3:before {
+  content: counter(list-3, decimal) '. ';
+}
+.ql-editor ol li.ql-indent-3 {
+  counter-reset: list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.ql-editor ol li.ql-indent-4 {
+  counter-increment: list-4;
+}
+.ql-editor ol li.ql-indent-4:before {
+  content: counter(list-4, lower-alpha) '. ';
+}
+.ql-editor ol li.ql-indent-4 {
+  counter-reset: list-5 list-6 list-7 list-8 list-9;
+}
+.ql-editor ol li.ql-indent-5 {
+  counter-increment: list-5;
+}
+.ql-editor ol li.ql-indent-5:before {
+  content: counter(list-5, lower-roman) '. ';
+}
+.ql-editor ol li.ql-indent-5 {
+  counter-reset: list-6 list-7 list-8 list-9;
+}
+.ql-editor ol li.ql-indent-6 {
+  counter-increment: list-6;
+}
+.ql-editor ol li.ql-indent-6:before {
+  content: counter(list-6, decimal) '. ';
+}
+.ql-editor ol li.ql-indent-6 {
+  counter-reset: list-7 list-8 list-9;
+}
+.ql-editor ol li.ql-indent-7 {
+  counter-increment: list-7;
+}
+.ql-editor ol li.ql-indent-7:before {
+  content: counter(list-7, lower-alpha) '. ';
+}
+.ql-editor ol li.ql-indent-7 {
+  counter-reset: list-8 list-9;
+}
+.ql-editor ol li.ql-indent-8 {
+  counter-increment: list-8;
+}
+.ql-editor ol li.ql-indent-8:before {
+  content: counter(list-8, lower-roman) '. ';
+}
+.ql-editor ol li.ql-indent-8 {
+  counter-reset: list-9;
+}
+.ql-editor ol li.ql-indent-9 {
+  counter-increment: list-9;
+}
+.ql-editor ol li.ql-indent-9:before {
+  content: counter(list-9, decimal) '. ';
+}
+.ql-editor .ql-indent-1:not(.ql-direction-rtl) {
+  padding-left: 3em;
+}
+.ql-editor li.ql-indent-1:not(.ql-direction-rtl) {
+  padding-left: 4.5em;
+}
+.ql-editor .ql-indent-1.ql-direction-rtl.ql-align-right {
+  padding-right: 3em;
+}
+.ql-editor li.ql-indent-1.ql-direction-rtl.ql-align-right {
+  padding-right: 4.5em;
+}
+.ql-editor .ql-indent-2:not(.ql-direction-rtl) {
+  padding-left: 6em;
+}
+.ql-editor li.ql-indent-2:not(.ql-direction-rtl) {
+  padding-left: 7.5em;
+}
+.ql-editor .ql-indent-2.ql-direction-rtl.ql-align-right {
+  padding-right: 6em;
+}
+.ql-editor li.ql-indent-2.ql-direction-rtl.ql-align-right {
+  padding-right: 7.5em;
+}
+.ql-editor .ql-indent-3:not(.ql-direction-rtl) {
+  padding-left: 9em;
+}
+.ql-editor li.ql-indent-3:not(.ql-direction-rtl) {
+  padding-left: 10.5em;
+}
+.ql-editor .ql-indent-3.ql-direction-rtl.ql-align-right {
+  padding-right: 9em;
+}
+.ql-editor li.ql-indent-3.ql-direction-rtl.ql-align-right {
+  padding-right: 10.5em;
+}
+.ql-editor .ql-indent-4:not(.ql-direction-rtl) {
+  padding-left: 12em;
+}
+.ql-editor li.ql-indent-4:not(.ql-direction-rtl) {
+  padding-left: 13.5em;
+}
+.ql-editor .ql-indent-4.ql-direction-rtl.ql-align-right {
+  padding-right: 12em;
+}
+.ql-editor li.ql-indent-4.ql-direction-rtl.ql-align-right {
+  padding-right: 13.5em;
+}
+.ql-editor .ql-indent-5:not(.ql-direction-rtl) {
+  padding-left: 15em;
+}
+.ql-editor li.ql-indent-5:not(.ql-direction-rtl) {
+  padding-left: 16.5em;
+}
+.ql-editor .ql-indent-5.ql-direction-rtl.ql-align-right {
+  padding-right: 15em;
+}
+.ql-editor li.ql-indent-5.ql-direction-rtl.ql-align-right {
+  padding-right: 16.5em;
+}
+.ql-editor .ql-indent-6:not(.ql-direction-rtl) {
+  padding-left: 18em;
+}
+.ql-editor li.ql-indent-6:not(.ql-direction-rtl) {
+  padding-left: 19.5em;
+}
+.ql-editor .ql-indent-6.ql-direction-rtl.ql-align-right {
+  padding-right: 18em;
+}
+.ql-editor li.ql-indent-6.ql-direction-rtl.ql-align-right {
+  padding-right: 19.5em;
+}
+.ql-editor .ql-indent-7:not(.ql-direction-rtl) {
+  padding-left: 21em;
+}
+.ql-editor li.ql-indent-7:not(.ql-direction-rtl) {
+  padding-left: 22.5em;
+}
+.ql-editor .ql-indent-7.ql-direction-rtl.ql-align-right {
+  padding-right: 21em;
+}
+.ql-editor li.ql-indent-7.ql-direction-rtl.ql-align-right {
+  padding-right: 22.5em;
+}
+.ql-editor .ql-indent-8:not(.ql-direction-rtl) {
+  padding-left: 24em;
+}
+.ql-editor li.ql-indent-8:not(.ql-direction-rtl) {
+  padding-left: 25.5em;
+}
+.ql-editor .ql-indent-8.ql-direction-rtl.ql-align-right {
+  padding-right: 24em;
+}
+.ql-editor li.ql-indent-8.ql-direction-rtl.ql-align-right {
+  padding-right: 25.5em;
+}
+.ql-editor .ql-indent-9:not(.ql-direction-rtl) {
+  padding-left: 27em;
+}
+.ql-editor li.ql-indent-9:not(.ql-direction-rtl) {
+  padding-left: 28.5em;
+}
+.ql-editor .ql-indent-9.ql-direction-rtl.ql-align-right {
+  padding-right: 27em;
+}
+.ql-editor li.ql-indent-9.ql-direction-rtl.ql-align-right {
+  padding-right: 28.5em;
+}
+.ql-editor .ql-video {
+  display: block;
+  max-width: 100%;
+}
+.ql-editor .ql-video.ql-align-center {
+  margin: 0 auto;
+}
+.ql-editor .ql-video.ql-align-right {
+  margin: 0 0 0 auto;
+}
+.ql-editor .ql-bg-black {
+  background-color: #000;
+}
+.ql-editor .ql-bg-red {
+  background-color: #e60000;
+}
+.ql-editor .ql-bg-orange {
+  background-color: #f90;
+}
+.ql-editor .ql-bg-yellow {
+  background-color: #ff0;
+}
+.ql-editor .ql-bg-green {
+  background-color: #008a00;
+}
+.ql-editor .ql-bg-blue {
+  background-color: #06c;
+}
+.ql-editor .ql-bg-purple {
+  background-color: #93f;
+}
+.ql-editor .ql-color-white {
+  color: #fff;
+}
+.ql-editor .ql-color-red {
+  color: #e60000;
+}
+.ql-editor .ql-color-orange {
+  color: #f90;
+}
+.ql-editor .ql-color-yellow {
+  color: #ff0;
+}
+.ql-editor .ql-color-green {
+  color: #008a00;
+}
+.ql-editor .ql-color-blue {
+  color: #06c;
+}
+.ql-editor .ql-color-purple {
+  color: #93f;
+}
+.ql-editor .ql-font-serif {
+  font-family: Georgia, Times New Roman, serif;
+}
+.ql-editor .ql-font-monospace {
+  font-family: Monaco, Courier New, monospace;
+}
+.ql-editor .ql-size-small {
+  font-size: 0.75em;
+}
+.ql-editor .ql-size-large {
+  font-size: 1.5em;
+}
+.ql-editor .ql-size-huge {
+  font-size: 2.5em;
+}
+.ql-editor .ql-direction-rtl {
+  direction: rtl;
+  text-align: inherit;
+}
+.ql-editor .ql-align-center {
+  text-align: center;
+}
+.ql-editor .ql-align-justify {
+  text-align: justify;
+}
+.ql-editor .ql-align-right {
+  text-align: right;
+}
+.ql-editor.ql-blank::before {
+  color: rgba(0,0,0,0.6);
+  content: attr(data-placeholder);
+  font-style: italic;
+  left: 15px;
+  pointer-events: none;
+  position: absolute;
+  right: 15px;
+}
+.ql-snow.ql-toolbar:after,
+.ql-snow .ql-toolbar:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+.ql-snow.ql-toolbar button,
+.ql-snow .ql-toolbar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  height: 24px;
+  padding: 3px 5px;
+  width: 28px;
+}
+.ql-snow.ql-toolbar button svg,
+.ql-snow .ql-toolbar button svg {
+  float: left;
+  height: 100%;
+}
+.ql-snow.ql-toolbar button:active:hover,
+.ql-snow .ql-toolbar button:active:hover {
+  outline: none;
+}
+.ql-snow.ql-toolbar input.ql-image[type=file],
+.ql-snow .ql-toolbar input.ql-image[type=file] {
+  display: none;
+}
+.ql-snow.ql-toolbar button:hover,
+.ql-snow .ql-toolbar button:hover,
+.ql-snow.ql-toolbar button:focus,
+.ql-snow .ql-toolbar button:focus,
+.ql-snow.ql-toolbar button.ql-active,
+.ql-snow .ql-toolbar button.ql-active,
+.ql-snow.ql-toolbar .ql-picker-label:hover,
+.ql-snow .ql-toolbar .ql-picker-label:hover,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active,
+.ql-snow.ql-toolbar .ql-picker-item:hover,
+.ql-snow .ql-toolbar .ql-picker-item:hover,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected {
+  color: #06c;
+}
+.ql-snow.ql-toolbar button:hover .ql-fill,
+.ql-snow .ql-toolbar button:hover .ql-fill,
+.ql-snow.ql-toolbar button:focus .ql-fill,
+.ql-snow .ql-toolbar button:focus .ql-fill,
+.ql-snow.ql-toolbar button.ql-active .ql-fill,
+.ql-snow .ql-toolbar button.ql-active .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-fill,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-fill,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-fill,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-fill,
+.ql-snow.ql-toolbar button:hover .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar button:hover .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar button:focus .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar button:focus .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar button.ql-active .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill {
+  fill: #06c;
+}
+.ql-snow.ql-toolbar button:hover .ql-stroke,
+.ql-snow .ql-toolbar button:hover .ql-stroke,
+.ql-snow.ql-toolbar button:focus .ql-stroke,
+.ql-snow .ql-toolbar button:focus .ql-stroke,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke,
+.ql-snow .ql-toolbar button.ql-active .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+.ql-snow.ql-toolbar button:hover .ql-stroke-miter,
+.ql-snow .ql-toolbar button:hover .ql-stroke-miter,
+.ql-snow.ql-toolbar button:focus .ql-stroke-miter,
+.ql-snow .ql-toolbar button:focus .ql-stroke-miter,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke-miter,
+.ql-snow .ql-toolbar button.ql-active .ql-stroke-miter,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
+  stroke: #06c;
+}
+@media (pointer: coarse) {
+  .ql-snow.ql-toolbar button:hover:not(.ql-active),
+  .ql-snow .ql-toolbar button:hover:not(.ql-active) {
+    color: #444;
+  }
+  .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-fill,
+  .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-fill,
+  .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill,
+  .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill {
+    fill: #444;
+  }
+  .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke,
+  .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke,
+  .ql-snow.ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter,
+  .ql-snow .ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter {
+    stroke: #444;
+  }
+}
+.ql-snow {
+  box-sizing: border-box;
+}
+.ql-snow * {
+  box-sizing: border-box;
+}
+.ql-snow .ql-hidden {
+  display: none;
+}
+.ql-snow .ql-out-bottom,
+.ql-snow .ql-out-top {
+  visibility: hidden;
+}
+.ql-snow .ql-tooltip {
+  position: absolute;
+  transform: translateY(10px);
+}
+.ql-snow .ql-tooltip a {
+  cursor: pointer;
+  text-decoration: none;
+}
+.ql-snow .ql-tooltip.ql-flip {
+  transform: translateY(-10px);
+}
+.ql-snow .ql-formats {
+  display: inline-block;
+  vertical-align: middle;
+}
+.ql-snow .ql-formats:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+.ql-snow .ql-stroke {
+  fill: none;
+  stroke: #444;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+.ql-snow .ql-stroke-miter {
+  fill: none;
+  stroke: #444;
+  stroke-miterlimit: 10;
+  stroke-width: 2;
+}
+.ql-snow .ql-fill,
+.ql-snow .ql-stroke.ql-fill {
+  fill: #444;
+}
+.ql-snow .ql-empty {
+  fill: none;
+}
+.ql-snow .ql-even {
+  fill-rule: evenodd;
+}
+.ql-snow .ql-thin,
+.ql-snow .ql-stroke.ql-thin {
+  stroke-width: 1;
+}
+.ql-snow .ql-transparent {
+  opacity: 0.4;
+}
+.ql-snow .ql-direction svg:last-child {
+  display: none;
+}
+.ql-snow .ql-direction.ql-active svg:last-child {
+  display: inline;
+}
+.ql-snow .ql-direction.ql-active svg:first-child {
+  display: none;
+}
+.ql-snow .ql-editor h1 {
+  font-size: 2em;
+}
+.ql-snow .ql-editor h2 {
+  font-size: 1.5em;
+}
+.ql-snow .ql-editor h3 {
+  font-size: 1.17em;
+}
+.ql-snow .ql-editor h4 {
+  font-size: 1em;
+}
+.ql-snow .ql-editor h5 {
+  font-size: 0.83em;
+}
+.ql-snow .ql-editor h6 {
+  font-size: 0.67em;
+}
+.ql-snow .ql-editor a {
+  text-decoration: underline;
+}
+.ql-snow .ql-editor blockquote {
+  border-left: 4px solid #ccc;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding-left: 16px;
+}
+.ql-snow .ql-editor code,
+.ql-snow .ql-editor pre {
+  background-color: #f0f0f0;
+  border-radius: 3px;
+}
+.ql-snow .ql-editor pre {
+  white-space: pre-wrap;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 5px 10px;
+}
+.ql-snow .ql-editor code {
+  font-size: 85%;
+  padding: 2px 4px;
+}
+.ql-snow .ql-editor pre.ql-syntax {
+  background-color: #23241f;
+  color: #f8f8f2;
+  overflow: visible;
+}
+.ql-snow .ql-editor img {
+  max-width: 100%;
+}
+.ql-snow .ql-picker {
+  color: #444;
+  display: inline-block;
+  float: left;
+  font-size: 14px;
+  font-weight: 500;
+  height: 24px;
+  position: relative;
+  vertical-align: middle;
+}
+.ql-snow .ql-picker-label {
+  cursor: pointer;
+  display: inline-block;
+  height: 100%;
+  padding-left: 8px;
+  padding-right: 2px;
+  position: relative;
+  width: 100%;
+}
+.ql-snow .ql-picker-label::before {
+  display: inline-block;
+  line-height: 22px;
+}
+.ql-snow .ql-picker-options {
+  background-color: #fff;
+  display: none;
+  min-width: 100%;
+  padding: 4px 8px;
+  position: absolute;
+  white-space: nowrap;
+}
+.ql-snow .ql-picker-options .ql-picker-item {
+  cursor: pointer;
+  display: block;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.ql-snow .ql-picker.ql-expanded .ql-picker-label {
+  color: #ccc;
+  z-index: 2;
+}
+.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-fill {
+  fill: #ccc;
+}
+.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {
+  stroke: #ccc;
+}
+.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+  display: block;
+  margin-top: -1px;
+  top: 100%;
+  z-index: 1;
+}
+.ql-snow .ql-color-picker,
+.ql-snow .ql-icon-picker {
+  width: 28px;
+}
+.ql-snow .ql-color-picker .ql-picker-label,
+.ql-snow .ql-icon-picker .ql-picker-label {
+  padding: 2px 4px;
+}
+.ql-snow .ql-color-picker .ql-picker-label svg,
+.ql-snow .ql-icon-picker .ql-picker-label svg {
+  right: 4px;
+}
+.ql-snow .ql-icon-picker .ql-picker-options {
+  padding: 4px 0px;
+}
+.ql-snow .ql-icon-picker .ql-picker-item {
+  height: 24px;
+  width: 24px;
+  padding: 2px 4px;
+}
+.ql-snow .ql-color-picker .ql-picker-options {
+  padding: 3px 5px;
+  width: 152px;
+}
+.ql-snow .ql-color-picker .ql-picker-item {
+  border: 1px solid transparent;
+  float: left;
+  height: 16px;
+  margin: 2px;
+  padding: 0px;
+  width: 16px;
+}
+.ql-snow .ql-picker:not(.ql-color-picker):not(.ql-icon-picker) svg {
+  position: absolute;
+  margin-top: -9px;
+  right: 0;
+  top: 50%;
+  width: 18px;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-label]:not([data-label=''])::before {
+  content: attr(data-label);
+}
+.ql-snow .ql-picker.ql-header {
+  width: 98px;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item::before {
+  content: 'Normal';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="1"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="1"]::before {
+  content: 'Heading 1';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="2"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="2"]::before {
+  content: 'Heading 2';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="3"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="3"]::before {
+  content: 'Heading 3';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="4"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="4"]::before {
+  content: 'Heading 4';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="5"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="5"]::before {
+  content: 'Heading 5';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="6"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="6"]::before {
+  content: 'Heading 6';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="1"]::before {
+  font-size: 2em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="2"]::before {
+  font-size: 1.5em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="3"]::before {
+  font-size: 1.17em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="4"]::before {
+  font-size: 1em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="5"]::before {
+  font-size: 0.83em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="6"]::before {
+  font-size: 0.67em;
+}
+.ql-snow .ql-picker.ql-font {
+  width: 108px;
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item::before {
+  content: 'Sans Serif';
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value=serif]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=serif]::before {
+  content: 'Serif';
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value=monospace]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before {
+  content: 'Monospace';
+}
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=serif]::before {
+  font-family: Georgia, Times New Roman, serif;
+}
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before {
+  font-family: Monaco, Courier New, monospace;
+}
+.ql-snow .ql-picker.ql-size {
+  width: 98px;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item::before {
+  content: 'Normal';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=small]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=small]::before {
+  content: 'Small';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=large]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=large]::before {
+  content: 'Large';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=huge]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=huge]::before {
+  content: 'Huge';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=small]::before {
+  font-size: 10px;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=large]::before {
+  font-size: 18px;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=huge]::before {
+  font-size: 32px;
+}
+.ql-snow .ql-color-picker.ql-background .ql-picker-item {
+  background-color: #fff;
+}
+.ql-snow .ql-color-picker.ql-color .ql-picker-item {
+  background-color: #000;
+}
+.ql-toolbar.ql-snow {
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  padding: 8px;
+}
+.ql-toolbar.ql-snow .ql-formats {
+  margin-right: 15px;
+}
+.ql-toolbar.ql-snow .ql-picker-label {
+  border: 1px solid transparent;
+}
+.ql-toolbar.ql-snow .ql-picker-options {
+  border: 1px solid transparent;
+  box-shadow: rgba(0,0,0,0.2) 0 2px 8px;
+}
+.ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label {
+  border-color: #ccc;
+}
+.ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+  border-color: #ccc;
+}
+.ql-toolbar.ql-snow .ql-color-picker .ql-picker-item.ql-selected,
+.ql-toolbar.ql-snow .ql-color-picker .ql-picker-item:hover {
+  border-color: #000;
+}
+.ql-toolbar.ql-snow + .ql-container.ql-snow {
+  border-top: 0px;
+}
+.ql-snow .ql-tooltip {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 5px #ddd;
+  color: #444;
+  padding: 5px 12px;
+  white-space: nowrap;
+}
+.ql-snow .ql-tooltip::before {
+  content: "Visit URL:";
+  line-height: 26px;
+  margin-right: 8px;
+}
+.ql-snow .ql-tooltip input[type=text] {
+  display: none;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  height: 26px;
+  margin: 0px;
+  padding: 3px 5px;
+  width: 170px;
+}
+.ql-snow .ql-tooltip a.ql-preview {
+  display: inline-block;
+  max-width: 200px;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+.ql-snow .ql-tooltip a.ql-action::after {
+  border-right: 1px solid #ccc;
+  content: 'Edit';
+  margin-left: 16px;
+  padding-right: 8px;
+}
+.ql-snow .ql-tooltip a.ql-remove::before {
+  content: 'Remove';
+  margin-left: 8px;
+}
+.ql-snow .ql-tooltip a {
+  line-height: 26px;
+}
+.ql-snow .ql-tooltip.ql-editing a.ql-preview,
+.ql-snow .ql-tooltip.ql-editing a.ql-remove {
+  display: none;
+}
+.ql-snow .ql-tooltip.ql-editing input[type=text] {
+  display: inline-block;
+}
+.ql-snow .ql-tooltip.ql-editing a.ql-action::after {
+  border-right: 0px;
+  content: 'Save';
+  padding-right: 0px;
+}
+.ql-snow .ql-tooltip[data-mode=link]::before {
+  content: "Enter link:";
+}
+.ql-snow .ql-tooltip[data-mode=formula]::before {
+  content: "Enter formula:";
+}
+.ql-snow .ql-tooltip[data-mode=video]::before {
+  content: "Enter video:";
+}
+.ql-snow a {
+  color: #06c;
+}
+.ql-container.ql-snow {
+  border: 1px solid #ccc;
+}
 
+/*! tailwindcss v2.2.19 | MIT License | https://tailwindcss.com */
+/*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 /*
 Document
 ========
 */
-
 /**
 Use a better box model (opinionated).
 */
-
 *,
 ::before,
 ::after {
 	box-sizing: border-box;
 }
-
 /**
 Use a more readable tab size (opinionated).
 */
-
 html {
 	-moz-tab-size: 4;
 	-o-tab-size: 4;
 	   tab-size: 4;
 }
-
 /**
 1. Correct the line height in all browsers.
 2. Prevent adjustments of font size after orientation changes in iOS.
 */
-
 html {
 	line-height: 1.15; /* 1 */
 	-webkit-text-size-adjust: 100%; /* 2 */
 }
-
 /*
 Sections
 ========
 */
-
 /**
 Remove the margin in all browsers.
 */
-
 body {
 	margin: 0;
 }
-
 /**
 Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
 */
-
 body {
 	font-family:
 		system-ui,
@@ -64,50 +1000,40 @@ body {
 		'Apple Color Emoji',
 		'Segoe UI Emoji';
 }
-
 /*
 Grouping content
 ================
 */
-
 /**
 1. Add the correct height in Firefox.
 2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
 */
-
 hr {
 	height: 0; /* 1 */
 	color: inherit; /* 2 */
 }
-
 /*
 Text-level semantics
 ====================
 */
-
 /**
 Add the correct text decoration in Chrome, Edge, and Safari.
 */
-
 abbr[title] {
 	-webkit-text-decoration: underline dotted;
 	        text-decoration: underline dotted;
 }
-
 /**
 Add the correct font weight in Edge and Safari.
 */
-
 b,
 strong {
 	font-weight: bolder;
 }
-
 /**
 1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
 2. Correct the odd 'em' font sizing in all browsers.
 */
-
 code,
 kbd,
 samp,
@@ -121,19 +1047,15 @@ pre {
 		monospace; /* 1 */
 	font-size: 1em; /* 2 */
 }
-
 /**
 Add the correct font size in all browsers.
 */
-
 small {
 	font-size: 80%;
 }
-
 /**
 Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
 */
-
 sub,
 sup {
 	font-size: 75%;
@@ -141,40 +1063,32 @@ sup {
 	position: relative;
 	vertical-align: baseline;
 }
-
 sub {
 	bottom: -0.25em;
 }
-
 sup {
 	top: -0.5em;
 }
-
 /*
 Tabular data
 ============
 */
-
 /**
 1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
 2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
 */
-
 table {
 	text-indent: 0; /* 1 */
 	border-color: inherit; /* 2 */
 }
-
 /*
 Forms
 =====
 */
-
 /**
 1. Change the font styles in all browsers.
 2. Remove the margin in Firefox and Safari.
 */
-
 button,
 input,
 optgroup,
@@ -185,128 +1099,102 @@ textarea {
 	line-height: 1.15; /* 1 */
 	margin: 0; /* 2 */
 }
-
 /**
 Remove the inheritance of text transform in Edge and Firefox.
 1. Remove the inheritance of text transform in Firefox.
 */
-
 button,
 select { /* 1 */
 	text-transform: none;
 }
-
 /**
 Correct the inability to style clickable types in iOS and Safari.
 */
-
 button,
 [type='button'],
 [type='reset'],
 [type='submit'] {
 	-webkit-appearance: button;
 }
-
 /**
 Remove the inner border and padding in Firefox.
 */
-
 ::-moz-focus-inner {
 	border-style: none;
 	padding: 0;
 }
-
 /**
 Restore the focus styles unset by the previous rule.
 */
-
 :-moz-focusring {
 	outline: 1px dotted ButtonText;
 }
-
 /**
 Remove the additional ':invalid' styles in Firefox.
 See: https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737
 */
-
 :-moz-ui-invalid {
 	box-shadow: none;
 }
-
 /**
 Remove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.
 */
-
 legend {
 	padding: 0;
 }
-
 /**
 Add the correct vertical alignment in Chrome and Firefox.
 */
-
 progress {
 	vertical-align: baseline;
 }
-
 /**
 Correct the cursor style of increment and decrement buttons in Safari.
 */
-
 ::-webkit-inner-spin-button,
 ::-webkit-outer-spin-button {
 	height: auto;
 }
-
 /**
 1. Correct the odd appearance in Chrome and Safari.
 2. Correct the outline style in Safari.
 */
-
 [type='search'] {
 	-webkit-appearance: textfield; /* 1 */
 	outline-offset: -2px; /* 2 */
 }
-
 /**
 Remove the inner padding in Chrome and Safari on macOS.
 */
-
 ::-webkit-search-decoration {
 	-webkit-appearance: none;
 }
-
 /**
 1. Correct the inability to style clickable types in iOS and Safari.
 2. Change font properties to 'inherit' in Safari.
 */
-
 ::-webkit-file-upload-button {
 	-webkit-appearance: button; /* 1 */
 	font: inherit; /* 2 */
 }
-
 /*
 Interactive
 ===========
 */
-
 /*
 Add the correct display in Chrome and Safari.
 */
-
 summary {
 	display: list-item;
-}/**
+}
+/**
  * Manually forked from SUIT CSS Base: https://github.com/suitcss/base
  * A thin layer on top of normalize.css that provides a starting point more
  * suitable for web applications.
  */
-
 /**
  * Removes the default spacing and border for appropriate elements.
  */
-
 blockquote,
 dl,
 dd,
@@ -322,51 +1210,41 @@ p,
 pre {
   margin: 0;
 }
-
 button {
   background-color: transparent;
   background-image: none;
 }
-
 fieldset {
   margin: 0;
   padding: 0;
 }
-
 ol,
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-
 /**
  * Tailwind custom reset styles
  */
-
 /**
  * 1. Use the user's configured `sans` font-family (with Tailwind's default
  *    sans-serif font stack as a fallback) as a sane default.
  * 2. Use Tailwind's default "normal" line-height so the user isn't forced
  *    to override it to ensure consistency even when using the default theme.
  */
-
 html {
   font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
   line-height: 1.5; /* 2 */
 }
-
-
 /**
  * Inherit font-family and line-height from `html` so users can set them as
  * a class directly on the `html` element.
  */
-
 body {
   font-family: inherit;
   line-height: inherit;
 }
-
 /**
  * 1. Prevent padding and border from affecting element width.
  *
@@ -392,7 +1270,6 @@ body {
  *
  *    https://github.com/tailwindcss/tailwindcss/pull/116
  */
-
 *,
 ::before,
 ::after {
@@ -401,15 +1278,12 @@ body {
   border-style: solid; /* 2 */
   border-color: currentColor; /* 2 */
 }
-
 /*
  * Ensure horizontal rules are visible by default
  */
-
 hr {
   border-top-width: 1px;
 }
-
 /**
  * Undo the `border-style: none` reset that Normalize applies to images so that
  * our `border-{width}` utilities have the expected effect.
@@ -419,36 +1293,29 @@ hr {
  *
  * https://github.com/tailwindcss/tailwindcss/issues/362
  */
-
 img {
   border-style: solid;
 }
-
 textarea {
   resize: vertical;
 }
-
 input::-moz-placeholder, textarea::-moz-placeholder {
   opacity: 1;
   color: #a1a1aa;
 }
-
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   opacity: 1;
   color: #a1a1aa;
 }
-
 input::placeholder,
 textarea::placeholder {
   opacity: 1;
   color: #a1a1aa;
 }
-
 button,
 [role="button"] {
   cursor: pointer;
 }
-
 /**
  * Override legacy focus reset from Normalize with modern Firefox focus styles.
  *
@@ -456,15 +1323,12 @@ button,
  * as it triggers the better focus styles even for links, which still use a dotted
  * outline in Firefox by default.
  */
- 
 :-moz-focusring {
 	outline: auto;
 }
-
 table {
   border-collapse: collapse;
 }
-
 h1,
 h2,
 h3,
@@ -474,17 +1338,14 @@ h6 {
   font-size: inherit;
   font-weight: inherit;
 }
-
 /**
  * Reset links to optimize for opt-in styling instead of
  * opt-out.
  */
-
 a {
   color: inherit;
   text-decoration: inherit;
 }
-
 /**
  * Reset form element properties that are easy to forget to
  * style explicitly so you don't inadvertently introduce
@@ -492,7 +1353,6 @@ a {
  * supplement a partial reset that is already applied by
  * normalize.css.
  */
-
 button,
 input,
 optgroup,
@@ -502,21 +1362,18 @@ textarea {
   line-height: inherit;
   color: inherit;
 }
-
 /**
  * Use the configured 'mono' font family for elements that
  * are expected to be rendered with a monospace font, falling
  * back to the system monospace stack if there is no configured
  * 'mono' font family.
  */
-
 pre,
 code,
 kbd,
 samp {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
-
 /**
  * 1. Make replaced elements `display: block` by default as that's
  *    the behavior you want almost all of the time. Inspired by
@@ -533,7 +1390,6 @@ samp {
  * 
  *    https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210
  */
-
 img,
 svg,
 video,
@@ -545,29 +1401,24 @@ object {
   display: block; /* 1 */
   vertical-align: middle; /* 2 */
 }
-
 /**
  * Constrain images and videos to the parent width and preserve
  * their intrinsic aspect ratio.
  *
  * https://github.com/mozdevs/cssremedy/issues/14
  */
-
 img,
 video {
   max-width: 100%;
   height: auto;
 }
-
 /**
  * Ensure the default browser behavior of the `hidden` attribute.
  */
-
 [hidden] {
   display: none;
 }
-
-*, ::before, ::after {
+*, ::before, ::after{
 	--tw-translate-x: 0;
 	--tw-translate-y: 0;
 	--tw-rotate: 0;
@@ -599,8 +1450,7 @@ video {
 	--tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
 	--tw-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
-
-[type='text'],[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select {
+[type='text'],[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select{
 	-webkit-appearance: none;
 	   -moz-appearance: none;
 	        appearance: none;
@@ -616,8 +1466,7 @@ video {
 	line-height: 1.5rem;
 	--tw-shadow: 0 0 #0000;
 }
-
-[type='text']:focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus {
+[type='text']:focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus{
 	outline: 2px solid transparent;
 	outline-offset: 2px;
 	--tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
@@ -629,31 +1478,25 @@ video {
 	box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
 	border-color: #2563eb;
 }
-
-input::-moz-placeholder, textarea::-moz-placeholder {
+input::-moz-placeholder, textarea::-moz-placeholder{
 	color: #71717a;
 	opacity: 1;
 }
-
-input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+input:-ms-input-placeholder, textarea:-ms-input-placeholder{
 	color: #71717a;
 	opacity: 1;
 }
-
-input::placeholder,textarea::placeholder {
+input::placeholder,textarea::placeholder{
 	color: #71717a;
 	opacity: 1;
 }
-
-::-webkit-datetime-edit-fields-wrapper {
+::-webkit-datetime-edit-fields-wrapper{
 	padding: 0;
 }
-
-::-webkit-date-and-time-value {
+::-webkit-date-and-time-value{
 	min-height: 1.5em;
 }
-
-select {
+select{
 	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2371717a' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
 	background-position: right 0.5rem center;
 	background-repeat: no-repeat;
@@ -662,8 +1505,7 @@ select {
 	-webkit-print-color-adjust: exact;
 	        color-adjust: exact;
 }
-
-[multiple] {
+[multiple]{
 	background-image: initial;
 	background-position: initial;
 	background-repeat: unset;
@@ -672,8 +1514,7 @@ select {
 	-webkit-print-color-adjust: unset;
 	        color-adjust: unset;
 }
-
-[type='checkbox'],[type='radio'] {
+[type='checkbox'],[type='radio']{
 	-webkit-appearance: none;
 	   -moz-appearance: none;
 	        appearance: none;
@@ -696,16 +1537,13 @@ select {
 	border-width: 1px;
 	--tw-shadow: 0 0 #0000;
 }
-
-[type='checkbox'] {
+[type='checkbox']{
 	border-radius: 0px;
 }
-
-[type='radio'] {
+[type='radio']{
 	border-radius: 100%;
 }
-
-[type='checkbox']:focus,[type='radio']:focus {
+[type='checkbox']:focus,[type='radio']:focus{
 	outline: 2px solid transparent;
 	outline-offset: 2px;
 	--tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
@@ -716,29 +1554,24 @@ select {
 	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
 	box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
 }
-
-[type='checkbox']:checked,[type='radio']:checked {
+[type='checkbox']:checked,[type='radio']:checked{
 	border-color: transparent;
 	background-color: currentColor;
 	background-size: 100% 100%;
 	background-position: center;
 	background-repeat: no-repeat;
 }
-
-[type='checkbox']:checked {
+[type='checkbox']:checked{
 	background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
 }
-
-[type='radio']:checked {
+[type='radio']:checked{
 	background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
 }
-
-[type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus {
+[type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus{
 	border-color: transparent;
 	background-color: currentColor;
 }
-
-[type='checkbox']:indeterminate {
+[type='checkbox']:indeterminate{
 	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");
 	border-color: transparent;
 	background-color: currentColor;
@@ -746,13 +1579,11 @@ select {
 	background-position: center;
 	background-repeat: no-repeat;
 }
-
-[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus {
+[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus{
 	border-color: transparent;
 	background-color: currentColor;
 }
-
-[type='file'] {
+[type='file']{
 	background: unset;
 	border-color: inherit;
 	border-width: 0;
@@ -761,347 +1592,341 @@ select {
 	font-size: unset;
 	line-height: inherit;
 }
-
-[type='file']:focus {
+[type='file']:focus{
 	outline: 1px auto -webkit-focus-ring-color;
 }
-.container {
+.container{
 	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
 }
-@media (min-width: 640px) {
-
-	.container {
+@media (min-width: 640px){
+	.container{
 		max-width: 640px;
 	}
 }
-@media (min-width: 768px) {
-
-	.container {
+@media (min-width: 768px){
+	.container{
 		max-width: 768px;
 	}
 }
-@media (min-width: 1024px) {
-
-	.container {
+@media (min-width: 1024px){
+	.container{
 		max-width: 1024px;
 	}
 }
-@media (min-width: 1280px) {
-
-	.container {
+@media (min-width: 1280px){
+	.container{
 		max-width: 1280px;
 	}
 }
-@media (min-width: 1536px) {
-
-	.container {
+@media (min-width: 1536px){
+	.container{
 		max-width: 1536px;
 	}
 }
-.fixed {
+.fixed{
 	position: fixed;
 }
-.relative {
+.relative{
 	position: relative;
 }
-.top-0 {
+.top-0{
 	top: 0px;
 }
-.right-0 {
+.right-0{
 	right: 0px;
 }
-.z-0 {
+.z-0{
 	z-index: 0;
 }
-.mx-auto {
+.mx-auto{
 	margin-left: auto;
 	margin-right: auto;
 }
-.ml-3 {
+.ml-3{
 	margin-left: 0.75rem;
 }
-.-ml-px {
+.-ml-px{
 	margin-left: -1px;
 }
-.mt-4 {
-	margin-top: 1rem;
-}
-.ml-1 {
-	margin-left: 0.25rem;
-}
-.mt-2 {
-	margin-top: 0.5rem;
-}
-.mr-2 {
-	margin-right: 0.5rem;
-}
-.ml-2 {
-	margin-left: 0.5rem;
-}
-.ml-4 {
-	margin-left: 1rem;
-}
-.mt-8 {
-	margin-top: 2rem;
-}
-.ml-12 {
-	margin-left: 3rem;
-}
-.-mt-px {
-	margin-top: -1px;
-}
-.mb-5 {
+.mb-5{
 	margin-bottom: 1.25rem;
 }
-.mb-0 {
+.mb-0{
 	margin-bottom: 0px;
 }
-.ml-auto {
+.ml-auto{
 	margin-left: auto;
 }
-.mr-3 {
+.mr-3{
 	margin-right: 0.75rem;
 }
-.mt-3 {
+.mt-4{
+	margin-top: 1rem;
+}
+.mt-3{
 	margin-top: 0.75rem;
 }
-.block {
+.ml-1{
+	margin-left: 0.25rem;
+}
+.mt-2{
+	margin-top: 0.5rem;
+}
+.mr-2{
+	margin-right: 0.5rem;
+}
+.ml-2{
+	margin-left: 0.5rem;
+}
+.ml-4{
+	margin-left: 1rem;
+}
+.mt-8{
+	margin-top: 2rem;
+}
+.ml-12{
+	margin-left: 3rem;
+}
+.-mt-px{
+	margin-top: -1px;
+}
+.block{
 	display: block;
 }
-.flex {
+.flex{
 	display: flex;
 }
-.inline-flex {
+.inline-flex{
 	display: inline-flex;
 }
-.grid {
+.grid{
 	display: grid;
 }
-.hidden {
+.hidden{
 	display: none;
 }
-.h-5 {
+.h-5{
 	height: 1.25rem;
 }
-.h-8 {
+.h-8{
 	height: 2rem;
 }
-.h-16 {
+.h-16{
 	height: 4rem;
 }
-.min-h-screen {
+.min-h-screen{
 	min-height: 100vh;
 }
-.w-5 {
+.w-5{
 	width: 1.25rem;
 }
-.w-full {
-	width: 100%;
-}
-.w-8 {
+.w-8{
 	width: 2rem;
 }
-.w-auto {
+.w-auto{
 	width: auto;
 }
-.max-w-xl {
+.w-full{
+	width: 100%;
+}
+.max-w-xl{
 	max-width: 36rem;
 }
-.max-w-6xl {
+.max-w-6xl{
 	max-width: 72rem;
 }
-.flex-1 {
+.flex-1{
 	flex: 1 1 0%;
 }
-.cursor-default {
+.cursor-default{
 	cursor: default;
 }
-.grid-cols-1 {
+.grid-cols-1{
 	grid-template-columns: repeat(1, minmax(0, 1fr));
 }
-.items-center {
+.items-center{
 	align-items: center;
 }
-.justify-center {
+.justify-center{
 	justify-content: center;
 }
-.justify-between {
+.justify-between{
 	justify-content: space-between;
 }
-.overflow-hidden {
+.overflow-hidden{
 	overflow: hidden;
 }
-.rounded-md {
+.rounded-md{
 	border-radius: 0.375rem;
 }
-.rounded-l-md {
+.rounded-l-md{
 	border-top-left-radius: 0.375rem;
 	border-bottom-left-radius: 0.375rem;
 }
-.rounded-r-md {
+.rounded-r-md{
 	border-top-right-radius: 0.375rem;
 	border-bottom-right-radius: 0.375rem;
 }
-.border {
+.border{
 	border-width: 1px;
 }
-.border-t {
+.border-t{
 	border-top-width: 1px;
 }
-.border-r {
+.border-r{
 	border-right-width: 1px;
 }
-.border-gray-300 {
+.border-gray-300{
 	--tw-border-opacity: 1;
 	border-color: rgba(212, 212, 216, var(--tw-border-opacity));
 }
-.border-gray-200 {
+.border-gray-200{
 	--tw-border-opacity: 1;
 	border-color: rgba(228, 228, 231, var(--tw-border-opacity));
 }
-.border-gray-400 {
+.border-gray-400{
 	--tw-border-opacity: 1;
 	border-color: rgba(161, 161, 170, var(--tw-border-opacity));
 }
-.bg-white {
+.bg-white{
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 }
-.bg-red-50 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(254, 242, 242, var(--tw-bg-opacity));
-}
-.bg-gray-100 {
+.bg-gray-100{
 	--tw-bg-opacity: 1;
 	background-color: rgba(244, 244, 245, var(--tw-bg-opacity));
 }
-.p-6 {
+.bg-red-50{
+	--tw-bg-opacity: 1;
+	background-color: rgba(254, 242, 242, var(--tw-bg-opacity));
+}
+.p-6{
 	padding: 1.5rem;
 }
-.px-4 {
+.px-4{
 	padding-left: 1rem;
 	padding-right: 1rem;
 }
-.py-2 {
+.py-2{
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
 }
-.px-2 {
+.px-2{
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
 }
-.py-4 {
+.py-4{
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 }
-.px-6 {
+.px-6{
 	padding-left: 1.5rem;
 	padding-right: 1.5rem;
 }
-.pt-8 {
-	padding-top: 2rem;
-}
-.pt-0 {
+.pt-0{
 	padding-top: 0px;
 }
-.text-center {
+.pt-8{
+	padding-top: 2rem;
+}
+.text-center{
 	text-align: center;
 }
-.text-right {
+.text-right{
 	text-align: right;
 }
-.text-sm {
+.text-sm{
 	font-size: 0.875rem;
 	line-height: 1.25rem;
 }
-.text-lg {
+.text-lg{
 	font-size: 1.125rem;
 	line-height: 1.75rem;
 }
-.font-medium {
+.font-medium{
 	font-weight: 500;
 }
-.font-semibold {
+.font-semibold{
 	font-weight: 600;
 }
-.uppercase {
+.uppercase{
 	text-transform: uppercase;
 }
-.leading-5 {
+.leading-5{
 	line-height: 1.25rem;
 }
-.leading-7 {
+.leading-7{
 	line-height: 1.75rem;
 }
-.tracking-wider {
+.tracking-wider{
 	letter-spacing: 0.05em;
 }
-.text-gray-500 {
+.text-gray-500{
 	--tw-text-opacity: 1;
 	color: rgba(113, 113, 122, var(--tw-text-opacity));
 }
-.text-gray-700 {
+.text-gray-700{
 	--tw-text-opacity: 1;
 	color: rgba(63, 63, 70, var(--tw-text-opacity));
 }
-.text-gray-600 {
-	--tw-text-opacity: 1;
-	color: rgba(82, 82, 91, var(--tw-text-opacity));
-}
-.text-gray-200 {
+.text-gray-200{
 	--tw-text-opacity: 1;
 	color: rgba(228, 228, 231, var(--tw-text-opacity));
 }
-.text-gray-300 {
+.text-gray-300{
 	--tw-text-opacity: 1;
 	color: rgba(212, 212, 216, var(--tw-text-opacity));
 }
-.text-gray-400 {
+.text-gray-400{
 	--tw-text-opacity: 1;
 	color: rgba(161, 161, 170, var(--tw-text-opacity));
 }
-.text-gray-900 {
+.text-gray-600{
+	--tw-text-opacity: 1;
+	color: rgba(82, 82, 91, var(--tw-text-opacity));
+}
+.text-gray-900{
 	--tw-text-opacity: 1;
 	color: rgba(24, 24, 27, var(--tw-text-opacity));
 }
-.underline {
+.underline{
 	text-decoration: underline;
 }
-.antialiased {
+.antialiased{
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-.shadow-sm {
+.shadow-sm{
 	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-.shadow {
+.shadow{
 	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-.ring-gray-300 {
+.ring-gray-300{
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(212, 212, 216, var(--tw-ring-opacity));
 }
-.transition {
+.transition{
 	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
 	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
 	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
 }
-.duration-150 {
+.duration-150{
 	transition-duration: 150ms;
 }
-.ease-in-out {
+.ease-in-out{
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 :root {
   --hgroup-color: #4b5563;
 }
-body {
+body{
 	--tw-bg-opacity: 1;
 	background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
 	font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -1110,17 +1935,16 @@ body {
 	display: flex;
 	flex-direction: column;
 }
-body > header, body > nav, body > #content, body > footer {
+body > header, body > nav, body > #content, body > footer{
 	display: flex;
 	flex-direction: column;
 }
-@media (min-width: 640px) {
-
-	body > header, body > nav, body > #content, body > footer {
+@media (min-width: 640px){
+	body > header, body > nav, body > #content, body > footer{
 		flex-direction: row;
 	}
 }
-body #top {
+body #top{
 	--tw-bg-opacity: 1;
 	background-color: rgba(51, 65, 85, var(--tw-bg-opacity));
 	--tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
@@ -1128,84 +1952,75 @@ body #top {
 	--tw-drop-shadow: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
 	filter: var(--tw-filter);
 }
-body #top nav {
+body #top nav{
 	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
 }
-@media (min-width: 640px) {
-
-	body #top nav {
+@media (min-width: 640px){
+	body #top nav{
 		max-width: 640px;
 	}
 }
-@media (min-width: 768px) {
-
-	body #top nav {
+@media (min-width: 768px){
+	body #top nav{
 		max-width: 768px;
 	}
 }
-@media (min-width: 1024px) {
-
-	body #top nav {
+@media (min-width: 1024px){
+	body #top nav{
 		max-width: 1024px;
 	}
 }
-@media (min-width: 1280px) {
-
-	body #top nav {
+@media (min-width: 1280px){
+	body #top nav{
 		max-width: 1280px;
 	}
 }
-@media (min-width: 1536px) {
-
-	body #top nav {
+@media (min-width: 1536px){
+	body #top nav{
 		max-width: 1536px;
 	}
 }
-body #top nav {
+body #top nav{
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
 }
-@media (min-width: 1024px) {
-
-	body #top nav {
+@media (min-width: 1024px){
+	body #top nav{
 		width: 66.666667%;
 	}
 }
-body #top nav {
+body #top nav{
 	background-color: transparent;
 }
-body #top nav ul {
+body #top nav ul{
 	display: flex;
 	flex-direction: column;
 }
-@media (min-width: 1024px) {
-
-	body #top nav ul {
+@media (min-width: 1024px){
+	body #top nav ul{
 		flex-direction: row;
 	}
 }
-body #top nav li {
+body #top nav li{
 	text-align: center;
 }
-@media (min-width: 768px) {
-
-	body #top nav li {
+@media (min-width: 768px){
+	body #top nav li{
 		width: 100%;
 	}
 }
-body #top nav li {
+body #top nav li{
 	margin-bottom: 0.5rem;
 }
-@media (min-width: 640px) {
-
-	body #top nav li {
+@media (min-width: 640px){
+	body #top nav li{
 		margin-bottom: 0px;
 	}
 }
-body #top nav li:hover, body #top nav li.active:hover {
+body #top nav li:hover, body #top nav li.active:hover{
 	--tw-bg-opacity: 1;
 	background-color: rgba(100, 116, 139, var(--tw-bg-opacity));
 	--tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
@@ -1213,105 +2028,87 @@ body #top nav li:hover, body #top nav li.active:hover {
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
-body #top nav li.active {
+body #top nav li.active{
 	--tw-bg-opacity: 1;
 	background-color: rgba(71, 85, 105, var(--tw-bg-opacity));
 }
-body #top nav li a {
+body #top nav li a{
 	padding: 0.5rem;
 }
-@media (min-width: 640px) {
-
-	body #top nav li a {
+@media (min-width: 640px){
+	body #top nav li a{
 		padding: 1.5rem;
 	}
 }
-body #top nav li a {
+body #top nav li a{
 	display: inline-block;
 	width: 100%;
 	width: 100%;
 }
-@media (min-width: 1024px) {
-
-	body #top nav li a {
+@media (min-width: 1024px){
+	body #top nav li a{
 		color: #3f3f46;
 		max-width: 65ch;
 	}
-
-	body #top nav li a [class~="lead"] {
+	body #top nav li a [class~="lead"]{
 		color: #52525b;
 		font-size: 1.25em;
 		line-height: 1.6;
 		margin-top: 1.2em;
 		margin-bottom: 1.2em;
 	}
-
-	body #top nav li a a {
+	body #top nav li a a{
 		color: #18181b;
 		text-decoration: underline;
 		font-weight: 500;
 	}
-
-	body #top nav li a strong {
+	body #top nav li a strong{
 		color: #18181b;
 		font-weight: 600;
 	}
-
-	body #top nav li a ol[type="A"] {
+	body #top nav li a ol[type="A"]{
 		--list-counter-style: upper-alpha;
 	}
-
-	body #top nav li a ol[type="a"] {
+	body #top nav li a ol[type="a"]{
 		--list-counter-style: lower-alpha;
 	}
-
-	body #top nav li a ol[type="A" s] {
+	body #top nav li a ol[type="A" s]{
 		--list-counter-style: upper-alpha;
 	}
-
-	body #top nav li a ol[type="a" s] {
+	body #top nav li a ol[type="a" s]{
 		--list-counter-style: lower-alpha;
 	}
-
-	body #top nav li a ol[type="I"] {
+	body #top nav li a ol[type="I"]{
 		--list-counter-style: upper-roman;
 	}
-
-	body #top nav li a ol[type="i"] {
+	body #top nav li a ol[type="i"]{
 		--list-counter-style: lower-roman;
 	}
-
-	body #top nav li a ol[type="I" s] {
+	body #top nav li a ol[type="I" s]{
 		--list-counter-style: upper-roman;
 	}
-
-	body #top nav li a ol[type="i" s] {
+	body #top nav li a ol[type="i" s]{
 		--list-counter-style: lower-roman;
 	}
-
-	body #top nav li a ol[type="1"] {
+	body #top nav li a ol[type="1"]{
 		--list-counter-style: decimal;
 	}
-
-	body #top nav li a ol > li {
+	body #top nav li a ol > li{
 		position: relative;
 		padding-left: 1.75em;
 	}
-
-	body #top nav li a ol > li::before {
+	body #top nav li a ol > li::before{
 		content: counter(list-item, var(--list-counter-style, decimal)) ".";
 		position: absolute;
 		font-weight: 400;
 		color: #71717a;
 		left: 0;
 	}
-
-	body #top nav li a ul > li {
+	body #top nav li a ul > li{
 		position: relative;
 		padding-left: 1.75em;
 	}
-
-	body #top nav li a ul > li::before {
+	body #top nav li a ul > li::before{
 		content: "";
 		position: absolute;
 		background-color: #d4d4d8;
@@ -1321,15 +2118,13 @@ body #top nav li a {
 		top: calc(0.875em - 0.1875em);
 		left: 0.25em;
 	}
-
-	body #top nav li a hr {
+	body #top nav li a hr{
 		border-color: #e4e4e7;
 		border-top-width: 1px;
 		margin-top: 3em;
 		margin-bottom: 3em;
 	}
-
-	body #top nav li a blockquote {
+	body #top nav li a blockquote{
 		font-weight: 500;
 		font-style: italic;
 		color: #18181b;
@@ -1340,16 +2135,13 @@ body #top nav li a {
 		margin-bottom: 1.6em;
 		padding-left: 1em;
 	}
-
-	body #top nav li a blockquote p:first-of-type::before {
+	body #top nav li a blockquote p:first-of-type::before{
 		content: open-quote;
 	}
-
-	body #top nav li a blockquote p:last-of-type::after {
+	body #top nav li a blockquote p:last-of-type::after{
 		content: close-quote;
 	}
-
-	body #top nav li a h1 {
+	body #top nav li a h1{
 		color: #18181b;
 		font-weight: 800;
 		font-size: 2.25em;
@@ -1357,8 +2149,7 @@ body #top nav li a {
 		margin-bottom: 0.8888889em;
 		line-height: 1.1111111;
 	}
-
-	body #top nav li a h2 {
+	body #top nav li a h2{
 		color: #18181b;
 		font-weight: 700;
 		font-size: 1.5em;
@@ -1366,8 +2157,7 @@ body #top nav li a {
 		margin-bottom: 1em;
 		line-height: 1.3333333;
 	}
-
-	body #top nav li a h3 {
+	body #top nav li a h3{
 		color: #18181b;
 		font-weight: 600;
 		font-size: 1.25em;
@@ -1375,41 +2165,34 @@ body #top nav li a {
 		margin-bottom: 0.6em;
 		line-height: 1.6;
 	}
-
-	body #top nav li a h4 {
+	body #top nav li a h4{
 		color: #18181b;
 		font-weight: 600;
 		margin-top: 1.5em;
 		margin-bottom: 0.5em;
 		line-height: 1.5;
 	}
-
-	body #top nav li a figure figcaption {
+	body #top nav li a figure figcaption{
 		color: #71717a;
 		font-size: 0.875em;
 		line-height: 1.4285714;
 		margin-top: 0.8571429em;
 	}
-
-	body #top nav li a code {
+	body #top nav li a code{
 		color: #18181b;
 		font-weight: 600;
 		font-size: 0.875em;
 	}
-
-	body #top nav li a code::before {
+	body #top nav li a code::before{
 		content: "`";
 	}
-
-	body #top nav li a code::after {
+	body #top nav li a code::after{
 		content: "`";
 	}
-
-	body #top nav li a a code {
+	body #top nav li a a code{
 		color: #18181b;
 	}
-
-	body #top nav li a pre {
+	body #top nav li a pre{
 		color: #e4e4e7;
 		background-color: #27272a;
 		overflow-x: auto;
@@ -1423,8 +2206,7 @@ body #top nav li a {
 		padding-bottom: 0.8571429em;
 		padding-left: 1.1428571em;
 	}
-
-	body #top nav li a pre code {
+	body #top nav li a pre code{
 		background-color: transparent;
 		border-width: 0;
 		border-radius: 0;
@@ -1435,16 +2217,13 @@ body #top nav li a {
 		font-family: inherit;
 		line-height: inherit;
 	}
-
-	body #top nav li a pre code::before {
+	body #top nav li a pre code::before{
 		content: none;
 	}
-
-	body #top nav li a pre code::after {
+	body #top nav li a pre code::after{
 		content: none;
 	}
-
-	body #top nav li a table {
+	body #top nav li a table{
 		width: 100%;
 		table-layout: auto;
 		text-align: left;
@@ -1453,184 +2232,149 @@ body #top nav li a {
 		font-size: 0.875em;
 		line-height: 1.7142857;
 	}
-
-	body #top nav li a thead {
+	body #top nav li a thead{
 		color: #18181b;
 		font-weight: 600;
 		border-bottom-width: 1px;
 		border-bottom-color: #d4d4d8;
 	}
-
-	body #top nav li a thead th {
+	body #top nav li a thead th{
 		vertical-align: bottom;
 		padding-right: 0.5714286em;
 		padding-bottom: 0.5714286em;
 		padding-left: 0.5714286em;
 	}
-
-	body #top nav li a tbody tr {
+	body #top nav li a tbody tr{
 		border-bottom-width: 1px;
 		border-bottom-color: #e4e4e7;
 	}
-
-	body #top nav li a tbody tr:last-child {
+	body #top nav li a tbody tr:last-child{
 		border-bottom-width: 0;
 	}
-
-	body #top nav li a tbody td {
+	body #top nav li a tbody td{
 		vertical-align: top;
 		padding-top: 0.5714286em;
 		padding-right: 0.5714286em;
 		padding-bottom: 0.5714286em;
 		padding-left: 0.5714286em;
 	}
-
-	body #top nav li a {
+	body #top nav li a{
 		font-size: 1rem;
 		line-height: 1.75;
 	}
-
-	body #top nav li a p {
+	body #top nav li a p{
 		margin-top: 1.25em;
 		margin-bottom: 1.25em;
 	}
-
-	body #top nav li a img {
+	body #top nav li a img{
 		margin-top: 2em;
 		margin-bottom: 2em;
 	}
-
-	body #top nav li a video {
+	body #top nav li a video{
 		margin-top: 2em;
 		margin-bottom: 2em;
 	}
-
-	body #top nav li a figure {
+	body #top nav li a figure{
 		margin-top: 2em;
 		margin-bottom: 2em;
 	}
-
-	body #top nav li a figure > * {
+	body #top nav li a figure > *{
 		margin-top: 0;
 		margin-bottom: 0;
 	}
-
-	body #top nav li a h2 code {
+	body #top nav li a h2 code{
 		font-size: 0.875em;
 	}
-
-	body #top nav li a h3 code {
+	body #top nav li a h3 code{
 		font-size: 0.9em;
 	}
-
-	body #top nav li a ol {
+	body #top nav li a ol{
 		margin-top: 1.25em;
 		margin-bottom: 1.25em;
 	}
-
-	body #top nav li a ul {
+	body #top nav li a ul{
 		margin-top: 1.25em;
 		margin-bottom: 1.25em;
 	}
-
-	body #top nav li a li {
+	body #top nav li a li{
 		margin-top: 0.5em;
 		margin-bottom: 0.5em;
 	}
-
-	body #top nav li a > ul > li p {
+	body #top nav li a > ul > li p{
 		margin-top: 0.75em;
 		margin-bottom: 0.75em;
 	}
-
-	body #top nav li a > ul > li > *:first-child {
+	body #top nav li a > ul > li > *:first-child{
 		margin-top: 1.25em;
 	}
-
-	body #top nav li a > ul > li > *:last-child {
+	body #top nav li a > ul > li > *:last-child{
 		margin-bottom: 1.25em;
 	}
-
-	body #top nav li a > ol > li > *:first-child {
+	body #top nav li a > ol > li > *:first-child{
 		margin-top: 1.25em;
 	}
-
-	body #top nav li a > ol > li > *:last-child {
+	body #top nav li a > ol > li > *:last-child{
 		margin-bottom: 1.25em;
 	}
-
-	body #top nav li a ul ul, body #top nav li a ul ol, body #top nav li a ol ul, body #top nav li a ol ol {
+	body #top nav li a ul ul, body #top nav li a ul ol, body #top nav li a ol ul, body #top nav li a ol ol{
 		margin-top: 0.75em;
 		margin-bottom: 0.75em;
 	}
-
-	body #top nav li a ul ul, body #top nav li a ul ol, body #top nav li a ol ul, body #top nav li a ol ol {
+	body #top nav li a ul ul, body #top nav li a ul ol, body #top nav li a ol ul, body #top nav li a ol ol{
 		margin-top: 0.75em;
 		margin-bottom: 0.75em;
 	}
-
-	body #top nav li a ul ul, body #top nav li a ul ol, body #top nav li a ol ul, body #top nav li a ol ol {
+	body #top nav li a ul ul, body #top nav li a ul ol, body #top nav li a ol ul, body #top nav li a ol ol{
 		margin-top: 0.75em;
 		margin-bottom: 0.75em;
 	}
-
-	body #top nav li a ul ul, body #top nav li a ul ol, body #top nav li a ol ul, body #top nav li a ol ol {
+	body #top nav li a ul ul, body #top nav li a ul ol, body #top nav li a ol ul, body #top nav li a ol ol{
 		margin-top: 0.75em;
 		margin-bottom: 0.75em;
 	}
-
-	body #top nav li a hr + * {
+	body #top nav li a hr + *{
 		margin-top: 0;
 	}
-
-	body #top nav li a h2 + * {
+	body #top nav li a h2 + *{
 		margin-top: 0;
 	}
-
-	body #top nav li a h3 + * {
+	body #top nav li a h3 + *{
 		margin-top: 0;
 	}
-
-	body #top nav li a h4 + * {
+	body #top nav li a h4 + *{
 		margin-top: 0;
 	}
-
-	body #top nav li a thead th:first-child {
+	body #top nav li a thead th:first-child{
 		padding-left: 0;
 	}
-
-	body #top nav li a thead th:last-child {
+	body #top nav li a thead th:last-child{
 		padding-right: 0;
 	}
-
-	body #top nav li a tbody td:first-child {
+	body #top nav li a tbody td:first-child{
 		padding-left: 0;
 	}
-
-	body #top nav li a tbody td:last-child {
+	body #top nav li a tbody td:last-child{
 		padding-right: 0;
 	}
-
-	body #top nav li a > :first-child {
+	body #top nav li a > :first-child{
 		margin-top: 0;
 	}
-
-	body #top nav li a > :last-child {
+	body #top nav li a > :last-child{
 		margin-bottom: 0;
 	}
 }
-body #top nav li a a {
+body #top nav li a a{
 	font-weight: 600;
 	--tw-text-opacity: 1;
 	color: rgba(31, 41, 55, var(--tw-text-opacity));
 }
-body #top nav li a {
+body #top nav li a{
 	--tw-text-opacity: 1;
 	color: rgba(209, 213, 219, var(--tw-text-opacity));
 	outline: 2px solid transparent;
 	outline-offset: 2px;
 }
-body #top nav li a:focus {
+body #top nav li a:focus{
 	--tw-bg-opacity: 1;
 	background-color: rgba(100, 116, 139, var(--tw-bg-opacity));
 	--tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
@@ -1639,16 +2383,15 @@ body #top nav li a:focus {
 	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
 	box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
-body #top header {
+body #top header{
 	padding: 0.5rem;
 }
-@media (min-width: 640px) {
-
-	body #top header {
+@media (min-width: 640px){
+	body #top header{
 		padding: 1.5rem;
 	}
 }
-body #top header {
+body #top header{
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 	--tw-drop-shadow: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
@@ -1657,58 +2400,51 @@ body #top header {
 	margin-right: auto;
 	margin-left: auto;
 }
-@media (min-width: 640px) {
-
-	body #top header {
+@media (min-width: 640px){
+	body #top header{
 		max-width: 640px;
 	}
 }
-@media (min-width: 768px) {
-
-	body #top header {
+@media (min-width: 768px){
+	body #top header{
 		max-width: 768px;
 	}
 }
-@media (min-width: 1024px) {
-
-	body #top header {
+@media (min-width: 1024px){
+	body #top header{
 		max-width: 1024px;
 	}
 }
-@media (min-width: 1280px) {
-
-	body #top header {
+@media (min-width: 1280px){
+	body #top header{
 		max-width: 1280px;
 	}
 }
-@media (min-width: 1536px) {
-
-	body #top header {
+@media (min-width: 1536px){
+	body #top header{
 		max-width: 1536px;
 	}
 }
-body #top header {
+body #top header{
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
 }
-@media (min-width: 1024px) {
-
-	body #top header {
+@media (min-width: 1024px){
+	body #top header{
 		width: 66.666667%;
 	}
 }
-body #top header {
+body #top header{
 	margin-top: -0.5rem;
 }
-@media (min-width: 768px) {
-
-	body #top header {
+@media (min-width: 768px){
+	body #top header{
 		border-top-left-radius: 0.375rem;
 		border-top-right-radius: 0.375rem;
 	}
 }
-body #top header {
+body #top header{
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -1716,93 +2452,92 @@ body #top header {
 	background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
 	align-items: center;
 }
-body #top header hgroup {
+body #top header hgroup{
 	margin-right: 1.5rem;
 	flex-grow: 1;
 	padding-bottom: 1rem;
 }
-@media (min-width: 1280px) {
-
-	body #top header hgroup {
+@media (min-width: 1280px){
+	body #top header hgroup{
 		padding-bottom: 0px;
 	}
 }
 body #top header hgroup {
   color: var(--hgroup-color);
 }
-body #top header hgroup h1 {
+body #top header hgroup h1{
 	font-size: 1.5rem;
 	line-height: 1.6666667;
 }
-body #top header hgroup h1 p {
+body #top header hgroup h1 p{
 	margin-top: 1.3333333em;
 	margin-bottom: 1.3333333em;
 }
-body #top header hgroup h1 [class~="lead"] {
+body #top header hgroup h1 [class~="lead"]{
 	font-size: 1.25em;
 	line-height: 1.4666667;
 	margin-top: 1.0666667em;
 	margin-bottom: 1.0666667em;
 }
-body #top header hgroup h1 blockquote {
+body #top header hgroup h1 blockquote{
 	margin-top: 1.7777778em;
 	margin-bottom: 1.7777778em;
 	padding-left: 1.1111111em;
 }
-body #top header hgroup h1 h1 {
+body #top header hgroup h1 h1{
 	font-size: 2.6666667em;
 	margin-top: 0;
 	margin-bottom: 0.875em;
 	line-height: 1;
 }
-body #top header hgroup h1 h2 {
+body #top header hgroup h1 h2{
 	font-size: 2em;
 	margin-top: 1.5em;
 	margin-bottom: 0.8333333em;
 	line-height: 1.0833333;
 }
-body #top header hgroup h1 h3 {
+body #top header hgroup h1 h3{
 	font-size: 1.5em;
 	margin-top: 1.5555556em;
 	margin-bottom: 0.6666667em;
 	line-height: 1.2222222;
 }
-body #top header hgroup h1 h4 {
+body #top header hgroup h1 h4{
 	margin-top: 1.6666667em;
 	margin-bottom: 0.6666667em;
 	line-height: 1.5;
 }
-body #top header hgroup h1 img {
+body #top header hgroup h1 img{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body #top header hgroup h1 video {
+body #top header hgroup h1 video{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body #top header hgroup h1 figure {
+body #top header hgroup h1 figure{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body #top header hgroup h1 figure > * {
+body #top header hgroup h1 figure > *{
 	margin-top: 0;
 	margin-bottom: 0;
 }
-body #top header hgroup h1 figure figcaption {
+body #top header hgroup h1 figure figcaption{
 	font-size: 0.8333333em;
 	line-height: 1.6;
 	margin-top: 1em;
 }
-body #top header hgroup h1 code {
+body #top header hgroup h1 code{
 	font-size: 0.8333333em;
 }
-body #top header hgroup h1 h2 code {
+body #top header hgroup h1 h2 code{
 	font-size: 0.875em;
 }
-body #top header hgroup h1 h3 code {
+body #top header hgroup h1 h3 code{
 	font-size: 0.8888889em;
 }
-body #top header hgroup h1 pre {
+body #top header hgroup h1 pre{
 	font-size: 0.8333333em;
 	line-height: 1.8;
 	margin-top: 2em;
@@ -1813,50 +2548,50 @@ body #top header hgroup h1 pre {
 	padding-bottom: 1.2em;
 	padding-left: 1.6em;
 }
-body #top header hgroup h1 ol {
+body #top header hgroup h1 ol{
 	margin-top: 1.3333333em;
 	margin-bottom: 1.3333333em;
 }
-body #top header hgroup h1 ul {
+body #top header hgroup h1 ul{
 	margin-top: 1.3333333em;
 	margin-bottom: 1.3333333em;
 }
-body #top header hgroup h1 li {
+body #top header hgroup h1 li{
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
 }
-body #top header hgroup h1 ol > li {
+body #top header hgroup h1 ol > li{
 	padding-left: 1.6666667em;
 }
-body #top header hgroup h1 ol > li::before {
+body #top header hgroup h1 ol > li::before{
 	left: 0;
 }
-body #top header hgroup h1 ul > li {
+body #top header hgroup h1 ul > li{
 	padding-left: 1.6666667em;
 }
-body #top header hgroup h1 ul > li::before {
+body #top header hgroup h1 ul > li::before{
 	width: 0.3333333em;
 	height: 0.3333333em;
 	top: calc(0.8333333em - 0.1666667em);
 	left: 0.25em;
 }
-body #top header hgroup h1 > ul > li p {
+body #top header hgroup h1 > ul > li p{
 	margin-top: 0.8333333em;
 	margin-bottom: 0.8333333em;
 }
-body #top header hgroup h1 > ul > li > *:first-child {
+body #top header hgroup h1 > ul > li > *:first-child{
 	margin-top: 1.3333333em;
 }
-body #top header hgroup h1 > ul > li > *:last-child {
+body #top header hgroup h1 > ul > li > *:last-child{
 	margin-bottom: 1.3333333em;
 }
-body #top header hgroup h1 > ol > li > *:first-child {
+body #top header hgroup h1 > ol > li > *:first-child{
 	margin-top: 1.3333333em;
 }
-body #top header hgroup h1 > ol > li > *:last-child {
+body #top header hgroup h1 > ol > li > *:last-child{
 	margin-bottom: 1.3333333em;
 }
-body #top header hgroup h1 ul ul, body #top header hgroup h1 ul ol, body #top header hgroup h1 ol ul, body #top header hgroup h1 ol ol {
+body #top header hgroup h1 ul ul, body #top header hgroup h1 ul ol, body #top header hgroup h1 ol ul, body #top header hgroup h1 ol ol{
 	margin-top: 0.6666667em;
 	margin-bottom: 0.6666667em;
 	margin-top: 0.6666667em;
@@ -1866,65 +2601,65 @@ body #top header hgroup h1 ul ul, body #top header hgroup h1 ul ol, body #top he
 	margin-top: 0.6666667em;
 	margin-bottom: 0.6666667em;
 }
-body #top header hgroup h1 hr {
+body #top header hgroup h1 hr{
 	margin-top: 3em;
 	margin-bottom: 3em;
 }
-body #top header hgroup h1 hr + * {
+body #top header hgroup h1 hr + *{
 	margin-top: 0;
 }
-body #top header hgroup h1 h2 + * {
+body #top header hgroup h1 h2 + *{
 	margin-top: 0;
 }
-body #top header hgroup h1 h3 + * {
+body #top header hgroup h1 h3 + *{
 	margin-top: 0;
 }
-body #top header hgroup h1 h4 + * {
+body #top header hgroup h1 h4 + *{
 	margin-top: 0;
 }
-body #top header hgroup h1 table {
+body #top header hgroup h1 table{
 	font-size: 0.8333333em;
 	line-height: 1.4;
 }
-body #top header hgroup h1 thead th {
+body #top header hgroup h1 thead th{
 	padding-right: 0.6em;
 	padding-bottom: 0.8em;
 	padding-left: 0.6em;
 }
-body #top header hgroup h1 thead th:first-child {
+body #top header hgroup h1 thead th:first-child{
 	padding-left: 0;
 }
-body #top header hgroup h1 thead th:last-child {
+body #top header hgroup h1 thead th:last-child{
 	padding-right: 0;
 }
-body #top header hgroup h1 tbody td {
+body #top header hgroup h1 tbody td{
 	padding-top: 0.8em;
 	padding-right: 0.6em;
 	padding-bottom: 0.8em;
 	padding-left: 0.6em;
 }
-body #top header hgroup h1 tbody td:first-child {
+body #top header hgroup h1 tbody td:first-child{
 	padding-left: 0;
 }
-body #top header hgroup h1 tbody td:last-child {
+body #top header hgroup h1 tbody td:last-child{
 	padding-right: 0;
 }
-body #top header hgroup h1 > :first-child {
+body #top header hgroup h1 > :first-child{
 	margin-top: 0;
 }
-body #top header hgroup h1 > :last-child {
+body #top header hgroup h1 > :last-child{
 	margin-bottom: 0;
 }
-body #top header hgroup h1 {
+body #top header hgroup h1{
 	font-weight: 700;
 }
-body #top header form[role=search] {
+body #top header form[role=search]{
 	width: 16rem;
 }
-body #top header form[role=search] legend {
+body #top header form[role=search] legend{
 	display: none;
 }
-body #top header form[role=search] input {
+body #top header form[role=search] input{
 	border-radius: 0.5rem;
 	transform: var(--tw-transform);
 	opacity: 0.75;
@@ -1936,89 +2671,89 @@ body #top header form[role=search] input {
 	transition-duration: 200ms;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-body #top header form[role=search] input:hover {
+body #top header form[role=search] input:hover{
 	opacity: 1;
 }
-body #top header form[role=search] input:focus {
+body #top header form[role=search] input:focus{
 	opacity: 1;
 }
-body #top header form[role=search] input {
+body #top header form[role=search] input{
 	height: 2.5rem;
 	width: 100%;
 }
-body > #content h1, body > aside h1 {
+body > #content h1, body > aside h1{
 	font-size: 1.5rem;
 	line-height: 1.6666667;
 }
-body > #content h1 p, body > aside h1 p {
+body > #content h1 p, body > aside h1 p{
 	margin-top: 1.3333333em;
 	margin-bottom: 1.3333333em;
 }
-body > #content h1 [class~="lead"], body > aside h1 [class~="lead"] {
+body > #content h1 [class~="lead"], body > aside h1 [class~="lead"]{
 	font-size: 1.25em;
 	line-height: 1.4666667;
 	margin-top: 1.0666667em;
 	margin-bottom: 1.0666667em;
 }
-body > #content h1 blockquote, body > aside h1 blockquote {
+body > #content h1 blockquote, body > aside h1 blockquote{
 	margin-top: 1.7777778em;
 	margin-bottom: 1.7777778em;
 	padding-left: 1.1111111em;
 }
-body > #content h1 h1, body > aside h1 h1 {
+body > #content h1 h1, body > aside h1 h1{
 	font-size: 2.6666667em;
 	margin-top: 0;
 	margin-bottom: 0.875em;
 	line-height: 1;
 }
-body > #content h1 h2, body > aside h1 h2 {
+body > #content h1 h2, body > aside h1 h2{
 	font-size: 2em;
 	margin-top: 1.5em;
 	margin-bottom: 0.8333333em;
 	line-height: 1.0833333;
 }
-body > #content h1 h3, body > aside h1 h3 {
+body > #content h1 h3, body > aside h1 h3{
 	font-size: 1.5em;
 	margin-top: 1.5555556em;
 	margin-bottom: 0.6666667em;
 	line-height: 1.2222222;
 }
-body > #content h1 h4, body > aside h1 h4 {
+body > #content h1 h4, body > aside h1 h4{
 	margin-top: 1.6666667em;
 	margin-bottom: 0.6666667em;
 	line-height: 1.5;
 }
-body > #content h1 img, body > aside h1 img {
+body > #content h1 img, body > aside h1 img{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body > #content h1 video, body > aside h1 video {
+body > #content h1 video, body > aside h1 video{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body > #content h1 figure, body > aside h1 figure {
+body > #content h1 figure, body > aside h1 figure{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body > #content h1 figure > *, body > aside h1 figure > * {
+body > #content h1 figure > *, body > aside h1 figure > *{
 	margin-top: 0;
 	margin-bottom: 0;
 }
-body > #content h1 figure figcaption, body > aside h1 figure figcaption {
+body > #content h1 figure figcaption, body > aside h1 figure figcaption{
 	font-size: 0.8333333em;
 	line-height: 1.6;
 	margin-top: 1em;
 }
-body > #content h1 code, body > aside h1 code {
+body > #content h1 code, body > aside h1 code{
 	font-size: 0.8333333em;
 }
-body > #content h1 h2 code, body > aside h1 h2 code {
+body > #content h1 h2 code, body > aside h1 h2 code{
 	font-size: 0.875em;
 }
-body > #content h1 h3 code, body > aside h1 h3 code {
+body > #content h1 h3 code, body > aside h1 h3 code{
 	font-size: 0.8888889em;
 }
-body > #content h1 pre, body > aside h1 pre {
+body > #content h1 pre, body > aside h1 pre{
 	font-size: 0.8333333em;
 	line-height: 1.8;
 	margin-top: 2em;
@@ -2029,50 +2764,50 @@ body > #content h1 pre, body > aside h1 pre {
 	padding-bottom: 1.2em;
 	padding-left: 1.6em;
 }
-body > #content h1 ol, body > aside h1 ol {
+body > #content h1 ol, body > aside h1 ol{
 	margin-top: 1.3333333em;
 	margin-bottom: 1.3333333em;
 }
-body > #content h1 ul, body > aside h1 ul {
+body > #content h1 ul, body > aside h1 ul{
 	margin-top: 1.3333333em;
 	margin-bottom: 1.3333333em;
 }
-body > #content h1 li, body > aside h1 li {
+body > #content h1 li, body > aside h1 li{
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
 }
-body > #content h1 ol > li, body > aside h1 ol > li {
+body > #content h1 ol > li, body > aside h1 ol > li{
 	padding-left: 1.6666667em;
 }
-body > #content h1 ol > li::before, body > aside h1 ol > li::before {
+body > #content h1 ol > li::before, body > aside h1 ol > li::before{
 	left: 0;
 }
-body > #content h1 ul > li, body > aside h1 ul > li {
+body > #content h1 ul > li, body > aside h1 ul > li{
 	padding-left: 1.6666667em;
 }
-body > #content h1 ul > li::before, body > aside h1 ul > li::before {
+body > #content h1 ul > li::before, body > aside h1 ul > li::before{
 	width: 0.3333333em;
 	height: 0.3333333em;
 	top: calc(0.8333333em - 0.1666667em);
 	left: 0.25em;
 }
-body > #content h1 > ul > li p, body > aside h1 > ul > li p {
+body > #content h1 > ul > li p, body > aside h1 > ul > li p{
 	margin-top: 0.8333333em;
 	margin-bottom: 0.8333333em;
 }
-body > #content h1 > ul > li > *:first-child, body > aside h1 > ul > li > *:first-child {
+body > #content h1 > ul > li > *:first-child, body > aside h1 > ul > li > *:first-child{
 	margin-top: 1.3333333em;
 }
-body > #content h1 > ul > li > *:last-child, body > aside h1 > ul > li > *:last-child {
+body > #content h1 > ul > li > *:last-child, body > aside h1 > ul > li > *:last-child{
 	margin-bottom: 1.3333333em;
 }
-body > #content h1 > ol > li > *:first-child, body > aside h1 > ol > li > *:first-child {
+body > #content h1 > ol > li > *:first-child, body > aside h1 > ol > li > *:first-child{
 	margin-top: 1.3333333em;
 }
-body > #content h1 > ol > li > *:last-child, body > aside h1 > ol > li > *:last-child {
+body > #content h1 > ol > li > *:last-child, body > aside h1 > ol > li > *:last-child{
 	margin-bottom: 1.3333333em;
 }
-body > #content h1 ul ul, body > #content h1 ul ol, body > #content h1 ol ul, body > #content h1 ol ol, body > aside h1 ul ul, body > aside h1 ul ol, body > aside h1 ol ul, body > aside h1 ol ol {
+body > #content h1 ul ul, body > #content h1 ul ol, body > #content h1 ol ul, body > #content h1 ol ol, body > aside h1 ul ul, body > aside h1 ul ol, body > aside h1 ol ul, body > aside h1 ol ol{
 	margin-top: 0.6666667em;
 	margin-bottom: 0.6666667em;
 	margin-top: 0.6666667em;
@@ -2082,131 +2817,131 @@ body > #content h1 ul ul, body > #content h1 ul ol, body > #content h1 ol ul, bo
 	margin-top: 0.6666667em;
 	margin-bottom: 0.6666667em;
 }
-body > #content h1 hr, body > aside h1 hr {
+body > #content h1 hr, body > aside h1 hr{
 	margin-top: 3em;
 	margin-bottom: 3em;
 }
-body > #content h1 hr + *, body > aside h1 hr + * {
+body > #content h1 hr + *, body > aside h1 hr + *{
 	margin-top: 0;
 }
-body > #content h1 h2 + *, body > aside h1 h2 + * {
+body > #content h1 h2 + *, body > aside h1 h2 + *{
 	margin-top: 0;
 }
-body > #content h1 h3 + *, body > aside h1 h3 + * {
+body > #content h1 h3 + *, body > aside h1 h3 + *{
 	margin-top: 0;
 }
-body > #content h1 h4 + *, body > aside h1 h4 + * {
+body > #content h1 h4 + *, body > aside h1 h4 + *{
 	margin-top: 0;
 }
-body > #content h1 table, body > aside h1 table {
+body > #content h1 table, body > aside h1 table{
 	font-size: 0.8333333em;
 	line-height: 1.4;
 }
-body > #content h1 thead th, body > aside h1 thead th {
+body > #content h1 thead th, body > aside h1 thead th{
 	padding-right: 0.6em;
 	padding-bottom: 0.8em;
 	padding-left: 0.6em;
 }
-body > #content h1 thead th:first-child, body > aside h1 thead th:first-child {
+body > #content h1 thead th:first-child, body > aside h1 thead th:first-child{
 	padding-left: 0;
 }
-body > #content h1 thead th:last-child, body > aside h1 thead th:last-child {
+body > #content h1 thead th:last-child, body > aside h1 thead th:last-child{
 	padding-right: 0;
 }
-body > #content h1 tbody td, body > aside h1 tbody td {
+body > #content h1 tbody td, body > aside h1 tbody td{
 	padding-top: 0.8em;
 	padding-right: 0.6em;
 	padding-bottom: 0.8em;
 	padding-left: 0.6em;
 }
-body > #content h1 tbody td:first-child, body > aside h1 tbody td:first-child {
+body > #content h1 tbody td:first-child, body > aside h1 tbody td:first-child{
 	padding-left: 0;
 }
-body > #content h1 tbody td:last-child, body > aside h1 tbody td:last-child {
+body > #content h1 tbody td:last-child, body > aside h1 tbody td:last-child{
 	padding-right: 0;
 }
-body > #content h1 > :first-child, body > aside h1 > :first-child {
+body > #content h1 > :first-child, body > aside h1 > :first-child{
 	margin-top: 0;
 }
-body > #content h1 > :last-child, body > aside h1 > :last-child {
+body > #content h1 > :last-child, body > aside h1 > :last-child{
 	margin-bottom: 0;
 }
-body > #content fieldset, body > aside fieldset {
+body > #content fieldset, body > aside fieldset{
 	padding-bottom: 0.5rem;
 }
-body > #content fieldset legend, body > aside fieldset legend {
+body > #content fieldset legend, body > aside fieldset legend{
 	font-size: 1.25rem;
 	line-height: 1.8;
 }
-body > #content fieldset legend p, body > aside fieldset legend p {
+body > #content fieldset legend p, body > aside fieldset legend p{
 	margin-top: 1.2em;
 	margin-bottom: 1.2em;
 }
-body > #content fieldset legend [class~="lead"], body > aside fieldset legend [class~="lead"] {
+body > #content fieldset legend [class~="lead"], body > aside fieldset legend [class~="lead"]{
 	font-size: 1.2em;
 	line-height: 1.5;
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
-body > #content fieldset legend blockquote, body > aside fieldset legend blockquote {
+body > #content fieldset legend blockquote, body > aside fieldset legend blockquote{
 	margin-top: 1.6em;
 	margin-bottom: 1.6em;
 	padding-left: 1.0666667em;
 }
-body > #content fieldset legend h1, body > aside fieldset legend h1 {
+body > #content fieldset legend h1, body > aside fieldset legend h1{
 	font-size: 2.8em;
 	margin-top: 0;
 	margin-bottom: 0.8571429em;
 	line-height: 1;
 }
-body > #content fieldset legend h2, body > aside fieldset legend h2 {
+body > #content fieldset legend h2, body > aside fieldset legend h2{
 	font-size: 1.8em;
 	margin-top: 1.5555556em;
 	margin-bottom: 0.8888889em;
 	line-height: 1.1111111;
 }
-body > #content fieldset legend h3, body > aside fieldset legend h3 {
+body > #content fieldset legend h3, body > aside fieldset legend h3{
 	font-size: 1.5em;
 	margin-top: 1.6em;
 	margin-bottom: 0.6666667em;
 	line-height: 1.3333333;
 }
-body > #content fieldset legend h4, body > aside fieldset legend h4 {
+body > #content fieldset legend h4, body > aside fieldset legend h4{
 	margin-top: 1.8em;
 	margin-bottom: 0.6em;
 	line-height: 1.6;
 }
-body > #content fieldset legend img, body > aside fieldset legend img {
+body > #content fieldset legend img, body > aside fieldset legend img{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body > #content fieldset legend video, body > aside fieldset legend video {
+body > #content fieldset legend video, body > aside fieldset legend video{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body > #content fieldset legend figure, body > aside fieldset legend figure {
+body > #content fieldset legend figure, body > aside fieldset legend figure{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body > #content fieldset legend figure > *, body > aside fieldset legend figure > * {
+body > #content fieldset legend figure > *, body > aside fieldset legend figure > *{
 	margin-top: 0;
 	margin-bottom: 0;
 }
-body > #content fieldset legend figure figcaption, body > aside fieldset legend figure figcaption {
+body > #content fieldset legend figure figcaption, body > aside fieldset legend figure figcaption{
 	font-size: 0.9em;
 	line-height: 1.5555556;
 	margin-top: 1em;
 }
-body > #content fieldset legend code, body > aside fieldset legend code {
+body > #content fieldset legend code, body > aside fieldset legend code{
 	font-size: 0.9em;
 }
-body > #content fieldset legend h2 code, body > aside fieldset legend h2 code {
+body > #content fieldset legend h2 code, body > aside fieldset legend h2 code{
 	font-size: 0.8611111em;
 }
-body > #content fieldset legend h3 code, body > aside fieldset legend h3 code {
+body > #content fieldset legend h3 code, body > aside fieldset legend h3 code{
 	font-size: 0.9em;
 }
-body > #content fieldset legend pre, body > aside fieldset legend pre {
+body > #content fieldset legend pre, body > aside fieldset legend pre{
 	font-size: 0.9em;
 	line-height: 1.7777778;
 	margin-top: 2em;
@@ -2217,50 +2952,50 @@ body > #content fieldset legend pre, body > aside fieldset legend pre {
 	padding-bottom: 1.1111111em;
 	padding-left: 1.3333333em;
 }
-body > #content fieldset legend ol, body > aside fieldset legend ol {
+body > #content fieldset legend ol, body > aside fieldset legend ol{
 	margin-top: 1.2em;
 	margin-bottom: 1.2em;
 }
-body > #content fieldset legend ul, body > aside fieldset legend ul {
+body > #content fieldset legend ul, body > aside fieldset legend ul{
 	margin-top: 1.2em;
 	margin-bottom: 1.2em;
 }
-body > #content fieldset legend li, body > aside fieldset legend li {
+body > #content fieldset legend li, body > aside fieldset legend li{
 	margin-top: 0.6em;
 	margin-bottom: 0.6em;
 }
-body > #content fieldset legend ol > li, body > aside fieldset legend ol > li {
+body > #content fieldset legend ol > li, body > aside fieldset legend ol > li{
 	padding-left: 1.8em;
 }
-body > #content fieldset legend ol > li::before, body > aside fieldset legend ol > li::before {
+body > #content fieldset legend ol > li::before, body > aside fieldset legend ol > li::before{
 	left: 0;
 }
-body > #content fieldset legend ul > li, body > aside fieldset legend ul > li {
+body > #content fieldset legend ul > li, body > aside fieldset legend ul > li{
 	padding-left: 1.8em;
 }
-body > #content fieldset legend ul > li::before, body > aside fieldset legend ul > li::before {
+body > #content fieldset legend ul > li::before, body > aside fieldset legend ul > li::before{
 	width: 0.35em;
 	height: 0.35em;
 	top: calc(0.9em - 0.175em);
 	left: 0.25em;
 }
-body > #content fieldset legend > ul > li p, body > aside fieldset legend > ul > li p {
+body > #content fieldset legend > ul > li p, body > aside fieldset legend > ul > li p{
 	margin-top: 0.8em;
 	margin-bottom: 0.8em;
 }
-body > #content fieldset legend > ul > li > *:first-child, body > aside fieldset legend > ul > li > *:first-child {
+body > #content fieldset legend > ul > li > *:first-child, body > aside fieldset legend > ul > li > *:first-child{
 	margin-top: 1.2em;
 }
-body > #content fieldset legend > ul > li > *:last-child, body > aside fieldset legend > ul > li > *:last-child {
+body > #content fieldset legend > ul > li > *:last-child, body > aside fieldset legend > ul > li > *:last-child{
 	margin-bottom: 1.2em;
 }
-body > #content fieldset legend > ol > li > *:first-child, body > aside fieldset legend > ol > li > *:first-child {
+body > #content fieldset legend > ol > li > *:first-child, body > aside fieldset legend > ol > li > *:first-child{
 	margin-top: 1.2em;
 }
-body > #content fieldset legend > ol > li > *:last-child, body > aside fieldset legend > ol > li > *:last-child {
+body > #content fieldset legend > ol > li > *:last-child, body > aside fieldset legend > ol > li > *:last-child{
 	margin-bottom: 1.2em;
 }
-body > #content fieldset legend ul ul, body > #content fieldset legend ul ol, body > #content fieldset legend ol ul, body > #content fieldset legend ol ol, body > aside fieldset legend ul ul, body > aside fieldset legend ul ol, body > aside fieldset legend ol ul, body > aside fieldset legend ol ol {
+body > #content fieldset legend ul ul, body > #content fieldset legend ul ol, body > #content fieldset legend ol ul, body > #content fieldset legend ol ol, body > aside fieldset legend ul ul, body > aside fieldset legend ul ol, body > aside fieldset legend ol ul, body > aside fieldset legend ol ol{
 	margin-top: 0.8em;
 	margin-bottom: 0.8em;
 	margin-top: 0.8em;
@@ -2270,56 +3005,56 @@ body > #content fieldset legend ul ul, body > #content fieldset legend ul ol, bo
 	margin-top: 0.8em;
 	margin-bottom: 0.8em;
 }
-body > #content fieldset legend hr, body > aside fieldset legend hr {
+body > #content fieldset legend hr, body > aside fieldset legend hr{
 	margin-top: 2.8em;
 	margin-bottom: 2.8em;
 }
-body > #content fieldset legend hr + *, body > aside fieldset legend hr + * {
+body > #content fieldset legend hr + *, body > aside fieldset legend hr + *{
 	margin-top: 0;
 }
-body > #content fieldset legend h2 + *, body > aside fieldset legend h2 + * {
+body > #content fieldset legend h2 + *, body > aside fieldset legend h2 + *{
 	margin-top: 0;
 }
-body > #content fieldset legend h3 + *, body > aside fieldset legend h3 + * {
+body > #content fieldset legend h3 + *, body > aside fieldset legend h3 + *{
 	margin-top: 0;
 }
-body > #content fieldset legend h4 + *, body > aside fieldset legend h4 + * {
+body > #content fieldset legend h4 + *, body > aside fieldset legend h4 + *{
 	margin-top: 0;
 }
-body > #content fieldset legend table, body > aside fieldset legend table {
+body > #content fieldset legend table, body > aside fieldset legend table{
 	font-size: 0.9em;
 	line-height: 1.5555556;
 }
-body > #content fieldset legend thead th, body > aside fieldset legend thead th {
+body > #content fieldset legend thead th, body > aside fieldset legend thead th{
 	padding-right: 0.6666667em;
 	padding-bottom: 0.8888889em;
 	padding-left: 0.6666667em;
 }
-body > #content fieldset legend thead th:first-child, body > aside fieldset legend thead th:first-child {
+body > #content fieldset legend thead th:first-child, body > aside fieldset legend thead th:first-child{
 	padding-left: 0;
 }
-body > #content fieldset legend thead th:last-child, body > aside fieldset legend thead th:last-child {
+body > #content fieldset legend thead th:last-child, body > aside fieldset legend thead th:last-child{
 	padding-right: 0;
 }
-body > #content fieldset legend tbody td, body > aside fieldset legend tbody td {
+body > #content fieldset legend tbody td, body > aside fieldset legend tbody td{
 	padding-top: 0.8888889em;
 	padding-right: 0.6666667em;
 	padding-bottom: 0.8888889em;
 	padding-left: 0.6666667em;
 }
-body > #content fieldset legend tbody td:first-child, body > aside fieldset legend tbody td:first-child {
+body > #content fieldset legend tbody td:first-child, body > aside fieldset legend tbody td:first-child{
 	padding-left: 0;
 }
-body > #content fieldset legend tbody td:last-child, body > aside fieldset legend tbody td:last-child {
+body > #content fieldset legend tbody td:last-child, body > aside fieldset legend tbody td:last-child{
 	padding-right: 0;
 }
-body > #content fieldset legend > :first-child, body > aside fieldset legend > :first-child {
+body > #content fieldset legend > :first-child, body > aside fieldset legend > :first-child{
 	margin-top: 0;
 }
-body > #content fieldset legend > :last-child, body > aside fieldset legend > :last-child {
+body > #content fieldset legend > :last-child, body > aside fieldset legend > :last-child{
 	margin-bottom: 0;
 }
-body > #content fieldset legend, body > aside fieldset legend {
+body > #content fieldset legend, body > aside fieldset legend{
 	border-top-width: 1px;
 	border-style: dashed;
 	--tw-border-opacity: 1;
@@ -2327,69 +3062,69 @@ body > #content fieldset legend, body > aside fieldset legend {
 	width: 100%;
 	padding-top: 0.5rem;
 }
-body > #content fieldset label, body > aside fieldset label {
+body > #content fieldset label, body > aside fieldset label{
 	color: #3f3f46;
 	max-width: 65ch;
 }
-body > #content fieldset label [class~="lead"], body > aside fieldset label [class~="lead"] {
+body > #content fieldset label [class~="lead"], body > aside fieldset label [class~="lead"]{
 	color: #52525b;
 	font-size: 1.25em;
 	line-height: 1.6;
 	margin-top: 1.2em;
 	margin-bottom: 1.2em;
 }
-body > #content fieldset label a, body > aside fieldset label a {
+body > #content fieldset label a, body > aside fieldset label a{
 	color: #18181b;
 	text-decoration: underline;
 	font-weight: 500;
 }
-body > #content fieldset label strong, body > aside fieldset label strong {
+body > #content fieldset label strong, body > aside fieldset label strong{
 	color: #18181b;
 	font-weight: 600;
 }
-body > #content fieldset label ol[type="A"], body > aside fieldset label ol[type="A"] {
+body > #content fieldset label ol[type="A"], body > aside fieldset label ol[type="A"]{
 	--list-counter-style: upper-alpha;
 }
-body > #content fieldset label ol[type="a"], body > aside fieldset label ol[type="a"] {
+body > #content fieldset label ol[type="a"], body > aside fieldset label ol[type="a"]{
 	--list-counter-style: lower-alpha;
 }
-body > #content fieldset label ol[type="A" s], body > aside fieldset label ol[type="A" s] {
+body > #content fieldset label ol[type="A" s], body > aside fieldset label ol[type="A" s]{
 	--list-counter-style: upper-alpha;
 }
-body > #content fieldset label ol[type="a" s], body > aside fieldset label ol[type="a" s] {
+body > #content fieldset label ol[type="a" s], body > aside fieldset label ol[type="a" s]{
 	--list-counter-style: lower-alpha;
 }
-body > #content fieldset label ol[type="I"], body > aside fieldset label ol[type="I"] {
+body > #content fieldset label ol[type="I"], body > aside fieldset label ol[type="I"]{
 	--list-counter-style: upper-roman;
 }
-body > #content fieldset label ol[type="i"], body > aside fieldset label ol[type="i"] {
+body > #content fieldset label ol[type="i"], body > aside fieldset label ol[type="i"]{
 	--list-counter-style: lower-roman;
 }
-body > #content fieldset label ol[type="I" s], body > aside fieldset label ol[type="I" s] {
+body > #content fieldset label ol[type="I" s], body > aside fieldset label ol[type="I" s]{
 	--list-counter-style: upper-roman;
 }
-body > #content fieldset label ol[type="i" s], body > aside fieldset label ol[type="i" s] {
+body > #content fieldset label ol[type="i" s], body > aside fieldset label ol[type="i" s]{
 	--list-counter-style: lower-roman;
 }
-body > #content fieldset label ol[type="1"], body > aside fieldset label ol[type="1"] {
+body > #content fieldset label ol[type="1"], body > aside fieldset label ol[type="1"]{
 	--list-counter-style: decimal;
 }
-body > #content fieldset label ol > li, body > aside fieldset label ol > li {
+body > #content fieldset label ol > li, body > aside fieldset label ol > li{
 	position: relative;
 	padding-left: 1.75em;
 }
-body > #content fieldset label ol > li::before, body > aside fieldset label ol > li::before {
+body > #content fieldset label ol > li::before, body > aside fieldset label ol > li::before{
 	content: counter(list-item, var(--list-counter-style, decimal)) ".";
 	position: absolute;
 	font-weight: 400;
 	color: #71717a;
 	left: 0;
 }
-body > #content fieldset label ul > li, body > aside fieldset label ul > li {
+body > #content fieldset label ul > li, body > aside fieldset label ul > li{
 	position: relative;
 	padding-left: 1.75em;
 }
-body > #content fieldset label ul > li::before, body > aside fieldset label ul > li::before {
+body > #content fieldset label ul > li::before, body > aside fieldset label ul > li::before{
 	content: "";
 	position: absolute;
 	background-color: #d4d4d8;
@@ -2399,13 +3134,13 @@ body > #content fieldset label ul > li::before, body > aside fieldset label ul >
 	top: calc(0.875em - 0.1875em);
 	left: 0.25em;
 }
-body > #content fieldset label hr, body > aside fieldset label hr {
+body > #content fieldset label hr, body > aside fieldset label hr{
 	border-color: #e4e4e7;
 	border-top-width: 1px;
 	margin-top: 3em;
 	margin-bottom: 3em;
 }
-body > #content fieldset label blockquote, body > aside fieldset label blockquote {
+body > #content fieldset label blockquote, body > aside fieldset label blockquote{
 	font-weight: 500;
 	font-style: italic;
 	color: #18181b;
@@ -2416,13 +3151,13 @@ body > #content fieldset label blockquote, body > aside fieldset label blockquot
 	margin-bottom: 1.6em;
 	padding-left: 1em;
 }
-body > #content fieldset label blockquote p:first-of-type::before, body > aside fieldset label blockquote p:first-of-type::before {
+body > #content fieldset label blockquote p:first-of-type::before, body > aside fieldset label blockquote p:first-of-type::before{
 	content: open-quote;
 }
-body > #content fieldset label blockquote p:last-of-type::after, body > aside fieldset label blockquote p:last-of-type::after {
+body > #content fieldset label blockquote p:last-of-type::after, body > aside fieldset label blockquote p:last-of-type::after{
 	content: close-quote;
 }
-body > #content fieldset label h1, body > aside fieldset label h1 {
+body > #content fieldset label h1, body > aside fieldset label h1{
 	color: #18181b;
 	font-weight: 800;
 	font-size: 2.25em;
@@ -2430,7 +3165,7 @@ body > #content fieldset label h1, body > aside fieldset label h1 {
 	margin-bottom: 0.8888889em;
 	line-height: 1.1111111;
 }
-body > #content fieldset label h2, body > aside fieldset label h2 {
+body > #content fieldset label h2, body > aside fieldset label h2{
 	color: #18181b;
 	font-weight: 700;
 	font-size: 1.5em;
@@ -2438,7 +3173,7 @@ body > #content fieldset label h2, body > aside fieldset label h2 {
 	margin-bottom: 1em;
 	line-height: 1.3333333;
 }
-body > #content fieldset label h3, body > aside fieldset label h3 {
+body > #content fieldset label h3, body > aside fieldset label h3{
 	color: #18181b;
 	font-weight: 600;
 	font-size: 1.25em;
@@ -2446,34 +3181,34 @@ body > #content fieldset label h3, body > aside fieldset label h3 {
 	margin-bottom: 0.6em;
 	line-height: 1.6;
 }
-body > #content fieldset label h4, body > aside fieldset label h4 {
+body > #content fieldset label h4, body > aside fieldset label h4{
 	color: #18181b;
 	font-weight: 600;
 	margin-top: 1.5em;
 	margin-bottom: 0.5em;
 	line-height: 1.5;
 }
-body > #content fieldset label figure figcaption, body > aside fieldset label figure figcaption {
+body > #content fieldset label figure figcaption, body > aside fieldset label figure figcaption{
 	color: #71717a;
 	font-size: 0.875em;
 	line-height: 1.4285714;
 	margin-top: 0.8571429em;
 }
-body > #content fieldset label code, body > aside fieldset label code {
+body > #content fieldset label code, body > aside fieldset label code{
 	color: #18181b;
 	font-weight: 600;
 	font-size: 0.875em;
 }
-body > #content fieldset label code::before, body > aside fieldset label code::before {
+body > #content fieldset label code::before, body > aside fieldset label code::before{
 	content: "`";
 }
-body > #content fieldset label code::after, body > aside fieldset label code::after {
+body > #content fieldset label code::after, body > aside fieldset label code::after{
 	content: "`";
 }
-body > #content fieldset label a code, body > aside fieldset label a code {
+body > #content fieldset label a code, body > aside fieldset label a code{
 	color: #18181b;
 }
-body > #content fieldset label pre, body > aside fieldset label pre {
+body > #content fieldset label pre, body > aside fieldset label pre{
 	color: #e4e4e7;
 	background-color: #27272a;
 	overflow-x: auto;
@@ -2487,7 +3222,7 @@ body > #content fieldset label pre, body > aside fieldset label pre {
 	padding-bottom: 0.8571429em;
 	padding-left: 1.1428571em;
 }
-body > #content fieldset label pre code, body > aside fieldset label pre code {
+body > #content fieldset label pre code, body > aside fieldset label pre code{
 	background-color: transparent;
 	border-width: 0;
 	border-radius: 0;
@@ -2498,13 +3233,13 @@ body > #content fieldset label pre code, body > aside fieldset label pre code {
 	font-family: inherit;
 	line-height: inherit;
 }
-body > #content fieldset label pre code::before, body > aside fieldset label pre code::before {
+body > #content fieldset label pre code::before, body > aside fieldset label pre code::before{
 	content: none;
 }
-body > #content fieldset label pre code::after, body > aside fieldset label pre code::after {
+body > #content fieldset label pre code::after, body > aside fieldset label pre code::after{
 	content: none;
 }
-body > #content fieldset label table, body > aside fieldset label table {
+body > #content fieldset label table, body > aside fieldset label table{
 	width: 100%;
 	table-layout: auto;
 	text-align: left;
@@ -2513,91 +3248,91 @@ body > #content fieldset label table, body > aside fieldset label table {
 	font-size: 0.875em;
 	line-height: 1.7142857;
 }
-body > #content fieldset label thead, body > aside fieldset label thead {
+body > #content fieldset label thead, body > aside fieldset label thead{
 	color: #18181b;
 	font-weight: 600;
 	border-bottom-width: 1px;
 	border-bottom-color: #d4d4d8;
 }
-body > #content fieldset label thead th, body > aside fieldset label thead th {
+body > #content fieldset label thead th, body > aside fieldset label thead th{
 	vertical-align: bottom;
 	padding-right: 0.5714286em;
 	padding-bottom: 0.5714286em;
 	padding-left: 0.5714286em;
 }
-body > #content fieldset label tbody tr, body > aside fieldset label tbody tr {
+body > #content fieldset label tbody tr, body > aside fieldset label tbody tr{
 	border-bottom-width: 1px;
 	border-bottom-color: #e4e4e7;
 }
-body > #content fieldset label tbody tr:last-child, body > aside fieldset label tbody tr:last-child {
+body > #content fieldset label tbody tr:last-child, body > aside fieldset label tbody tr:last-child{
 	border-bottom-width: 0;
 }
-body > #content fieldset label tbody td, body > aside fieldset label tbody td {
+body > #content fieldset label tbody td, body > aside fieldset label tbody td{
 	vertical-align: top;
 	padding-top: 0.5714286em;
 	padding-right: 0.5714286em;
 	padding-bottom: 0.5714286em;
 	padding-left: 0.5714286em;
 }
-body > #content fieldset label, body > aside fieldset label {
+body > #content fieldset label, body > aside fieldset label{
 	font-size: 1rem;
 	line-height: 1.75;
 }
-body > #content fieldset label p, body > aside fieldset label p {
+body > #content fieldset label p, body > aside fieldset label p{
 	margin-top: 1.25em;
 	margin-bottom: 1.25em;
 }
-body > #content fieldset label img, body > aside fieldset label img {
+body > #content fieldset label img, body > aside fieldset label img{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body > #content fieldset label video, body > aside fieldset label video {
+body > #content fieldset label video, body > aside fieldset label video{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body > #content fieldset label figure, body > aside fieldset label figure {
+body > #content fieldset label figure, body > aside fieldset label figure{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body > #content fieldset label figure > *, body > aside fieldset label figure > * {
+body > #content fieldset label figure > *, body > aside fieldset label figure > *{
 	margin-top: 0;
 	margin-bottom: 0;
 }
-body > #content fieldset label h2 code, body > aside fieldset label h2 code {
+body > #content fieldset label h2 code, body > aside fieldset label h2 code{
 	font-size: 0.875em;
 }
-body > #content fieldset label h3 code, body > aside fieldset label h3 code {
+body > #content fieldset label h3 code, body > aside fieldset label h3 code{
 	font-size: 0.9em;
 }
-body > #content fieldset label ol, body > aside fieldset label ol {
+body > #content fieldset label ol, body > aside fieldset label ol{
 	margin-top: 1.25em;
 	margin-bottom: 1.25em;
 }
-body > #content fieldset label ul, body > aside fieldset label ul {
+body > #content fieldset label ul, body > aside fieldset label ul{
 	margin-top: 1.25em;
 	margin-bottom: 1.25em;
 }
-body > #content fieldset label li, body > aside fieldset label li {
+body > #content fieldset label li, body > aside fieldset label li{
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
 }
-body > #content fieldset label > ul > li p, body > aside fieldset label > ul > li p {
+body > #content fieldset label > ul > li p, body > aside fieldset label > ul > li p{
 	margin-top: 0.75em;
 	margin-bottom: 0.75em;
 }
-body > #content fieldset label > ul > li > *:first-child, body > aside fieldset label > ul > li > *:first-child {
+body > #content fieldset label > ul > li > *:first-child, body > aside fieldset label > ul > li > *:first-child{
 	margin-top: 1.25em;
 }
-body > #content fieldset label > ul > li > *:last-child, body > aside fieldset label > ul > li > *:last-child {
+body > #content fieldset label > ul > li > *:last-child, body > aside fieldset label > ul > li > *:last-child{
 	margin-bottom: 1.25em;
 }
-body > #content fieldset label > ol > li > *:first-child, body > aside fieldset label > ol > li > *:first-child {
+body > #content fieldset label > ol > li > *:first-child, body > aside fieldset label > ol > li > *:first-child{
 	margin-top: 1.25em;
 }
-body > #content fieldset label > ol > li > *:last-child, body > aside fieldset label > ol > li > *:last-child {
+body > #content fieldset label > ol > li > *:last-child, body > aside fieldset label > ol > li > *:last-child{
 	margin-bottom: 1.25em;
 }
-body > #content fieldset label ul ul, body > #content fieldset label ul ol, body > #content fieldset label ol ul, body > #content fieldset label ol ol, body > aside fieldset label ul ul, body > aside fieldset label ul ol, body > aside fieldset label ol ul, body > aside fieldset label ol ol {
+body > #content fieldset label ul ul, body > #content fieldset label ul ol, body > #content fieldset label ol ul, body > #content fieldset label ol ol, body > aside fieldset label ul ul, body > aside fieldset label ul ol, body > aside fieldset label ol ul, body > aside fieldset label ol ol{
 	margin-top: 0.75em;
 	margin-bottom: 0.75em;
 	margin-top: 0.75em;
@@ -2607,158 +3342,147 @@ body > #content fieldset label ul ul, body > #content fieldset label ul ol, body
 	margin-top: 0.75em;
 	margin-bottom: 0.75em;
 }
-body > #content fieldset label hr + *, body > aside fieldset label hr + * {
+body > #content fieldset label hr + *, body > aside fieldset label hr + *{
 	margin-top: 0;
 }
-body > #content fieldset label h2 + *, body > aside fieldset label h2 + * {
+body > #content fieldset label h2 + *, body > aside fieldset label h2 + *{
 	margin-top: 0;
 }
-body > #content fieldset label h3 + *, body > aside fieldset label h3 + * {
+body > #content fieldset label h3 + *, body > aside fieldset label h3 + *{
 	margin-top: 0;
 }
-body > #content fieldset label h4 + *, body > aside fieldset label h4 + * {
+body > #content fieldset label h4 + *, body > aside fieldset label h4 + *{
 	margin-top: 0;
 }
-body > #content fieldset label thead th:first-child, body > aside fieldset label thead th:first-child {
+body > #content fieldset label thead th:first-child, body > aside fieldset label thead th:first-child{
 	padding-left: 0;
 }
-body > #content fieldset label thead th:last-child, body > aside fieldset label thead th:last-child {
+body > #content fieldset label thead th:last-child, body > aside fieldset label thead th:last-child{
 	padding-right: 0;
 }
-body > #content fieldset label tbody td:first-child, body > aside fieldset label tbody td:first-child {
+body > #content fieldset label tbody td:first-child, body > aside fieldset label tbody td:first-child{
 	padding-left: 0;
 }
-body > #content fieldset label tbody td:last-child, body > aside fieldset label tbody td:last-child {
+body > #content fieldset label tbody td:last-child, body > aside fieldset label tbody td:last-child{
 	padding-right: 0;
 }
-body > #content fieldset label > :first-child, body > aside fieldset label > :first-child {
+body > #content fieldset label > :first-child, body > aside fieldset label > :first-child{
 	margin-top: 0;
 }
-body > #content fieldset label > :last-child, body > aside fieldset label > :last-child {
+body > #content fieldset label > :last-child, body > aside fieldset label > :last-child{
 	margin-bottom: 0;
 }
-body > #content {
+body > #content{
 	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
 }
-@media (min-width: 640px) {
-
-	body > #content {
+@media (min-width: 640px){
+	body > #content{
 		max-width: 640px;
 	}
 }
-@media (min-width: 768px) {
-
-	body > #content {
+@media (min-width: 768px){
+	body > #content{
 		max-width: 768px;
 	}
 }
-@media (min-width: 1024px) {
-
-	body > #content {
+@media (min-width: 1024px){
+	body > #content{
 		max-width: 1024px;
 	}
 }
-@media (min-width: 1280px) {
-
-	body > #content {
+@media (min-width: 1280px){
+	body > #content{
 		max-width: 1280px;
 	}
 }
-@media (min-width: 1536px) {
-
-	body > #content {
+@media (min-width: 1536px){
+	body > #content{
 		max-width: 1536px;
 	}
 }
-body > #content {
+body > #content{
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
 }
-@media (min-width: 1024px) {
-
-	body > #content {
+@media (min-width: 1024px){
+	body > #content{
 		width: 66.666667%;
 	}
 }
-body > #content {
+body > #content{
 	padding: 0.5rem;
 }
-@media (min-width: 640px) {
-
-	body > #content {
+@media (min-width: 640px){
+	body > #content{
 		padding: 1.5rem;
 	}
 }
-body > #content {
+body > #content{
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 	--tw-drop-shadow: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
 	filter: var(--tw-filter);
 }
-body > #content a {
+body > #content a{
 	font-weight: 600;
 	--tw-text-opacity: 1;
 	color: rgba(31, 41, 55, var(--tw-text-opacity));
 }
-body > #content {
+body > #content{
 	flex-direction: column;
 	flex-wrap: wrap;
 	gap: 1rem;
 }
-@media (min-width: 1280px) {
-
-	body > #content {
+@media (min-width: 1280px){
+	body > #content{
 		flex-direction: row;
 	}
 }
-body > #content {
+body > #content{
 	padding-top: 0.5rem;
 }
-body > #content #skip-to-sidebar {
+body > #content #skip-to-sidebar{
 	min-width: 100%;
 	flex: 1 1 0%;
 }
-body > #content #skip-to-sidebar a {
+body > #content #skip-to-sidebar a{
 	font-weight: 400;
 	--tw-text-opacity: 1;
 	color: rgba(0, 0, 0, var(--tw-text-opacity));
 }
-body > #content > main {
+body > #content > main{
 	flex: 1 1 0%;
 }
-body > #content > main article {
+body > #content > main article{
 	margin-left: -0.75rem;
 	margin-right: -0.75rem;
 	margin-bottom: 1.5rem;
 	padding-left: 0.75rem;
 	padding-right: 0.75rem;
 }
-@media (min-width: 640px) {
-
-	body > #content > main article {
+@media (min-width: 640px){
+	body > #content > main article{
 		margin-left: -1.5rem;
 		margin-right: -1.5rem;
 	}
-
-	body > #content > main article {
+	body > #content > main article{
 		padding-left: 1.5rem;
 		padding-right: 1.5rem;
 	}
 }
-body > #content > main article {
+body > #content > main article{
 	width: 100%;
 }
-@media (min-width: 640px) {
-
-	body > #content > main article {
+@media (min-width: 640px){
+	body > #content > main article{
 		border-top-right-radius: 0.5rem;
 		border-bottom-right-radius: 0.5rem;
 	}
 }
-body > #content > main article {
+body > #content > main article{
 	--tw-bg-opacity: 1;
 	background-color: rgba(248, 250, 252, var(--tw-bg-opacity));
 	border-bottom-width: 1px;
@@ -2766,10 +3490,10 @@ body > #content > main article {
 	--tw-border-opacity: 1;
 	border-color: rgba(161, 161, 170, var(--tw-border-opacity));
 }
-body > #content > main article * {
+body > #content > main article *{
 	line-height: 2;
 }
-body > #content > main article header time {
+body > #content > main article header time{
 	--tw-bg-opacity: 1;
 	background-color: rgba(226, 232, 240, var(--tw-bg-opacity));
 	--tw-bg-opacity: 0.75;
@@ -2777,13 +3501,12 @@ body > #content > main article header time {
 	padding: 0.75rem;
 	padding-bottom: 0.5rem;
 }
-@media (min-width: 640px) {
-
-	body > #content > main article header time {
+@media (min-width: 640px){
+	body > #content > main article header time{
 		margin-left: -1.5rem;
 	}
 }
-body > #content > main article header time {
+body > #content > main article header time{
 	border-top-right-radius: 9999px;
 	border-bottom-right-radius: 9999px;
 	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -2791,69 +3514,69 @@ body > #content > main article header time {
 	--tw-text-opacity: 1;
 	color: rgba(15, 23, 42, var(--tw-text-opacity));
 }
-body > #content > main article header div {
+body > #content > main article header div{
 	color: #3f3f46;
 	max-width: 65ch;
 }
-body > #content > main article header div [class~="lead"] {
+body > #content > main article header div [class~="lead"]{
 	color: #52525b;
 	font-size: 1.25em;
 	line-height: 1.6;
 	margin-top: 1.2em;
 	margin-bottom: 1.2em;
 }
-body > #content > main article header div a {
+body > #content > main article header div a{
 	color: #18181b;
 	text-decoration: underline;
 	font-weight: 500;
 }
-body > #content > main article header div strong {
+body > #content > main article header div strong{
 	color: #18181b;
 	font-weight: 600;
 }
-body > #content > main article header div ol[type="A"] {
+body > #content > main article header div ol[type="A"]{
 	--list-counter-style: upper-alpha;
 }
-body > #content > main article header div ol[type="a"] {
+body > #content > main article header div ol[type="a"]{
 	--list-counter-style: lower-alpha;
 }
-body > #content > main article header div ol[type="A" s] {
+body > #content > main article header div ol[type="A" s]{
 	--list-counter-style: upper-alpha;
 }
-body > #content > main article header div ol[type="a" s] {
+body > #content > main article header div ol[type="a" s]{
 	--list-counter-style: lower-alpha;
 }
-body > #content > main article header div ol[type="I"] {
+body > #content > main article header div ol[type="I"]{
 	--list-counter-style: upper-roman;
 }
-body > #content > main article header div ol[type="i"] {
+body > #content > main article header div ol[type="i"]{
 	--list-counter-style: lower-roman;
 }
-body > #content > main article header div ol[type="I" s] {
+body > #content > main article header div ol[type="I" s]{
 	--list-counter-style: upper-roman;
 }
-body > #content > main article header div ol[type="i" s] {
+body > #content > main article header div ol[type="i" s]{
 	--list-counter-style: lower-roman;
 }
-body > #content > main article header div ol[type="1"] {
+body > #content > main article header div ol[type="1"]{
 	--list-counter-style: decimal;
 }
-body > #content > main article header div ol > li {
+body > #content > main article header div ol > li{
 	position: relative;
 	padding-left: 1.75em;
 }
-body > #content > main article header div ol > li::before {
+body > #content > main article header div ol > li::before{
 	content: counter(list-item, var(--list-counter-style, decimal)) ".";
 	position: absolute;
 	font-weight: 400;
 	color: #71717a;
 	left: 0;
 }
-body > #content > main article header div ul > li {
+body > #content > main article header div ul > li{
 	position: relative;
 	padding-left: 1.75em;
 }
-body > #content > main article header div ul > li::before {
+body > #content > main article header div ul > li::before{
 	content: "";
 	position: absolute;
 	background-color: #d4d4d8;
@@ -2863,13 +3586,13 @@ body > #content > main article header div ul > li::before {
 	top: calc(0.875em - 0.1875em);
 	left: 0.25em;
 }
-body > #content > main article header div hr {
+body > #content > main article header div hr{
 	border-color: #e4e4e7;
 	border-top-width: 1px;
 	margin-top: 3em;
 	margin-bottom: 3em;
 }
-body > #content > main article header div blockquote {
+body > #content > main article header div blockquote{
 	font-weight: 500;
 	font-style: italic;
 	color: #18181b;
@@ -2880,13 +3603,13 @@ body > #content > main article header div blockquote {
 	margin-bottom: 1.6em;
 	padding-left: 1em;
 }
-body > #content > main article header div blockquote p:first-of-type::before {
+body > #content > main article header div blockquote p:first-of-type::before{
 	content: open-quote;
 }
-body > #content > main article header div blockquote p:last-of-type::after {
+body > #content > main article header div blockquote p:last-of-type::after{
 	content: close-quote;
 }
-body > #content > main article header div h1 {
+body > #content > main article header div h1{
 	color: #18181b;
 	font-weight: 800;
 	font-size: 2.25em;
@@ -2894,7 +3617,7 @@ body > #content > main article header div h1 {
 	margin-bottom: 0.8888889em;
 	line-height: 1.1111111;
 }
-body > #content > main article header div h2 {
+body > #content > main article header div h2{
 	color: #18181b;
 	font-weight: 700;
 	font-size: 1.5em;
@@ -2902,7 +3625,7 @@ body > #content > main article header div h2 {
 	margin-bottom: 1em;
 	line-height: 1.3333333;
 }
-body > #content > main article header div h3 {
+body > #content > main article header div h3{
 	color: #18181b;
 	font-weight: 600;
 	font-size: 1.25em;
@@ -2910,34 +3633,34 @@ body > #content > main article header div h3 {
 	margin-bottom: 0.6em;
 	line-height: 1.6;
 }
-body > #content > main article header div h4 {
+body > #content > main article header div h4{
 	color: #18181b;
 	font-weight: 600;
 	margin-top: 1.5em;
 	margin-bottom: 0.5em;
 	line-height: 1.5;
 }
-body > #content > main article header div figure figcaption {
+body > #content > main article header div figure figcaption{
 	color: #71717a;
 	font-size: 0.875em;
 	line-height: 1.4285714;
 	margin-top: 0.8571429em;
 }
-body > #content > main article header div code {
+body > #content > main article header div code{
 	color: #18181b;
 	font-weight: 600;
 	font-size: 0.875em;
 }
-body > #content > main article header div code::before {
+body > #content > main article header div code::before{
 	content: "`";
 }
-body > #content > main article header div code::after {
+body > #content > main article header div code::after{
 	content: "`";
 }
-body > #content > main article header div a code {
+body > #content > main article header div a code{
 	color: #18181b;
 }
-body > #content > main article header div pre {
+body > #content > main article header div pre{
 	color: #e4e4e7;
 	background-color: #27272a;
 	overflow-x: auto;
@@ -2951,7 +3674,7 @@ body > #content > main article header div pre {
 	padding-bottom: 0.8571429em;
 	padding-left: 1.1428571em;
 }
-body > #content > main article header div pre code {
+body > #content > main article header div pre code{
 	background-color: transparent;
 	border-width: 0;
 	border-radius: 0;
@@ -2962,13 +3685,13 @@ body > #content > main article header div pre code {
 	font-family: inherit;
 	line-height: inherit;
 }
-body > #content > main article header div pre code::before {
+body > #content > main article header div pre code::before{
 	content: none;
 }
-body > #content > main article header div pre code::after {
+body > #content > main article header div pre code::after{
 	content: none;
 }
-body > #content > main article header div table {
+body > #content > main article header div table{
 	width: 100%;
 	table-layout: auto;
 	text-align: left;
@@ -2977,91 +3700,91 @@ body > #content > main article header div table {
 	font-size: 0.875em;
 	line-height: 1.7142857;
 }
-body > #content > main article header div thead {
+body > #content > main article header div thead{
 	color: #18181b;
 	font-weight: 600;
 	border-bottom-width: 1px;
 	border-bottom-color: #d4d4d8;
 }
-body > #content > main article header div thead th {
+body > #content > main article header div thead th{
 	vertical-align: bottom;
 	padding-right: 0.5714286em;
 	padding-bottom: 0.5714286em;
 	padding-left: 0.5714286em;
 }
-body > #content > main article header div tbody tr {
+body > #content > main article header div tbody tr{
 	border-bottom-width: 1px;
 	border-bottom-color: #e4e4e7;
 }
-body > #content > main article header div tbody tr:last-child {
+body > #content > main article header div tbody tr:last-child{
 	border-bottom-width: 0;
 }
-body > #content > main article header div tbody td {
+body > #content > main article header div tbody td{
 	vertical-align: top;
 	padding-top: 0.5714286em;
 	padding-right: 0.5714286em;
 	padding-bottom: 0.5714286em;
 	padding-left: 0.5714286em;
 }
-body > #content > main article header div {
+body > #content > main article header div{
 	font-size: 1rem;
 	line-height: 1.75;
 }
-body > #content > main article header div p {
+body > #content > main article header div p{
 	margin-top: 1.25em;
 	margin-bottom: 1.25em;
 }
-body > #content > main article header div img {
+body > #content > main article header div img{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body > #content > main article header div video {
+body > #content > main article header div video{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body > #content > main article header div figure {
+body > #content > main article header div figure{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body > #content > main article header div figure > * {
+body > #content > main article header div figure > *{
 	margin-top: 0;
 	margin-bottom: 0;
 }
-body > #content > main article header div h2 code {
+body > #content > main article header div h2 code{
 	font-size: 0.875em;
 }
-body > #content > main article header div h3 code {
+body > #content > main article header div h3 code{
 	font-size: 0.9em;
 }
-body > #content > main article header div ol {
+body > #content > main article header div ol{
 	margin-top: 1.25em;
 	margin-bottom: 1.25em;
 }
-body > #content > main article header div ul {
+body > #content > main article header div ul{
 	margin-top: 1.25em;
 	margin-bottom: 1.25em;
 }
-body > #content > main article header div li {
+body > #content > main article header div li{
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
 }
-body > #content > main article header div > ul > li p {
+body > #content > main article header div > ul > li p{
 	margin-top: 0.75em;
 	margin-bottom: 0.75em;
 }
-body > #content > main article header div > ul > li > *:first-child {
+body > #content > main article header div > ul > li > *:first-child{
 	margin-top: 1.25em;
 }
-body > #content > main article header div > ul > li > *:last-child {
+body > #content > main article header div > ul > li > *:last-child{
 	margin-bottom: 1.25em;
 }
-body > #content > main article header div > ol > li > *:first-child {
+body > #content > main article header div > ol > li > *:first-child{
 	margin-top: 1.25em;
 }
-body > #content > main article header div > ol > li > *:last-child {
+body > #content > main article header div > ol > li > *:last-child{
 	margin-bottom: 1.25em;
 }
-body > #content > main article header div ul ul, body > #content > main article header div ul ol, body > #content > main article header div ol ul, body > #content > main article header div ol ol {
+body > #content > main article header div ul ul, body > #content > main article header div ul ol, body > #content > main article header div ol ul, body > #content > main article header div ol ol{
 	margin-top: 0.75em;
 	margin-bottom: 0.75em;
 	margin-top: 0.75em;
@@ -3071,263 +3794,245 @@ body > #content > main article header div ul ul, body > #content > main article 
 	margin-top: 0.75em;
 	margin-bottom: 0.75em;
 }
-body > #content > main article header div hr + * {
+body > #content > main article header div hr + *{
 	margin-top: 0;
 }
-body > #content > main article header div h2 + * {
+body > #content > main article header div h2 + *{
 	margin-top: 0;
 }
-body > #content > main article header div h3 + * {
+body > #content > main article header div h3 + *{
 	margin-top: 0;
 }
-body > #content > main article header div h4 + * {
+body > #content > main article header div h4 + *{
 	margin-top: 0;
 }
-body > #content > main article header div thead th:first-child {
+body > #content > main article header div thead th:first-child{
 	padding-left: 0;
 }
-body > #content > main article header div thead th:last-child {
+body > #content > main article header div thead th:last-child{
 	padding-right: 0;
 }
-body > #content > main article header div tbody td:first-child {
+body > #content > main article header div tbody td:first-child{
 	padding-left: 0;
 }
-body > #content > main article header div tbody td:last-child {
+body > #content > main article header div tbody td:last-child{
 	padding-right: 0;
 }
-body > #content > main article header div > :first-child {
+body > #content > main article header div > :first-child{
 	margin-top: 0;
 }
-body > #content > main article header div > :last-child {
+body > #content > main article header div > :last-child{
 	margin-bottom: 0;
 }
-body > #content > main article header div {
+body > #content > main article header div{
 	margin-top: -1rem;
 	font-weight: 600;
 	--tw-text-opacity: 1;
 	color: rgba(82, 82, 91, var(--tw-text-opacity));
 }
-body > #content > main article header div * {
+body > #content > main article header div *{
 	display: inline-block;
 }
-body > #content > main article header div a, body > #content > main article header div address {
+body > #content > main article header div a, body > #content > main article header div address{
 	font-style: normal;
 }
-body > #content > main article header h1 {
+body > #content > main article header h1{
 	text-decoration: underline;
 }
-body > #content > main article header h2 {
+body > #content > main article header h2{
 	display: none;
 }
-body > #content > main article header .premium-lead a {
+body > #content > main article header .premium-lead a{
 	text-decoration: underline;
 }
-body > #content > main article footer {
+body > #content > main article footer{
 	--tw-text-opacity: 1;
 	color: rgba(82, 82, 91, var(--tw-text-opacity));
 }
-body > #content > main article footer a {
+body > #content > main article footer a{
 	display: block;
 }
-body > #content > main article.premium {
+body > #content > main article.premium{
 	--tw-bg-opacity: 1;
 	background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
 }
-body > #content > main article div {
+body > #content > main article div{
 	margin-top: 0.5rem;
 	margin-bottom: 0.5rem;
 	padding-right: 1.5rem;
 	--tw-text-opacity: 1;
 	color: rgba(15, 23, 42, var(--tw-text-opacity));
 }
-@media (min-width: 640px) {
-
-	body > #content > main .pagination {
+@media (min-width: 640px){
+	body > #content > main .pagination{
 		margin-left: -1.5rem;
 		margin-right: -1.5rem;
 	}
-
-	body > #content > main .pagination {
+	body > #content > main .pagination{
 		padding-left: 1.5rem;
 	}
 }
-body > #content > main .pagination {
+body > #content > main .pagination{
 	max-width: 100%;
 }
-body > #content > main .pagination a {
+body > #content > main .pagination a{
 	font-weight: 400;
 }
-body > #content > main .single-page-form {
+body > #content > main .single-page-form{
 	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
 }
-@media (min-width: 640px) {
-
-	body > #content > main .single-page-form {
+@media (min-width: 640px){
+	body > #content > main .single-page-form{
 		max-width: 640px;
 	}
 }
-@media (min-width: 768px) {
-
-	body > #content > main .single-page-form {
+@media (min-width: 768px){
+	body > #content > main .single-page-form{
 		max-width: 768px;
 	}
 }
-@media (min-width: 1024px) {
-
-	body > #content > main .single-page-form {
+@media (min-width: 1024px){
+	body > #content > main .single-page-form{
 		max-width: 1024px;
 	}
 }
-@media (min-width: 1280px) {
-
-	body > #content > main .single-page-form {
+@media (min-width: 1280px){
+	body > #content > main .single-page-form{
 		max-width: 1280px;
 	}
 }
-@media (min-width: 1536px) {
-
-	body > #content > main .single-page-form {
+@media (min-width: 1536px){
+	body > #content > main .single-page-form{
 		max-width: 1536px;
 	}
 }
-body > #content > main .single-page-form {
+body > #content > main .single-page-form{
 	width: 25%;
 }
-body > #content > main .single-page-form div {
+body > #content > main .single-page-form div{
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
 }
-body > #content > main .single-page-form div label, body > #content > main .single-page-form div input, body > #content > main .single-page-form div button {
+body > #content > main .single-page-form div label, body > #content > main .single-page-form div input, body > #content > main .single-page-form div button{
 	display: block;
 	width: 100%;
 }
-body > #content > main .single-page-form div input:not([type=checkbox]), body > #content > main .single-page-form div button {
+body > #content > main .single-page-form div input:not([type=checkbox]), body > #content > main .single-page-form div button{
 	--tw-bg-opacity: 1;
 	background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
 }
-body > #content > main .single-page-form div input:not([type=checkbox]):hover, body > #content > main .single-page-form div button:hover {
+body > #content > main .single-page-form div input:not([type=checkbox]):hover, body > #content > main .single-page-form div button:hover{
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 }
-body > #content > main .single-page-form div input:not([type=checkbox]):focus, body > #content > main .single-page-form div button:focus {
+body > #content > main .single-page-form div input:not([type=checkbox]):focus, body > #content > main .single-page-form div button:focus{
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 }
-body > #content > main .single-page-form div input, body > #content > main .single-page-form div button {
+body > #content > main .single-page-form div input, body > #content > main .single-page-form div button{
 	border-radius: 0.5rem;
 }
-body > #content > main .single-page-form div button {
+body > #content > main .single-page-form div button{
 	padding: 0.75rem;
 	--tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-body > #content > main .single-page-form div button:hover {
+body > #content > main .single-page-form div button:hover{
 	--tw-bg-opacity: 1;
 	background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
 }
-body > #content > main .single-page-form div.checkbox-control {
+body > #content > main .single-page-form div.checkbox-control{
 	display: inline-flex;
 	align-items: center;
 }
-body > #content > main .single-page-form div.checkbox-control label, body > #content > main .single-page-form div.checkbox-control input {
+body > #content > main .single-page-form div.checkbox-control label, body > #content > main .single-page-form div.checkbox-control input{
 	padding-left: 0.25rem;
 	padding-right: 0.25rem;
 }
-body > #content > main .single-page-form div.checkbox-control input {
+body > #content > main .single-page-form div.checkbox-control input{
 	height: 1rem;
 	width: 1rem;
 }
-body > #content > main .single-page-form div .required {
+body > #content > main .single-page-form div .required{
 	--tw-text-opacity: 1;
 	color: rgba(100, 116, 139, var(--tw-text-opacity));
 }
-@media (min-width: 1024px) {
-
-	body > #content > aside {
+@media (min-width: 1024px){
+	body > #content > aside{
 		width: 16rem;
 	}
 }
-@media (min-width: 1280px) {
-
-	body > #content > aside {
+@media (min-width: 1280px){
+	body > #content > aside{
 		flex-shrink: 0;
 	}
 }
-body > footer {
+body > footer{
 	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
 }
-@media (min-width: 640px) {
-
-	body > footer {
+@media (min-width: 640px){
+	body > footer{
 		max-width: 640px;
 	}
 }
-@media (min-width: 768px) {
-
-	body > footer {
+@media (min-width: 768px){
+	body > footer{
 		max-width: 768px;
 	}
 }
-@media (min-width: 1024px) {
-
-	body > footer {
+@media (min-width: 1024px){
+	body > footer{
 		max-width: 1024px;
 	}
 }
-@media (min-width: 1280px) {
-
-	body > footer {
+@media (min-width: 1280px){
+	body > footer{
 		max-width: 1280px;
 	}
 }
-@media (min-width: 1536px) {
-
-	body > footer {
+@media (min-width: 1536px){
+	body > footer{
 		max-width: 1536px;
 	}
 }
-body > footer {
+body > footer{
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
 }
-@media (min-width: 1024px) {
-
-	body > footer {
+@media (min-width: 1024px){
+	body > footer{
 		width: 66.666667%;
 	}
 }
-body > footer {
+body > footer{
 	padding: 0.5rem;
 }
-@media (min-width: 640px) {
-
-	body > footer {
+@media (min-width: 640px){
+	body > footer{
 		padding: 1.5rem;
 	}
 }
-body > footer {
+body > footer{
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 	--tw-drop-shadow: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
 	filter: var(--tw-filter);
 }
-@media (min-width: 768px) {
-
-	body > footer {
+@media (min-width: 768px){
+	body > footer{
 		margin-bottom: 2rem;
 	}
-
-	body > footer {
+	body > footer{
 		border-bottom-right-radius: 0.375rem;
 		border-bottom-left-radius: 0.375rem;
 	}
 }
-body > footer {
+body > footer{
 	border-top-width: 8px;
 	border-style: dashed;
 	--tw-border-opacity: 1;
@@ -3337,94 +4042,85 @@ body > footer {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 }
-body [role=alert] {
+body [role=alert]{
 	border-radius: 0.375rem;
 	padding: 1rem;
 	--tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-body [role=alert].info {
+body [role=alert].info{
 	--tw-bg-opacity: 1;
 	background-color: rgba(239, 246, 255, var(--tw-bg-opacity));
 }
-.hover\:text-gray-500:hover {
+.hover\:text-gray-500:hover{
 	--tw-text-opacity: 1;
 	color: rgba(113, 113, 122, var(--tw-text-opacity));
 }
-.hover\:text-gray-400:hover {
+.hover\:text-gray-400:hover{
 	--tw-text-opacity: 1;
 	color: rgba(161, 161, 170, var(--tw-text-opacity));
 }
-.hover\:text-gray-900:hover {
+.hover\:text-gray-900:hover{
 	--tw-text-opacity: 1;
 	color: rgba(24, 24, 27, var(--tw-text-opacity));
 }
-.focus\:z-10:focus {
+.focus\:z-10:focus{
 	z-index: 10;
 }
-.focus\:border-blue-300:focus {
+.focus\:border-blue-300:focus{
 	--tw-border-opacity: 1;
 	border-color: rgba(147, 197, 253, var(--tw-border-opacity));
 }
-.focus\:outline-none:focus {
+.focus\:outline-none:focus{
 	outline: 2px solid transparent;
 	outline-offset: 2px;
 }
-.focus\:ring:focus {
+.focus\:ring:focus{
 	--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
 	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
 	box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
-.active\:bg-gray-100:active {
+.active\:bg-gray-100:active{
 	--tw-bg-opacity: 1;
 	background-color: rgba(244, 244, 245, var(--tw-bg-opacity));
 }
-.active\:text-gray-700:active {
+.active\:text-gray-700:active{
 	--tw-text-opacity: 1;
 	color: rgba(63, 63, 70, var(--tw-text-opacity));
 }
-.active\:text-gray-500:active {
+.active\:text-gray-500:active{
 	--tw-text-opacity: 1;
 	color: rgba(113, 113, 122, var(--tw-text-opacity));
 }
-@media (min-width: 640px) {
-
-	.sm\:flex {
+@media (min-width: 640px){
+	.sm\:flex{
 		display: flex;
 	}
-
-	.sm\:hidden {
+	.sm\:hidden{
 		display: none;
 	}
-
-	.sm\:flex-1 {
+	.sm\:flex-1{
 		flex: 1 1 0%;
 	}
-
-	.sm\:items-center {
+	.sm\:items-center{
 		align-items: center;
 	}
-
-	.sm\:justify-start {
+	.sm\:justify-start{
 		justify-content: flex-start;
 	}
-
-	.sm\:justify-between {
+	.sm\:justify-between{
 		justify-content: space-between;
 	}
-
-	.sm\:px-6 {
+	.sm\:px-6{
 		padding-left: 1.5rem;
 		padding-right: 1.5rem;
 	}
-
-	.sm\:pt-0 {
+	.sm\:pt-0{
 		padding-top: 0px;
 	}
 }
-@media (min-width: 1024px) {
-
-	.lg\:px-8 {
+@media (min-width: 1024px){
+	.lg\:px-8{
 		padding-left: 2rem;
 		padding-right: 2rem;
 	}

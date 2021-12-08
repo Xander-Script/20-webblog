@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f97ddaa3ed9cb05b8377a25ce27042be",
+    "content-hash": "e4b7482d92cda8912ecadda4519dd898",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3017,66 +3017,6 @@
             "time": "2021-09-25T23:10:38+00:00"
         },
         {
-            "name": "spatie/laravel-package-tools",
-            "version": "1.9.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-package-tools.git",
-                "reference": "f710fe196c126fb9e0aee67eb5af49ad8f13f528"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/f710fe196c126fb9e0aee67eb5af49ad8f13f528",
-                "reference": "f710fe196c126fb9e0aee67eb5af49ad8f13f528",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "^7.0|^8.0",
-                "php": "^7.4|^8.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.4",
-                "orchestra/testbench": "^5.0|^6.0",
-                "phpunit/phpunit": "^9.3",
-                "spatie/test-time": "^1.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\LaravelPackageTools\\": "src",
-                    "Spatie\\LaravelPackageTools\\Database\\Factories\\": "database/factories"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Tools for creating Laravel packages",
-            "homepage": "https://github.com/spatie/laravel-package-tools",
-            "keywords": [
-                "laravel-package-tools",
-                "spatie"
-            ],
-            "support": {
-                "issues": "https://github.com/spatie/laravel-package-tools/issues",
-                "source": "https://github.com/spatie/laravel-package-tools/tree/1.9.2"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-09-21T13:06:51+00:00"
-        },
-        {
             "name": "spatie/laravel-permission",
             "version": "5.4.0",
             "source": {
@@ -5743,79 +5683,27 @@
             "time": "2021-03-09T10:59:23+00:00"
         },
         {
-            "name": "xanderificnl/laravel-quill",
-            "version": "dev-main",
+            "name": "xanderificnl/quill",
+            "version": "dev-quill-package",
             "dist": {
                 "type": "path",
-                "url": "./packages/laravel-quill",
-                "reference": "ca0fc6f74cfa33740c1021962cb410def1432ad0"
-            },
-            "require": {
-                "illuminate/contracts": "^8.73",
-                "php": "^8.0",
-                "spatie/laravel-package-tools": "^1.9.2"
-            },
-            "require-dev": {
-                "nunomaduro/collision": "^5.10",
-                "nunomaduro/larastan": "^1.0",
-                "orchestra/testbench": "^6.22",
-                "pestphp/pest": "^1.21",
-                "pestphp/pest-plugin-laravel": "^1.1",
-                "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan-deprecation-rules": "^1.0",
-                "phpstan/phpstan-phpunit": "^1.0",
-                "phpunit/phpunit": "^9.5",
-                "spatie/laravel-ray": "^1.26"
+                "url": "./packages/quill",
+                "reference": "e1078742311ee7785592cddfb9006be302cdb723"
             },
             "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Xanderificnl\\LaravelQuill\\LaravelQuillServiceProvider"
-                    ],
-                    "aliases": {
-                        "LaravelQuill": "Xanderificnl\\LaravelQuill\\Facades\\LaravelQuill"
-                    }
-                }
-            },
             "autoload": {
                 "psr-4": {
-                    "Xanderificnl\\LaravelQuill\\": "src",
-                    "Xanderificnl\\LaravelQuill\\Database\\Factories\\": "database/factories"
+                    "Xander\\Quill\\": "src/"
                 }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Xanderificnl\\LaravelQuill\\Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "analyse": [
-                    "vendor/bin/phpstan analyse"
-                ],
-                "test": [
-                    "vendor/bin/pest"
-                ],
-                "test-coverage": [
-                    "vendor/bin/pest coverage"
-                ]
             },
             "license": [
-                "MIT"
+                "BSD-3"
             ],
             "authors": [
                 {
                     "name": "Xanderificnl",
-                    "email": "xander@web-refinery.com",
-                    "role": "Developer"
+                    "email": "xander@web-refinery.com"
                 }
-            ],
-            "description": "Integrates Quill with Laravel",
-            "homepage": "https://github.com/xanderificnl/laravel-quill",
-            "keywords": [
-                "laravel",
-                "laravel-quill",
-                "xanderificnl"
             ],
             "transport-options": {
                 "relative": true
@@ -7424,16 +7312,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "v1.15.0",
+            "version": "1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "bbcd7380b0ebf3961ee21409db7b38bc31d69a13"
+                "reference": "d86dfc2e2a3cd366cee475e52c6bb3bbc371aa0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/bbcd7380b0ebf3961ee21409db7b38bc31d69a13",
-                "reference": "bbcd7380b0ebf3961ee21409db7b38bc31d69a13",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/d86dfc2e2a3cd366cee475e52c6bb3bbc371aa0e",
+                "reference": "d86dfc2e2a3cd366cee475e52c6bb3bbc371aa0e",
                 "shasum": ""
             },
             "require": {
@@ -7485,9 +7373,9 @@
             ],
             "support": {
                 "issues": "https://github.com/phpspec/prophecy/issues",
-                "source": "https://github.com/phpspec/prophecy/tree/v1.15.0"
+                "source": "https://github.com/phpspec/prophecy/tree/1.14.0"
             },
-            "time": "2021-12-08T12:19:24+00:00"
+            "time": "2021-09-10T09:02:12+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -10021,6 +9909,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "makeabledk/laravel-factory-enhanced": 20,
+        "xanderificnl/quill": 20,
         "friendsofphp/php-cs-fixer": 20
     },
     "prefer-stable": true,

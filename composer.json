@@ -14,7 +14,8 @@
         "laravel/tinker": "^2.5",
         "makeabledk/laravel-factory-enhanced": "dev-next",
         "spatie/laravel-permission": "^5.4",
-        "spatie/laravel-sluggable": "^3.1"
+        "spatie/laravel-sluggable": "^3.1",
+        "xanderificnl/laravel-quill": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -67,5 +68,6 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+"repositories": [{"type":"path", "url":"./packages/*"}]
 }
