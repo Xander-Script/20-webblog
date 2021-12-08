@@ -16,6 +16,10 @@
         @apply p-2 sm:p-6;
     }
 
+    .base-no-left-padding {
+        @apply -mx-3 px-3 sm:-ml-6 sm:pl-6;
+    }
+
     .base-style {
         @apply base-padding;
         @apply bg-white;
@@ -167,11 +171,12 @@ body {
         }
 
         > main {
-            @apply flex-1;
+            @apply flex-1 mr-6;
 
             article {
-                @apply -mx-3 px-3 sm:-mx-6 sm:px-6 mb-6;
-                @apply w-full;
+                @apply base-no-left-padding;
+                @apply mb-6 sm:mr-0;
+                @apply w-auto;
                 @apply sm:rounded-r-lg;
                 @apply bg-blueGray-50;
                 @apply border-b border-gray-400 border-dashed;
@@ -183,10 +188,11 @@ body {
                 header {
                     time {
                         @apply bg-blueGray-200 bg-opacity-75;
-                        @apply p-3 -ml-2 sm:-ml-6 pb-2;
                         @apply rounded-r-full;
                         @apply shadow;
                         @apply text-blueGray-900;
+                        @apply base-no-left-padding;
+                        @apply p-3 pb-2;
                     }
 
                     div {
@@ -204,6 +210,7 @@ body {
 
                     h1 {
                         @apply underline;
+                        @apply mt-2;
                     }
 
                     h2 {
@@ -247,7 +254,6 @@ body {
             }
 
             .pagination {
-                @apply sm:-mx-6 sm:pl-6;
                 @apply max-w-full;
 
                 a {
@@ -301,6 +307,13 @@ body {
 
         > aside {
             @apply lg:w-64 xl:flex-shrink-0;
+
+            form {
+                @apply -m-3 p-3 mt-0;
+                @apply bg-coolGray-50;
+                @apply rounded-lg shadow-inner;
+            }
+
         }
     }
 
@@ -324,7 +337,7 @@ body {
 main {
     .ql-container, .ql-toolbar {
         @apply h-auto;
-        max-width: 98%;
+        //max-width: 98%;
     }
 
     .ql-container {
