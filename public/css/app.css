@@ -4052,6 +4052,14 @@ body [role=alert].info{
 	--tw-bg-opacity: 1;
 	background-color: rgba(239, 246, 255, var(--tw-bg-opacity));
 }
+
+/* Quill */
+.ql-container{
+	margin-bottom: 2rem;
+	height: auto;
+	padding-left: 0px;
+	width: 100%;
+}
 .hover\:text-gray-500:hover{
 	--tw-text-opacity: 1;
 	color: rgba(113, 113, 122, var(--tw-text-opacity));
