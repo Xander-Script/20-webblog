@@ -4,7 +4,6 @@ namespace App\Policies;
 
 use App\Models\Article;
 use App\Models\User;
-use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Database\Eloquent\Builder;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -12,7 +11,7 @@ class ArticlePolicy extends Policy
 {
     public function __construct()
     {
-        $user = request()->user() ?? new User;
+        $user = request()->user() ?? new User();
 
         if (! $user->hasRole(['root', 'editor', 'author'])) {
             Article::addGlobalScope('published', function (Builder $builder) {
