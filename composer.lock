@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f97ddaa3ed9cb05b8377a25ce27042be",
+    "content-hash": "c275a6f2bd3d280e80b315b2397d5ce4",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5745,10 +5745,16 @@
         {
             "name": "xanderificnl/laravel-quill",
             "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xanderificnl/laravel-quill.git",
+                "reference": "e397d4f73a00e6a007931f2300609443a68fbc4f"
+            },
             "dist": {
-                "type": "path",
-                "url": "./packages/laravel-quill",
-                "reference": "ca0fc6f74cfa33740c1021962cb410def1432ad0"
+                "type": "zip",
+                "url": "https://api.github.com/repos/xanderificnl/laravel-quill/zipball/e397d4f73a00e6a007931f2300609443a68fbc4f",
+                "reference": "e397d4f73a00e6a007931f2300609443a68fbc4f",
+                "shasum": ""
             },
             "require": {
                 "illuminate/contracts": "^8.73",
@@ -5767,6 +5773,7 @@
                 "phpunit/phpunit": "^9.5",
                 "spatie/laravel-ray": "^1.26"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -5784,22 +5791,7 @@
                     "Xanderificnl\\LaravelQuill\\Database\\Factories\\": "database/factories"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Xanderificnl\\LaravelQuill\\Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "analyse": [
-                    "vendor/bin/phpstan analyse"
-                ],
-                "test": [
-                    "vendor/bin/pest"
-                ],
-                "test-coverage": [
-                    "vendor/bin/pest coverage"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -5817,9 +5809,17 @@
                 "laravel-quill",
                 "xanderificnl"
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/xanderificnl/laravel-quill/issues",
+                "source": "https://github.com/xanderificnl/laravel-quill/tree/main"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/xanderificnl",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-12-08T13:13:39+00:00"
         }
     ],
     "packages-dev": [
@@ -10021,6 +10021,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "makeabledk/laravel-factory-enhanced": 20,
+        "xanderificnl/laravel-quill": 20,
         "friendsofphp/php-cs-fixer": 20
     },
     "prefer-stable": true,
