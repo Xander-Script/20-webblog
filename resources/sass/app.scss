@@ -314,8 +314,13 @@ body {
 }
 
 /* Quill */
-.ql-container {
-    @apply h-auto mb-8 pl-0;
-    @apply w-full;
-    //@apply -mx-3 px-3 sm:-mx-6 sm:px-6 mb-6;
+main {
+    .ql-container, .ql-toolbar {
+        @apply h-auto;
+        max-width: 98%;
+    }
+
+    .ql-container {
+        @apply mb-8;
+    }
 }

@@ -4054,11 +4054,12 @@ body [role=alert].info{
 }
 
 /* Quill */
-.ql-container{
-	margin-bottom: 2rem;
+main .ql-container, main .ql-toolbar{
 	height: auto;
-	padding-left: 0px;
-	width: 100%;
+  max-width: 98%;
+}
+main .ql-container{
+	margin-bottom: 2rem;
 }
 .hover\:text-gray-500:hover{
 	--tw-text-opacity: 1;
