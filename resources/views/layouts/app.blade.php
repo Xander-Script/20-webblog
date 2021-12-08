@@ -21,7 +21,7 @@
 
 {{--    <script src="{{ asset('js/manifest.js') }}" defer></script>--}}
 {{--    <script src="{{ asset('js/vendor.js') }}" defer></script>--}}
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdn.quilljs.com/1.3.6/quill.js" defer></script>
 {{--    <script src="{{ asset('js/quall/quall.min.js') }}"></script>--}}
 
@@ -35,9 +35,19 @@
                 {{-- todo: set active state when page is actually active --}}
                 <li><a tabindex="1" href="#content">{{ __("Skip to content") }}</a></li>
                 <li class="active"><a tabindex="1" href="#" aria-current="page">Home</a></li>
-                <li><a tabindex="1" href="#">About me</a></li>
+                <li><a tabindex="1" href="#">About</a></li>
                 <li><a tabindex="1" href="#">Archives</a></li>
-                {{-- todo: add login/logout actions --}}
+
+                @if(Auth::user())
+                    <li>
+                        <a href="#" tabindex="1">{{ __("Your preferences") }}</a>
+                    </li>
+
+                    <li><a href="{{ route('logout') }}" tabindex>{{ __("Log out") }}</a></li>
+                @else
+                    <li><a href="{{ route('login') }}" tabindex="1">{{ __("Log in") }}</a></li>
+                    <li><a href="{{ route('register') }}" tabindex="1">{{ __("Register") }}</a></li>
+                @endif
             </ul>
         </nav>
         <header>
