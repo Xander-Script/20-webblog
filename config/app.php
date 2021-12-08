@@ -177,6 +177,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         // App\Providers\TelescopeServiceProvider::class,
 
+//        Xanderificnl\Quill\QuillServiceProvider::class,
+
     ],
 
     /*
@@ -233,7 +235,6 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'NumConvert' => 'HnhDigital\LaravelNumberConverter\Facade',
-
     ],
 
 ];

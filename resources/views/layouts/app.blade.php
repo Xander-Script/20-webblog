@@ -19,7 +19,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+{{--    <script src="{{ asset('js/manifest.js') }}" defer></script>--}}
+{{--    <script src="{{ asset('js/vendor.js') }}" defer></script>--}}
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js" defer></script>
+{{--    <script src="{{ asset('js/quall/quall.min.js') }}"></script>--}}
 
     {{-- https://developers.google.com/search/docs/advanced/appearance/title-link --}}
     <title>{{ config('app.name', 'A webapp by Xander') }}</title>

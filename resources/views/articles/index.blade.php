@@ -28,6 +28,13 @@
         </div>
     @endif
 
+{{--    <x-quill-editor-component />--}}
+
+    <x-laravel-quill-editor-component>
+        lala...
+    </x-laravel-quill-editor-component>
+{{--    <x-quill::editor id="editor" content="bla" />--}}
+
     @foreach ($articles as $article)
         @include('articles._article')
     @endforeach
