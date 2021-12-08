@@ -24,7 +24,7 @@
         "sass": "^1.44.0",
         "sass-loader": "^12.3.0",
         "tailwindcss": "^2.0.2",
-        "webpack-livereload-plugin": "^1.2.0"
+        "webpack-livereload-plugin": "^3.0.2"
     },
     "dependencies": {
         "@tailwindcss/typography": "^0.4.1",
