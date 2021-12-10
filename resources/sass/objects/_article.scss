@@ -1,0 +1,78 @@
+@use '../base';
+
+$article_padding: base.$padding * 2;
+$time_padding: base.$padding / 2;
+
+@mixin object {
+    article {
+        @include base.always_rounded(r);
+
+        @include base.padding("#{base.$resize-at-viewport}:-ml");
+        @include base.padding(px);
+
+        @apply mb-#{$article_padding};
+
+        @apply bg-blueGray-50;
+        @apply shadow shadow-inner;
+
+        &.premium {
+            @apply bg-yellow-300 drop-shadow-lg;
+
+            a {
+                @apply text-black hover:text-gray-500;
+            }
+
+            header {
+                time {
+                    @apply bg-black;
+                    @apply drop-shadow-2xl;
+                }
+            }
+        }
+
+        header {
+            @include base.padding(my);
+
+            @apply #{base.$resize-at-viewport}:m-0;
+
+            time {
+                @include base.padding("#{base.$resize-at-viewport}:-mx");
+
+                @apply p-#{$time_padding};
+
+                @apply bg-blueGray-900 text-white;
+                @apply font-bold;
+                @apply drop-shadow-xl;
+            }
+
+            h1 {
+                @include base.padding(mt);
+                @apply -mb-3;
+
+                @apply prose-lg font-semibold;
+                @apply block;
+
+                address {
+                    @apply inline-block;
+                    @apply not-italic;
+                }
+            }
+
+            h2 {
+                @apply prose-2xl font-bold;
+            }
+        }
+
+        .entry {
+            @include base.padding(py);
+        }
+
+        footer {
+            @apply py-4;
+
+            p {
+                @apply block;
+            }
+        }
+    }
+}

@@ -1,0 +1,62 @@
+@use 'base';
+
+#top {
+    @apply bg-blueGray-700;
+    @apply drop-shadow-xl shadow-inner;
+
+    nav {
+        @include base.container;
+        @include base.padding(-my);
+
+        @apply bg-transparent;
+
+        ul {
+            @include base.inline-row;
+            @include base.gap(0); // Override `base.inline-row`'s gap
+
+            li {
+                $active-bg: bg-blueGray;
+
+                @apply md:w-full text-center;
+
+                a {
+                    @include base.padding();
+
+                    @apply w-full inline-block;
+                    @apply focus:shadow-inner focus:ring;
+                    @apply text-coolGray-300;
+                    @apply hover:#{$active-bg}-600 hover:text-coolGray-50;
+                }
+
+                &.active {
+                    @apply #{$active-bg}-500;
+                }
+            }
+        }
+    }
+
+    header {
+        @include base.container;
+        @include base.inline-row;
+        @include base.rounded(t);
+
+        @apply bg-coolGray-300;
+        @apply items-center;
+
+        hgroup {
+            @include base.left;
+
+            @apply text-coolGray-600;
+        }
+
+        [role="search"] {
+            @include base.right;
+
+            input {
+                @include base.rounded($viewport: false);
+
+                @apply w-full;
+            }
+        }
+    }
+}

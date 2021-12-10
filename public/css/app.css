@@ -1625,6 +1625,310 @@ select{
 		max-width: 1536px;
 	}
 }
+.prose{
+	color: #3f3f46;
+	max-width: 65ch;
+}
+.prose [class~="lead"]{
+	color: #52525b;
+	font-size: 1.25em;
+	line-height: 1.6;
+	margin-top: 1.2em;
+	margin-bottom: 1.2em;
+}
+.prose a{
+	color: #18181b;
+	text-decoration: underline;
+	font-weight: 500;
+}
+.prose strong{
+	color: #18181b;
+	font-weight: 600;
+}
+.prose ol[type="A"]{
+	--list-counter-style: upper-alpha;
+}
+.prose ol[type="a"]{
+	--list-counter-style: lower-alpha;
+}
+.prose ol[type="A" s]{
+	--list-counter-style: upper-alpha;
+}
+.prose ol[type="a" s]{
+	--list-counter-style: lower-alpha;
+}
+.prose ol[type="I"]{
+	--list-counter-style: upper-roman;
+}
+.prose ol[type="i"]{
+	--list-counter-style: lower-roman;
+}
+.prose ol[type="I" s]{
+	--list-counter-style: upper-roman;
+}
+.prose ol[type="i" s]{
+	--list-counter-style: lower-roman;
+}
+.prose ol[type="1"]{
+	--list-counter-style: decimal;
+}
+.prose ol > li{
+	position: relative;
+	padding-left: 1.75em;
+}
+.prose ol > li::before{
+	content: counter(list-item, var(--list-counter-style, decimal)) ".";
+	position: absolute;
+	font-weight: 400;
+	color: #71717a;
+	left: 0;
+}
+.prose ul > li{
+	position: relative;
+	padding-left: 1.75em;
+}
+.prose ul > li::before{
+	content: "";
+	position: absolute;
+	background-color: #d4d4d8;
+	border-radius: 50%;
+	width: 0.375em;
+	height: 0.375em;
+	top: calc(0.875em - 0.1875em);
+	left: 0.25em;
+}
+.prose hr{
+	border-color: #e4e4e7;
+	border-top-width: 1px;
+	margin-top: 3em;
+	margin-bottom: 3em;
+}
+.prose blockquote{
+	font-weight: 500;
+	font-style: italic;
+	color: #18181b;
+	border-left-width: 0.25rem;
+	border-left-color: #e4e4e7;
+	quotes: "\201C""\201D""\2018""\2019";
+	margin-top: 1.6em;
+	margin-bottom: 1.6em;
+	padding-left: 1em;
+}
+.prose blockquote p:first-of-type::before{
+	content: open-quote;
+}
+.prose blockquote p:last-of-type::after{
+	content: close-quote;
+}
+.prose h1{
+	color: #18181b;
+	font-weight: 800;
+	font-size: 2.25em;
+	margin-top: 0;
+	margin-bottom: 0.8888889em;
+	line-height: 1.1111111;
+}
+.prose h2{
+	color: #18181b;
+	font-weight: 700;
+	font-size: 1.5em;
+	margin-top: 2em;
+	margin-bottom: 1em;
+	line-height: 1.3333333;
+}
+.prose h3{
+	color: #18181b;
+	font-weight: 600;
+	font-size: 1.25em;
+	margin-top: 1.6em;
+	margin-bottom: 0.6em;
+	line-height: 1.6;
+}
+.prose h4{
+	color: #18181b;
+	font-weight: 600;
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+	line-height: 1.5;
+}
+.prose figure figcaption{
+	color: #71717a;
+	font-size: 0.875em;
+	line-height: 1.4285714;
+	margin-top: 0.8571429em;
+}
+.prose code{
+	color: #18181b;
+	font-weight: 600;
+	font-size: 0.875em;
+}
+.prose code::before{
+	content: "`";
+}
+.prose code::after{
+	content: "`";
+}
+.prose a code{
+	color: #18181b;
+}
+.prose pre{
+	color: #e4e4e7;
+	background-color: #27272a;
+	overflow-x: auto;
+	font-size: 0.875em;
+	line-height: 1.7142857;
+	margin-top: 1.7142857em;
+	margin-bottom: 1.7142857em;
+	border-radius: 0.375rem;
+	padding-top: 0.8571429em;
+	padding-right: 1.1428571em;
+	padding-bottom: 0.8571429em;
+	padding-left: 1.1428571em;
+}
+.prose pre code{
+	background-color: transparent;
+	border-width: 0;
+	border-radius: 0;
+	padding: 0;
+	font-weight: 400;
+	color: inherit;
+	font-size: inherit;
+	font-family: inherit;
+	line-height: inherit;
+}
+.prose pre code::before{
+	content: none;
+}
+.prose pre code::after{
+	content: none;
+}
+.prose table{
+	width: 100%;
+	table-layout: auto;
+	text-align: left;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	font-size: 0.875em;
+	line-height: 1.7142857;
+}
+.prose thead{
+	color: #18181b;
+	font-weight: 600;
+	border-bottom-width: 1px;
+	border-bottom-color: #d4d4d8;
+}
+.prose thead th{
+	vertical-align: bottom;
+	padding-right: 0.5714286em;
+	padding-bottom: 0.5714286em;
+	padding-left: 0.5714286em;
+}
+.prose tbody tr{
+	border-bottom-width: 1px;
+	border-bottom-color: #e4e4e7;
+}
+.prose tbody tr:last-child{
+	border-bottom-width: 0;
+}
+.prose tbody td{
+	vertical-align: top;
+	padding-top: 0.5714286em;
+	padding-right: 0.5714286em;
+	padding-bottom: 0.5714286em;
+	padding-left: 0.5714286em;
+}
+.prose{
+	font-size: 1rem;
+	line-height: 1.75;
+}
+.prose p{
+	margin-top: 1.25em;
+	margin-bottom: 1.25em;
+}
+.prose img{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+.prose video{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+.prose figure{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+.prose figure > *{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.prose h2 code{
+	font-size: 0.875em;
+}
+.prose h3 code{
+	font-size: 0.9em;
+}
+.prose ol{
+	margin-top: 1.25em;
+	margin-bottom: 1.25em;
+}
+.prose ul{
+	margin-top: 1.25em;
+	margin-bottom: 1.25em;
+}
+.prose li{
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+.prose > ul > li p{
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+}
+.prose > ul > li > *:first-child{
+	margin-top: 1.25em;
+}
+.prose > ul > li > *:last-child{
+	margin-bottom: 1.25em;
+}
+.prose > ol > li > *:first-child{
+	margin-top: 1.25em;
+}
+.prose > ol > li > *:last-child{
+	margin-bottom: 1.25em;
+}
+.prose ul ul, .prose ul ol, .prose ol ul, .prose ol ol{
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+}
+.prose hr + *{
+	margin-top: 0;
+}
+.prose h2 + *{
+	margin-top: 0;
+}
+.prose h3 + *{
+	margin-top: 0;
+}
+.prose h4 + *{
+	margin-top: 0;
+}
+.prose thead th:first-child{
+	padding-left: 0;
+}
+.prose thead th:last-child{
+	padding-right: 0;
+}
+.prose tbody td:first-child{
+	padding-left: 0;
+}
+.prose tbody td:last-child{
+	padding-right: 0;
+}
+.prose > :first-child{
+	margin-top: 0;
+}
+.prose > :last-child{
+	margin-bottom: 0;
+}
 .fixed{
 	position: fixed;
 }
@@ -1643,11 +1947,11 @@ select{
 .top-0{
 	top: 0px;
 }
-.z-0{
-	z-index: 0;
-}
 .z-50{
 	z-index: 50;
+}
+.z-0{
+	z-index: 0;
 }
 .m-8{
 	margin: 2rem;
@@ -1659,12 +1963,6 @@ select{
 .my-3{
 	margin-top: 0.75rem;
 	margin-bottom: 0.75rem;
-}
-.ml-3{
-	margin-left: 0.75rem;
-}
-.-ml-px{
-	margin-left: -1px;
 }
 .mt-2{
 	margin-top: 0.5rem;
@@ -1692,6 +1990,9 @@ select{
 }
 .mb-0{
 	margin-bottom: 0px;
+}
+.ml-3{
+	margin-left: 0.75rem;
 }
 .ml-auto{
 	margin-left: auto;
@@ -1729,6 +2030,9 @@ select{
 .mb-8{
 	margin-bottom: 2rem;
 }
+.-ml-px{
+	margin-left: -1px;
+}
 .-mr-2{
 	margin-right: -0.5rem;
 }
@@ -1747,11 +2051,11 @@ select{
 .hidden{
 	display: none;
 }
-.h-5{
-	height: 1.25rem;
-}
 .h-20{
 	height: 5rem;
+}
+.h-5{
+	height: 1.25rem;
 }
 .h-8{
 	height: 2rem;
@@ -1774,9 +2078,6 @@ select{
 .min-h-screen{
 	min-height: 100vh;
 }
-.w-5{
-	width: 1.25rem;
-}
 .w-48{
 	width: 12rem;
 }
@@ -1785,6 +2086,9 @@ select{
 }
 .w-full{
 	width: 100%;
+}
+.w-5{
+	width: 1.25rem;
 }
 .w-8{
 	width: 2rem;
@@ -1991,18 +2295,6 @@ select{
 .p-2{
 	padding: 0.5rem;
 }
-.px-4{
-	padding-left: 1rem;
-	padding-right: 1rem;
-}
-.py-2{
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
-}
-.px-2{
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;
-}
 .py-1{
 	padding-top: 0.25rem;
 	padding-bottom: 0.25rem;
@@ -2010,6 +2302,14 @@ select{
 .py-6{
 	padding-top: 1.5rem;
 	padding-bottom: 1.5rem;
+}
+.px-4{
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+.py-2{
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
 }
 .py-4{
 	padding-top: 1rem;
@@ -2026,6 +2326,10 @@ select{
 .py-3{
 	padding-top: 0.75rem;
 	padding-bottom: 0.75rem;
+}
+.px-2{
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
 }
 .px-1{
 	padding-left: 0.25rem;
@@ -2070,13 +2374,13 @@ select{
 .font-sans{
 	font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
-.text-sm{
-	font-size: 0.875rem;
-	line-height: 1.25rem;
-}
 .text-xl{
 	font-size: 1.25rem;
 	line-height: 1.75rem;
+}
+.text-sm{
+	font-size: 0.875rem;
+	line-height: 1.25rem;
 }
 .text-2xl{
 	font-size: 1.5rem;
@@ -2098,11 +2402,11 @@ select{
 	font-size: 0.75rem;
 	line-height: 1rem;
 }
-.font-medium{
-	font-weight: 500;
-}
 .font-semibold{
 	font-weight: 600;
+}
+.font-medium{
+	font-weight: 500;
 }
 .font-light{
 	font-weight: 300;
@@ -2116,11 +2420,11 @@ select{
 .uppercase{
 	text-transform: uppercase;
 }
-.leading-5{
-	line-height: 1.25rem;
-}
 .leading-tight{
 	line-height: 1.25;
+}
+.leading-5{
+	line-height: 1.25rem;
 }
 .leading-7{
 	line-height: 1.75rem;
@@ -2137,6 +2441,10 @@ select{
 .tracking-wider{
 	letter-spacing: 0.05em;
 }
+.text-gray-800{
+	--tw-text-opacity: 1;
+	color: rgba(39, 39, 42, var(--tw-text-opacity));
+}
 .text-gray-500{
 	--tw-text-opacity: 1;
 	color: rgba(113, 113, 122, var(--tw-text-opacity));
@@ -2144,10 +2452,6 @@ select{
 .text-gray-700{
 	--tw-text-opacity: 1;
 	color: rgba(63, 63, 70, var(--tw-text-opacity));
-}
-.text-gray-800{
-	--tw-text-opacity: 1;
-	color: rgba(39, 39, 42, var(--tw-text-opacity));
 }
 .text-gray-400{
 	--tw-text-opacity: 1;
@@ -2206,12 +2510,12 @@ select{
 .opacity-100{
 	opacity: 1;
 }
-.shadow-sm{
-	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
 .shadow-lg{
 	--tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.shadow-sm{
+	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .shadow{
@@ -2227,13 +2531,13 @@ select{
 	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
 	box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
-.ring-gray-300{
-	--tw-ring-opacity: 1;
-	--tw-ring-color: rgba(212, 212, 216, var(--tw-ring-opacity));
-}
 .ring-black{
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(0, 0, 0, var(--tw-ring-opacity));
+}
+.ring-gray-300{
+	--tw-ring-opacity: 1;
+	--tw-ring-color: rgba(212, 212, 216, var(--tw-ring-opacity));
 }
 .ring-opacity-5{
 	--tw-ring-opacity: 0.05;
@@ -2245,17 +2549,14 @@ select{
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
 }
-.duration-150{
-	transition-duration: 150ms;
-}
 .duration-200{
 	transition-duration: 200ms;
 }
 .duration-75{
 	transition-duration: 75ms;
 }
-.ease-in-out{
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+.duration-150{
+	transition-duration: 150ms;
 }
 .ease-out{
 	transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
@@ -2263,1025 +2564,710 @@ select{
 .ease-in{
 	transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
-:root {
-  --hgroup-color: #4b5563;
-}
-body{
-	--tw-bg-opacity: 1;
-	background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
-	font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	display: flex;
-	flex-direction: column;
-}
-body > header, body > nav, body > #content, body > footer{
-	display: flex;
-	flex-direction: column;
-}
-@media (min-width: 640px){
-	body > header, body > nav, body > #content, body > footer{
-		flex-direction: row;
-	}
-}
-body #top{
-	--tw-bg-opacity: 1;
-	background-color: rgba(51, 65, 85, var(--tw-bg-opacity));
-	--tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-	--tw-drop-shadow: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
-	filter: var(--tw-filter);
-}
-body #top nav{
-	width: 100%;
-	margin-right: auto;
-	margin-left: auto;
-}
-@media (min-width: 640px){
-	body #top nav{
-		max-width: 640px;
-	}
-}
-@media (min-width: 768px){
-	body #top nav{
-		max-width: 768px;
-	}
-}
-@media (min-width: 1024px){
-	body #top nav{
-		max-width: 1024px;
-	}
-}
-@media (min-width: 1280px){
-	body #top nav{
-		max-width: 1280px;
-	}
-}
-@media (min-width: 1536px){
-	body #top nav{
-		max-width: 1536px;
-	}
-}
-body #top nav{
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
-}
-@media (min-width: 1024px){
-	body #top nav{
-		width: 66.666667%;
-	}
-}
-body #top nav{
-	background-color: transparent;
-}
-body #top nav ul{
-	display: flex;
-	flex-direction: column;
-}
-@media (min-width: 1024px){
-	body #top nav ul{
-		flex-direction: row;
-	}
-}
-body #top nav li{
-	text-align: center;
-}
-@media (min-width: 768px){
-	body #top nav li{
-		width: 100%;
-	}
-}
-body #top nav li{
-	margin-bottom: 0.5rem;
-}
-@media (min-width: 640px){
-	body #top nav li{
-		margin-bottom: 0px;
-	}
-}
-body #top nav li:hover, body #top nav li.active:hover{
-	--tw-bg-opacity: 1;
-	background-color: rgba(100, 116, 139, var(--tw-bg-opacity));
-	--tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-	--tw-text-opacity: 1;
-	color: rgba(255, 255, 255, var(--tw-text-opacity));
-}
-body #top nav li.active{
-	--tw-bg-opacity: 1;
-	background-color: rgba(71, 85, 105, var(--tw-bg-opacity));
-}
-body #top nav li a{
-	padding: 0.5rem;
-}
-@media (min-width: 640px){
-	body #top nav li a{
-		padding: 1.5rem;
-	}
-}
-body #top nav li a{
-	display: inline-block;
-	width: 100%;
-	width: 100%;
-}
-@media (min-width: 1024px){
-	body #top nav li a{
-		color: #3f3f46;
-		max-width: 65ch;
-	}
-	body #top nav li a [class~="lead"]{
-		color: #52525b;
-		font-size: 1.25em;
-		line-height: 1.6;
-		margin-top: 1.2em;
-		margin-bottom: 1.2em;
-	}
-	body #top nav li a a{
-		color: #18181b;
-		text-decoration: underline;
-		font-weight: 500;
-	}
-	body #top nav li a strong{
-		color: #18181b;
-		font-weight: 600;
-	}
-	body #top nav li a ol[type="A"]{
-		--list-counter-style: upper-alpha;
-	}
-	body #top nav li a ol[type="a"]{
-		--list-counter-style: lower-alpha;
-	}
-	body #top nav li a ol[type="A" s]{
-		--list-counter-style: upper-alpha;
-	}
-	body #top nav li a ol[type="a" s]{
-		--list-counter-style: lower-alpha;
-	}
-	body #top nav li a ol[type="I"]{
-		--list-counter-style: upper-roman;
-	}
-	body #top nav li a ol[type="i"]{
-		--list-counter-style: lower-roman;
-	}
-	body #top nav li a ol[type="I" s]{
-		--list-counter-style: upper-roman;
-	}
-	body #top nav li a ol[type="i" s]{
-		--list-counter-style: lower-roman;
-	}
-	body #top nav li a ol[type="1"]{
-		--list-counter-style: decimal;
-	}
-	body #top nav li a ol > li{
-		position: relative;
-		padding-left: 1.75em;
-	}
-	body #top nav li a ol > li::before{
-		content: counter(list-item, var(--list-counter-style, decimal)) ".";
-		position: absolute;
-		font-weight: 400;
-		color: #71717a;
-		left: 0;
-	}
-	body #top nav li a ul > li{
-		position: relative;
-		padding-left: 1.75em;
-	}
-	body #top nav li a ul > li::before{
-		content: "";
-		position: absolute;
-		background-color: #d4d4d8;
-		border-radius: 50%;
-		width: 0.375em;
-		height: 0.375em;
-		top: calc(0.875em - 0.1875em);
-		left: 0.25em;
-	}
-	body #top nav li a hr{
-		border-color: #e4e4e7;
-		border-top-width: 1px;
-		margin-top: 3em;
-		margin-bottom: 3em;
-	}
-	body #top nav li a blockquote{
-		font-weight: 500;
-		font-style: italic;
-		color: #18181b;
-		border-left-width: 0.25rem;
-		border-left-color: #e4e4e7;
-		quotes: "\201C""\201D""\2018""\2019";
-		margin-top: 1.6em;
-		margin-bottom: 1.6em;
-		padding-left: 1em;
-	}
-	body #top nav li a blockquote p:first-of-type::before{
-		content: open-quote;
-	}
-	body #top nav li a blockquote p:last-of-type::after{
-		content: close-quote;
-	}
-	body #top nav li a h1{
-		color: #18181b;
-		font-weight: 800;
-		font-size: 2.25em;
-		margin-top: 0;
-		margin-bottom: 0.8888889em;
-		line-height: 1.1111111;
-	}
-	body #top nav li a h2{
-		color: #18181b;
-		font-weight: 700;
-		font-size: 1.5em;
-		margin-top: 2em;
-		margin-bottom: 1em;
-		line-height: 1.3333333;
-	}
-	body #top nav li a h3{
-		color: #18181b;
-		font-weight: 600;
-		font-size: 1.25em;
-		margin-top: 1.6em;
-		margin-bottom: 0.6em;
-		line-height: 1.6;
-	}
-	body #top nav li a h4{
-		color: #18181b;
-		font-weight: 600;
-		margin-top: 1.5em;
-		margin-bottom: 0.5em;
-		line-height: 1.5;
-	}
-	body #top nav li a figure figcaption{
-		color: #71717a;
-		font-size: 0.875em;
-		line-height: 1.4285714;
-		margin-top: 0.8571429em;
-	}
-	body #top nav li a code{
-		color: #18181b;
-		font-weight: 600;
-		font-size: 0.875em;
-	}
-	body #top nav li a code::before{
-		content: "`";
-	}
-	body #top nav li a code::after{
-		content: "`";
-	}
-	body #top nav li a a code{
-		color: #18181b;
-	}
-	body #top nav li a pre{
-		color: #e4e4e7;
-		background-color: #27272a;
-		overflow-x: auto;
-		font-size: 0.875em;
-		line-height: 1.7142857;
-		margin-top: 1.7142857em;
-		margin-bottom: 1.7142857em;
-		border-radius: 0.375rem;
-		padding-top: 0.8571429em;
-		padding-right: 1.1428571em;
-		padding-bottom: 0.8571429em;
-		padding-left: 1.1428571em;
-	}
-	body #top nav li a pre code{
-		background-color: transparent;
-		border-width: 0;
-		border-radius: 0;
-		padding: 0;
-		font-weight: 400;
-		color: inherit;
-		font-size: inherit;
-		font-family: inherit;
-		line-height: inherit;
-	}
-	body #top nav li a pre code::before{
-		content: none;
-	}
-	body #top nav li a pre code::after{
-		content: none;
-	}
-	body #top nav li a table{
-		width: 100%;
-		table-layout: auto;
-		text-align: left;
-		margin-top: 2em;
-		margin-bottom: 2em;
-		font-size: 0.875em;
-		line-height: 1.7142857;
-	}
-	body #top nav li a thead{
-		color: #18181b;
-		font-weight: 600;
-		border-bottom-width: 1px;
-		border-bottom-color: #d4d4d8;
-	}
-	body #top nav li a thead th{
-		vertical-align: bottom;
-		padding-right: 0.5714286em;
-		padding-bottom: 0.5714286em;
-		padding-left: 0.5714286em;
-	}
-	body #top nav li a tbody tr{
-		border-bottom-width: 1px;
-		border-bottom-color: #e4e4e7;
-	}
-	body #top nav li a tbody tr:last-child{
-		border-bottom-width: 0;
-	}
-	body #top nav li a tbody td{
-		vertical-align: top;
-		padding-top: 0.5714286em;
-		padding-right: 0.5714286em;
-		padding-bottom: 0.5714286em;
-		padding-left: 0.5714286em;
-	}
-	body #top nav li a{
-		font-size: 1rem;
-		line-height: 1.75;
-	}
-	body #top nav li a p{
-		margin-top: 1.25em;
-		margin-bottom: 1.25em;
-	}
-	body #top nav li a img{
-		margin-top: 2em;
-		margin-bottom: 2em;
-	}
-	body #top nav li a video{
-		margin-top: 2em;
-		margin-bottom: 2em;
-	}
-	body #top nav li a figure{
-		margin-top: 2em;
-		margin-bottom: 2em;
-	}
-	body #top nav li a figure > *{
-		margin-top: 0;
-		margin-bottom: 0;
-	}
-	body #top nav li a h2 code{
-		font-size: 0.875em;
-	}
-	body #top nav li a h3 code{
-		font-size: 0.9em;
-	}
-	body #top nav li a ol{
-		margin-top: 1.25em;
-		margin-bottom: 1.25em;
-	}
-	body #top nav li a ul{
-		margin-top: 1.25em;
-		margin-bottom: 1.25em;
-	}
-	body #top nav li a li{
-		margin-top: 0.5em;
-		margin-bottom: 0.5em;
-	}
-	body #top nav li a > ul > li p{
-		margin-top: 0.75em;
-		margin-bottom: 0.75em;
-	}
-	body #top nav li a > ul > li > *:first-child{
-		margin-top: 1.25em;
-	}
-	body #top nav li a > ul > li > *:last-child{
-		margin-bottom: 1.25em;
-	}
-	body #top nav li a > ol > li > *:first-child{
-		margin-top: 1.25em;
-	}
-	body #top nav li a > ol > li > *:last-child{
-		margin-bottom: 1.25em;
-	}
-	body #top nav li a ul ul, body #top nav li a ul ol, body #top nav li a ol ul, body #top nav li a ol ol{
-		margin-top: 0.75em;
-		margin-bottom: 0.75em;
-	}
-	body #top nav li a ul ul, body #top nav li a ul ol, body #top nav li a ol ul, body #top nav li a ol ol{
-		margin-top: 0.75em;
-		margin-bottom: 0.75em;
-	}
-	body #top nav li a ul ul, body #top nav li a ul ol, body #top nav li a ol ul, body #top nav li a ol ol{
-		margin-top: 0.75em;
-		margin-bottom: 0.75em;
-	}
-	body #top nav li a ul ul, body #top nav li a ul ol, body #top nav li a ol ul, body #top nav li a ol ol{
-		margin-top: 0.75em;
-		margin-bottom: 0.75em;
-	}
-	body #top nav li a hr + *{
-		margin-top: 0;
-	}
-	body #top nav li a h2 + *{
-		margin-top: 0;
-	}
-	body #top nav li a h3 + *{
-		margin-top: 0;
-	}
-	body #top nav li a h4 + *{
-		margin-top: 0;
-	}
-	body #top nav li a thead th:first-child{
-		padding-left: 0;
-	}
-	body #top nav li a thead th:last-child{
-		padding-right: 0;
-	}
-	body #top nav li a tbody td:first-child{
-		padding-left: 0;
-	}
-	body #top nav li a tbody td:last-child{
-		padding-right: 0;
-	}
-	body #top nav li a > :first-child{
-		margin-top: 0;
-	}
-	body #top nav li a > :last-child{
-		margin-bottom: 0;
-	}
-}
-body #top nav li a a{
-	font-weight: 600;
-	--tw-text-opacity: 1;
-	color: rgba(31, 41, 55, var(--tw-text-opacity));
-}
-body #top nav li a{
-	--tw-text-opacity: 1;
-	color: rgba(209, 213, 219, var(--tw-text-opacity));
-	outline: 2px solid transparent;
-	outline-offset: 2px;
-}
-body #top nav li a:focus{
-	--tw-bg-opacity: 1;
-	background-color: rgba(100, 116, 139, var(--tw-bg-opacity));
-	--tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-	--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-	box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-}
-body #top header{
-	padding: 0.5rem;
-}
-@media (min-width: 640px){
-	body #top header{
-		padding: 1.5rem;
-	}
-}
-body #top header{
-	--tw-bg-opacity: 1;
-	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-	--tw-drop-shadow: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
-	filter: var(--tw-filter);
-	width: 100%;
-	margin-right: auto;
-	margin-left: auto;
-}
-@media (min-width: 640px){
-	body #top header{
-		max-width: 640px;
-	}
-}
-@media (min-width: 768px){
-	body #top header{
-		max-width: 768px;
-	}
-}
-@media (min-width: 1024px){
-	body #top header{
-		max-width: 1024px;
-	}
-}
-@media (min-width: 1280px){
-	body #top header{
-		max-width: 1280px;
-	}
-}
-@media (min-width: 1536px){
-	body #top header{
-		max-width: 1536px;
-	}
-}
-body #top header{
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
-}
-@media (min-width: 1024px){
-	body #top header{
-		width: 66.666667%;
-	}
-}
-body #top header{
-	margin-top: -0.5rem;
-}
-@media (min-width: 768px){
-	body #top header{
-		border-top-left-radius: 0.375rem;
-		border-top-right-radius: 0.375rem;
-	}
-}
-body #top header{
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	--tw-bg-opacity: 1;
-	background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
-	align-items: center;
-}
-body #top header hgroup{
-	margin-right: 1.5rem;
-	flex-grow: 1;
-	padding-bottom: 1rem;
-}
-@media (min-width: 1280px){
-	body #top header hgroup{
-		padding-bottom: 0px;
-	}
-}
-body #top header hgroup {
-  color: var(--hgroup-color);
-}
-body #top header hgroup h1{
-	font-size: 1.5rem;
-	line-height: 1.6666667;
-}
-body #top header hgroup h1 p{
-	margin-top: 1.3333333em;
-	margin-bottom: 1.3333333em;
-}
-body #top header hgroup h1 [class~="lead"]{
-	font-size: 1.25em;
-	line-height: 1.4666667;
-	margin-top: 1.0666667em;
-	margin-bottom: 1.0666667em;
-}
-body #top header hgroup h1 blockquote{
-	margin-top: 1.7777778em;
-	margin-bottom: 1.7777778em;
-	padding-left: 1.1111111em;
-}
-body #top header hgroup h1 h1{
-	font-size: 2.6666667em;
-	margin-top: 0;
-	margin-bottom: 0.875em;
-	line-height: 1;
-}
-body #top header hgroup h1 h2{
-	font-size: 2em;
-	margin-top: 1.5em;
-	margin-bottom: 0.8333333em;
-	line-height: 1.0833333;
-}
-body #top header hgroup h1 h3{
-	font-size: 1.5em;
-	margin-top: 1.5555556em;
-	margin-bottom: 0.6666667em;
-	line-height: 1.2222222;
-}
-body #top header hgroup h1 h4{
-	margin-top: 1.6666667em;
-	margin-bottom: 0.6666667em;
-	line-height: 1.5;
-}
-body #top header hgroup h1 img{
-	margin-top: 2em;
-	margin-bottom: 2em;
-}
-body #top header hgroup h1 video{
-	margin-top: 2em;
-	margin-bottom: 2em;
-}
-body #top header hgroup h1 figure{
-	margin-top: 2em;
-	margin-bottom: 2em;
-}
-body #top header hgroup h1 figure > *{
-	margin-top: 0;
-	margin-bottom: 0;
-}
-body #top header hgroup h1 figure figcaption{
-	font-size: 0.8333333em;
-	line-height: 1.6;
-	margin-top: 1em;
-}
-body #top header hgroup h1 code{
-	font-size: 0.8333333em;
-}
-body #top header hgroup h1 h2 code{
-	font-size: 0.875em;
-}
-body #top header hgroup h1 h3 code{
-	font-size: 0.8888889em;
-}
-body #top header hgroup h1 pre{
-	font-size: 0.8333333em;
-	line-height: 1.8;
-	margin-top: 2em;
-	margin-bottom: 2em;
-	border-radius: 0.5rem;
-	padding-top: 1.2em;
-	padding-right: 1.6em;
-	padding-bottom: 1.2em;
-	padding-left: 1.6em;
-}
-body #top header hgroup h1 ol{
-	margin-top: 1.3333333em;
-	margin-bottom: 1.3333333em;
-}
-body #top header hgroup h1 ul{
-	margin-top: 1.3333333em;
-	margin-bottom: 1.3333333em;
-}
-body #top header hgroup h1 li{
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-body #top header hgroup h1 ol > li{
-	padding-left: 1.6666667em;
-}
-body #top header hgroup h1 ol > li::before{
-	left: 0;
-}
-body #top header hgroup h1 ul > li{
-	padding-left: 1.6666667em;
-}
-body #top header hgroup h1 ul > li::before{
-	width: 0.3333333em;
-	height: 0.3333333em;
-	top: calc(0.8333333em - 0.1666667em);
-	left: 0.25em;
-}
-body #top header hgroup h1 > ul > li p{
-	margin-top: 0.8333333em;
-	margin-bottom: 0.8333333em;
-}
-body #top header hgroup h1 > ul > li > *:first-child{
-	margin-top: 1.3333333em;
-}
-body #top header hgroup h1 > ul > li > *:last-child{
-	margin-bottom: 1.3333333em;
-}
-body #top header hgroup h1 > ol > li > *:first-child{
-	margin-top: 1.3333333em;
-}
-body #top header hgroup h1 > ol > li > *:last-child{
-	margin-bottom: 1.3333333em;
-}
-body #top header hgroup h1 ul ul, body #top header hgroup h1 ul ol, body #top header hgroup h1 ol ul, body #top header hgroup h1 ol ol{
-	margin-top: 0.6666667em;
-	margin-bottom: 0.6666667em;
-	margin-top: 0.6666667em;
-	margin-bottom: 0.6666667em;
-	margin-top: 0.6666667em;
-	margin-bottom: 0.6666667em;
-	margin-top: 0.6666667em;
-	margin-bottom: 0.6666667em;
-}
-body #top header hgroup h1 hr{
-	margin-top: 3em;
-	margin-bottom: 3em;
-}
-body #top header hgroup h1 hr + *{
-	margin-top: 0;
-}
-body #top header hgroup h1 h2 + *{
-	margin-top: 0;
-}
-body #top header hgroup h1 h3 + *{
-	margin-top: 0;
-}
-body #top header hgroup h1 h4 + *{
-	margin-top: 0;
-}
-body #top header hgroup h1 table{
-	font-size: 0.8333333em;
-	line-height: 1.4;
-}
-body #top header hgroup h1 thead th{
-	padding-right: 0.6em;
-	padding-bottom: 0.8em;
-	padding-left: 0.6em;
-}
-body #top header hgroup h1 thead th:first-child{
-	padding-left: 0;
-}
-body #top header hgroup h1 thead th:last-child{
-	padding-right: 0;
-}
-body #top header hgroup h1 tbody td{
-	padding-top: 0.8em;
-	padding-right: 0.6em;
-	padding-bottom: 0.8em;
-	padding-left: 0.6em;
-}
-body #top header hgroup h1 tbody td:first-child{
-	padding-left: 0;
-}
-body #top header hgroup h1 tbody td:last-child{
-	padding-right: 0;
-}
-body #top header hgroup h1 > :first-child{
-	margin-top: 0;
-}
-body #top header hgroup h1 > :last-child{
-	margin-bottom: 0;
-}
-body #top header hgroup h1{
-	font-weight: 700;
-}
-body #top header form[role=search]{
-	width: 16rem;
-}
-body #top header form[role=search] legend{
-	display: none;
-}
-body #top header form[role=search] input{
-	border-radius: 0.5rem;
-	transform: var(--tw-transform);
-	opacity: 0.75;
-	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transition-duration: 150ms;
-	transition-duration: 200ms;
+.ease-in-out{
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-body #top header form[role=search] input:hover{
-	opacity: 1;
+.skip-to{
+	text-decoration: none;
 }
-body #top header form[role=search] input:focus{
-	opacity: 1;
+
+a{
+	color: #3f3f46;
+	max-width: 65ch;
 }
-body #top header form[role=search] input{
-	height: 2.5rem;
-	width: 100%;
-}
-body > #content h1, body > aside h1{
-	font-size: 1.5rem;
-	line-height: 1.6666667;
-}
-body > #content h1 p, body > aside h1 p{
-	margin-top: 1.3333333em;
-	margin-bottom: 1.3333333em;
-}
-body > #content h1 [class~="lead"], body > aside h1 [class~="lead"]{
+
+a [class~="lead"]{
+	color: #52525b;
 	font-size: 1.25em;
-	line-height: 1.4666667;
-	margin-top: 1.0666667em;
-	margin-bottom: 1.0666667em;
-}
-body > #content h1 blockquote, body > aside h1 blockquote{
-	margin-top: 1.7777778em;
-	margin-bottom: 1.7777778em;
-	padding-left: 1.1111111em;
-}
-body > #content h1 h1, body > aside h1 h1{
-	font-size: 2.6666667em;
-	margin-top: 0;
-	margin-bottom: 0.875em;
-	line-height: 1;
-}
-body > #content h1 h2, body > aside h1 h2{
-	font-size: 2em;
-	margin-top: 1.5em;
-	margin-bottom: 0.8333333em;
-	line-height: 1.0833333;
-}
-body > #content h1 h3, body > aside h1 h3{
-	font-size: 1.5em;
-	margin-top: 1.5555556em;
-	margin-bottom: 0.6666667em;
-	line-height: 1.2222222;
-}
-body > #content h1 h4, body > aside h1 h4{
-	margin-top: 1.6666667em;
-	margin-bottom: 0.6666667em;
-	line-height: 1.5;
-}
-body > #content h1 img, body > aside h1 img{
-	margin-top: 2em;
-	margin-bottom: 2em;
-}
-body > #content h1 video, body > aside h1 video{
-	margin-top: 2em;
-	margin-bottom: 2em;
-}
-body > #content h1 figure, body > aside h1 figure{
-	margin-top: 2em;
-	margin-bottom: 2em;
-}
-body > #content h1 figure > *, body > aside h1 figure > *{
-	margin-top: 0;
-	margin-bottom: 0;
-}
-body > #content h1 figure figcaption, body > aside h1 figure figcaption{
-	font-size: 0.8333333em;
 	line-height: 1.6;
-	margin-top: 1em;
-}
-body > #content h1 code, body > aside h1 code{
-	font-size: 0.8333333em;
-}
-body > #content h1 h2 code, body > aside h1 h2 code{
-	font-size: 0.875em;
-}
-body > #content h1 h3 code, body > aside h1 h3 code{
-	font-size: 0.8888889em;
-}
-body > #content h1 pre, body > aside h1 pre{
-	font-size: 0.8333333em;
-	line-height: 1.8;
-	margin-top: 2em;
-	margin-bottom: 2em;
-	border-radius: 0.5rem;
-	padding-top: 1.2em;
-	padding-right: 1.6em;
-	padding-bottom: 1.2em;
-	padding-left: 1.6em;
-}
-body > #content h1 ol, body > aside h1 ol{
-	margin-top: 1.3333333em;
-	margin-bottom: 1.3333333em;
-}
-body > #content h1 ul, body > aside h1 ul{
-	margin-top: 1.3333333em;
-	margin-bottom: 1.3333333em;
-}
-body > #content h1 li, body > aside h1 li{
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-body > #content h1 ol > li, body > aside h1 ol > li{
-	padding-left: 1.6666667em;
-}
-body > #content h1 ol > li::before, body > aside h1 ol > li::before{
-	left: 0;
-}
-body > #content h1 ul > li, body > aside h1 ul > li{
-	padding-left: 1.6666667em;
-}
-body > #content h1 ul > li::before, body > aside h1 ul > li::before{
-	width: 0.3333333em;
-	height: 0.3333333em;
-	top: calc(0.8333333em - 0.1666667em);
-	left: 0.25em;
-}
-body > #content h1 > ul > li p, body > aside h1 > ul > li p{
-	margin-top: 0.8333333em;
-	margin-bottom: 0.8333333em;
-}
-body > #content h1 > ul > li > *:first-child, body > aside h1 > ul > li > *:first-child{
-	margin-top: 1.3333333em;
-}
-body > #content h1 > ul > li > *:last-child, body > aside h1 > ul > li > *:last-child{
-	margin-bottom: 1.3333333em;
-}
-body > #content h1 > ol > li > *:first-child, body > aside h1 > ol > li > *:first-child{
-	margin-top: 1.3333333em;
-}
-body > #content h1 > ol > li > *:last-child, body > aside h1 > ol > li > *:last-child{
-	margin-bottom: 1.3333333em;
-}
-body > #content h1 ul ul, body > #content h1 ul ol, body > #content h1 ol ul, body > #content h1 ol ol, body > aside h1 ul ul, body > aside h1 ul ol, body > aside h1 ol ul, body > aside h1 ol ol{
-	margin-top: 0.6666667em;
-	margin-bottom: 0.6666667em;
-	margin-top: 0.6666667em;
-	margin-bottom: 0.6666667em;
-	margin-top: 0.6666667em;
-	margin-bottom: 0.6666667em;
-	margin-top: 0.6666667em;
-	margin-bottom: 0.6666667em;
-}
-body > #content h1 hr, body > aside h1 hr{
-	margin-top: 3em;
-	margin-bottom: 3em;
-}
-body > #content h1 hr + *, body > aside h1 hr + *{
-	margin-top: 0;
-}
-body > #content h1 h2 + *, body > aside h1 h2 + *{
-	margin-top: 0;
-}
-body > #content h1 h3 + *, body > aside h1 h3 + *{
-	margin-top: 0;
-}
-body > #content h1 h4 + *, body > aside h1 h4 + *{
-	margin-top: 0;
-}
-body > #content h1 table, body > aside h1 table{
-	font-size: 0.8333333em;
-	line-height: 1.4;
-}
-body > #content h1 thead th, body > aside h1 thead th{
-	padding-right: 0.6em;
-	padding-bottom: 0.8em;
-	padding-left: 0.6em;
-}
-body > #content h1 thead th:first-child, body > aside h1 thead th:first-child{
-	padding-left: 0;
-}
-body > #content h1 thead th:last-child, body > aside h1 thead th:last-child{
-	padding-right: 0;
-}
-body > #content h1 tbody td, body > aside h1 tbody td{
-	padding-top: 0.8em;
-	padding-right: 0.6em;
-	padding-bottom: 0.8em;
-	padding-left: 0.6em;
-}
-body > #content h1 tbody td:first-child, body > aside h1 tbody td:first-child{
-	padding-left: 0;
-}
-body > #content h1 tbody td:last-child, body > aside h1 tbody td:last-child{
-	padding-right: 0;
-}
-body > #content h1 > :first-child, body > aside h1 > :first-child{
-	margin-top: 0;
-}
-body > #content h1 > :last-child, body > aside h1 > :last-child{
-	margin-bottom: 0;
-}
-body > #content fieldset, body > aside fieldset{
-	padding-bottom: 0.5rem;
-}
-body > #content fieldset legend, body > aside fieldset legend{
-	font-size: 1.25rem;
-	line-height: 1.8;
-}
-body > #content fieldset legend p, body > aside fieldset legend p{
 	margin-top: 1.2em;
 	margin-bottom: 1.2em;
 }
-body > #content fieldset legend [class~="lead"], body > aside fieldset legend [class~="lead"]{
+
+a a{
+	color: #18181b;
+	text-decoration: underline;
+	font-weight: 500;
+}
+
+a strong{
+	color: #18181b;
+	font-weight: 600;
+}
+
+a ol[type="A"]{
+	--list-counter-style: upper-alpha;
+}
+
+a ol[type="a"]{
+	--list-counter-style: lower-alpha;
+}
+
+a ol[type="A" s]{
+	--list-counter-style: upper-alpha;
+}
+
+a ol[type="a" s]{
+	--list-counter-style: lower-alpha;
+}
+
+a ol[type="I"]{
+	--list-counter-style: upper-roman;
+}
+
+a ol[type="i"]{
+	--list-counter-style: lower-roman;
+}
+
+a ol[type="I" s]{
+	--list-counter-style: upper-roman;
+}
+
+a ol[type="i" s]{
+	--list-counter-style: lower-roman;
+}
+
+a ol[type="1"]{
+	--list-counter-style: decimal;
+}
+
+a ol > li{
+	position: relative;
+	padding-left: 1.75em;
+}
+
+a ol > li::before{
+	content: counter(list-item, var(--list-counter-style, decimal)) ".";
+	position: absolute;
+	font-weight: 400;
+	color: #71717a;
+	left: 0;
+}
+
+a ul > li{
+	position: relative;
+	padding-left: 1.75em;
+}
+
+a ul > li::before{
+	content: "";
+	position: absolute;
+	background-color: #d4d4d8;
+	border-radius: 50%;
+	width: 0.375em;
+	height: 0.375em;
+	top: calc(0.875em - 0.1875em);
+	left: 0.25em;
+}
+
+a hr{
+	border-color: #e4e4e7;
+	border-top-width: 1px;
+	margin-top: 3em;
+	margin-bottom: 3em;
+}
+
+a blockquote{
+	font-weight: 500;
+	font-style: italic;
+	color: #18181b;
+	border-left-width: 0.25rem;
+	border-left-color: #e4e4e7;
+	quotes: "\201C""\201D""\2018""\2019";
+	margin-top: 1.6em;
+	margin-bottom: 1.6em;
+	padding-left: 1em;
+}
+
+a blockquote p:first-of-type::before{
+	content: open-quote;
+}
+
+a blockquote p:last-of-type::after{
+	content: close-quote;
+}
+
+a h1{
+	color: #18181b;
+	font-weight: 800;
+	font-size: 2.25em;
+	margin-top: 0;
+	margin-bottom: 0.8888889em;
+	line-height: 1.1111111;
+}
+
+a h2{
+	color: #18181b;
+	font-weight: 700;
+	font-size: 1.5em;
+	margin-top: 2em;
+	margin-bottom: 1em;
+	line-height: 1.3333333;
+}
+
+a h3{
+	color: #18181b;
+	font-weight: 600;
+	font-size: 1.25em;
+	margin-top: 1.6em;
+	margin-bottom: 0.6em;
+	line-height: 1.6;
+}
+
+a h4{
+	color: #18181b;
+	font-weight: 600;
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+	line-height: 1.5;
+}
+
+a figure figcaption{
+	color: #71717a;
+	font-size: 0.875em;
+	line-height: 1.4285714;
+	margin-top: 0.8571429em;
+}
+
+a code{
+	color: #18181b;
+	font-weight: 600;
+	font-size: 0.875em;
+}
+
+a code::before{
+	content: "`";
+}
+
+a code::after{
+	content: "`";
+}
+
+a a code{
+	color: #18181b;
+}
+
+a pre{
+	color: #e4e4e7;
+	background-color: #27272a;
+	overflow-x: auto;
+	font-size: 0.875em;
+	line-height: 1.7142857;
+	margin-top: 1.7142857em;
+	margin-bottom: 1.7142857em;
+	border-radius: 0.375rem;
+	padding-top: 0.8571429em;
+	padding-right: 1.1428571em;
+	padding-bottom: 0.8571429em;
+	padding-left: 1.1428571em;
+}
+
+a pre code{
+	background-color: transparent;
+	border-width: 0;
+	border-radius: 0;
+	padding: 0;
+	font-weight: 400;
+	color: inherit;
+	font-size: inherit;
+	font-family: inherit;
+	line-height: inherit;
+}
+
+a pre code::before{
+	content: none;
+}
+
+a pre code::after{
+	content: none;
+}
+
+a table{
+	width: 100%;
+	table-layout: auto;
+	text-align: left;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	font-size: 0.875em;
+	line-height: 1.7142857;
+}
+
+a thead{
+	color: #18181b;
+	font-weight: 600;
+	border-bottom-width: 1px;
+	border-bottom-color: #d4d4d8;
+}
+
+a thead th{
+	vertical-align: bottom;
+	padding-right: 0.5714286em;
+	padding-bottom: 0.5714286em;
+	padding-left: 0.5714286em;
+}
+
+a tbody tr{
+	border-bottom-width: 1px;
+	border-bottom-color: #e4e4e7;
+}
+
+a tbody tr:last-child{
+	border-bottom-width: 0;
+}
+
+a tbody td{
+	vertical-align: top;
+	padding-top: 0.5714286em;
+	padding-right: 0.5714286em;
+	padding-bottom: 0.5714286em;
+	padding-left: 0.5714286em;
+}
+
+a{
+	font-size: 1rem;
+	line-height: 1.75;
+}
+
+a p{
+	margin-top: 1.25em;
+	margin-bottom: 1.25em;
+}
+
+a img{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+a video{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+a figure{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+a figure > *{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+a h2 code{
+	font-size: 0.875em;
+}
+
+a h3 code{
+	font-size: 0.9em;
+}
+
+a ol{
+	margin-top: 1.25em;
+	margin-bottom: 1.25em;
+}
+
+a ul{
+	margin-top: 1.25em;
+	margin-bottom: 1.25em;
+}
+
+a li{
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+a > ul > li p{
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+}
+
+a > ul > li > *:first-child{
+	margin-top: 1.25em;
+}
+
+a > ul > li > *:last-child{
+	margin-bottom: 1.25em;
+}
+
+a > ol > li > *:first-child{
+	margin-top: 1.25em;
+}
+
+a > ol > li > *:last-child{
+	margin-bottom: 1.25em;
+}
+
+a ul ul, a ul ol, a ol ul, a ol ol{
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+}
+
+a hr + *{
+	margin-top: 0;
+}
+
+a h2 + *{
+	margin-top: 0;
+}
+
+a h3 + *{
+	margin-top: 0;
+}
+
+a h4 + *{
+	margin-top: 0;
+}
+
+a thead th:first-child{
+	padding-left: 0;
+}
+
+a thead th:last-child{
+	padding-right: 0;
+}
+
+a tbody td:first-child{
+	padding-left: 0;
+}
+
+a tbody td:last-child{
+	padding-right: 0;
+}
+
+a > :first-child{
+	margin-top: 0;
+}
+
+a > :last-child{
+	margin-bottom: 0;
+}
+
+a{
+	--tw-text-opacity: 1;
+	color: rgba(49, 46, 129, var(--tw-text-opacity));
+	text-decoration: underline;
+}
+
+a:hover{
+	--tw-text-opacity: 1;
+	color: rgba(129, 140, 248, var(--tw-text-opacity));
+}
+
+/**
+ * Applies or removes `base.$padding` via tailwind semantics.
+ *
+ * base.padding($direction: p)
+ *
+ * Positive padding is applied when `$direction` is set to one of these:
+ *      `p`, `px`, `py`, `pr`, `pl`, `pt`, `pb`
+ *      `m`, `mx`, `my`, `mr`, `ml`, `mt`, `mb`
+ *
+ * Can also be used with responsive prefixes such as:
+ *      `sm`, `md`, `lg`, `xl`
+ *
+ * And to remove by apply negative padding, prefix `$direction` with a dash (`-`)
+ *
+ * Example usage (with `base.$padding` set to 6):
+ *      @include base.padding(p);       // result: `padding: 6`
+ *      @include base.padding(m);       // result: `margin: 6`
+ *      @include base.padding(-py);     // result: `padding-{top,bottom}: 6`
+ *      @include base.padding(my);      // result: `margin-{top,bottom}: 6`
+ *      @include base.padding(sm:px);   // result: small viewports & up: `padding-{left,right}: 6px`
+ *
+ * ... and so on, and so forth.
+ */
+/**
+ * Applies border-radius of `base.$resize-at-viewport` to an element via Tailwind semantics.
+ *
+ * Direction can be `t`, `l`, `r`, `b`
+ * Viewport can be `sm`, `md`, `lg`, `xl`, `2xl` or boolean `false` to always apply border-radius.
+ *
+ * The radius is pre-set via `base.$resize-at-viewport` and does *not* affect parameter `$viewport`
+ */
+h1{
+	font-size: 1.5rem;
+	line-height: 1.6666667;
+}
+h1 p{
+	margin-top: 1.3333333em;
+	margin-bottom: 1.3333333em;
+}
+h1 [class~="lead"]{
+	font-size: 1.25em;
+	line-height: 1.4666667;
+	margin-top: 1.0666667em;
+	margin-bottom: 1.0666667em;
+}
+h1 blockquote{
+	margin-top: 1.7777778em;
+	margin-bottom: 1.7777778em;
+	padding-left: 1.1111111em;
+}
+h1 h1{
+	font-size: 2.6666667em;
+	margin-top: 0;
+	margin-bottom: 0.875em;
+	line-height: 1;
+}
+h1 h2{
+	font-size: 2em;
+	margin-top: 1.5em;
+	margin-bottom: 0.8333333em;
+	line-height: 1.0833333;
+}
+h1 h3{
+	font-size: 1.5em;
+	margin-top: 1.5555556em;
+	margin-bottom: 0.6666667em;
+	line-height: 1.2222222;
+}
+h1 h4{
+	margin-top: 1.6666667em;
+	margin-bottom: 0.6666667em;
+	line-height: 1.5;
+}
+h1 img{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+h1 video{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+h1 figure{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+h1 figure > *{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+h1 figure figcaption{
+	font-size: 0.8333333em;
+	line-height: 1.6;
+	margin-top: 1em;
+}
+h1 code{
+	font-size: 0.8333333em;
+}
+h1 h2 code{
+	font-size: 0.875em;
+}
+h1 h3 code{
+	font-size: 0.8888889em;
+}
+h1 pre{
+	font-size: 0.8333333em;
+	line-height: 1.8;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	border-radius: 0.5rem;
+	padding-top: 1.2em;
+	padding-right: 1.6em;
+	padding-bottom: 1.2em;
+	padding-left: 1.6em;
+}
+h1 ol{
+	margin-top: 1.3333333em;
+	margin-bottom: 1.3333333em;
+}
+h1 ul{
+	margin-top: 1.3333333em;
+	margin-bottom: 1.3333333em;
+}
+h1 li{
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+h1 ol > li{
+	padding-left: 1.6666667em;
+}
+h1 ol > li::before{
+	left: 0;
+}
+h1 ul > li{
+	padding-left: 1.6666667em;
+}
+h1 ul > li::before{
+	width: 0.3333333em;
+	height: 0.3333333em;
+	top: calc(0.8333333em - 0.1666667em);
+	left: 0.25em;
+}
+h1 > ul > li p{
+	margin-top: 0.8333333em;
+	margin-bottom: 0.8333333em;
+}
+h1 > ul > li > *:first-child{
+	margin-top: 1.3333333em;
+}
+h1 > ul > li > *:last-child{
+	margin-bottom: 1.3333333em;
+}
+h1 > ol > li > *:first-child{
+	margin-top: 1.3333333em;
+}
+h1 > ol > li > *:last-child{
+	margin-bottom: 1.3333333em;
+}
+h1 ul ul, h1 ul ol, h1 ol ul, h1 ol ol{
+	margin-top: 0.6666667em;
+	margin-bottom: 0.6666667em;
+	margin-top: 0.6666667em;
+	margin-bottom: 0.6666667em;
+	margin-top: 0.6666667em;
+	margin-bottom: 0.6666667em;
+	margin-top: 0.6666667em;
+	margin-bottom: 0.6666667em;
+}
+h1 hr{
+	margin-top: 3em;
+	margin-bottom: 3em;
+}
+h1 hr + *{
+	margin-top: 0;
+}
+h1 h2 + *{
+	margin-top: 0;
+}
+h1 h3 + *{
+	margin-top: 0;
+}
+h1 h4 + *{
+	margin-top: 0;
+}
+h1 table{
+	font-size: 0.8333333em;
+	line-height: 1.4;
+}
+h1 thead th{
+	padding-right: 0.6em;
+	padding-bottom: 0.8em;
+	padding-left: 0.6em;
+}
+h1 thead th:first-child{
+	padding-left: 0;
+}
+h1 thead th:last-child{
+	padding-right: 0;
+}
+h1 tbody td{
+	padding-top: 0.8em;
+	padding-right: 0.6em;
+	padding-bottom: 0.8em;
+	padding-left: 0.6em;
+}
+h1 tbody td:first-child{
+	padding-left: 0;
+}
+h1 tbody td:last-child{
+	padding-right: 0;
+}
+h1 > :first-child{
+	margin-top: 0;
+}
+h1 > :last-child{
+	margin-bottom: 0;
+}
+h1{
+	font-weight: 700;
+}
+
+h2{
+	font-size: 1.25rem;
+	line-height: 1.8;
+}
+
+h2 p{
+	margin-top: 1.2em;
+	margin-bottom: 1.2em;
+}
+
+h2 [class~="lead"]{
 	font-size: 1.2em;
 	line-height: 1.5;
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
-body > #content fieldset legend blockquote, body > aside fieldset legend blockquote{
+
+h2 blockquote{
 	margin-top: 1.6em;
 	margin-bottom: 1.6em;
 	padding-left: 1.0666667em;
 }
-body > #content fieldset legend h1, body > aside fieldset legend h1{
+
+h2 h1{
 	font-size: 2.8em;
 	margin-top: 0;
 	margin-bottom: 0.8571429em;
 	line-height: 1;
 }
-body > #content fieldset legend h2, body > aside fieldset legend h2{
+
+h2 h2{
 	font-size: 1.8em;
 	margin-top: 1.5555556em;
 	margin-bottom: 0.8888889em;
 	line-height: 1.1111111;
 }
-body > #content fieldset legend h3, body > aside fieldset legend h3{
+
+h2 h3{
 	font-size: 1.5em;
 	margin-top: 1.6em;
 	margin-bottom: 0.6666667em;
 	line-height: 1.3333333;
 }
-body > #content fieldset legend h4, body > aside fieldset legend h4{
+
+h2 h4{
 	margin-top: 1.8em;
 	margin-bottom: 0.6em;
 	line-height: 1.6;
 }
-body > #content fieldset legend img, body > aside fieldset legend img{
+
+h2 img{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body > #content fieldset legend video, body > aside fieldset legend video{
+
+h2 video{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body > #content fieldset legend figure, body > aside fieldset legend figure{
+
+h2 figure{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body > #content fieldset legend figure > *, body > aside fieldset legend figure > *{
+
+h2 figure > *{
 	margin-top: 0;
 	margin-bottom: 0;
 }
-body > #content fieldset legend figure figcaption, body > aside fieldset legend figure figcaption{
+
+h2 figure figcaption{
 	font-size: 0.9em;
 	line-height: 1.5555556;
 	margin-top: 1em;
 }
-body > #content fieldset legend code, body > aside fieldset legend code{
+
+h2 code{
 	font-size: 0.9em;
 }
-body > #content fieldset legend h2 code, body > aside fieldset legend h2 code{
+
+h2 h2 code{
 	font-size: 0.8611111em;
 }
-body > #content fieldset legend h3 code, body > aside fieldset legend h3 code{
+
+h2 h3 code{
 	font-size: 0.9em;
 }
-body > #content fieldset legend pre, body > aside fieldset legend pre{
+
+h2 pre{
 	font-size: 0.9em;
 	line-height: 1.7777778;
 	margin-top: 2em;
@@ -3292,50 +3278,63 @@ body > #content fieldset legend pre, body > aside fieldset legend pre{
 	padding-bottom: 1.1111111em;
 	padding-left: 1.3333333em;
 }
-body > #content fieldset legend ol, body > aside fieldset legend ol{
+
+h2 ol{
 	margin-top: 1.2em;
 	margin-bottom: 1.2em;
 }
-body > #content fieldset legend ul, body > aside fieldset legend ul{
+
+h2 ul{
 	margin-top: 1.2em;
 	margin-bottom: 1.2em;
 }
-body > #content fieldset legend li, body > aside fieldset legend li{
+
+h2 li{
 	margin-top: 0.6em;
 	margin-bottom: 0.6em;
 }
-body > #content fieldset legend ol > li, body > aside fieldset legend ol > li{
+
+h2 ol > li{
 	padding-left: 1.8em;
 }
-body > #content fieldset legend ol > li::before, body > aside fieldset legend ol > li::before{
+
+h2 ol > li::before{
 	left: 0;
 }
-body > #content fieldset legend ul > li, body > aside fieldset legend ul > li{
+
+h2 ul > li{
 	padding-left: 1.8em;
 }
-body > #content fieldset legend ul > li::before, body > aside fieldset legend ul > li::before{
+
+h2 ul > li::before{
 	width: 0.35em;
 	height: 0.35em;
 	top: calc(0.9em - 0.175em);
 	left: 0.25em;
 }
-body > #content fieldset legend > ul > li p, body > aside fieldset legend > ul > li p{
+
+h2 > ul > li p{
 	margin-top: 0.8em;
 	margin-bottom: 0.8em;
 }
-body > #content fieldset legend > ul > li > *:first-child, body > aside fieldset legend > ul > li > *:first-child{
+
+h2 > ul > li > *:first-child{
 	margin-top: 1.2em;
 }
-body > #content fieldset legend > ul > li > *:last-child, body > aside fieldset legend > ul > li > *:last-child{
+
+h2 > ul > li > *:last-child{
 	margin-bottom: 1.2em;
 }
-body > #content fieldset legend > ol > li > *:first-child, body > aside fieldset legend > ol > li > *:first-child{
+
+h2 > ol > li > *:first-child{
 	margin-top: 1.2em;
 }
-body > #content fieldset legend > ol > li > *:last-child, body > aside fieldset legend > ol > li > *:last-child{
+
+h2 > ol > li > *:last-child{
 	margin-bottom: 1.2em;
 }
-body > #content fieldset legend ul ul, body > #content fieldset legend ul ol, body > #content fieldset legend ol ul, body > #content fieldset legend ol ol, body > aside fieldset legend ul ul, body > aside fieldset legend ul ol, body > aside fieldset legend ol ul, body > aside fieldset legend ol ol{
+
+h2 ul ul, h2 ul ol, h2 ol ul, h2 ol ol{
 	margin-top: 0.8em;
 	margin-bottom: 0.8em;
 	margin-top: 0.8em;
@@ -3345,126 +3344,386 @@ body > #content fieldset legend ul ul, body > #content fieldset legend ul ol, bo
 	margin-top: 0.8em;
 	margin-bottom: 0.8em;
 }
-body > #content fieldset legend hr, body > aside fieldset legend hr{
+
+h2 hr{
 	margin-top: 2.8em;
 	margin-bottom: 2.8em;
 }
-body > #content fieldset legend hr + *, body > aside fieldset legend hr + *{
+
+h2 hr + *{
 	margin-top: 0;
 }
-body > #content fieldset legend h2 + *, body > aside fieldset legend h2 + *{
+
+h2 h2 + *{
 	margin-top: 0;
 }
-body > #content fieldset legend h3 + *, body > aside fieldset legend h3 + *{
+
+h2 h3 + *{
 	margin-top: 0;
 }
-body > #content fieldset legend h4 + *, body > aside fieldset legend h4 + *{
+
+h2 h4 + *{
 	margin-top: 0;
 }
-body > #content fieldset legend table, body > aside fieldset legend table{
+
+h2 table{
 	font-size: 0.9em;
 	line-height: 1.5555556;
 }
-body > #content fieldset legend thead th, body > aside fieldset legend thead th{
+
+h2 thead th{
 	padding-right: 0.6666667em;
 	padding-bottom: 0.8888889em;
 	padding-left: 0.6666667em;
 }
-body > #content fieldset legend thead th:first-child, body > aside fieldset legend thead th:first-child{
+
+h2 thead th:first-child{
 	padding-left: 0;
 }
-body > #content fieldset legend thead th:last-child, body > aside fieldset legend thead th:last-child{
+
+h2 thead th:last-child{
 	padding-right: 0;
 }
-body > #content fieldset legend tbody td, body > aside fieldset legend tbody td{
+
+h2 tbody td{
 	padding-top: 0.8888889em;
 	padding-right: 0.6666667em;
 	padding-bottom: 0.8888889em;
 	padding-left: 0.6666667em;
 }
-body > #content fieldset legend tbody td:first-child, body > aside fieldset legend tbody td:first-child{
+
+h2 tbody td:first-child{
 	padding-left: 0;
 }
-body > #content fieldset legend tbody td:last-child, body > aside fieldset legend tbody td:last-child{
+
+h2 tbody td:last-child{
 	padding-right: 0;
 }
-body > #content fieldset legend > :first-child, body > aside fieldset legend > :first-child{
+
+h2 > :first-child{
 	margin-top: 0;
 }
-body > #content fieldset legend > :last-child, body > aside fieldset legend > :last-child{
+
+h2 > :last-child{
 	margin-bottom: 0;
 }
-body > #content fieldset legend, body > aside fieldset legend{
-	border-top-width: 1px;
-	border-style: dashed;
-	--tw-border-opacity: 1;
-	border-color: rgba(212, 212, 216, var(--tw-border-opacity));
-	width: 100%;
-	padding-top: 0.5rem;
+
+h2{
+	font-weight: 600;
 }
-body > #content fieldset label, body > aside fieldset label{
+
+h3{
+	font-size: 1.125rem;
+	line-height: 1.7777778;
+}
+
+h3 p{
+	margin-top: 1.3333333em;
+	margin-bottom: 1.3333333em;
+}
+
+h3 [class~="lead"]{
+	font-size: 1.2222222em;
+	line-height: 1.4545455;
+	margin-top: 1.0909091em;
+	margin-bottom: 1.0909091em;
+}
+
+h3 blockquote{
+	margin-top: 1.6666667em;
+	margin-bottom: 1.6666667em;
+	padding-left: 1em;
+}
+
+h3 h1{
+	font-size: 2.6666667em;
+	margin-top: 0;
+	margin-bottom: 0.8333333em;
+	line-height: 1;
+}
+
+h3 h2{
+	font-size: 1.6666667em;
+	margin-top: 1.8666667em;
+	margin-bottom: 1.0666667em;
+	line-height: 1.3333333;
+}
+
+h3 h3{
+	font-size: 1.3333333em;
+	margin-top: 1.6666667em;
+	margin-bottom: 0.6666667em;
+	line-height: 1.5;
+}
+
+h3 h4{
+	margin-top: 1.7777778em;
+	margin-bottom: 0.4444444em;
+	line-height: 1.5555556;
+}
+
+h3 img{
+	margin-top: 1.7777778em;
+	margin-bottom: 1.7777778em;
+}
+
+h3 video{
+	margin-top: 1.7777778em;
+	margin-bottom: 1.7777778em;
+}
+
+h3 figure{
+	margin-top: 1.7777778em;
+	margin-bottom: 1.7777778em;
+}
+
+h3 figure > *{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+h3 figure figcaption{
+	font-size: 0.8888889em;
+	line-height: 1.5;
+	margin-top: 1em;
+}
+
+h3 code{
+	font-size: 0.8888889em;
+}
+
+h3 h2 code{
+	font-size: 0.8666667em;
+}
+
+h3 h3 code{
+	font-size: 0.875em;
+}
+
+h3 pre{
+	font-size: 0.8888889em;
+	line-height: 1.75;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	border-radius: 0.375rem;
+	padding-top: 1em;
+	padding-right: 1.5em;
+	padding-bottom: 1em;
+	padding-left: 1.5em;
+}
+
+h3 ol{
+	margin-top: 1.3333333em;
+	margin-bottom: 1.3333333em;
+}
+
+h3 ul{
+	margin-top: 1.3333333em;
+	margin-bottom: 1.3333333em;
+}
+
+h3 li{
+	margin-top: 0.6666667em;
+	margin-bottom: 0.6666667em;
+}
+
+h3 ol > li{
+	padding-left: 1.6666667em;
+}
+
+h3 ol > li::before{
+	left: 0;
+}
+
+h3 ul > li{
+	padding-left: 1.6666667em;
+}
+
+h3 ul > li::before{
+	width: 0.3333333em;
+	height: 0.3333333em;
+	top: calc(0.8888889em - 0.1666667em);
+	left: 0.2222222em;
+}
+
+h3 > ul > li p{
+	margin-top: 0.8888889em;
+	margin-bottom: 0.8888889em;
+}
+
+h3 > ul > li > *:first-child{
+	margin-top: 1.3333333em;
+}
+
+h3 > ul > li > *:last-child{
+	margin-bottom: 1.3333333em;
+}
+
+h3 > ol > li > *:first-child{
+	margin-top: 1.3333333em;
+}
+
+h3 > ol > li > *:last-child{
+	margin-bottom: 1.3333333em;
+}
+
+h3 ul ul, h3 ul ol, h3 ol ul, h3 ol ol{
+	margin-top: 0.8888889em;
+	margin-bottom: 0.8888889em;
+	margin-top: 0.8888889em;
+	margin-bottom: 0.8888889em;
+	margin-top: 0.8888889em;
+	margin-bottom: 0.8888889em;
+	margin-top: 0.8888889em;
+	margin-bottom: 0.8888889em;
+}
+
+h3 hr{
+	margin-top: 3.1111111em;
+	margin-bottom: 3.1111111em;
+}
+
+h3 hr + *{
+	margin-top: 0;
+}
+
+h3 h2 + *{
+	margin-top: 0;
+}
+
+h3 h3 + *{
+	margin-top: 0;
+}
+
+h3 h4 + *{
+	margin-top: 0;
+}
+
+h3 table{
+	font-size: 0.8888889em;
+	line-height: 1.5;
+}
+
+h3 thead th{
+	padding-right: 0.75em;
+	padding-bottom: 0.75em;
+	padding-left: 0.75em;
+}
+
+h3 thead th:first-child{
+	padding-left: 0;
+}
+
+h3 thead th:last-child{
+	padding-right: 0;
+}
+
+h3 tbody td{
+	padding-top: 0.75em;
+	padding-right: 0.75em;
+	padding-bottom: 0.75em;
+	padding-left: 0.75em;
+}
+
+h3 tbody td:first-child{
+	padding-left: 0;
+}
+
+h3 tbody td:last-child{
+	padding-right: 0;
+}
+
+h3 > :first-child{
+	margin-top: 0;
+}
+
+h3 > :last-child{
+	margin-bottom: 0;
+}
+
+h3{
+	font-weight: 400;
+}
+
+h4{
 	color: #3f3f46;
 	max-width: 65ch;
 }
-body > #content fieldset label [class~="lead"], body > aside fieldset label [class~="lead"]{
+
+h4 [class~="lead"]{
 	color: #52525b;
 	font-size: 1.25em;
 	line-height: 1.6;
 	margin-top: 1.2em;
 	margin-bottom: 1.2em;
 }
-body > #content fieldset label a, body > aside fieldset label a{
+
+h4 a{
 	color: #18181b;
 	text-decoration: underline;
 	font-weight: 500;
 }
-body > #content fieldset label strong, body > aside fieldset label strong{
+
+h4 strong{
 	color: #18181b;
 	font-weight: 600;
 }
-body > #content fieldset label ol[type="A"], body > aside fieldset label ol[type="A"]{
+
+h4 ol[type="A"]{
 	--list-counter-style: upper-alpha;
 }
-body > #content fieldset label ol[type="a"], body > aside fieldset label ol[type="a"]{
+
+h4 ol[type="a"]{
 	--list-counter-style: lower-alpha;
 }
-body > #content fieldset label ol[type="A" s], body > aside fieldset label ol[type="A" s]{
+
+h4 ol[type="A" s]{
 	--list-counter-style: upper-alpha;
 }
-body > #content fieldset label ol[type="a" s], body > aside fieldset label ol[type="a" s]{
+
+h4 ol[type="a" s]{
 	--list-counter-style: lower-alpha;
 }
-body > #content fieldset label ol[type="I"], body > aside fieldset label ol[type="I"]{
+
+h4 ol[type="I"]{
 	--list-counter-style: upper-roman;
 }
-body > #content fieldset label ol[type="i"], body > aside fieldset label ol[type="i"]{
+
+h4 ol[type="i"]{
 	--list-counter-style: lower-roman;
 }
-body > #content fieldset label ol[type="I" s], body > aside fieldset label ol[type="I" s]{
+
+h4 ol[type="I" s]{
 	--list-counter-style: upper-roman;
 }
-body > #content fieldset label ol[type="i" s], body > aside fieldset label ol[type="i" s]{
+
+h4 ol[type="i" s]{
 	--list-counter-style: lower-roman;
 }
-body > #content fieldset label ol[type="1"], body > aside fieldset label ol[type="1"]{
+
+h4 ol[type="1"]{
 	--list-counter-style: decimal;
 }
-body > #content fieldset label ol > li, body > aside fieldset label ol > li{
+
+h4 ol > li{
 	position: relative;
 	padding-left: 1.75em;
 }
-body > #content fieldset label ol > li::before, body > aside fieldset label ol > li::before{
+
+h4 ol > li::before{
 	content: counter(list-item, var(--list-counter-style, decimal)) ".";
 	position: absolute;
 	font-weight: 400;
 	color: #71717a;
 	left: 0;
 }
-body > #content fieldset label ul > li, body > aside fieldset label ul > li{
+
+h4 ul > li{
 	position: relative;
 	padding-left: 1.75em;
 }
-body > #content fieldset label ul > li::before, body > aside fieldset label ul > li::before{
+
+h4 ul > li::before{
 	content: "";
 	position: absolute;
 	background-color: #d4d4d8;
@@ -3474,13 +3733,15 @@ body > #content fieldset label ul > li::before, body > aside fieldset label ul >
 	top: calc(0.875em - 0.1875em);
 	left: 0.25em;
 }
-body > #content fieldset label hr, body > aside fieldset label hr{
+
+h4 hr{
 	border-color: #e4e4e7;
 	border-top-width: 1px;
 	margin-top: 3em;
 	margin-bottom: 3em;
 }
-body > #content fieldset label blockquote, body > aside fieldset label blockquote{
+
+h4 blockquote{
 	font-weight: 500;
 	font-style: italic;
 	color: #18181b;
@@ -3491,13 +3752,16 @@ body > #content fieldset label blockquote, body > aside fieldset label blockquot
 	margin-bottom: 1.6em;
 	padding-left: 1em;
 }
-body > #content fieldset label blockquote p:first-of-type::before, body > aside fieldset label blockquote p:first-of-type::before{
+
+h4 blockquote p:first-of-type::before{
 	content: open-quote;
 }
-body > #content fieldset label blockquote p:last-of-type::after, body > aside fieldset label blockquote p:last-of-type::after{
+
+h4 blockquote p:last-of-type::after{
 	content: close-quote;
 }
-body > #content fieldset label h1, body > aside fieldset label h1{
+
+h4 h1{
 	color: #18181b;
 	font-weight: 800;
 	font-size: 2.25em;
@@ -3505,7 +3769,8 @@ body > #content fieldset label h1, body > aside fieldset label h1{
 	margin-bottom: 0.8888889em;
 	line-height: 1.1111111;
 }
-body > #content fieldset label h2, body > aside fieldset label h2{
+
+h4 h2{
 	color: #18181b;
 	font-weight: 700;
 	font-size: 1.5em;
@@ -3513,7 +3778,8 @@ body > #content fieldset label h2, body > aside fieldset label h2{
 	margin-bottom: 1em;
 	line-height: 1.3333333;
 }
-body > #content fieldset label h3, body > aside fieldset label h3{
+
+h4 h3{
 	color: #18181b;
 	font-weight: 600;
 	font-size: 1.25em;
@@ -3521,34 +3787,41 @@ body > #content fieldset label h3, body > aside fieldset label h3{
 	margin-bottom: 0.6em;
 	line-height: 1.6;
 }
-body > #content fieldset label h4, body > aside fieldset label h4{
+
+h4 h4{
 	color: #18181b;
 	font-weight: 600;
 	margin-top: 1.5em;
 	margin-bottom: 0.5em;
 	line-height: 1.5;
 }
-body > #content fieldset label figure figcaption, body > aside fieldset label figure figcaption{
+
+h4 figure figcaption{
 	color: #71717a;
 	font-size: 0.875em;
 	line-height: 1.4285714;
 	margin-top: 0.8571429em;
 }
-body > #content fieldset label code, body > aside fieldset label code{
+
+h4 code{
 	color: #18181b;
 	font-weight: 600;
 	font-size: 0.875em;
 }
-body > #content fieldset label code::before, body > aside fieldset label code::before{
+
+h4 code::before{
 	content: "`";
 }
-body > #content fieldset label code::after, body > aside fieldset label code::after{
+
+h4 code::after{
 	content: "`";
 }
-body > #content fieldset label a code, body > aside fieldset label a code{
+
+h4 a code{
 	color: #18181b;
 }
-body > #content fieldset label pre, body > aside fieldset label pre{
+
+h4 pre{
 	color: #e4e4e7;
 	background-color: #27272a;
 	overflow-x: auto;
@@ -3562,7 +3835,8 @@ body > #content fieldset label pre, body > aside fieldset label pre{
 	padding-bottom: 0.8571429em;
 	padding-left: 1.1428571em;
 }
-body > #content fieldset label pre code, body > aside fieldset label pre code{
+
+h4 pre code{
 	background-color: transparent;
 	border-width: 0;
 	border-radius: 0;
@@ -3573,13 +3847,16 @@ body > #content fieldset label pre code, body > aside fieldset label pre code{
 	font-family: inherit;
 	line-height: inherit;
 }
-body > #content fieldset label pre code::before, body > aside fieldset label pre code::before{
+
+h4 pre code::before{
 	content: none;
 }
-body > #content fieldset label pre code::after, body > aside fieldset label pre code::after{
+
+h4 pre code::after{
 	content: none;
 }
-body > #content fieldset label table, body > aside fieldset label table{
+
+h4 table{
 	width: 100%;
 	table-layout: auto;
 	text-align: left;
@@ -3588,91 +3865,113 @@ body > #content fieldset label table, body > aside fieldset label table{
 	font-size: 0.875em;
 	line-height: 1.7142857;
 }
-body > #content fieldset label thead, body > aside fieldset label thead{
+
+h4 thead{
 	color: #18181b;
 	font-weight: 600;
 	border-bottom-width: 1px;
 	border-bottom-color: #d4d4d8;
 }
-body > #content fieldset label thead th, body > aside fieldset label thead th{
+
+h4 thead th{
 	vertical-align: bottom;
 	padding-right: 0.5714286em;
 	padding-bottom: 0.5714286em;
 	padding-left: 0.5714286em;
 }
-body > #content fieldset label tbody tr, body > aside fieldset label tbody tr{
+
+h4 tbody tr{
 	border-bottom-width: 1px;
 	border-bottom-color: #e4e4e7;
 }
-body > #content fieldset label tbody tr:last-child, body > aside fieldset label tbody tr:last-child{
+
+h4 tbody tr:last-child{
 	border-bottom-width: 0;
 }
-body > #content fieldset label tbody td, body > aside fieldset label tbody td{
+
+h4 tbody td{
 	vertical-align: top;
 	padding-top: 0.5714286em;
 	padding-right: 0.5714286em;
 	padding-bottom: 0.5714286em;
 	padding-left: 0.5714286em;
 }
-body > #content fieldset label, body > aside fieldset label{
+
+h4{
 	font-size: 1rem;
 	line-height: 1.75;
 }
-body > #content fieldset label p, body > aside fieldset label p{
+
+h4 p{
 	margin-top: 1.25em;
 	margin-bottom: 1.25em;
 }
-body > #content fieldset label img, body > aside fieldset label img{
+
+h4 img{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body > #content fieldset label video, body > aside fieldset label video{
+
+h4 video{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body > #content fieldset label figure, body > aside fieldset label figure{
+
+h4 figure{
 	margin-top: 2em;
 	margin-bottom: 2em;
 }
-body > #content fieldset label figure > *, body > aside fieldset label figure > *{
+
+h4 figure > *{
 	margin-top: 0;
 	margin-bottom: 0;
 }
-body > #content fieldset label h2 code, body > aside fieldset label h2 code{
+
+h4 h2 code{
 	font-size: 0.875em;
 }
-body > #content fieldset label h3 code, body > aside fieldset label h3 code{
+
+h4 h3 code{
 	font-size: 0.9em;
 }
-body > #content fieldset label ol, body > aside fieldset label ol{
+
+h4 ol{
 	margin-top: 1.25em;
 	margin-bottom: 1.25em;
 }
-body > #content fieldset label ul, body > aside fieldset label ul{
+
+h4 ul{
 	margin-top: 1.25em;
 	margin-bottom: 1.25em;
 }
-body > #content fieldset label li, body > aside fieldset label li{
+
+h4 li{
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
 }
-body > #content fieldset label > ul > li p, body > aside fieldset label > ul > li p{
+
+h4 > ul > li p{
 	margin-top: 0.75em;
 	margin-bottom: 0.75em;
 }
-body > #content fieldset label > ul > li > *:first-child, body > aside fieldset label > ul > li > *:first-child{
+
+h4 > ul > li > *:first-child{
 	margin-top: 1.25em;
 }
-body > #content fieldset label > ul > li > *:last-child, body > aside fieldset label > ul > li > *:last-child{
+
+h4 > ul > li > *:last-child{
 	margin-bottom: 1.25em;
 }
-body > #content fieldset label > ol > li > *:first-child, body > aside fieldset label > ol > li > *:first-child{
+
+h4 > ol > li > *:first-child{
 	margin-top: 1.25em;
 }
-body > #content fieldset label > ol > li > *:last-child, body > aside fieldset label > ol > li > *:last-child{
+
+h4 > ol > li > *:last-child{
 	margin-bottom: 1.25em;
 }
-body > #content fieldset label ul ul, body > #content fieldset label ul ol, body > #content fieldset label ol ul, body > #content fieldset label ol ol, body > aside fieldset label ul ul, body > aside fieldset label ul ol, body > aside fieldset label ol ul, body > aside fieldset label ol ol{
+
+h4 ul ul, h4 ul ol, h4 ol ul, h4 ol ol{
 	margin-top: 0.75em;
 	margin-bottom: 0.75em;
 	margin-top: 0.75em;
@@ -3682,883 +3981,1999 @@ body > #content fieldset label ul ul, body > #content fieldset label ul ol, body
 	margin-top: 0.75em;
 	margin-bottom: 0.75em;
 }
-body > #content fieldset label hr + *, body > aside fieldset label hr + *{
+
+h4 hr + *{
 	margin-top: 0;
 }
-body > #content fieldset label h2 + *, body > aside fieldset label h2 + *{
+
+h4 h2 + *{
 	margin-top: 0;
 }
-body > #content fieldset label h3 + *, body > aside fieldset label h3 + *{
+
+h4 h3 + *{
 	margin-top: 0;
 }
-body > #content fieldset label h4 + *, body > aside fieldset label h4 + *{
+
+h4 h4 + *{
 	margin-top: 0;
 }
-body > #content fieldset label thead th:first-child, body > aside fieldset label thead th:first-child{
+
+h4 thead th:first-child{
 	padding-left: 0;
 }
-body > #content fieldset label thead th:last-child, body > aside fieldset label thead th:last-child{
+
+h4 thead th:last-child{
 	padding-right: 0;
 }
-body > #content fieldset label tbody td:first-child, body > aside fieldset label tbody td:first-child{
+
+h4 tbody td:first-child{
 	padding-left: 0;
 }
-body > #content fieldset label tbody td:last-child, body > aside fieldset label tbody td:last-child{
+
+h4 tbody td:last-child{
 	padding-right: 0;
 }
-body > #content fieldset label > :first-child, body > aside fieldset label > :first-child{
+
+h4 > :first-child{
 	margin-top: 0;
 }
-body > #content fieldset label > :last-child, body > aside fieldset label > :last-child{
+
+h4 > :last-child{
 	margin-bottom: 0;
 }
-body > #content{
+
+h5{
+	font-size: 0.875rem;
+	line-height: 1.7142857;
+}
+
+h5 p{
+	margin-top: 1.1428571em;
+	margin-bottom: 1.1428571em;
+}
+
+h5 [class~="lead"]{
+	font-size: 1.2857143em;
+	line-height: 1.5555556;
+	margin-top: 0.8888889em;
+	margin-bottom: 0.8888889em;
+}
+
+h5 blockquote{
+	margin-top: 1.3333333em;
+	margin-bottom: 1.3333333em;
+	padding-left: 1.1111111em;
+}
+
+h5 h1{
+	font-size: 2.1428571em;
+	margin-top: 0;
+	margin-bottom: 0.8em;
+	line-height: 1.2;
+}
+
+h5 h2{
+	font-size: 1.4285714em;
+	margin-top: 1.6em;
+	margin-bottom: 0.8em;
+	line-height: 1.4;
+}
+
+h5 h3{
+	font-size: 1.2857143em;
+	margin-top: 1.5555556em;
+	margin-bottom: 0.4444444em;
+	line-height: 1.5555556;
+}
+
+h5 h4{
+	margin-top: 1.4285714em;
+	margin-bottom: 0.5714286em;
+	line-height: 1.4285714;
+}
+
+h5 img{
+	margin-top: 1.7142857em;
+	margin-bottom: 1.7142857em;
+}
+
+h5 video{
+	margin-top: 1.7142857em;
+	margin-bottom: 1.7142857em;
+}
+
+h5 figure{
+	margin-top: 1.7142857em;
+	margin-bottom: 1.7142857em;
+}
+
+h5 figure > *{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+h5 figure figcaption{
+	font-size: 0.8571429em;
+	line-height: 1.3333333;
+	margin-top: 0.6666667em;
+}
+
+h5 code{
+	font-size: 0.8571429em;
+}
+
+h5 h2 code{
+	font-size: 0.9em;
+}
+
+h5 h3 code{
+	font-size: 0.8888889em;
+}
+
+h5 pre{
+	font-size: 0.8571429em;
+	line-height: 1.6666667;
+	margin-top: 1.6666667em;
+	margin-bottom: 1.6666667em;
+	border-radius: 0.25rem;
+	padding-top: 0.6666667em;
+	padding-right: 1em;
+	padding-bottom: 0.6666667em;
+	padding-left: 1em;
+}
+
+h5 ol{
+	margin-top: 1.1428571em;
+	margin-bottom: 1.1428571em;
+}
+
+h5 ul{
+	margin-top: 1.1428571em;
+	margin-bottom: 1.1428571em;
+}
+
+h5 li{
+	margin-top: 0.2857143em;
+	margin-bottom: 0.2857143em;
+}
+
+h5 ol > li{
+	padding-left: 1.5714286em;
+}
+
+h5 ol > li::before{
+	left: 0;
+}
+
+h5 ul > li{
+	padding-left: 1.5714286em;
+}
+
+h5 ul > li::before{
+	height: 0.3571429em;
+	width: 0.3571429em;
+	top: calc(0.8571429em - 0.1785714em);
+	left: 0.2142857em;
+}
+
+h5 > ul > li p{
+	margin-top: 0.5714286em;
+	margin-bottom: 0.5714286em;
+}
+
+h5 > ul > li > *:first-child{
+	margin-top: 1.1428571em;
+}
+
+h5 > ul > li > *:last-child{
+	margin-bottom: 1.1428571em;
+}
+
+h5 > ol > li > *:first-child{
+	margin-top: 1.1428571em;
+}
+
+h5 > ol > li > *:last-child{
+	margin-bottom: 1.1428571em;
+}
+
+h5 ul ul, h5 ul ol, h5 ol ul, h5 ol ol{
+	margin-top: 0.5714286em;
+	margin-bottom: 0.5714286em;
+	margin-top: 0.5714286em;
+	margin-bottom: 0.5714286em;
+	margin-top: 0.5714286em;
+	margin-bottom: 0.5714286em;
+	margin-top: 0.5714286em;
+	margin-bottom: 0.5714286em;
+}
+
+h5 hr{
+	margin-top: 2.8571429em;
+	margin-bottom: 2.8571429em;
+}
+
+h5 hr + *{
+	margin-top: 0;
+}
+
+h5 h2 + *{
+	margin-top: 0;
+}
+
+h5 h3 + *{
+	margin-top: 0;
+}
+
+h5 h4 + *{
+	margin-top: 0;
+}
+
+h5 table{
+	font-size: 0.8571429em;
+	line-height: 1.5;
+}
+
+h5 thead th{
+	padding-right: 1em;
+	padding-bottom: 0.6666667em;
+	padding-left: 1em;
+}
+
+h5 thead th:first-child{
+	padding-left: 0;
+}
+
+h5 thead th:last-child{
+	padding-right: 0;
+}
+
+h5 tbody td{
+	padding-top: 0.6666667em;
+	padding-right: 1em;
+	padding-bottom: 0.6666667em;
+	padding-left: 1em;
+}
+
+h5 tbody td:first-child{
+	padding-left: 0;
+}
+
+h5 tbody td:last-child{
+	padding-right: 0;
+}
+
+h5 > :first-child{
+	margin-top: 0;
+}
+
+h5 > :last-child{
+	margin-bottom: 0;
+}
+
+legend{
+	color: #3f3f46;
+	max-width: 65ch;
+}
+
+legend [class~="lead"]{
+	color: #52525b;
+	font-size: 1.25em;
+	line-height: 1.6;
+	margin-top: 1.2em;
+	margin-bottom: 1.2em;
+}
+
+legend a{
+	color: #18181b;
+	text-decoration: underline;
+	font-weight: 500;
+}
+
+legend strong{
+	color: #18181b;
+	font-weight: 600;
+}
+
+legend ol[type="A"]{
+	--list-counter-style: upper-alpha;
+}
+
+legend ol[type="a"]{
+	--list-counter-style: lower-alpha;
+}
+
+legend ol[type="A" s]{
+	--list-counter-style: upper-alpha;
+}
+
+legend ol[type="a" s]{
+	--list-counter-style: lower-alpha;
+}
+
+legend ol[type="I"]{
+	--list-counter-style: upper-roman;
+}
+
+legend ol[type="i"]{
+	--list-counter-style: lower-roman;
+}
+
+legend ol[type="I" s]{
+	--list-counter-style: upper-roman;
+}
+
+legend ol[type="i" s]{
+	--list-counter-style: lower-roman;
+}
+
+legend ol[type="1"]{
+	--list-counter-style: decimal;
+}
+
+legend ol > li{
+	position: relative;
+	padding-left: 1.75em;
+}
+
+legend ol > li::before{
+	content: counter(list-item, var(--list-counter-style, decimal)) ".";
+	position: absolute;
+	font-weight: 400;
+	color: #71717a;
+	left: 0;
+}
+
+legend ul > li{
+	position: relative;
+	padding-left: 1.75em;
+}
+
+legend ul > li::before{
+	content: "";
+	position: absolute;
+	background-color: #d4d4d8;
+	border-radius: 50%;
+	width: 0.375em;
+	height: 0.375em;
+	top: calc(0.875em - 0.1875em);
+	left: 0.25em;
+}
+
+legend hr{
+	border-color: #e4e4e7;
+	border-top-width: 1px;
+	margin-top: 3em;
+	margin-bottom: 3em;
+}
+
+legend blockquote{
+	font-weight: 500;
+	font-style: italic;
+	color: #18181b;
+	border-left-width: 0.25rem;
+	border-left-color: #e4e4e7;
+	quotes: "\201C""\201D""\2018""\2019";
+	margin-top: 1.6em;
+	margin-bottom: 1.6em;
+	padding-left: 1em;
+}
+
+legend blockquote p:first-of-type::before{
+	content: open-quote;
+}
+
+legend blockquote p:last-of-type::after{
+	content: close-quote;
+}
+
+legend h1{
+	color: #18181b;
+	font-weight: 800;
+	font-size: 2.25em;
+	margin-top: 0;
+	margin-bottom: 0.8888889em;
+	line-height: 1.1111111;
+}
+
+legend h2{
+	color: #18181b;
+	font-weight: 700;
+	font-size: 1.5em;
+	margin-top: 2em;
+	margin-bottom: 1em;
+	line-height: 1.3333333;
+}
+
+legend h3{
+	color: #18181b;
+	font-weight: 600;
+	font-size: 1.25em;
+	margin-top: 1.6em;
+	margin-bottom: 0.6em;
+	line-height: 1.6;
+}
+
+legend h4{
+	color: #18181b;
+	font-weight: 600;
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+	line-height: 1.5;
+}
+
+legend figure figcaption{
+	color: #71717a;
+	font-size: 0.875em;
+	line-height: 1.4285714;
+	margin-top: 0.8571429em;
+}
+
+legend code{
+	color: #18181b;
+	font-weight: 600;
+	font-size: 0.875em;
+}
+
+legend code::before{
+	content: "`";
+}
+
+legend code::after{
+	content: "`";
+}
+
+legend a code{
+	color: #18181b;
+}
+
+legend pre{
+	color: #e4e4e7;
+	background-color: #27272a;
+	overflow-x: auto;
+	font-size: 0.875em;
+	line-height: 1.7142857;
+	margin-top: 1.7142857em;
+	margin-bottom: 1.7142857em;
+	border-radius: 0.375rem;
+	padding-top: 0.8571429em;
+	padding-right: 1.1428571em;
+	padding-bottom: 0.8571429em;
+	padding-left: 1.1428571em;
+}
+
+legend pre code{
+	background-color: transparent;
+	border-width: 0;
+	border-radius: 0;
+	padding: 0;
+	font-weight: 400;
+	color: inherit;
+	font-size: inherit;
+	font-family: inherit;
+	line-height: inherit;
+}
+
+legend pre code::before{
+	content: none;
+}
+
+legend pre code::after{
+	content: none;
+}
+
+legend table{
 	width: 100%;
-	margin-right: auto;
+	table-layout: auto;
+	text-align: left;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	font-size: 0.875em;
+	line-height: 1.7142857;
+}
+
+legend thead{
+	color: #18181b;
+	font-weight: 600;
+	border-bottom-width: 1px;
+	border-bottom-color: #d4d4d8;
+}
+
+legend thead th{
+	vertical-align: bottom;
+	padding-right: 0.5714286em;
+	padding-bottom: 0.5714286em;
+	padding-left: 0.5714286em;
+}
+
+legend tbody tr{
+	border-bottom-width: 1px;
+	border-bottom-color: #e4e4e7;
+}
+
+legend tbody tr:last-child{
+	border-bottom-width: 0;
+}
+
+legend tbody td{
+	vertical-align: top;
+	padding-top: 0.5714286em;
+	padding-right: 0.5714286em;
+	padding-bottom: 0.5714286em;
+	padding-left: 0.5714286em;
+}
+
+legend{
+	font-size: 1rem;
+	line-height: 1.75;
+}
+
+legend p{
+	margin-top: 1.25em;
+	margin-bottom: 1.25em;
+}
+
+legend img{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+legend video{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+legend figure{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+legend figure > *{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+legend h2 code{
+	font-size: 0.875em;
+}
+
+legend h3 code{
+	font-size: 0.9em;
+}
+
+legend ol{
+	margin-top: 1.25em;
+	margin-bottom: 1.25em;
+}
+
+legend ul{
+	margin-top: 1.25em;
+	margin-bottom: 1.25em;
+}
+
+legend li{
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+legend > ul > li p{
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+}
+
+legend > ul > li > *:first-child{
+	margin-top: 1.25em;
+}
+
+legend > ul > li > *:last-child{
+	margin-bottom: 1.25em;
+}
+
+legend > ol > li > *:first-child{
+	margin-top: 1.25em;
+}
+
+legend > ol > li > *:last-child{
+	margin-bottom: 1.25em;
+}
+
+legend ul ul, legend ul ol, legend ol ul, legend ol ol{
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+}
+
+legend hr + *{
+	margin-top: 0;
+}
+
+legend h2 + *{
+	margin-top: 0;
+}
+
+legend h3 + *{
+	margin-top: 0;
+}
+
+legend h4 + *{
+	margin-top: 0;
+}
+
+legend thead th:first-child{
+	padding-left: 0;
+}
+
+legend thead th:last-child{
+	padding-right: 0;
+}
+
+legend tbody td:first-child{
+	padding-left: 0;
+}
+
+legend tbody td:last-child{
+	padding-right: 0;
+}
+
+legend > :first-child{
+	margin-top: 0;
+}
+
+legend > :last-child{
+	margin-bottom: 0;
+}
+
+label{
+	color: #3f3f46;
+	max-width: 65ch;
+}
+
+label [class~="lead"]{
+	color: #52525b;
+	font-size: 1.25em;
+	line-height: 1.6;
+	margin-top: 1.2em;
+	margin-bottom: 1.2em;
+}
+
+label a{
+	color: #18181b;
+	text-decoration: underline;
+	font-weight: 500;
+}
+
+label strong{
+	color: #18181b;
+	font-weight: 600;
+}
+
+label ol[type="A"]{
+	--list-counter-style: upper-alpha;
+}
+
+label ol[type="a"]{
+	--list-counter-style: lower-alpha;
+}
+
+label ol[type="A" s]{
+	--list-counter-style: upper-alpha;
+}
+
+label ol[type="a" s]{
+	--list-counter-style: lower-alpha;
+}
+
+label ol[type="I"]{
+	--list-counter-style: upper-roman;
+}
+
+label ol[type="i"]{
+	--list-counter-style: lower-roman;
+}
+
+label ol[type="I" s]{
+	--list-counter-style: upper-roman;
+}
+
+label ol[type="i" s]{
+	--list-counter-style: lower-roman;
+}
+
+label ol[type="1"]{
+	--list-counter-style: decimal;
+}
+
+label ol > li{
+	position: relative;
+	padding-left: 1.75em;
+}
+
+label ol > li::before{
+	content: counter(list-item, var(--list-counter-style, decimal)) ".";
+	position: absolute;
+	font-weight: 400;
+	color: #71717a;
+	left: 0;
+}
+
+label ul > li{
+	position: relative;
+	padding-left: 1.75em;
+}
+
+label ul > li::before{
+	content: "";
+	position: absolute;
+	background-color: #d4d4d8;
+	border-radius: 50%;
+	width: 0.375em;
+	height: 0.375em;
+	top: calc(0.875em - 0.1875em);
+	left: 0.25em;
+}
+
+label hr{
+	border-color: #e4e4e7;
+	border-top-width: 1px;
+	margin-top: 3em;
+	margin-bottom: 3em;
+}
+
+label blockquote{
+	font-weight: 500;
+	font-style: italic;
+	color: #18181b;
+	border-left-width: 0.25rem;
+	border-left-color: #e4e4e7;
+	quotes: "\201C""\201D""\2018""\2019";
+	margin-top: 1.6em;
+	margin-bottom: 1.6em;
+	padding-left: 1em;
+}
+
+label blockquote p:first-of-type::before{
+	content: open-quote;
+}
+
+label blockquote p:last-of-type::after{
+	content: close-quote;
+}
+
+label h1{
+	color: #18181b;
+	font-weight: 800;
+	font-size: 2.25em;
+	margin-top: 0;
+	margin-bottom: 0.8888889em;
+	line-height: 1.1111111;
+}
+
+label h2{
+	color: #18181b;
+	font-weight: 700;
+	font-size: 1.5em;
+	margin-top: 2em;
+	margin-bottom: 1em;
+	line-height: 1.3333333;
+}
+
+label h3{
+	color: #18181b;
+	font-weight: 600;
+	font-size: 1.25em;
+	margin-top: 1.6em;
+	margin-bottom: 0.6em;
+	line-height: 1.6;
+}
+
+label h4{
+	color: #18181b;
+	font-weight: 600;
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+	line-height: 1.5;
+}
+
+label figure figcaption{
+	color: #71717a;
+	font-size: 0.875em;
+	line-height: 1.4285714;
+	margin-top: 0.8571429em;
+}
+
+label code{
+	color: #18181b;
+	font-weight: 600;
+	font-size: 0.875em;
+}
+
+label code::before{
+	content: "`";
+}
+
+label code::after{
+	content: "`";
+}
+
+label a code{
+	color: #18181b;
+}
+
+label pre{
+	color: #e4e4e7;
+	background-color: #27272a;
+	overflow-x: auto;
+	font-size: 0.875em;
+	line-height: 1.7142857;
+	margin-top: 1.7142857em;
+	margin-bottom: 1.7142857em;
+	border-radius: 0.375rem;
+	padding-top: 0.8571429em;
+	padding-right: 1.1428571em;
+	padding-bottom: 0.8571429em;
+	padding-left: 1.1428571em;
+}
+
+label pre code{
+	background-color: transparent;
+	border-width: 0;
+	border-radius: 0;
+	padding: 0;
+	font-weight: 400;
+	color: inherit;
+	font-size: inherit;
+	font-family: inherit;
+	line-height: inherit;
+}
+
+label pre code::before{
+	content: none;
+}
+
+label pre code::after{
+	content: none;
+}
+
+label table{
+	width: 100%;
+	table-layout: auto;
+	text-align: left;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	font-size: 0.875em;
+	line-height: 1.7142857;
+}
+
+label thead{
+	color: #18181b;
+	font-weight: 600;
+	border-bottom-width: 1px;
+	border-bottom-color: #d4d4d8;
+}
+
+label thead th{
+	vertical-align: bottom;
+	padding-right: 0.5714286em;
+	padding-bottom: 0.5714286em;
+	padding-left: 0.5714286em;
+}
+
+label tbody tr{
+	border-bottom-width: 1px;
+	border-bottom-color: #e4e4e7;
+}
+
+label tbody tr:last-child{
+	border-bottom-width: 0;
+}
+
+label tbody td{
+	vertical-align: top;
+	padding-top: 0.5714286em;
+	padding-right: 0.5714286em;
+	padding-bottom: 0.5714286em;
+	padding-left: 0.5714286em;
+}
+
+label{
+	font-size: 1rem;
+	line-height: 1.75;
+}
+
+label p{
+	margin-top: 1.25em;
+	margin-bottom: 1.25em;
+}
+
+label img{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+label video{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+label figure{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+label figure > *{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+label h2 code{
+	font-size: 0.875em;
+}
+
+label h3 code{
+	font-size: 0.9em;
+}
+
+label ol{
+	margin-top: 1.25em;
+	margin-bottom: 1.25em;
+}
+
+label ul{
+	margin-top: 1.25em;
+	margin-bottom: 1.25em;
+}
+
+label li{
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+label > ul > li p{
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+}
+
+label > ul > li > *:first-child{
+	margin-top: 1.25em;
+}
+
+label > ul > li > *:last-child{
+	margin-bottom: 1.25em;
+}
+
+label > ol > li > *:first-child{
+	margin-top: 1.25em;
+}
+
+label > ol > li > *:last-child{
+	margin-bottom: 1.25em;
+}
+
+label ul ul, label ul ol, label ol ul, label ol ol{
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+}
+
+label hr + *{
+	margin-top: 0;
+}
+
+label h2 + *{
+	margin-top: 0;
+}
+
+label h3 + *{
+	margin-top: 0;
+}
+
+label h4 + *{
+	margin-top: 0;
+}
+
+label thead th:first-child{
+	padding-left: 0;
+}
+
+label thead th:last-child{
+	padding-right: 0;
+}
+
+label tbody td:first-child{
+	padding-left: 0;
+}
+
+label tbody td:last-child{
+	padding-right: 0;
+}
+
+label > :first-child{
+	margin-top: 0;
+}
+
+label > :last-child{
+	margin-bottom: 0;
+}
+
+#top{
+	--tw-bg-opacity: 1;
+	background-color: rgba(51, 65, 85, var(--tw-bg-opacity));
+	--tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+	--tw-drop-shadow: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
+	filter: var(--tw-filter);
+}
+#top nav{
 	margin-left: auto;
-}
-@media (min-width: 640px){
-	body > #content{
-		max-width: 640px;
-	}
-}
-@media (min-width: 768px){
-	body > #content{
-		max-width: 768px;
-	}
+	margin-right: auto;
+	width: 100%;
 }
 @media (min-width: 1024px){
-	body > #content{
-		max-width: 1024px;
+	#top nav{
+		width: 100%;
+		margin-right: auto;
+		margin-left: auto;
 	}
-}
-@media (min-width: 1280px){
-	body > #content{
-		max-width: 1280px;
+	@media (min-width: 640px){
+		#top nav{
+			max-width: 640px;
+		}
+	}
+	@media (min-width: 768px){
+		#top nav{
+			max-width: 768px;
+		}
+	}
+	@media (min-width: 1024px){
+		#top nav{
+			max-width: 1024px;
+		}
+	}
+	@media (min-width: 1280px){
+		#top nav{
+			max-width: 1280px;
+		}
+	}
+	@media (min-width: 1536px){
+		#top nav{
+			max-width: 1536px;
+		}
 	}
 }
 @media (min-width: 1536px){
-	body > #content{
-		max-width: 1536px;
-	}
-}
-body > #content{
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
-}
-@media (min-width: 1024px){
-	body > #content{
+	#top nav{
 		width: 66.666667%;
 	}
 }
-body > #content{
-	padding: 0.5rem;
-}
-@media (min-width: 640px){
-	body > #content{
-		padding: 1.5rem;
-	}
-}
-body > #content{
+#top nav{
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 	--tw-drop-shadow: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
 	filter: var(--tw-filter);
-}
-body > #content a{
-	font-weight: 600;
-	--tw-text-opacity: 1;
-	color: rgba(31, 41, 55, var(--tw-text-opacity));
-}
-body > #content{
-	flex-direction: column;
-	flex-wrap: wrap;
-	gap: 1rem;
-}
-@media (min-width: 1280px){
-	body > #content{
-		flex-direction: row;
-	}
-}
-body > #content{
-	padding-top: 0.5rem;
-}
-body > #content #skip-to-sidebar{
-	min-width: 100%;
-	flex: 1 1 0%;
-}
-body > #content #skip-to-sidebar a{
-	font-weight: 400;
-	--tw-text-opacity: 1;
-	color: rgba(0, 0, 0, var(--tw-text-opacity));
-}
-body > #content > main{
-	margin-right: 1.5rem;
-	flex: 1 1 0%;
-}
-body > #content > main article{
-	margin-left: -0.75rem;
-	margin-right: -0.75rem;
-	padding-left: 0.75rem;
-	padding-right: 0.75rem;
-}
-@media (min-width: 640px){
-	body > #content > main article{
-		margin-left: -1.5rem;
-	}
-	body > #content > main article{
-		padding-left: 1.5rem;
-	}
-}
-body > #content > main article{
-	margin-bottom: 1.5rem;
-}
-@media (min-width: 640px){
-	body > #content > main article{
-		margin-right: 0px;
-	}
-}
-body > #content > main article{
-	width: auto;
-}
-@media (min-width: 640px){
-	body > #content > main article{
-		border-top-right-radius: 0.5rem;
-		border-bottom-right-radius: 0.5rem;
-	}
-}
-body > #content > main article{
-	--tw-bg-opacity: 1;
-	background-color: rgba(248, 250, 252, var(--tw-bg-opacity));
-	border-bottom-width: 1px;
-	border-style: dashed;
-	--tw-border-opacity: 1;
-	border-color: rgba(161, 161, 170, var(--tw-border-opacity));
-}
-body > #content > main article *{
-	line-height: 2;
-}
-body > #content > main article header time{
-	--tw-bg-opacity: 1;
-	background-color: rgba(226, 232, 240, var(--tw-bg-opacity));
-	--tw-bg-opacity: 0.75;
-	border-top-right-radius: 9999px;
-	border-bottom-right-radius: 9999px;
-	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-	--tw-text-opacity: 1;
-	color: rgba(15, 23, 42, var(--tw-text-opacity));
-	margin-left: -0.75rem;
-	margin-right: -0.75rem;
-	padding-left: 0.75rem;
-	padding-right: 0.75rem;
-}
-@media (min-width: 640px){
-	body > #content > main article header time{
-		margin-left: -1.5rem;
-	}
-	body > #content > main article header time{
-		padding-left: 1.5rem;
-	}
-}
-body > #content > main article header time{
-	padding: 0.75rem;
-	padding-bottom: 0.5rem;
-}
-body > #content > main article header div{
-	color: #3f3f46;
-	max-width: 65ch;
-}
-body > #content > main article header div [class~="lead"]{
-	color: #52525b;
-	font-size: 1.25em;
-	line-height: 1.6;
-	margin-top: 1.2em;
-	margin-bottom: 1.2em;
-}
-body > #content > main article header div a{
-	color: #18181b;
-	text-decoration: underline;
-	font-weight: 500;
-}
-body > #content > main article header div strong{
-	color: #18181b;
-	font-weight: 600;
-}
-body > #content > main article header div ol[type="A"]{
-	--list-counter-style: upper-alpha;
-}
-body > #content > main article header div ol[type="a"]{
-	--list-counter-style: lower-alpha;
-}
-body > #content > main article header div ol[type="A" s]{
-	--list-counter-style: upper-alpha;
-}
-body > #content > main article header div ol[type="a" s]{
-	--list-counter-style: lower-alpha;
-}
-body > #content > main article header div ol[type="I"]{
-	--list-counter-style: upper-roman;
-}
-body > #content > main article header div ol[type="i"]{
-	--list-counter-style: lower-roman;
-}
-body > #content > main article header div ol[type="I" s]{
-	--list-counter-style: upper-roman;
-}
-body > #content > main article header div ol[type="i" s]{
-	--list-counter-style: lower-roman;
-}
-body > #content > main article header div ol[type="1"]{
-	--list-counter-style: decimal;
-}
-body > #content > main article header div ol > li{
-	position: relative;
-	padding-left: 1.75em;
-}
-body > #content > main article header div ol > li::before{
-	content: counter(list-item, var(--list-counter-style, decimal)) ".";
-	position: absolute;
-	font-weight: 400;
-	color: #71717a;
-	left: 0;
-}
-body > #content > main article header div ul > li{
-	position: relative;
-	padding-left: 1.75em;
-}
-body > #content > main article header div ul > li::before{
-	content: "";
-	position: absolute;
-	background-color: #d4d4d8;
-	border-radius: 50%;
-	width: 0.375em;
-	height: 0.375em;
-	top: calc(0.875em - 0.1875em);
-	left: 0.25em;
-}
-body > #content > main article header div hr{
-	border-color: #e4e4e7;
-	border-top-width: 1px;
-	margin-top: 3em;
-	margin-bottom: 3em;
-}
-body > #content > main article header div blockquote{
-	font-weight: 500;
-	font-style: italic;
-	color: #18181b;
-	border-left-width: 0.25rem;
-	border-left-color: #e4e4e7;
-	quotes: "\201C""\201D""\2018""\2019";
-	margin-top: 1.6em;
-	margin-bottom: 1.6em;
-	padding-left: 1em;
-}
-body > #content > main article header div blockquote p:first-of-type::before{
-	content: open-quote;
-}
-body > #content > main article header div blockquote p:last-of-type::after{
-	content: close-quote;
-}
-body > #content > main article header div h1{
-	color: #18181b;
-	font-weight: 800;
-	font-size: 2.25em;
-	margin-top: 0;
-	margin-bottom: 0.8888889em;
-	line-height: 1.1111111;
-}
-body > #content > main article header div h2{
-	color: #18181b;
-	font-weight: 700;
-	font-size: 1.5em;
-	margin-top: 2em;
-	margin-bottom: 1em;
-	line-height: 1.3333333;
-}
-body > #content > main article header div h3{
-	color: #18181b;
-	font-weight: 600;
-	font-size: 1.25em;
-	margin-top: 1.6em;
-	margin-bottom: 0.6em;
-	line-height: 1.6;
-}
-body > #content > main article header div h4{
-	color: #18181b;
-	font-weight: 600;
-	margin-top: 1.5em;
-	margin-bottom: 0.5em;
-	line-height: 1.5;
-}
-body > #content > main article header div figure figcaption{
-	color: #71717a;
-	font-size: 0.875em;
-	line-height: 1.4285714;
-	margin-top: 0.8571429em;
-}
-body > #content > main article header div code{
-	color: #18181b;
-	font-weight: 600;
-	font-size: 0.875em;
-}
-body > #content > main article header div code::before{
-	content: "`";
-}
-body > #content > main article header div code::after{
-	content: "`";
-}
-body > #content > main article header div a code{
-	color: #18181b;
-}
-body > #content > main article header div pre{
-	color: #e4e4e7;
-	background-color: #27272a;
-	overflow-x: auto;
-	font-size: 0.875em;
-	line-height: 1.7142857;
-	margin-top: 1.7142857em;
-	margin-bottom: 1.7142857em;
-	border-radius: 0.375rem;
-	padding-top: 0.8571429em;
-	padding-right: 1.1428571em;
-	padding-bottom: 0.8571429em;
-	padding-left: 1.1428571em;
-}
-body > #content > main article header div pre code{
-	background-color: transparent;
-	border-width: 0;
-	border-radius: 0;
-	padding: 0;
-	font-weight: 400;
-	color: inherit;
-	font-size: inherit;
-	font-family: inherit;
-	line-height: inherit;
-}
-body > #content > main article header div pre code::before{
-	content: none;
-}
-body > #content > main article header div pre code::after{
-	content: none;
-}
-body > #content > main article header div table{
-	width: 100%;
-	table-layout: auto;
-	text-align: left;
-	margin-top: 2em;
-	margin-bottom: 2em;
-	font-size: 0.875em;
-	line-height: 1.7142857;
-}
-body > #content > main article header div thead{
-	color: #18181b;
-	font-weight: 600;
-	border-bottom-width: 1px;
-	border-bottom-color: #d4d4d8;
-}
-body > #content > main article header div thead th{
-	vertical-align: bottom;
-	padding-right: 0.5714286em;
-	padding-bottom: 0.5714286em;
-	padding-left: 0.5714286em;
-}
-body > #content > main article header div tbody tr{
-	border-bottom-width: 1px;
-	border-bottom-color: #e4e4e7;
-}
-body > #content > main article header div tbody tr:last-child{
-	border-bottom-width: 0;
-}
-body > #content > main article header div tbody td{
-	vertical-align: top;
-	padding-top: 0.5714286em;
-	padding-right: 0.5714286em;
-	padding-bottom: 0.5714286em;
-	padding-left: 0.5714286em;
-}
-body > #content > main article header div{
-	font-size: 1rem;
-	line-height: 1.75;
-}
-body > #content > main article header div p{
-	margin-top: 1.25em;
-	margin-bottom: 1.25em;
-}
-body > #content > main article header div img{
-	margin-top: 2em;
-	margin-bottom: 2em;
-}
-body > #content > main article header div video{
-	margin-top: 2em;
-	margin-bottom: 2em;
-}
-body > #content > main article header div figure{
-	margin-top: 2em;
-	margin-bottom: 2em;
-}
-body > #content > main article header div figure > *{
-	margin-top: 0;
-	margin-bottom: 0;
-}
-body > #content > main article header div h2 code{
-	font-size: 0.875em;
-}
-body > #content > main article header div h3 code{
-	font-size: 0.9em;
-}
-body > #content > main article header div ol{
-	margin-top: 1.25em;
-	margin-bottom: 1.25em;
-}
-body > #content > main article header div ul{
-	margin-top: 1.25em;
-	margin-bottom: 1.25em;
-}
-body > #content > main article header div li{
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-body > #content > main article header div > ul > li p{
-	margin-top: 0.75em;
-	margin-bottom: 0.75em;
-}
-body > #content > main article header div > ul > li > *:first-child{
-	margin-top: 1.25em;
-}
-body > #content > main article header div > ul > li > *:last-child{
-	margin-bottom: 1.25em;
-}
-body > #content > main article header div > ol > li > *:first-child{
-	margin-top: 1.25em;
-}
-body > #content > main article header div > ol > li > *:last-child{
-	margin-bottom: 1.25em;
-}
-body > #content > main article header div ul ul, body > #content > main article header div ul ol, body > #content > main article header div ol ul, body > #content > main article header div ol ol{
-	margin-top: 0.75em;
-	margin-bottom: 0.75em;
-	margin-top: 0.75em;
-	margin-bottom: 0.75em;
-	margin-top: 0.75em;
-	margin-bottom: 0.75em;
-	margin-top: 0.75em;
-	margin-bottom: 0.75em;
-}
-body > #content > main article header div hr + *{
-	margin-top: 0;
-}
-body > #content > main article header div h2 + *{
-	margin-top: 0;
-}
-body > #content > main article header div h3 + *{
-	margin-top: 0;
-}
-body > #content > main article header div h4 + *{
-	margin-top: 0;
-}
-body > #content > main article header div thead th:first-child{
-	padding-left: 0;
-}
-body > #content > main article header div thead th:last-child{
-	padding-right: 0;
-}
-body > #content > main article header div tbody td:first-child{
-	padding-left: 0;
-}
-body > #content > main article header div tbody td:last-child{
-	padding-right: 0;
-}
-body > #content > main article header div > :first-child{
-	margin-top: 0;
-}
-body > #content > main article header div > :last-child{
-	margin-bottom: 0;
-}
-body > #content > main article header div{
-	margin-top: -1rem;
-	font-weight: 600;
-	--tw-text-opacity: 1;
-	color: rgba(82, 82, 91, var(--tw-text-opacity));
-}
-body > #content > main article header div *{
-	display: inline-block;
-}
-body > #content > main article header div a, body > #content > main article header div address{
-	font-style: normal;
-}
-body > #content > main article header h1{
-	text-decoration: underline;
-	margin-top: 0.5rem;
-}
-body > #content > main article header h2{
-	display: none;
-}
-body > #content > main article footer{
-	--tw-text-opacity: 1;
-	color: rgba(82, 82, 91, var(--tw-text-opacity));
-}
-body > #content > main article footer .premium-lead{
-	display: block;
-	--tw-text-opacity: 1;
-	color: rgba(49, 46, 129, var(--tw-text-opacity));
-}
-body > #content > main article footer .premium-lead a{
-	display: inline-block;
-	--tw-text-opacity: 1;
-	color: rgba(49, 46, 129, var(--tw-text-opacity));
-	text-decoration: underline;
-}
-body > #content > main article footer a{
-	display: block;
-}
-body > #content > main article.premium{
-	--tw-bg-opacity: 1;
-	background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
-}
-body > #content > main article div{
-	margin-top: 0.5rem;
-	margin-bottom: 0.5rem;
-	padding-right: 1.5rem;
-	--tw-text-opacity: 1;
-	color: rgba(15, 23, 42, var(--tw-text-opacity));
-}
-body > #content > main .pagination{
-	max-width: 100%;
-}
-body > #content > main .pagination a{
-	font-weight: 400;
-}
-body > #content > main .single-page-form{
-	width: 100%;
-	margin-right: auto;
-	margin-left: auto;
-}
-@media (min-width: 640px){
-	body > #content > main .single-page-form{
-		max-width: 640px;
-	}
-}
-@media (min-width: 768px){
-	body > #content > main .single-page-form{
-		max-width: 768px;
-	}
+	padding: 0.5rem;
 }
 @media (min-width: 1024px){
-	body > #content > main .single-page-form{
-		max-width: 1024px;
+	#top nav{
+		padding: 1.5rem;
 	}
 }
-@media (min-width: 1280px){
-	body > #content > main .single-page-form{
-		max-width: 1280px;
+#top nav{
+	margin-top: -1.5rem;
+	margin-bottom: -1.5rem;
+	background-color: transparent;
+}
+@media (min-width: 1024px){
+	#top nav ul{
+		gap: 1.5rem;
+	}
+}
+#top nav ul{
+	display: flex;
+	flex-direction: column;
+}
+@media (min-width: 1024px){
+	#top nav ul{
+		flex-direction: row;
+	}
+	#top nav ul{
+		gap: 0px;
+	}
+}
+#top nav ul li{
+	text-align: center;
+}
+@media (min-width: 768px){
+	#top nav ul li{
+		width: 100%;
+	}
+}
+#top nav ul li a{
+	padding: 1.5rem;
+	display: inline-block;
+	width: 100%;
+}
+#top nav ul li a:focus{
+	--tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+	--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+	box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+#top nav ul li a{
+	--tw-text-opacity: 1;
+	color: rgba(209, 213, 219, var(--tw-text-opacity));
+}
+#top nav ul li a:hover{
+	--tw-bg-opacity: 1;
+	background-color: rgba(71, 85, 105, var(--tw-bg-opacity));
+	--tw-text-opacity: 1;
+	color: rgba(249, 250, 251, var(--tw-text-opacity));
+}
+#top nav ul li.active{
+	--tw-bg-opacity: 1;
+	background-color: rgba(100, 116, 139, var(--tw-bg-opacity));
+}
+#top header{
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+@media (min-width: 1024px){
+	#top header{
+		width: 100%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	@media (min-width: 640px){
+		#top header{
+			max-width: 640px;
+		}
+	}
+	@media (min-width: 768px){
+		#top header{
+			max-width: 768px;
+		}
+	}
+	@media (min-width: 1024px){
+		#top header{
+			max-width: 1024px;
+		}
+	}
+	@media (min-width: 1280px){
+		#top header{
+			max-width: 1280px;
+		}
+	}
+	@media (min-width: 1536px){
+		#top header{
+			max-width: 1536px;
+		}
 	}
 }
 @media (min-width: 1536px){
-	body > #content > main .single-page-form{
-		max-width: 1536px;
+	#top header{
+		width: 66.666667%;
 	}
 }
-body > #content > main .single-page-form{
-	width: 25%;
+#top header{
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	--tw-drop-shadow: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
+	filter: var(--tw-filter);
+	padding: 0.5rem;
 }
-body > #content > main .single-page-form div{
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
+@media (min-width: 1024px){
+	#top header{
+		padding: 1.5rem;
+	}
+	#top header{
+		gap: 1.5rem;
+	}
 }
-body > #content > main .single-page-form div label, body > #content > main .single-page-form div input, body > #content > main .single-page-form div button{
-	display: block;
+#top header{
+	display: flex;
+	flex-direction: column;
+}
+@media (min-width: 1024px){
+	#top header{
+		flex-direction: row;
+	}
+	#top header{
+		border-top-left-radius: 0.5rem;
+		border-top-right-radius: 0.5rem;
+	}
+}
+#top header{
+	--tw-bg-opacity: 1;
+	background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
+	align-items: center;
+}
+#top header hgroup{
+	width: 100%;
+	flex-grow: 1;
+}
+@media (min-width: 1280px){
+	#top header hgroup{
+		width: 75%;
+	}
+}
+#top header hgroup{
+	--tw-text-opacity: 1;
+	color: rgba(75, 85, 99, var(--tw-text-opacity));
+}
+#top header [role=search]{
+	width: 100%;
+	flex-grow: 1;
+}
+@media (min-width: 1280px){
+	#top header [role=search]{
+		width: 25%;
+	}
+}
+#top header [role=search] input{
+	border-radius: 0.5rem;
 	width: 100%;
 }
-body > #content > main .single-page-form div input:not([type=checkbox]), body > #content > main .single-page-form div button{
+
+#app > main{
+	width: 100%;
+	flex-grow: 1;
+}
+
+@media (min-width: 1280px){
+	#app > main{
+		width: 75%;
+	}
+}
+#app > main article{
+	border-top-right-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
+}
+@media (min-width: 1024px){
+	#app > main article{
+		margin-left: -1.5rem;
+	}
+}
+#app > main article{
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	margin-bottom: 3rem;
 	--tw-bg-opacity: 1;
-	background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
-}
-body > #content > main .single-page-form div input:not([type=checkbox]):hover, body > #content > main .single-page-form div button:hover{
-	--tw-bg-opacity: 1;
-	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-}
-body > #content > main .single-page-form div input:not([type=checkbox]):focus, body > #content > main .single-page-form div button:focus{
-	--tw-bg-opacity: 1;
-	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-}
-body > #content > main .single-page-form div input, body > #content > main .single-page-form div button{
-	border-radius: 0.5rem;
-}
-body > #content > main .single-page-form div button{
-	padding: 0.75rem;
+	background-color: rgba(248, 250, 252, var(--tw-bg-opacity));
+	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 	--tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-body > #content > main .single-page-form div button:hover{
+#app > main article.premium{
 	--tw-bg-opacity: 1;
-	background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
+	background-color: rgba(253, 224, 71, var(--tw-bg-opacity));
+	--tw-drop-shadow: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
+	filter: var(--tw-filter);
 }
-body > #content > main .single-page-form div.checkbox-control{
-	display: inline-flex;
-	align-items: center;
-}
-body > #content > main .single-page-form div.checkbox-control label, body > #content > main .single-page-form div.checkbox-control input{
-	padding-left: 0.25rem;
-	padding-right: 0.25rem;
-}
-body > #content > main .single-page-form div.checkbox-control input{
-	height: 1rem;
-	width: 1rem;
-}
-body > #content > main .single-page-form div .required{
+#app > main article.premium a{
 	--tw-text-opacity: 1;
-	color: rgba(100, 116, 139, var(--tw-text-opacity));
+	color: rgba(0, 0, 0, var(--tw-text-opacity));
+}
+#app > main article.premium a:hover{
+	--tw-text-opacity: 1;
+	color: rgba(113, 113, 122, var(--tw-text-opacity));
+}
+#app > main article.premium header time{
+	--tw-bg-opacity: 1;
+	background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
+	--tw-drop-shadow: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+	filter: var(--tw-filter);
+}
+#app > main article header{
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
 }
 @media (min-width: 1024px){
-	body > #content > aside{
-		width: 16rem;
+	#app > main article header{
+		margin: 0px;
+	}
+	#app > main article header time{
+		margin-left: -1.5rem;
+		margin-right: -1.5rem;
 	}
 }
-@media (min-width: 1280px){
-	body > #content > aside{
-		flex-shrink: 0;
-	}
-}
-body > #content > aside form{
-	margin: -0.75rem;
-	margin-top: 0px;
+#app > main article header time{
 	padding: 0.75rem;
+	--tw-bg-opacity: 1;
+	background-color: rgba(15, 23, 42, var(--tw-bg-opacity));
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+	font-weight: 700;
+	--tw-drop-shadow: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
+	filter: var(--tw-filter);
+}
+#app > main article header h1{
+	margin-top: 1.5rem;
+	margin-bottom: -0.75rem;
+	font-size: 1.125rem;
+	line-height: 1.7777778;
+}
+#app > main article header h1 p{
+	margin-top: 1.3333333em;
+	margin-bottom: 1.3333333em;
+}
+#app > main article header h1 [class~="lead"]{
+	font-size: 1.2222222em;
+	line-height: 1.4545455;
+	margin-top: 1.0909091em;
+	margin-bottom: 1.0909091em;
+}
+#app > main article header h1 blockquote{
+	margin-top: 1.6666667em;
+	margin-bottom: 1.6666667em;
+	padding-left: 1em;
+}
+#app > main article header h1 h1{
+	font-size: 2.6666667em;
+	margin-top: 0;
+	margin-bottom: 0.8333333em;
+	line-height: 1;
+}
+#app > main article header h1 h2{
+	font-size: 1.6666667em;
+	margin-top: 1.8666667em;
+	margin-bottom: 1.0666667em;
+	line-height: 1.3333333;
+}
+#app > main article header h1 h3{
+	font-size: 1.3333333em;
+	margin-top: 1.6666667em;
+	margin-bottom: 0.6666667em;
+	line-height: 1.5;
+}
+#app > main article header h1 h4{
+	margin-top: 1.7777778em;
+	margin-bottom: 0.4444444em;
+	line-height: 1.5555556;
+}
+#app > main article header h1 img{
+	margin-top: 1.7777778em;
+	margin-bottom: 1.7777778em;
+}
+#app > main article header h1 video{
+	margin-top: 1.7777778em;
+	margin-bottom: 1.7777778em;
+}
+#app > main article header h1 figure{
+	margin-top: 1.7777778em;
+	margin-bottom: 1.7777778em;
+}
+#app > main article header h1 figure > *{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+#app > main article header h1 figure figcaption{
+	font-size: 0.8888889em;
+	line-height: 1.5;
+	margin-top: 1em;
+}
+#app > main article header h1 code{
+	font-size: 0.8888889em;
+}
+#app > main article header h1 h2 code{
+	font-size: 0.8666667em;
+}
+#app > main article header h1 h3 code{
+	font-size: 0.875em;
+}
+#app > main article header h1 pre{
+	font-size: 0.8888889em;
+	line-height: 1.75;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	border-radius: 0.375rem;
+	padding-top: 1em;
+	padding-right: 1.5em;
+	padding-bottom: 1em;
+	padding-left: 1.5em;
+}
+#app > main article header h1 ol{
+	margin-top: 1.3333333em;
+	margin-bottom: 1.3333333em;
+}
+#app > main article header h1 ul{
+	margin-top: 1.3333333em;
+	margin-bottom: 1.3333333em;
+}
+#app > main article header h1 li{
+	margin-top: 0.6666667em;
+	margin-bottom: 0.6666667em;
+}
+#app > main article header h1 ol > li{
+	padding-left: 1.6666667em;
+}
+#app > main article header h1 ol > li::before{
+	left: 0;
+}
+#app > main article header h1 ul > li{
+	padding-left: 1.6666667em;
+}
+#app > main article header h1 ul > li::before{
+	width: 0.3333333em;
+	height: 0.3333333em;
+	top: calc(0.8888889em - 0.1666667em);
+	left: 0.2222222em;
+}
+#app > main article header h1 > ul > li p{
+	margin-top: 0.8888889em;
+	margin-bottom: 0.8888889em;
+}
+#app > main article header h1 > ul > li > *:first-child{
+	margin-top: 1.3333333em;
+}
+#app > main article header h1 > ul > li > *:last-child{
+	margin-bottom: 1.3333333em;
+}
+#app > main article header h1 > ol > li > *:first-child{
+	margin-top: 1.3333333em;
+}
+#app > main article header h1 > ol > li > *:last-child{
+	margin-bottom: 1.3333333em;
+}
+#app > main article header h1 ul ul, #app > main article header h1 ul ol, #app > main article header h1 ol ul, #app > main article header h1 ol ol{
+	margin-top: 0.8888889em;
+	margin-bottom: 0.8888889em;
+	margin-top: 0.8888889em;
+	margin-bottom: 0.8888889em;
+	margin-top: 0.8888889em;
+	margin-bottom: 0.8888889em;
+	margin-top: 0.8888889em;
+	margin-bottom: 0.8888889em;
+}
+#app > main article header h1 hr{
+	margin-top: 3.1111111em;
+	margin-bottom: 3.1111111em;
+}
+#app > main article header h1 hr + *{
+	margin-top: 0;
+}
+#app > main article header h1 h2 + *{
+	margin-top: 0;
+}
+#app > main article header h1 h3 + *{
+	margin-top: 0;
+}
+#app > main article header h1 h4 + *{
+	margin-top: 0;
+}
+#app > main article header h1 table{
+	font-size: 0.8888889em;
+	line-height: 1.5;
+}
+#app > main article header h1 thead th{
+	padding-right: 0.75em;
+	padding-bottom: 0.75em;
+	padding-left: 0.75em;
+}
+#app > main article header h1 thead th:first-child{
+	padding-left: 0;
+}
+#app > main article header h1 thead th:last-child{
+	padding-right: 0;
+}
+#app > main article header h1 tbody td{
+	padding-top: 0.75em;
+	padding-right: 0.75em;
+	padding-bottom: 0.75em;
+	padding-left: 0.75em;
+}
+#app > main article header h1 tbody td:first-child{
+	padding-left: 0;
+}
+#app > main article header h1 tbody td:last-child{
+	padding-right: 0;
+}
+#app > main article header h1 > :first-child{
+	margin-top: 0;
+}
+#app > main article header h1 > :last-child{
+	margin-bottom: 0;
+}
+#app > main article header h1{
+	font-weight: 600;
+	display: block;
+}
+#app > main article header h1 address{
+	display: inline-block;
+	font-style: normal;
+}
+#app > main article header h2{
+	font-size: 1.5rem;
+	line-height: 1.6666667;
+}
+#app > main article header h2 p{
+	margin-top: 1.3333333em;
+	margin-bottom: 1.3333333em;
+}
+#app > main article header h2 [class~="lead"]{
+	font-size: 1.25em;
+	line-height: 1.4666667;
+	margin-top: 1.0666667em;
+	margin-bottom: 1.0666667em;
+}
+#app > main article header h2 blockquote{
+	margin-top: 1.7777778em;
+	margin-bottom: 1.7777778em;
+	padding-left: 1.1111111em;
+}
+#app > main article header h2 h1{
+	font-size: 2.6666667em;
+	margin-top: 0;
+	margin-bottom: 0.875em;
+	line-height: 1;
+}
+#app > main article header h2 h2{
+	font-size: 2em;
+	margin-top: 1.5em;
+	margin-bottom: 0.8333333em;
+	line-height: 1.0833333;
+}
+#app > main article header h2 h3{
+	font-size: 1.5em;
+	margin-top: 1.5555556em;
+	margin-bottom: 0.6666667em;
+	line-height: 1.2222222;
+}
+#app > main article header h2 h4{
+	margin-top: 1.6666667em;
+	margin-bottom: 0.6666667em;
+	line-height: 1.5;
+}
+#app > main article header h2 img{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+#app > main article header h2 video{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+#app > main article header h2 figure{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+#app > main article header h2 figure > *{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+#app > main article header h2 figure figcaption{
+	font-size: 0.8333333em;
+	line-height: 1.6;
+	margin-top: 1em;
+}
+#app > main article header h2 code{
+	font-size: 0.8333333em;
+}
+#app > main article header h2 h2 code{
+	font-size: 0.875em;
+}
+#app > main article header h2 h3 code{
+	font-size: 0.8888889em;
+}
+#app > main article header h2 pre{
+	font-size: 0.8333333em;
+	line-height: 1.8;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	border-radius: 0.5rem;
+	padding-top: 1.2em;
+	padding-right: 1.6em;
+	padding-bottom: 1.2em;
+	padding-left: 1.6em;
+}
+#app > main article header h2 ol{
+	margin-top: 1.3333333em;
+	margin-bottom: 1.3333333em;
+}
+#app > main article header h2 ul{
+	margin-top: 1.3333333em;
+	margin-bottom: 1.3333333em;
+}
+#app > main article header h2 li{
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+#app > main article header h2 ol > li{
+	padding-left: 1.6666667em;
+}
+#app > main article header h2 ol > li::before{
+	left: 0;
+}
+#app > main article header h2 ul > li{
+	padding-left: 1.6666667em;
+}
+#app > main article header h2 ul > li::before{
+	width: 0.3333333em;
+	height: 0.3333333em;
+	top: calc(0.8333333em - 0.1666667em);
+	left: 0.25em;
+}
+#app > main article header h2 > ul > li p{
+	margin-top: 0.8333333em;
+	margin-bottom: 0.8333333em;
+}
+#app > main article header h2 > ul > li > *:first-child{
+	margin-top: 1.3333333em;
+}
+#app > main article header h2 > ul > li > *:last-child{
+	margin-bottom: 1.3333333em;
+}
+#app > main article header h2 > ol > li > *:first-child{
+	margin-top: 1.3333333em;
+}
+#app > main article header h2 > ol > li > *:last-child{
+	margin-bottom: 1.3333333em;
+}
+#app > main article header h2 ul ul, #app > main article header h2 ul ol, #app > main article header h2 ol ul, #app > main article header h2 ol ol{
+	margin-top: 0.6666667em;
+	margin-bottom: 0.6666667em;
+	margin-top: 0.6666667em;
+	margin-bottom: 0.6666667em;
+	margin-top: 0.6666667em;
+	margin-bottom: 0.6666667em;
+	margin-top: 0.6666667em;
+	margin-bottom: 0.6666667em;
+}
+#app > main article header h2 hr{
+	margin-top: 3em;
+	margin-bottom: 3em;
+}
+#app > main article header h2 hr + *{
+	margin-top: 0;
+}
+#app > main article header h2 h2 + *{
+	margin-top: 0;
+}
+#app > main article header h2 h3 + *{
+	margin-top: 0;
+}
+#app > main article header h2 h4 + *{
+	margin-top: 0;
+}
+#app > main article header h2 table{
+	font-size: 0.8333333em;
+	line-height: 1.4;
+}
+#app > main article header h2 thead th{
+	padding-right: 0.6em;
+	padding-bottom: 0.8em;
+	padding-left: 0.6em;
+}
+#app > main article header h2 thead th:first-child{
+	padding-left: 0;
+}
+#app > main article header h2 thead th:last-child{
+	padding-right: 0;
+}
+#app > main article header h2 tbody td{
+	padding-top: 0.8em;
+	padding-right: 0.6em;
+	padding-bottom: 0.8em;
+	padding-left: 0.6em;
+}
+#app > main article header h2 tbody td:first-child{
+	padding-left: 0;
+}
+#app > main article header h2 tbody td:last-child{
+	padding-right: 0;
+}
+#app > main article header h2 > :first-child{
+	margin-top: 0;
+}
+#app > main article header h2 > :last-child{
+	margin-bottom: 0;
+}
+#app > main article header h2{
+	font-weight: 700;
+}
+#app > main article .entry{
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+}
+#app > main article footer{
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+#app > main article footer p{
+	display: block;
+}
+
+#app > aside{
+	width: 100%;
+	flex-grow: 1;
+}
+
+@media (min-width: 1280px){
+	#app > aside{
+		width: 25%;
+	}
+}
+#app > aside form{
+	padding-left: 0.75rem;
+	padding-right: 0.75rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
 	--tw-bg-opacity: 1;
 	background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
 	border-radius: 0.5rem;
 	--tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-body > footer{
-	width: 100%;
-	margin-right: auto;
+
+.ql-container, .ql-toolbar{
+	height: auto;
+}
+
+.ql-container{
+	margin-bottom: 2rem;
+}
+
+#app{
 	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
 }
-@media (min-width: 640px){
-	body > footer{
-		max-width: 640px;
-	}
-}
-@media (min-width: 768px){
-	body > footer{
-		max-width: 768px;
-	}
-}
+
 @media (min-width: 1024px){
-	body > footer{
-		max-width: 1024px;
+	#app{
+		width: 100%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	@media (min-width: 640px){
+		#app{
+			max-width: 640px;
+		}
+	}
+	@media (min-width: 768px){
+		#app{
+			max-width: 768px;
+		}
+	}
+	@media (min-width: 1024px){
+		#app{
+			max-width: 1024px;
+		}
+	}
+	@media (min-width: 1280px){
+		#app{
+			max-width: 1280px;
+		}
+	}
+	@media (min-width: 1536px){
+		#app{
+			max-width: 1536px;
+		}
 	}
 }
-@media (min-width: 1280px){
-	body > footer{
-		max-width: 1280px;
-	}
-}
+
 @media (min-width: 1536px){
-	body > footer{
-		max-width: 1536px;
-	}
-}
-body > footer{
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
-}
-@media (min-width: 1024px){
-	body > footer{
+	#app{
 		width: 66.666667%;
 	}
 }
-body > footer{
-	padding: 0.5rem;
-}
-@media (min-width: 640px){
-	body > footer{
-		padding: 1.5rem;
-	}
-}
-body > footer{
+
+#app{
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 	--tw-drop-shadow: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
 	filter: var(--tw-filter);
-}
-@media (min-width: 768px){
-	body > footer{
-		margin-bottom: 2rem;
-	}
-	body > footer{
-		border-bottom-right-radius: 0.375rem;
-		border-bottom-left-radius: 0.375rem;
-	}
-}
-body > footer{
-	border-top-width: 8px;
-	border-style: dashed;
-	--tw-border-opacity: 1;
-	border-color: rgba(255, 255, 255, var(--tw-border-opacity));
-	--tw-bg-opacity: 1;
-	background-color: rgba(244, 244, 245, var(--tw-bg-opacity));
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-}
-body [role=alert]{
-	border-radius: 0.375rem;
-	padding: 1rem;
-	--tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-body [role=alert].info{
-	--tw-bg-opacity: 1;
-	background-color: rgba(239, 246, 255, var(--tw-bg-opacity));
+	padding: 0.5rem;
 }
 
-/* Quill */
-main .ql-container, main .ql-toolbar{
-	height: auto;
+@media (min-width: 1024px){
+	#app{
+		padding: 1.5rem;
+	}
+	#app{
+		gap: 1.5rem;
+	}
 }
-main .ql-container{
-	margin-bottom: 2rem;
+
+#app{
+	display: flex;
+	flex-direction: column;
 }
+
+@media (min-width: 1280px){
+	#app{
+		flex-direction: row;
+	}
+}
+
+@media (min-width: 1024px){
+	#app{
+		gap: 1.5rem;
+	}
+}
+
 .hover\:border-gray-300:hover{
 	--tw-border-opacity: 1;
 	border-color: rgba(212, 212, 216, var(--tw-border-opacity));
 }
+
 .hover\:bg-gray-100:hover{
 	--tw-bg-opacity: 1;
 	background-color: rgba(244, 244, 245, var(--tw-bg-opacity));
 }
+
 .hover\:bg-gray-50:hover{
 	--tw-bg-opacity: 1;
 	background-color: rgba(250, 250, 250, var(--tw-bg-opacity));
 }
+
 .hover\:bg-gray-700:hover{
 	--tw-bg-opacity: 1;
 	background-color: rgba(63, 63, 70, var(--tw-bg-opacity));
 }
+
 .hover\:font-bold:hover{
 	font-weight: 700;
 }
+
 .hover\:text-gray-500:hover{
 	--tw-text-opacity: 1;
 	color: rgba(113, 113, 122, var(--tw-text-opacity));
 }
-.hover\:text-gray-400:hover{
-	--tw-text-opacity: 1;
-	color: rgba(161, 161, 170, var(--tw-text-opacity));
-}
+
 .hover\:text-gray-600:hover{
 	--tw-text-opacity: 1;
 	color: rgba(82, 82, 91, var(--tw-text-opacity));
 }
+
 .hover\:text-gray-900:hover{
 	--tw-text-opacity: 1;
 	color: rgba(24, 24, 27, var(--tw-text-opacity));
 }
+
+.hover\:text-gray-400:hover{
+	--tw-text-opacity: 1;
+	color: rgba(161, 161, 170, var(--tw-text-opacity));
+}
+
 .hover\:text-gray-800:hover{
 	--tw-text-opacity: 1;
 	color: rgba(39, 39, 42, var(--tw-text-opacity));
 }
+
 .hover\:text-white:hover{
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
+
 .hover\:text-gray-700:hover{
 	--tw-text-opacity: 1;
 	color: rgba(63, 63, 70, var(--tw-text-opacity));
 }
+
 .focus\:z-10:focus{
 	z-index: 10;
 }
+
 .focus\:border-blue-300:focus{
 	--tw-border-opacity: 1;
 	border-color: rgba(147, 197, 253, var(--tw-border-opacity));
 }
+
 .focus\:border-indigo-300:focus{
 	--tw-border-opacity: 1;
 	border-color: rgba(165, 180, 252, var(--tw-border-opacity));
 }
+
 .focus\:border-indigo-700:focus{
 	--tw-border-opacity: 1;
 	border-color: rgba(67, 56, 202, var(--tw-border-opacity));
 }
+
 .focus\:border-gray-300:focus{
 	--tw-border-opacity: 1;
 	border-color: rgba(212, 212, 216, var(--tw-border-opacity));
 }
+
 .focus\:border-gray-900:focus{
 	--tw-border-opacity: 1;
 	border-color: rgba(24, 24, 27, var(--tw-border-opacity));
 }
+
 .focus\:bg-gray-100:focus{
 	--tw-bg-opacity: 1;
 	background-color: rgba(244, 244, 245, var(--tw-bg-opacity));
 }
+
 .focus\:bg-indigo-100:focus{
 	--tw-bg-opacity: 1;
 	background-color: rgba(224, 231, 255, var(--tw-bg-opacity));
 }
+
 .focus\:bg-gray-50:focus{
 	--tw-bg-opacity: 1;
 	background-color: rgba(250, 250, 250, var(--tw-bg-opacity));
 }
+
 .focus\:text-indigo-800:focus{
 	--tw-text-opacity: 1;
 	color: rgba(55, 48, 163, var(--tw-text-opacity));
 }
+
 .focus\:text-gray-800:focus{
 	--tw-text-opacity: 1;
 	color: rgba(39, 39, 42, var(--tw-text-opacity));
 }
+
 .focus\:text-white:focus{
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
+
 .focus\:text-gray-700:focus{
 	--tw-text-opacity: 1;
 	color: rgba(63, 63, 70, var(--tw-text-opacity));
 }
+
 .focus\:text-gray-500:focus{
 	--tw-text-opacity: 1;
 	color: rgba(113, 113, 122, var(--tw-text-opacity));
 }
+
 .focus\:outline-none:focus{
 	outline: 2px solid transparent;
 	outline-offset: 2px;
 }
+
 .focus\:ring:focus{
 	--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
 	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
 	box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
+
 .focus\:ring-indigo-200:focus{
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(199, 210, 254, var(--tw-ring-opacity));
 }
+
 .focus\:ring-opacity-50:focus{
 	--tw-ring-opacity: 0.5;
 }
+
 .active\:bg-gray-100:active{
 	--tw-bg-opacity: 1;
 	background-color: rgba(244, 244, 245, var(--tw-bg-opacity));
 }
+
 .active\:bg-gray-900:active{
 	--tw-bg-opacity: 1;
 	background-color: rgba(24, 24, 27, var(--tw-bg-opacity));
 }
+
 .active\:text-gray-700:active{
 	--tw-text-opacity: 1;
 	color: rgba(63, 63, 70, var(--tw-text-opacity));
 }
+
 .active\:text-gray-500:active{
 	--tw-text-opacity: 1;
 	color: rgba(113, 113, 122, var(--tw-text-opacity));
 }
+
 .disabled\:opacity-25:disabled{
 	opacity: 0.25;
 }
+
 @media (min-width: 640px){
 	.sm\:-my-px{
 		margin-top: -1px;
@@ -4620,6 +6035,7 @@ main .ql-container{
 		text-align: right;
 	}
 }
+
 @media (min-width: 768px){
 	.md\:my-6{
 		margin-top: 1.5rem;
@@ -4651,6 +6067,7 @@ main .ql-container{
 		line-height: 2.25rem;
 	}
 }
+
 @media (min-width: 1024px){
 	.lg\:px-8{
 		padding-left: 2rem;

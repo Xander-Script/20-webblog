@@ -1,0 +1,29 @@
+@use 'base';
+
+h1 {
+    @apply prose-2xl font-bold;
+}
+
+h2 {
+    @apply prose-xl font-semibold;
+}
+
+h3 {
+    @apply prose-lg font-normal;
+}
+
+h4 {
+    @apply prose;
+}
+
+h5 {
+    @apply prose-sm;
+}
+
+legend {
+    @apply prose;
+}
+
+label {
+    @apply prose;
+}

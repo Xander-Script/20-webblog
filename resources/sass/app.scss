@@ -1,346 +1,110 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-@import '~quill/dist/quill.snow.css';
+@use 'base';
+@use 'typography';
+@use 'header';
+@use 'main';
+@use 'sidebar';
+@use 'editor';
 
-:root {
-    --hgroup-color: theme('colors.coolGray.600');
+//@import all;
+//@import 'base';
+//@import 'main';
+//@import 'header';
+//@import 'sidebar';
+
+//:root {
+//    --hgroup-color: theme('colors.coolGray.600');
+//}
+
+
+#app {
+    @include base.container;
+    @include base.inline-row(xl);
+    @include base.gap;
+
+    //@apply gap-8;
 }
 
-@layer base {
-    .base-container {
-        @apply container w-full lg:w-2/3 mx-auto;
-    }
-
-    .base-padding {
-        @apply p-2 sm:p-6;
-    }
-
-    .base-no-left-padding {
-        @apply -mx-3 px-3 sm:-ml-6 sm:pl-6;
-    }
-
-    .base-style {
-        @apply base-padding;
-        @apply bg-white;
-        @apply drop-shadow-xl;
-    }
-
-    .base-link {
-        a {
-            @apply text-coolGray-800;
-            @apply font-semibold;
-        }
-    }
-
-    .base-divider {
-        @apply border-coolGray-600 border-dashed;
-    }
-
-    .base-rounded-top {
-        @apply md:rounded-t-md;
-
-        // Overlap the navigation slightly to remove ugly rounded corners
-        // when the first or last navigation item is active or being hovered.
-        @apply -mt-2;
-    }
-
-    .base-rounded-bottom {
-        @apply md:rounded-b-md;
-        @apply md:mb-8;
-    }
-}
-
-body {
-    @apply bg-coolGray-100;
-    @apply font-sans antialiased;
-    @apply flex flex-col;
-
-    > header,
-    > nav,
-    > #content,
-    > footer {
-        @apply flex flex-col sm:flex-row;
-         //@apply items-center content-center justify-center;
-    }
-
-    #top {
-        @apply bg-blueGray-700;
-        @apply drop-shadow-xl shadow-inner;
-
-        nav {
-            @apply base-container;
-            @apply bg-transparent;
-
-            ul {
-                @apply flex flex-col lg:flex-row;
-            }
-
-            li {
-                @apply md:w-full text-center;
-                @apply mb-2 sm:mb-0;
-
-                // Maybe someday... https://caniuse.com/css-has
-                &:hover, &.active:hover {
-                    @apply bg-blueGray-500 shadow-inner;
-                    @apply text-white;
-                }
-
-                &.active {
-                    @apply bg-blueGray-600;
-                }
-
-                a {
-                    @apply base-padding;
-                    @apply lg:prose inline-block w-full w-full;
-                    @apply base-link;
-                    @apply text-coolGray-300;
-
-                    @apply outline-none focus:bg-blueGray-500 focus:shadow-inner focus:ring;
-                }
-            }
-        }
-
-
-        header {
-            @apply base-style;
-            @apply base-container;
-            @apply base-rounded-top;
-            @apply flex flex-row flex-wrap;
-            @apply bg-coolGray-300;
-            @apply items-center;
-
-            hgroup {
-                @apply mr-6 flex-grow pb-4 xl:pb-0;
-
-                color: var(--hgroup-color);
-
-                h1 {
-                    @apply font-bold prose-2xl;
-                }
-            }
-
-            form[role="search"] {
-                @apply w-64;
-
-                legend {
-                    @apply hidden;
-                }
-
-                input {
-                    @apply rounded-lg;
-                    @apply transition duration-200 ease-in-out opacity-75 hover:opacity-100 focus:opacity-100 transform;
-                    @apply h-10 w-full;
-                }
-            }
-        }
-    }
-
-    > #content,
-    > aside {
-        h1 {
-            @apply prose-2xl;
-        }
-
-        fieldset {
-            @apply pb-2;
-
-            legend {
-                @apply prose-xl;
-                @apply border-t border-dashed border-gray-300;
-                @apply w-full;
-                @apply pt-2;
-            }
-
-            label {
-                @apply prose;
-            }
-        }
-    }
-
-    > #content {
-        @apply base-container base-style base-link;
-        @apply flex-col xl:flex-row gap-4 flex-wrap;
-        @apply pt-2;
-
-        #skip-to-sidebar {
-            @apply min-w-full flex-1;
-            a {
-                @apply text-black font-normal;
-            }
-        }
-
-        > main {
-            @apply flex-1 mr-6;
-
-            article {
-                @apply base-no-left-padding;
-                @apply mb-6 sm:mr-0;
-                @apply w-auto;
-                @apply sm:rounded-r-lg;
-                @apply bg-blueGray-50;
-                @apply border-b border-gray-400 border-dashed;
-
-                * {
-                    @apply leading-loose;
-                }
-
-                header {
-                    time {
-                        @apply bg-blueGray-200 bg-opacity-75;
-                        @apply rounded-r-full;
-                        @apply shadow;
-                        @apply text-blueGray-900;
-                        @apply base-no-left-padding;
-                        @apply p-3 pb-2;
-                    }
-
-                    div {
-                        @apply prose;
-                        @apply font-semibold text-gray-600 -mt-4;
-
-                        * {
-                            @apply inline-block;
-                        }
-
-                        a, address {
-                            @apply not-italic;
-                        }
-                    }
-
-                    h1 {
-                        @apply underline;
-                        @apply mt-2;
-                    }
-
-                    h2 {
-                        @apply hidden;
-                    }
-
-                }
-
-                footer {
-                    @apply text-gray-600;
-
-                    .premium-lead {
-                        @apply block text-indigo-900;
-
-                        a {
-                            @apply underline inline-block text-indigo-900;
-                        }
-                    }
-
-                    p, a{
-
-                    }
-                }
-
-                footer {
-                    a {
-                        @apply block;
-                    }
-                }
-
-                &.premium {
-                    @apply bg-coolGray-100;
-                }
-
-                a.premium-link {
-                }
-
-                div {
-                    @apply text-blueGray-900 pr-6 my-2;
-                }
-            }
-
-            .pagination {
-                @apply max-w-full;
-
-                a {
-                    @apply font-normal;
-                }
-            }
-
-            .single-page-form {
-                @apply container w-1/4;
-
-                div {
-                    @apply py-2;
-
-                    label, input, button {
-                        @apply w-full block;
-                    }
-
-                    input:not([type=checkbox]), button {
-                        @apply bg-coolGray-100 hover:bg-white focus:bg-white;
-                    }
-
-                    input, button {
-                        @apply rounded-lg;
-                    }
-
-                    button {
-                        @apply p-3 shadow-inner;
-                        @apply hover:bg-coolGray-300;
-                    }
-
-                    &.checkbox-control {
-                        @apply inline-flex;
-
-                        label, input {
-                            @apply px-1;
-                        }
-
-                        input {
-                            @apply w-4 h-4;
-                        }
-
-                        @apply items-center;
-                    }
-
-                    .required {
-                        @apply text-blueGray-500;
-                    }
-                }
-            }
-        }
-
-        > aside {
-            @apply lg:w-64 xl:flex-shrink-0;
-
-            form {
-                @apply -m-3 p-3 mt-0;
-                @apply bg-coolGray-50;
-                @apply rounded-lg shadow-inner;
-            }
-
-        }
-    }
-
-    > footer {
-        @apply base-style base-container base-rounded-bottom;
-        @apply border-t-8 border-dashed border-white;
-        @apply bg-gray-100;
-        @apply py-4;
-    }
-
-    [role="alert"] {
-        @apply shadow-inner rounded-md p-4;
-
-        &.info {
-            @apply bg-blue-50;
-        }
-    }
-}
-
-/* Quill */
-main {
-    .ql-container, .ql-toolbar {
-        @apply h-auto;
-        //max-width: 98%;
-    }
-
-    .ql-container {
-        @apply mb-8;
-    }
-}
+//
+//body {
+//    @apply bg-coolGray-100;
+//    @apply font-sans antialiased;
+//    @apply flex flex-col;
+//
+//    //@include base.container
+//
+//    > header,
+//    > nav,
+//    > #content,
+//    > footer {
+//        @apply flex flex-col sm:flex-row;
+//         //@apply items-center content-center justify-center;
+//    }
+//
+//
+//
+//    //h1 {
+//    //    @apply prose-2xl;
+//    //}
+//
+//    fieldset {
+//        @apply pb-2;
+//
+//        legend {
+//            @apply prose-xl;
+//            @apply border-t border-dashed border-gray-300;
+//            @apply w-full;
+//            @apply pt-2;
+//        }
+//
+//        label {
+//            @apply prose;
+//        }
+//    }
+//
+//    > #app {
+//        @include base.container;
+//        //@include base.container-content;
+//
+//        //@apply base-style base-link;
+//        @apply flex-col xl:flex-row gap-4 flex-wrap;
+//        @apply pt-2;
+//
+//        #skip-to-sidebar {
+//            @apply min-w-full flex-1;
+//            a {
+//                //@include base.anchor;
+//                //@apply text-black font-normal;
+//            }
+//        }
+//
+//
+//    }
+//
+//    > footer {
+//        @include base.container;
+//        //@apply base-style base-rounded-bottom;
+//        @apply border-t-8 border-dashed border-white;
+//        @apply bg-gray-100;
+//        @apply py-4;
+//    }
+//
+//    [role="alert"] {
+//        @apply shadow-inner rounded-md p-4;
+//
+//        &.info {
+//            @apply bg-blue-50;
+//        }
+//    }
+//}
+//
+///* Quill */
+//main {
+//    .ql-container, .ql-toolbar {
+//        @apply h-auto;
+//        //max-width: 98%;
+//    }
+//
+//    .ql-container {
+//        @apply mb-8;
+//    }
+//}

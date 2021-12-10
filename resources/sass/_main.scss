@@ -1,0 +1,65 @@
+@use 'base';
+@use 'objects/article';
+
+#app > main {
+    @include base.left;
+
+    @include article.object;
+}
+
+////#app > main {
+//    //@apply flex-1 mr-6;
+//
+
+//
+//    .pagination {
+//        @apply max-w-full;
+//
+//        a {
+//            @apply font-normal;
+//        }
+//    }
+//
+//    .single-page-form {
+//        @apply container w-1/4;
+//
+//        div {
+//            @apply py-2;
+//
+//            label, input, button {
+//                @apply w-full block;
+//            }
+//
+//            input:not([type=checkbox]), button {
+//                @apply bg-coolGray-100 hover:bg-white focus:bg-white;
+//            }
+//
+//            input, button {
+//                @apply rounded-lg;
+//            }
+//
+//            button {
+//                @apply p-3 shadow-inner;
+//                @apply hover:bg-coolGray-300;
+//            }
+//
+//            &.checkbox-control {
+//                @apply inline-flex;
+//
+//                label, input {
+//                    @apply px-1;
+//                }
+//
+//                input {
+//                    @apply w-4 h-4;
+//                }
+//
+//                @apply items-center;
+//            }
+//
+//            .required {
+//                @apply text-blueGray-500;
+//            }
+//        }
+//    }
+//}

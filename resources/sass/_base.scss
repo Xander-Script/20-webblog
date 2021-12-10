@@ -1,0 +1,155 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import '~quill/dist/quill.snow.css';
+
+$padding: 6;
+$resize-at-viewport: lg;
+
+@mixin container {
+
+
+    @apply lg:container w-full 2xl:w-2/3 mx-auto;
+    @apply bg-white;
+    @apply drop-shadow-xl;
+
+    @apply p-#{$padding / 3};
+
+    @include padding("#{$resize-at-viewport}:p");
+
+}
+
+@mixin inline-row($viewport: $resize-at-viewport) {
+    @include gap;
+
+    @apply flex flex-col #{$viewport}:flex-row;
+}
+
+@mixin gap($size: $padding) {
+    @apply #{$resize-at-viewport}:gap-#{$size};
+}
+
+
+@mixin left {
+    @apply flex-grow w-full xl:w-3/4;
+}
+
+@mixin right {
+    @apply flex-grow w-full xl:w-1/4;
+}
+
+// Skip to $area links
+.skip-to {
+    @apply no-underline;
+}
+
+a {
+    @apply prose;
+    @apply text-indigo-900 underline;
+    @apply hover:text-indigo-400;
+}
+
+
+/**
+ * Applies or removes `base.$padding` via tailwind semantics.
+ *
+ * base.padding($direction: p)
+ *
+ * Positive padding is applied when `$direction` is set to one of these:
+ *      `p`, `px`, `py`, `pr`, `pl`, `pt`, `pb`
+ *      `m`, `mx`, `my`, `mr`, `ml`, `mt`, `mb`
+ *
+ * Can also be used with responsive prefixes such as:
+ *      `sm`, `md`, `lg`, `xl`
+ *
+ * And to remove by apply negative padding, prefix `$direction` with a dash (`-`)
+ *
+ * Example usage (with `base.$padding` set to 6):
+ *      @include base.padding(p);       // result: `padding: 6`
+ *      @include base.padding(m);       // result: `margin: 6`
+ *      @include base.padding(-py);     // result: `padding-{top,bottom}: 6`
+ *      @include base.padding(my);      // result: `margin-{top,bottom}: 6`
+ *      @include base.padding(sm:px);   // result: small viewports & up: `padding-{left,right}: 6px`
+ *
+ * ... and so on, and so forth.
+ */
+@mixin padding($direction: p) {
+    @if $direction {
+        @apply #{$direction}-#{$padding};
+    }
+}
+
+/**
+ * Applies border-radius of `base.$resize-at-viewport` to an element via Tailwind semantics.
+ *
+ * Direction can be `t`, `l`, `r`, `b`
+ * Viewport can be `sm`, `md`, `lg`, `xl`, `2xl` or boolean `false` to always apply border-radius.
+ *
+ * The radius is pre-set via `base.$resize-at-viewport` and does *not* affect parameter `$viewport`
+ */
+@mixin rounded($direction: null, $viewport: $resize-at-viewport) {
+    @if $viewport == false {
+        @include always_rounded($direction);
+    } @else {
+        @include viewport_rounded($direction, $viewport);
+    }
+}
+
+@mixin always_rounded($direction) {
+    @if $direction {
+        @apply rounded-#{$direction}-#{$resize-at-viewport};
+    } @else {
+        @apply rounded-#{$resize-at-viewport};
+    }
+}
+
+@mixin viewport_rounded($direction, $viewport) {
+    @if $direction {
+        @apply #{$viewport}:rounded-#{$direction}-#{$resize-at-viewport};
+    } @else {
+        @apply #{$viewport}:rounded-#{$direction}-#{$resize-at-viewport};
+    }
+}
+
+//
+//@layer base {
+//    //.base-padding {
+//    //    //x: y;
+//    //    /**/
+//    //    @apply p-2 sm:p-6;
+//    //}
+//
+//    .base-no-left-padding {
+//        @apply -mx-3 px-3 sm:-ml-6 sm:pl-6;
+//    }
+//
+//    //.base-style {
+//    //    //@apply base-padding;
+//    //    @apply bg-white;
+//    //    @apply drop-shadow-xl;
+//    //}
+//
+//    .base-link {
+//        a {
+//            @apply text-coolGray-800;
+//            @apply font-semibold;
+//        }
+//    }
+//
+//    .base-divider {
+//        @apply border-coolGray-600 border-dashed;
+//    }
+//
+//    .base-rounded-top {
+//        @apply md:rounded-t-md;
+//
+//        // Overlap the navigation slightly to remove ugly rounded corners
+//        // when the first or last navigation item is active or being hovered.
+//        @apply -mt-2;
+//    }
+//
+//    .base-rounded-bottom {
+//        @apply md:rounded-b-md;
+//        @apply md:mb-8;
+//    }
+//}
