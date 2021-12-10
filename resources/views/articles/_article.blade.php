@@ -4,9 +4,6 @@
             {{ $article->published_at->formatLocalized('%b %e, %Y') }}
         </time>
         <h1>
-                <a href="{{ $article->link() }}" tabindex="1">{{ $article->title }}</a>
-        </h1>
-        <div>
             <address>
                 @if($authors)
                     {{ $authors->firstWhere('id', $article->user_id)->name  }}
@@ -14,11 +11,13 @@
                     {{ $article->user->name }}
                 @endif
             </address>
-            <p>writes:</p>
-        </div>
+            wrote:
+        </h1>
+        <a href="{{ $article->link() }}" tabindex="1">
+            <h2>{{ $article->title }}</h2>
+        </a>
     </header>
-    <div>
-
+    <div class="entry">
         {{ $article->description }} [...]
     </div>
     <footer>
@@ -30,6 +29,8 @@
         @else
         <a href="{{ $article->link() }}">Continue to article &raquo;</a>
         @endif
-        {{ __("This article was last updated on :0", [$article->updated_at->diffForHumans()]) }}
+        <p>
+            {{ __("This article was last updated on :0", [$article->updated_at->diffForHumans()]) }}
+        </p>
     </footer>
 </article>

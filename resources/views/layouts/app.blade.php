@@ -33,7 +33,7 @@
         <nav aria-label="{{ __("Main") }}">
             <ul>
                 {{-- todo: set active state when page is actually active --}}
-                <li><a tabindex="1" href="#content">{{ __("Skip to content") }}</a></li>
+                <li><a tabindex="1" href="#content" class="skip-to">{{ __("Skip to content") }}</a></li>
                 <li class="active"><a tabindex="1" href="#" aria-current="page">Home</a></li>
                 <li><a tabindex="1" href="#">About</a></li>
                 <li><a tabindex="1" href="#">Archives</a></li>
@@ -57,7 +57,7 @@
             </hgroup>
             <form action="#" role="search" id="search-label" aria-label="{{ __("Site wide") }}">
                 <fieldset>
-                    <legend></legend>
+                    <legend class="hidden">{{ __("Site wide search") }}</legend>
                     <label for="search" aria-labelledby="search-label">
                         <input tabindex="1" type="search" name="search" id="search" placeholder="{{ __("Click to search") }}">
                     </label>
@@ -66,14 +66,7 @@
         </header>
     </div>
 
-    <div id="content">
-        @if (isset($sidebar))
-            <div id="skip-to-sidebar">
-                <a href="#sidebar" tabindex="1">Skip to sidebar</a>
-                <hr>
-            </div>
-        @endif
-
+    <div id="app">
         <main id="main">
             {{ $slot }}
         </main>
