@@ -33,6 +33,8 @@ Route::resource('articles', '\App\Http\Controllers\ArticleController');
 //    Route::get("/$name/{".$name.':slug}', [$controller, 'show'])->name("$name.show");
 //}
 
+Route::get('/todo', fn () => "TODO")->name('todo');
+
 Route::get('/subscribe', fn () => 'TODO')->name('subscribe'); //todo
 
 Route::get('/dashboard', function () {
