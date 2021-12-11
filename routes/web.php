@@ -16,9 +16,14 @@ use Symfony\Component\HttpFoundation\Response;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//})->name('home.index');
+if (!$admin = parse_url(config('app.admin_url'), PHP_URL_HOST)) {
+    $admin = 'admin.localhost';
+}
+
+Route::domain($admin)->group(function() {
+    Route::get('/', function() { echo 'hi'; });
+    Route::get("/articles", function() { echo "<title>Got ya</title>"; });
+});
 
 Route::permanentRedirect('/', '/articles');
 
