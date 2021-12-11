@@ -24,7 +24,12 @@ if (mix.inProduction()) {
 }
 
 mix.browserSync({
-    proxy: process.env.MIX_BROWSERSYNC_PROXY,
+    proxy: {
+        target: process.env.MIX_BROWSERSYNC_PROXY,
+        proxyOptions: {
+            xfwd: true // send x-forwarded-for header
+        }
+    },
     open: false,
     socket: {
         domain: 'laravel.localhost'
