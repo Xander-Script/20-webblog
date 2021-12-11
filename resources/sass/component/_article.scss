@@ -56,6 +56,11 @@
             h2 {
                 @apply prose-2xl font-bold;
             }
+
+            a {
+                @apply text-sky-600;
+                @apply hover:text-blueGray-900;
+            }
         }
 
         .entry {
