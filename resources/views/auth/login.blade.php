@@ -1,6 +1,6 @@
 <x-app-layout>
     {{-- todo: validation errors & session status --}}
-    <form action="{{ route('login') }}" method="post" class="single-page-form" aria-labelledby="page-header">
+    <form action="{{ route('login') }}" method="post" class="single-page-form" id="login" aria-labelledby="page-header">
         <h1 id="page-header">{{ __("Log in") }}</h1>
 
         @csrf
@@ -25,15 +25,19 @@
         </div>
 
         <div>
-            <button type="submit" class="bg-red-50 w-full">{{ __("Log in") }}</button>
+            <button type="submit">{{ __("Log in") }}</button>
         </div>
 
-        @if (Route::has('password.request'))
-            <div class="text-right mt-4">
-                <a class="underline text-sm text-center text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+        <hr>
+
+        <p>
+            <a href="{{ route('register') }}">{{ __("Create a new account") }}</a>
+            @if (Route::has('password.request'))
+                or
+                <a class="password-request" href="{{ route('password.request') }}">
+                    {{ __('reset your password') }}
                 </a>
-            </div>
-        @endif
+            @endif
+        </p>
     </form>
 </x-app-layout>

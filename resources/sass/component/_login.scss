@@ -1,0 +1,15 @@
+@use '../base';
+
+@mixin component {
+    &#login {
+        a {
+            @apply underline text-lg text-center text-gray-600 hover:text-gray-900;
+        }
+
+        hr {
+            @include base.padding(my, base.$half-padding);
+
+            @apply border-dashed border-4;
+        }
+    }
+}
