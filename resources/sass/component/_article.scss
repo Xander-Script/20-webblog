@@ -1,16 +1,12 @@
 @use '../base';
 
-$article_padding: base.$padding * 2;
-$time_padding: base.$padding / 2;
-
-@mixin object {
+@mixin component {
     article {
         @include base.always_rounded(r);
 
         @include base.padding("#{base.$resize-at-viewport}:-ml");
         @include base.padding(px);
-
-        @apply mb-#{$article_padding};
+        @include base.padding(mb, base.$double-padding);
 
         @apply bg-blueGray-50;
         @apply shadow shadow-inner;
@@ -37,8 +33,7 @@ $time_padding: base.$padding / 2;
 
             time {
                 @include base.padding("#{base.$resize-at-viewport}:-mx");
-
-                @apply p-#{$time_padding};
+                @include base.padding(p, base.$half-padding);
 
                 @apply bg-blueGray-900 text-white;
                 @apply font-bold;
@@ -47,7 +42,7 @@ $time_padding: base.$padding / 2;
 
             h1 {
                 @include base.padding(mt);
-                @apply -mb-3;
+                @include base.padding(-mb, base.$half-padding);
 
                 @apply prose-lg font-semibold;
                 @apply block;
@@ -68,7 +63,7 @@ $time_padding: base.$padding / 2;
         }
 
         footer {
-            @apply py-4;
+            @include base.padding(py, base.$half-padding);
 
             p {
                 @apply block;

@@ -1,0 +1,25 @@
+@use '../base';
+
+@mixin component {
+    form {
+        @apply rounded-lg;
+
+        fieldset {
+            @include base.padding(py, base.$half-padding);
+
+            @apply prose;
+
+            legend {
+                @apply border-t border-dashed border-gray-300;
+                @apply prose-xl;
+            }
+        }
+
+        input,
+        input[type='search'] {
+            @include base.rounded($viewport: false);
+
+            @apply w-full;
+        }
+    }
+}

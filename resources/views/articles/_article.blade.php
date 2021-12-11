@@ -30,7 +30,7 @@
         <a href="{{ $article->link() }}">Continue to article &raquo;</a>
         @endif
         <p>
-            {{ __("This article was last updated on :0", [$article->updated_at->diffForHumans()]) }}
+            {{ __("This article was last updated :0", [$article->updated_at->diffForHumans()]) }}
         </p>
     </footer>
 </article>

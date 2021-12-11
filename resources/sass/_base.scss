@@ -4,19 +4,18 @@
 @import '~quill/dist/quill.snow.css';
 
 $padding: 6;
+$half-padding: $padding / 2;
+$double-padding: $padding * 2;
 $resize-at-viewport: lg;
 
 @mixin container {
-
-
     @apply lg:container w-full 2xl:w-2/3 mx-auto;
     @apply bg-white;
     @apply drop-shadow-xl;
 
-    @apply p-#{$padding / 3};
+    @apply p-#{$half-padding};
 
     @include padding("#{$resize-at-viewport}:p");
-
 }
 
 @mixin inline-row($viewport: $resize-at-viewport) {
@@ -37,18 +36,6 @@ $resize-at-viewport: lg;
 @mixin right {
     @apply flex-grow w-full xl:w-1/4;
 }
-
-// Skip to $area links
-.skip-to {
-    @apply no-underline;
-}
-
-a {
-    @apply prose;
-    @apply text-indigo-900 underline;
-    @apply hover:text-indigo-400;
-}
-
 
 /**
  * Applies or removes `base.$padding` via tailwind semantics.
@@ -73,7 +60,7 @@ a {
  *
  * ... and so on, and so forth.
  */
-@mixin padding($direction: p) {
+@mixin padding($direction: p, $padding: $padding) {
     @if $direction {
         @apply #{$direction}-#{$padding};
     }
@@ -95,7 +82,7 @@ a {
     }
 }
 
-@mixin always_rounded($direction) {
+@mixin always_rounded($direction: null) {
     @if $direction {
         @apply rounded-#{$direction}-#{$resize-at-viewport};
     } @else {
@@ -103,53 +90,10 @@ a {
     }
 }
 
-@mixin viewport_rounded($direction, $viewport) {
+@mixin viewport_rounded($direction: null, $viewport) {
     @if $direction {
         @apply #{$viewport}:rounded-#{$direction}-#{$resize-at-viewport};
     } @else {
         @apply #{$viewport}:rounded-#{$direction}-#{$resize-at-viewport};
     }
 }
-
-//
-//@layer base {
-//    //.base-padding {
-//    //    //x: y;
-//    //    /**/
-//    //    @apply p-2 sm:p-6;
-//    //}
-//
-//    .base-no-left-padding {
-//        @apply -mx-3 px-3 sm:-ml-6 sm:pl-6;
-//    }
-//
-//    //.base-style {
-//    //    //@apply base-padding;
-//    //    @apply bg-white;
-//    //    @apply drop-shadow-xl;
-//    //}
-//
-//    .base-link {
-//        a {
-//            @apply text-coolGray-800;
-//            @apply font-semibold;
-//        }
-//    }
-//
-//    .base-divider {
-//        @apply border-coolGray-600 border-dashed;
-//    }
-//
-//    .base-rounded-top {
-//        @apply md:rounded-t-md;
-//
-//        // Overlap the navigation slightly to remove ugly rounded corners
-//        // when the first or last navigation item is active or being hovered.
-//        @apply -mt-2;
-//    }
-//
-//    .base-rounded-bottom {
-//        @apply md:rounded-b-md;
-//        @apply md:mb-8;
-//    }
-//}

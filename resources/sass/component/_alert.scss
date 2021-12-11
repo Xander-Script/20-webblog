@@ -1,0 +1,14 @@
+@use '../base';
+
+@mixin component {
+    [role="alert"] {
+        @include base.always_rounded();
+        @include base.padding();
+
+        @apply shadow-inner;
+
+        &.info {
+            @apply bg-blue-50;
+        }
+    }
+}

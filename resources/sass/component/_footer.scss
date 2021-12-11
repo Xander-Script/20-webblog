@@ -1,0 +1,13 @@
+@use '../base';
+
+@mixin component {
+    > footer {
+        @include base.container;
+        @include base.rounded(b);
+        @include base.padding(mb);
+        @include base.padding();
+
+        @apply bg-gray-100;
+        @apply border-t-8 border-dashed border-white;
+    }
+}

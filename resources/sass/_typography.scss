@@ -1,5 +1,11 @@
 @use 'base';
 
+a {
+    @apply prose;
+    @apply text-indigo-900 underline;
+    @apply hover:text-indigo-400;
+}
+
 h1 {
     @apply prose-2xl font-bold;
 }

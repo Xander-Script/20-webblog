@@ -1,6 +1,6 @@
-@use 'base';
+@use '../base';
 
-#top {
+@mixin component {
     @apply bg-blueGray-700;
     @apply drop-shadow-xl shadow-inner;
 
@@ -51,12 +51,6 @@
 
         [role="search"] {
             @include base.right;
-
-            input {
-                @include base.rounded($viewport: false);
-
-                @apply w-full;
-            }
         }
     }
 }

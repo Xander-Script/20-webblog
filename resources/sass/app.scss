@@ -1,110 +1,43 @@
 @use 'base';
 @use 'typography';
-@use 'header';
-@use 'main';
-@use 'sidebar';
-@use 'editor';
+@use 'component/header';
+@use 'component/form';
+@use 'component/sidebar';
+@use 'component/article';
+@use 'component/editor';
+@use 'component/alert';
+@use 'component/footer';
 
-//@import all;
-//@import 'base';
-//@import 'main';
-//@import 'header';
-//@import 'sidebar';
+body {
+    @include editor.component;
+    @include alert.component;
+    @include form.component;
 
-//:root {
-//    --hgroup-color: theme('colors.coolGray.600');
-//}
+    @apply bg-coolGray-100;
+    @apply font-sans antialiased;
 
+    .skip-to {
+        @apply no-underline;
+    }
 
-#app {
-    @include base.container;
-    @include base.inline-row(xl);
-    @include base.gap;
+    > #top {
+        @include header.component;
+    }
 
-    //@apply gap-8;
+    > #app {
+        @include base.container;
+        @include base.inline-row(xl);
+        @include base.gap;
+
+        @include sidebar.component;
+
+        > main {
+            @include base.left;
+
+            @include article.component;
+        }
+
+    }
+
+    @include footer.component;
 }
-
-//
-//body {
-//    @apply bg-coolGray-100;
-//    @apply font-sans antialiased;
-//    @apply flex flex-col;
-//
-//    //@include base.container
-//
-//    > header,
-//    > nav,
-//    > #content,
-//    > footer {
-//        @apply flex flex-col sm:flex-row;
-//         //@apply items-center content-center justify-center;
-//    }
-//
-//
-//
-//    //h1 {
-//    //    @apply prose-2xl;
-//    //}
-//
-//    fieldset {
-//        @apply pb-2;
-//
-//        legend {
-//            @apply prose-xl;
-//            @apply border-t border-dashed border-gray-300;
-//            @apply w-full;
-//            @apply pt-2;
-//        }
-//
-//        label {
-//            @apply prose;
-//        }
-//    }
-//
-//    > #app {
-//        @include base.container;
-//        //@include base.container-content;
-//
-//        //@apply base-style base-link;
-//        @apply flex-col xl:flex-row gap-4 flex-wrap;
-//        @apply pt-2;
-//
-//        #skip-to-sidebar {
-//            @apply min-w-full flex-1;
-//            a {
-//                //@include base.anchor;
-//                //@apply text-black font-normal;
-//            }
-//        }
-//
-//
-//    }
-//
-//    > footer {
-//        @include base.container;
-//        //@apply base-style base-rounded-bottom;
-//        @apply border-t-8 border-dashed border-white;
-//        @apply bg-gray-100;
-//        @apply py-4;
-//    }
-//
-//    [role="alert"] {
-//        @apply shadow-inner rounded-md p-4;
-//
-//        &.info {
-//            @apply bg-blue-50;
-//        }
-//    }
-//}
-//
-///* Quill */
-//main {
-//    .ql-container, .ql-toolbar {
-//        @apply h-auto;
-//        //max-width: 98%;
-//    }
-//
-//    .ql-container {
-//        @apply mb-8;
-//    }
-//}

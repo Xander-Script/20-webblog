@@ -1,0 +1,23 @@
+@use '../base';
+
+@mixin component {
+    > aside {
+        @include base.right;
+
+        form {
+            @include base.padding();
+            @include base.padding(pt, 2);
+            @include base.padding(pl, 3);
+
+            fieldset {
+                @include base.padding(pt, 0);
+
+                legend {
+                    @include base.padding(pt, base.$half-padding);
+                }
+            }
+
+            @apply bg-coolGray-50 shadow-inner;
+        }
+    }
+}
