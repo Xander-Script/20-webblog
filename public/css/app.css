@@ -6287,6 +6287,13 @@ body > #app > main article footer{
 body > #app > main article footer p{
 	display: block;
 }
+body > #app > main .pagination p{
+	font-size: 1rem;
+	line-height: 1.5rem;
+}
+body > #app > main .pagination a{
+	text-decoration: none;
+}
 body > footer{
 	margin-left: auto;
 	margin-right: auto;

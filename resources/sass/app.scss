@@ -7,6 +7,7 @@
 @use 'component/editor';
 @use 'component/alert';
 @use 'component/footer';
+@use 'component/pagination';
 
 body {
     @include editor.component;
@@ -35,6 +36,7 @@ body {
             @include base.left;
 
             @include article.component;
+            @include pagination.component;
         }
 
     }

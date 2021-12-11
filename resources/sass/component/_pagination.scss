@@ -1,0 +1,13 @@
+@use '../base';
+
+@mixin component {
+    .pagination {
+        p {
+          @apply text-base;
+        }
+
+        a {
+            @apply no-underline;
+        }
+    }
+}
