@@ -6,10 +6,7 @@
 
     nav {
         @include base.container;
-
-        @include base.padding(px, 0);
-        @include base.padding(-mt);
-        @include base.padding(-mb, base.$padding + 2); // forces `nav` to overlap its sibling.
+        @include base.padding(-my);
 
         @apply bg-transparent;
 
@@ -26,14 +23,19 @@
                     @apply w-full inline-block;
                     @apply focus:shadow-inner focus:ring;
                     @apply text-white;
+                    @apply underline-offset-4;
+
+                    &.highlight {
+                        @apply decoration-wavy decoration-2;
+                    }
 
                     // &:hover state defined below.
                 }
 
                 a:hover,
                 &.active {
-                    @apply bg-blueGray-800;
-                    @apply hover:bg-blueGray-900; // Affects `.active` only.
+                    @apply bg-coolGray-800;
+                    @apply hover:bg-coolGray-900; // Affects `.active` only.
                 }
             }
         }
