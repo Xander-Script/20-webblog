@@ -52,7 +52,7 @@
 
                     <li><a href="{{ route('logout') }}" tabindex>{{ __("Log out") }}</a></li>
                 @else
-                    <li><a href="{{ route('login') }}" tabindex="1" class="highlight">{{ __("Log in") }}</a></li>
+                    <li><a href="{{ route('login') }}" tabindex="1">{{ __("Log in") }}</a></li>
                     <li><a href="{{ route('register') }}" tabindex="1" class="highlight">{{ __("Register") }}</a></li>
                 @endif
             </ul>

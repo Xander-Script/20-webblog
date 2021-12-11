@@ -5611,7 +5611,6 @@ body > #top nav ul li a{
 body > #top nav ul li a.highlight{
   -webkit-text-decoration-style: wavy;
           text-decoration-style: wavy;
-  text-decoration-thickness: 2px;
 }
 body > #top nav ul li a.highlight:hover{
   -webkit-text-decoration-style: solid;
