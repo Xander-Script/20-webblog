@@ -2,8 +2,9 @@
 
 a {
     @apply prose;
-    @apply text-indigo-900 underline;
-    @apply hover:text-indigo-400;
+    @apply text-blue-600;
+    @apply hover:text-blue-900;
+    @apply underline decoration-solid decoration-2;
 }
 
 h1 {
