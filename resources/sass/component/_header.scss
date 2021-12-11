@@ -27,6 +27,7 @@
 
                     &.highlight {
                         @apply decoration-wavy decoration-2;
+                        @apply hover:decoration-solid;
                     }
 
                     // &:hover state defined below.
@@ -36,6 +37,7 @@
                 &.active {
                     @apply bg-coolGray-800;
                     @apply hover:bg-coolGray-900; // Affects `.active` only.
+                    @apply decoration-wavy;
                 }
             }
         }
