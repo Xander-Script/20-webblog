@@ -1,7 +1,7 @@
 @use '../base';
 
 @mixin component {
-    @apply bg-blueGray-700;
+    @apply bg-slate-700;
     @apply drop-shadow-xl shadow-inner;
 
     nav {
@@ -35,8 +35,8 @@
 
                 a:hover,
                 &.active {
-                    @apply bg-coolGray-800;
-                    @apply hover:bg-coolGray-900; // Affects `.active` only.
+                    @apply bg-gray-800;
+                    @apply hover:bg-gray-900; // Affects `.active` only.
                     @apply decoration-wavy;
                 }
             }
@@ -48,13 +48,13 @@
         @include base.inline-row;
         @include base.rounded(t);
 
-        @apply bg-coolGray-300;
+        @apply bg-gray-300;
         @apply items-center;
 
         hgroup {
             @include base.left;
 
-            @apply text-coolGray-600;
+            @apply text-gray-600;
         }
 
         [role="search"] {

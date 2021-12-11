@@ -1,20 +1,20 @@
 @use 'base';
 @use 'typography';
-@use 'component/header';
-@use 'component/form';
-@use 'component/sidebar';
-@use 'component/article';
-@use 'component/editor';
-@use 'component/alert';
-@use 'component/footer';
-@use 'component/pagination';
+@use 'frontend/header';
+@use 'frontend/form';
+@use 'frontend/sidebar';
+@use 'frontend/article';
+@use 'frontend/editor';
+@use 'frontend/alert';
+@use 'frontend/footer';
+@use 'frontend/pagination';
 
 body {
     @include editor.component;
     @include alert.component;
     @include form.component;
 
-    @apply bg-coolGray-100;
+    @apply bg-gray-100;
     @apply font-sans antialiased;
 
     .skip-to {
