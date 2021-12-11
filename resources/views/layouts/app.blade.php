@@ -32,11 +32,18 @@
     <div id="top">
         <nav aria-label="{{ __("Main") }}">
             <ul>
-                {{-- todo: set active state when page is actually active --}}
                 <li><a tabindex="1" href="#content" class="skip-to">{{ __("Skip to content") }}</a></li>
-                <li class="active"><a tabindex="1" href="#" aria-current="page">Home</a></li>
-                <li><a tabindex="1" href="#">About</a></li>
-                <li><a tabindex="1" href="#">Archives</a></li>
+                @foreach(['articles.index' => 'home', 'todo' => 'about', 'todo' => 'archive'] as $route => $name)
+                    @if (request()->routeIs($route))
+                        <li class="active">
+                            <a href="{{ route($route) }}" tabindex="1" aria-current="page">{{ ucfirst($name) }}</a>
+                        </li>
+                    @else
+                        <li>
+                            <a href="{{ route($route) }}" tabindex="1">About</a>
+                        </li>
+                    @endif
+                @endforeach
 
                 @if(Auth::user())
                     <li>
@@ -45,8 +52,8 @@
 
                     <li><a href="{{ route('logout') }}" tabindex>{{ __("Log out") }}</a></li>
                 @else
-                    <li><a href="{{ route('login') }}" tabindex="1">{{ __("Log in") }}</a></li>
-                    <li><a href="{{ route('register') }}" tabindex="1">{{ __("Register") }}</a></li>
+                    <li><a href="{{ route('login') }}" tabindex="1" class="highlight">{{ __("Log in") }}</a></li>
+                    <li><a href="{{ route('register') }}" tabindex="1" class="highlight">{{ __("Register") }}</a></li>
                 @endif
             </ul>
         </nav>
