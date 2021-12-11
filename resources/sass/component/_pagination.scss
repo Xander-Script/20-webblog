@@ -7,7 +7,12 @@
         }
 
         a {
-            @apply no-underline;
+            @apply no-underline font-semibold;
+        }
+
+        span[aria-current="page"] > span {
+            @apply font-bold;
+            @apply text-blueGray-900;
         }
     }
 }
