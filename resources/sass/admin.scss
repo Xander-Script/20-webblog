@@ -1,0 +1,97 @@
+@use 'base';
+@use 'typography';
+@use 'components/icons';
+
+#app {
+    @apply flex min-h-screen;
+
+    aside {
+        @apply hidden w-64 sm:block;
+        @apply bg-gray-900;
+
+        @apply text-gray-100;
+
+        h1 {
+            @include base.padding();
+        }
+
+        nav {
+            ul {
+                li {
+                    @include base.padding(mb, 1);
+                    @include base.padding(py, base.$half-padding);
+                    @include base.padding(px, base.$padding);
+
+                    //@apply bg-gray-900 bg-opacity-90;
+                    //@apply bg-orange-500;
+
+                    a {
+                        @apply text-xl items-center;
+                        @apply text-gray-100;
+                        @apply decoration-2 decoration-solid underline-offset-1;
+                        @apply inline-flex flex-grow;
+                        //@apply w-8/12;
+                        //@apply bg-yellow-500;
+
+                        .icon {
+                            //@apply text-white;
+                            @apply fill-white;
+                        }
+                    }
+
+
+
+                    //a.hint-link {
+                    //    @apply decoration-0 no-underline;
+                    //    @apply inline-flex flex-shrink;
+                    //    svg { @apply h-5 w-5; }
+                    //    //@apply w-2/12;
+                    //    //@apply bg-green-500;
+                    //
+                    //    //@apply pr-0;
+                    //}
+                }
+            }
+        }
+    }
+
+    main {
+        @apply flex flex-col flex-grow bg-gray-300;
+    }
+}
+
+body {
+
+
+    //@include editor.component;
+    //@include alert.component;
+    //@include form.component;
+    //
+
+    //
+    //.skip-to {
+    //    @apply no-underline;
+    //}
+    //
+    //> #top {
+    //    @include header.component;
+    //}
+    //
+    //> #app {
+    //    @include base.container;
+    //    @include base.inline-row(xl);
+    //    @include base.gap;
+    //
+    //    @include sidebar.component;
+    //
+    //    > main {
+    //        @include base.left;
+    //
+    //        @include article.component;
+    //        @include pagination.component;
+    //    }
+    //
+    //}
+    //
+    //@include footer.component;
+}

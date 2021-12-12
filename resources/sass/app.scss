@@ -14,9 +14,6 @@ body {
     @include alert.component;
     @include form.component;
 
-    @apply bg-gray-100;
-    @apply font-sans antialiased;
-
     .skip-to {
         @apply no-underline;
     }

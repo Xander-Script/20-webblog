@@ -1,5 +1,6 @@
 <?php
 
+use App\Admin\Http\Controllers\ArticleController as ArticleAdminController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
@@ -22,12 +23,13 @@ if (!$admin = parse_url(config('app.admin_url'), PHP_URL_HOST)) {
 
 Route::domain($admin)->group(function() {
     Route::get('/', function() { echo 'hi'; });
-    Route::get("/articles", function() { echo "<title>Got ya</title>"; });
+
+    Route::resource('articles', ArticleAdminController::class);
 });
 
 Route::permanentRedirect('/', '/articles');
 
-Route::resource('articles', '\App\Http\Controllers\ArticleController');
+Route::resource('articles', ArticleController::class);
 
 //foreach (['article', 'category'] as $name) {
 //    $plural = Str::plural($name);

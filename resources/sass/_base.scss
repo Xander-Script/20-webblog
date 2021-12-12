@@ -3,6 +3,11 @@
 @import 'tailwindcss/utilities';
 @import '~quill/dist/quill.snow.css';
 
+body {
+    @apply bg-gray-100;
+    @apply font-sans antialiased;
+}
+
 $padding: 6;
 $half-padding: $padding / 2;
 $double-padding: $padding * 2;
