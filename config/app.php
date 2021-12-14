@@ -56,7 +56,7 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
-    'admin_url' => env('APP_ADMIN_URL', 'https://admin.localhost'),
+    'admin_url' => env('APP_ADMIN_URL', 'https://admin.laravel.localhost'),
 
     /*
     |--------------------------------------------------------------------------
