@@ -14,8 +14,7 @@
         "laravel/tinker": "^2.5",
         "makeabledk/laravel-factory-enhanced": "dev-next",
         "spatie/laravel-permission": "^5.4",
-        "spatie/laravel-sluggable": "^3.1",
-        "xanderificnl/laravel-quill": "dev-main"
+        "spatie/laravel-sluggable": "^3.1"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
