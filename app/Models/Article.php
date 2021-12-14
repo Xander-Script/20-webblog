@@ -28,6 +28,15 @@ class Article extends Model
         'user',
     ];
 
+    protected $fillable = [
+        'title',
+        'body',
+        'user_id',
+        'premium',
+        'published_at',
+        'description'
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

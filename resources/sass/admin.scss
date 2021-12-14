@@ -57,6 +57,42 @@
 
     main {
         @apply flex flex-col flex-grow bg-gray-300;
+
+        form {
+            @include base.padding();
+
+            @apply bg-white;
+            @apply max-w-3xl min-h-full;
+            @apply border-gray-300;
+
+            fieldset {
+                @include base.padding(pb, base.$half-padding);
+
+                legend {
+                    @include base.padding(pt, base.$half-padding);
+
+                    @apply prose-xl;
+                    @apply underline underline-offset-1 decoration-2;
+                }
+
+                label {
+                    @apply prose-lg;
+                    @apply block;
+                }
+
+                input, .trix-content, select {
+                    @include base.padding(my, base.$half-padding);
+                }
+
+                input:not([type="checkbox"]), select {
+                    @apply w-full;
+                }
+
+                [disabled] {
+                    @apply border-0;
+                }
+            }
+        }
     }
 }
 

@@ -13,6 +13,7 @@
     <script src="https://cdn.quilljs.com/1.3.6/quill.js" defer></script>
 
     <title>{{ __("Admin") }} - {{ config('app.name', 'A webapp by Xander') }}</title>
+    @bukStyles(true)
 </head>
 <body>
     <div id="app">
@@ -21,23 +22,24 @@
 
             <nav>
                 <ul>
-                    <li><a class="link" href="#1">Front Page</a></li>
-                    <li><a class="link" href="#2">Articles <i class="icon-add">&nbsp;</i></a></li>
+                    <li><a class="link" href="#1">Dashboard</a></li>
+                    <li><a class="link" href="{{ route('articles.index') }}">Articles <i class="icon-add">&nbsp;</i></a></li>
 {{--                        <a href="#new" class="hint-link">--}}
 {{--                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">--}}
 {{--                                <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />--}}
 {{--                            </svg>--}}
 {{--                        </a></li>--}}
-                    <li><a class="link" href="#3">Categories <span class="icon icon-add"></span></a></li>
-                    <li><a class="link" href="#4">Comments</a></li>
-                    <li><a class="link" href="#5">Site Settings</a></li>
+{{--                    <li><a class="link" href="#3">Categories <span class="icon icon-add"></span></a></li>--}}
+{{--                    <li><a class="link" href="#4">Comments</a></li>--}}
+{{--                    <li><a class="link" href="#5">Site Settings</a></li>--}}
                 </ul>
             </nav>
         </aside>
     {{--<div class="ml-6"></div>--}}
         <main>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus eligendi illo labore optio voluptatem! Accusantium consequuntur culpa ea eveniet fugit, laborum magni obcaecati placeat sequi ullam? Doloremque magnam quidem rem!
+            {{ $slot }}
         </main>
     </div>
+    @bukScripts(true)
 </body>
 </html>

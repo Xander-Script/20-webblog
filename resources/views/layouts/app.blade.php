@@ -80,6 +80,7 @@
             <x-alert type="success" class="alert alert-success" />
             <x-alert type="warning" class="alert alert-warning" />
             <x-alert type="danger" class="alert alert-danger" />
+{{--            <x-trix name="about" />--}}
 
             {{ $slot }}
         </main>
