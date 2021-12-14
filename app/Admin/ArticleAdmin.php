@@ -11,7 +11,7 @@ use Illuminate\Support\Carbon;
 
 class ArticleAdmin extends ModelAdmin {
     public array $schema = [];
-    public ?Article $article = null;
+    public ?Article $model = null;
 
     public function create_schema()
     {
@@ -31,36 +31,10 @@ class ArticleAdmin extends ModelAdmin {
 
     public function mount(?Article $article)
     {
-        $this->article = $article;
+        $this->model = $article;
 
         return $this;
     }
-
-    /**
-     * @throws Exception
-     */
-    public function field(string $key): Field
-    {
-        if (!isset($this->schema[$key])) {
-            throw new Exception("Invalid key: $key");
-        }
-
-        $field = $this->schema[$key];
-
-        if (is_null($this->article) || isset($field->value)) {
-            return $field;
-        }
-
-        $field->value = $this->article->{$field->name};
-
-        return $field;
-    }
-
-//    protected array $schema = [
-//        'created_at'    => 'timestamp',
-//        'updated_at'    => 'timestamp',
-//        'slug'          => 'string',
-//    ];
 
     protected array $table = [
         'id', 'title', 'user_id', 'published_at', 'updated_at', 'premium'
@@ -72,7 +46,7 @@ class ArticleAdmin extends ModelAdmin {
     public function form(): Builder
     {
         $form = new Builder(
-            (!is_null($this->article) ? "Update article" : "Create a new article"),
+            (!is_null($this->model) ? "Update article" : "Create a new article"),
             "Please fill in all required fields"
         );
 
@@ -99,7 +73,6 @@ class ArticleAdmin extends ModelAdmin {
                 ->mount($this->field('created_at'))
                 ->mount($this->field('slug'))
         );
-
 
 
         return $form;
