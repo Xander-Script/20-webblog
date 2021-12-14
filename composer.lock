@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c275a6f2bd3d280e80b315b2397d5ce4",
+    "content-hash": "67f470bb0c8f168aac26846062f69e88",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -61,6 +61,86 @@
                 "source": "https://github.com/asm89/stack-cors/tree/v2.0.3"
             },
             "time": "2021-03-11T06:42:03+00:00"
+        },
+        {
+            "name": "blade-ui-kit/blade-ui-kit",
+            "version": "0.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/blade-ui-kit/blade-ui-kit.git",
+                "reference": "6de520bd54bf58b5bb655f5872f5d10922906520"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/blade-ui-kit/blade-ui-kit/zipball/6de520bd54bf58b5bb655f5872f5d10922906520",
+                "reference": "6de520bd54bf58b5bb655f5872f5d10922906520",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/filesystem": "^7.0|^8.0",
+                "illuminate/support": "^7.0|^8.0",
+                "illuminate/view": "^7.0|^8.0",
+                "nesbot/carbon": "^2.38",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "gajus/dindent": "^2.0",
+                "guzzlehttp/guzzle": "^6.5",
+                "league/commonmark": "^1.4|^2.0",
+                "lorisleiva/cron-translator": "^0.1.1",
+                "orchestra/testbench": "^5.0|^6.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "suggest": {
+                "league/commonmark": "Required to use the markdown component (^1.4).",
+                "lorisleiva/cron-translator": "Required to use the cron component (^0.1.1)."
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BladeUIKit\\BladeUIKitServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BladeUIKit\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dries Vints",
+                    "homepage": "https://driesvints.com"
+                }
+            ],
+            "description": "A set of renderless components to utilise in your Laravel Blade views.",
+            "homepage": "https://github.com/blade-ui-kit/blade-ui-kit",
+            "keywords": [
+                "blade",
+                "laravel",
+                "ui"
+            ],
+            "support": {
+                "issues": "https://github.com/blade-ui-kit/blade-ui-kit/issues",
+                "source": "https://github.com/blade-ui-kit/blade-ui-kit"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/caneco",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/driesvints",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-10-24T19:36:20+00:00"
         },
         {
             "name": "brick/math",
@@ -3017,66 +3097,6 @@
             "time": "2021-09-25T23:10:38+00:00"
         },
         {
-            "name": "spatie/laravel-package-tools",
-            "version": "1.9.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-package-tools.git",
-                "reference": "f710fe196c126fb9e0aee67eb5af49ad8f13f528"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/f710fe196c126fb9e0aee67eb5af49ad8f13f528",
-                "reference": "f710fe196c126fb9e0aee67eb5af49ad8f13f528",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "^7.0|^8.0",
-                "php": "^7.4|^8.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.4",
-                "orchestra/testbench": "^5.0|^6.0",
-                "phpunit/phpunit": "^9.3",
-                "spatie/test-time": "^1.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\LaravelPackageTools\\": "src",
-                    "Spatie\\LaravelPackageTools\\Database\\Factories\\": "database/factories"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Tools for creating Laravel packages",
-            "homepage": "https://github.com/spatie/laravel-package-tools",
-            "keywords": [
-                "laravel-package-tools",
-                "spatie"
-            ],
-            "support": {
-                "issues": "https://github.com/spatie/laravel-package-tools/issues",
-                "source": "https://github.com/spatie/laravel-package-tools/tree/1.9.2"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-09-21T13:06:51+00:00"
-        },
-        {
             "name": "spatie/laravel-permission",
             "version": "5.4.0",
             "source": {
@@ -5741,85 +5761,6 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.10.0"
             },
             "time": "2021-03-09T10:59:23+00:00"
-        },
-        {
-            "name": "xanderificnl/laravel-quill",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/xanderificnl/laravel-quill.git",
-                "reference": "e397d4f73a00e6a007931f2300609443a68fbc4f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/xanderificnl/laravel-quill/zipball/e397d4f73a00e6a007931f2300609443a68fbc4f",
-                "reference": "e397d4f73a00e6a007931f2300609443a68fbc4f",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "^8.73",
-                "php": "^8.0",
-                "spatie/laravel-package-tools": "^1.9.2"
-            },
-            "require-dev": {
-                "nunomaduro/collision": "^5.10",
-                "nunomaduro/larastan": "^1.0",
-                "orchestra/testbench": "^6.22",
-                "pestphp/pest": "^1.21",
-                "pestphp/pest-plugin-laravel": "^1.1",
-                "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan-deprecation-rules": "^1.0",
-                "phpstan/phpstan-phpunit": "^1.0",
-                "phpunit/phpunit": "^9.5",
-                "spatie/laravel-ray": "^1.26"
-            },
-            "default-branch": true,
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Xanderificnl\\LaravelQuill\\LaravelQuillServiceProvider"
-                    ],
-                    "aliases": {
-                        "LaravelQuill": "Xanderificnl\\LaravelQuill\\Facades\\LaravelQuill"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Xanderificnl\\LaravelQuill\\": "src",
-                    "Xanderificnl\\LaravelQuill\\Database\\Factories\\": "database/factories"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Xanderificnl",
-                    "email": "xander@web-refinery.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Integrates Quill with Laravel",
-            "homepage": "https://github.com/xanderificnl/laravel-quill",
-            "keywords": [
-                "laravel",
-                "laravel-quill",
-                "xanderificnl"
-            ],
-            "support": {
-                "issues": "https://github.com/xanderificnl/laravel-quill/issues",
-                "source": "https://github.com/xanderificnl/laravel-quill/tree/main"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/xanderificnl",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-12-08T13:13:39+00:00"
         }
     ],
     "packages-dev": [
@@ -10021,7 +9962,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "makeabledk/laravel-factory-enhanced": 20,
-        "xanderificnl/laravel-quill": 20,
         "friendsofphp/php-cs-fixer": 20
     },
     "prefer-stable": true,
