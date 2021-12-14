@@ -4917,11 +4917,8 @@ label > :where(:last-child):not(:where([class~="not-prose"] *)){
   margin-bottom: 0;
 }
 
-body .ql-container, body .ql-toolbar{
-  height: auto;
-}
-body .ql-container{
-  margin-bottom: 2rem;
+body .trix-content{
+  margin-bottom: 1.5rem;
 }
 body [role=alert]{
   border-radius: 0.5rem;

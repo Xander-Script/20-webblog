@@ -1,11 +1,7 @@
 @use '../base';
 
 @mixin component {
-    .ql-container, .ql-toolbar {
-        @apply h-auto;
-    }
-
-    .ql-container {
-        @apply mb-8;
+    .trix-content {
+        @include base.padding(mb);
     }
 }
