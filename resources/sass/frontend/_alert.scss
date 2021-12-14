@@ -10,5 +10,17 @@
         &.info {
             @apply bg-blue-50;
         }
+
+        &.success {
+            @apply bg-green-50;
+        }
+
+        &.warning {
+            @apply bg-orange-50;
+        }
+
+        &.danger {
+            @apply bg-red-50;
+        }
     }
 }

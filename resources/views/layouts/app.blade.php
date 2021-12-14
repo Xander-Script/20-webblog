@@ -27,6 +27,7 @@
 
     {{-- https://developers.google.com/search/docs/advanced/appearance/title-link --}}
     <title>{{ config('app.name', 'A webapp by Xander') }}</title>
+    @bukStyles(true)
 </head>
 <body>
     <div id="top">
@@ -75,6 +76,11 @@
 
     <div id="app">
         <main id="main">
+            <x-alert type="info" class="alert alert-info" />
+            <x-alert type="success" class="alert alert-success" />
+            <x-alert type="warning" class="alert alert-warning" />
+            <x-alert type="danger" class="alert alert-danger" />
+
             {{ $slot }}
         </main>
 
@@ -88,5 +94,7 @@
     <footer>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias aperiam dicta, doloribus eligendi et eveniet facilis inventore molestias necessitatibus nemo nisi nulla.
     </footer>
+
+    @bukScripts(true)
 </body>
 </html>
