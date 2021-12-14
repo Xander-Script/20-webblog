@@ -1,6 +1,7 @@
 @use 'base';
 @use 'typography';
 @use 'components/icons';
+@use 'frontend/alert';
 
 #app {
     @apply flex min-h-screen;
@@ -56,7 +57,45 @@
     }
 
     main {
+        @include alert.component;
+
+        [role="alert"] {
+            @include base.padding(m);
+
+            @apply max-w-3xl;
+        }
+
         @apply flex flex-col flex-grow bg-gray-300;
+
+        table {
+            @apply bg-white;
+            @apply table;
+
+            thead {
+                @apply table-header-group w-full;
+                @apply bg-gray-50;
+                @apply border-gray-300 border;
+            }
+
+            tr {
+                @apply table-row;
+            }
+
+            td {
+                @apply table-cell;
+            }
+
+            th, td {
+                @include base.padding(p, base.$half-padding);
+
+                @apply prose;
+                @apply text-left;
+
+                @apply border-gray-300 border;
+            }
+
+
+        }
 
         form {
             @include base.padding();

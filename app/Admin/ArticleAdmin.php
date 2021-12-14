@@ -13,7 +13,7 @@ class ArticleAdmin extends ModelAdmin {
     public array $schema = [];
     public ?Article $model = null;
 
-    public function create_schema()
+    public function create_schema(): void
     {
         $this->schema = [
             'id'            => new Field('id', 'integer', '', '', true),
@@ -29,16 +29,30 @@ class ArticleAdmin extends ModelAdmin {
         ];
     }
 
-    public function mount(?Article $article)
+    public function mount(?Article $article): static
     {
         $this->model = $article;
 
         return $this;
     }
 
-    protected array $table = [
-        'id', 'title', 'user_id', 'published_at', 'updated_at', 'premium'
-    ];
+//    protected array $table = [
+//        'id', 'title', 'user_id', 'published_at', 'updated_at', 'premium'
+//    ];
+
+    // TODO - refactor this into TableBuilder.
+    public function table(): array
+    {
+        return [
+            'id', 'title', 'user_id', 'published_at', 'updated_at', 'premium'
+//            $this->field('id'),
+//            $this->field('title'),
+//            $this->field('user_id'),
+//            $this->field('published_at'),
+//            $this->field('updated_at'),
+//            $this->field('premium')
+        ];
+    }
 
     /**
      * @throws Exception

@@ -7,6 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Pluralizer;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 use function Psy\debug;
 
@@ -17,6 +18,7 @@ class Controller extends BaseController
     public string $routeName = '';
 
     public string $modelName = '';
+    public string $fullModel = '';
 
     public function __construct()
     {
@@ -31,14 +33,16 @@ class Controller extends BaseController
         $modelName = $this->modelName;
         $routeModelName = strstr($routeName, '.', true);
 
-        if (strlen($modelName) == 0 && $routeModelName) {
-            $modelName = Pluralizer::singular($routeModelName);
+        if ($modelName === '' && $routeModelName) {
+            $modelName = Str::studly(Pluralizer::singular($routeModelName));
+            $fullModel = "\App\Models\\{$modelName}";
         }
 
         // Routes such as `login` should not be restricted.
-        if ($routeModelName) {
-            $this->authorizeResource("\App\Models\\".ucfirst($modelName), $modelName);
+        if (isset($fullModel)) {
+            $this->authorizeResource($fullModel, $modelName);
             $this->routeName = $routeName;
+            $this->fullModel = $fullModel;
         }
 
         $this->modelName = $modelName;
