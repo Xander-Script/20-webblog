@@ -28,9 +28,9 @@ abstract class Base extends Component
 
     public function render(): view
     {
-        if (is_null($this->value)) {
+//        if (is_null($this->value)) {
             $this->value = $this->model->{$this->name};
-        }
+//        }
 
         if (empty($view_path)) {
             $this->view_path = "admin.components";
