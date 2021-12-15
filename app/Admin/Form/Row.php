@@ -2,6 +2,8 @@
 
 namespace App\Admin\Form;
 
+use App\Admin\Fields\Base;
+
 class Row
 {
     public array $fields = [];
@@ -15,7 +17,7 @@ class Row
     }
 
 
-    public function mount(Field $field)
+    public function mount(Base $field)
     {
         if (is_null($field->disabled)) {
             $field->disabled = $this->field_options['disabled'];

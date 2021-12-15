@@ -2,28 +2,26 @@
 
 namespace App\Admin;
 
-use App\Admin\Form\Field;
-use Illuminate\Database\Eloquent\Model;
+use App\Admin\Fields\Base;
 
 class ModelAdmin
 {
-    public function __construct()
+    public function __construct(
+        public &$model = null
+    )
     {
         $this->create_schema();
     }
 
     public function create_schema()
     {
-        throw new \Exception("No schema defined for ModelAdmin child.");
+//        throw new \Exception("No schema defined for ModelAdmin child.");
     }
 
-    /**
-     * @throws Exception
-     */
-    public function field(string $key): Field
+    public function field(string $key)
     {
         if (!isset($this->schema[$key])) {
-            throw new Exception("Invalid key: $key");
+//            throw new Exception("Invalid key: $key");
         }
 
         $field = $this->schema[$key];

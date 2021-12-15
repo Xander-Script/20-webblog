@@ -18,18 +18,30 @@ class Controller extends \App\Http\Controllers\Controller
     {
         parent::__construct();
 
-        // Will throw an exception if either there is no Admin class.
-        $this->adminName = "\\App\\Admin\\{$this->modelName}Admin";
-        $this->admin = new $this->adminName;
+        if (!app()->runningInConsole()) {
+            // Will throw an exception if either there is no Admin class.
+            $this->adminName = "\\App\\Admin\\{$this->modelName}Admin";
+            $this->admin = new $this->adminName(model: $this->fullModel);
+        }
     }
 
     public function index(): view
     {
         $fields = $this->admin->table();
+        $rows = $this->fullModel::select(
+            $fields->keys()->toArray()
+        )->latest($this->sortBy);
 
         return $this->view([
             'fields' => $fields,
-            'rows' => $this->fullModel::select($fields)->latest($this->sortBy)->paginate(25)
+            'rows' => $rows->paginate(25)
+        ]);
+    }
+
+    public function create(): view
+    {
+        return $this->view([
+            'form' => $this->admin->form()
         ]);
     }
 

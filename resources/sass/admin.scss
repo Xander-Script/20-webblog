@@ -73,12 +73,31 @@
 
             thead {
                 @apply table-header-group w-full;
-                @apply bg-gray-50;
                 @apply border-gray-300 border;
+
+                tr {
+                    @apply bg-gray-100;
+                    //@apply bg-neutral-100;
+
+                    th {
+                        @apply uppercase text-gray-500;
+
+                        &:last-child {
+                            @apply text-center;
+                        }
+                    }
+                }
             }
 
-            tr {
-                @apply table-row;
+            tbody {
+                tr {
+                    @apply table-row;
+                    @apply bg-white;
+
+                    &:nth-child(even) {
+                        @apply bg-gray-100;
+                    }
+                }
             }
 
             td {
@@ -92,7 +111,19 @@
                 @apply text-left;
 
                 @apply border-gray-300 border;
+
+                &.center {
+                    @apply text-center;
+                }
             }
+            //
+            //td {
+            //    > span.text-center {
+            //        text-align: center !important;//text-center
+            //    }
+            //}
+
+
 
 
         }

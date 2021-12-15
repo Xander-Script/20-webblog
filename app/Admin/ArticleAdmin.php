@@ -2,31 +2,37 @@
 
 namespace App\Admin;
 
+use App\Admin\Fields\Base;
+use App\Admin\Fields\DateTimeField;
+use App\Admin\Fields\ForeignSelectField;
+use App\Admin\Fields\NumberField;
+use App\Admin\Fields\TextAreaField;
+use App\Admin\Fields\TextField;
+use App\Admin\Fields\ToggleField;
 use App\Admin\Form\Builder;
-use App\Admin\Form\Field;
 use App\Admin\Form\Row;
 use App\Models\Article;
 use Exception;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
+use JetBrains\PhpStorm\NoReturn;
 
 class ArticleAdmin extends ModelAdmin {
-    public array $schema = [];
-    public ?Article $model = null;
+    public Collection $schema;
 
-    public function create_schema(): void
+    #[NoReturn] public function create_schema(): void
     {
-        $this->schema = [
-            'id'            => new Field('id', 'integer', '', '', true),
-            'title'         => new Field('title', 'text'),
-            'body'          => new Field('body', 'textarea'),
-            'description'   => new Field('description', 'textarea', 'Summary'),
-            'user_id'       => new Field('user_id', 'foreign_key|select', 'Author'),
-            'published_at'  => new Field('published_at', 'datetime', 'Publication date'),
-            'premium'       => new Field('premium', 'boolean', 'Article is for premium users only'),
-            'updated_at'    => new Field('updated_at', 'datetime', 'Last modified'),
-            'created_at'    => new Field('created_at', 'datetime', 'Created at'),
-            'slug'          => new Field('slug', 'text', 'Slug')
-        ];
+        $this->schema = collect([
+            'id'            => new NumberField('id'),
+            'title'         => new TextField('title'),
+            'body'          => new TextAreaField('body'),
+            'description'   => new TextAreaField('body'),
+            'user_id'       => new ForeignSelectField('name', name: 'user_id'),
+            'published_at'  => new DateTimeField('published_at'),
+            'created_at'    => new DateTimeField('created_at'),
+            'updated_at'    => new DateTimeField('updated_at'),
+            'premium'       => new ToggleField('premium'),
+            'slug'          => new TextField('slug', disabled: true)
+        ]);
     }
 
     public function mount(?Article $article): static
@@ -36,22 +42,11 @@ class ArticleAdmin extends ModelAdmin {
         return $this;
     }
 
-//    protected array $table = [
-//        'id', 'title', 'user_id', 'published_at', 'updated_at', 'premium'
-//    ];
-
-    // TODO - refactor this into TableBuilder.
-    public function table(): array
+    public function table()
     {
-        return [
+        return $this->schema->only(
             'id', 'title', 'user_id', 'published_at', 'updated_at', 'premium'
-//            $this->field('id'),
-//            $this->field('title'),
-//            $this->field('user_id'),
-//            $this->field('published_at'),
-//            $this->field('updated_at'),
-//            $this->field('premium')
-        ];
+        );
     }
 
     /**
